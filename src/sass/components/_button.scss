@@ -1,3 +1,6 @@
+@use "../abstracts" as *;
+@use "../themes";
+
 .material-button {
     $parent: &;
 
@@ -12,20 +15,23 @@
         cursor: default;
     }
 
-    @include themify {
+    @include themes.themify {
         &--elevated {
-            @include style-toggled() {
+            @include toggle-styling() {
                 @include mix-colors(
-                    theme("surface-container-low"),
-                    theme("primary")
+                    themes.color("surface-container-low"),
+                    themes.color("primary")
                 );
                 @include elevation(1);
             }
         }
 
         &--filled {
-            @include style-toggled() {
-                @include mix-colors(theme("primary"), theme("on-primary"));
+            @include toggle-styling() {
+                @include mix-colors(
+                    themes.color("primary"),
+                    themes.color("on-primary")
+                );
 
                 &:hover {
                     @include elevation(1);
@@ -34,10 +40,10 @@
         }
 
         &--tonal {
-            @include style-toggled() {
+            @include toggle-styling() {
                 @include mix-colors(
-                    theme("secondary-container"),
-                    theme("on-secondary-container")
+                    themes.color("secondary-container"),
+                    themes.color("on-secondary-container")
                 );
 
                 &:hover {
@@ -47,24 +53,24 @@
         }
 
         &--outlined {
-            @include style-toggled(
+            @include toggle-styling(
                 (
                     background-color: transparent,
                 )
             ) {
-                @include mix-colors(transparent, theme("primary"));
-                border: 1px solid theme("outline");
+                @include mix-colors(transparent, themes.color("primary"));
+                border: 1px solid themes.color("outline");
             }
         }
 
         &--text {
-            @include style-toggled(
+            @include toggle-styling(
                 (
                     background-color: transparent,
                 )
             ) {
-                @include mix-colors(transparent, theme("primary"));
-                color: theme("primary");
+                @include mix-colors(transparent, themes.color("primary"));
+                color: themes.color("primary");
             }
         }
     }

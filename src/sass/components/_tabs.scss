@@ -1,3 +1,6 @@
+@use "../abstracts" as *;
+@use "../themes";
+
 .material-tabs {
     $parent: &;
 
@@ -10,9 +13,9 @@
         display: flex;
         flex-wrap: wrap;
 
-        @include themify {
-            background-color: theme("surface");
-            color: theme("on-surface");
+        @include themes.themify {
+            background-color: themes.color("surface");
+            color: themes.color("on-surface");
         }
 
         &-button {
@@ -46,20 +49,26 @@
             height: sys("components", "tabs", "primary-height");
 
             #{$nav}-button {
-                @include themify {
-                    @include mix-colors(transparent, theme("on-surface"));
+                @include themes.themify {
+                    @include mix-colors(
+                        transparent,
+                        themes.color("on-surface")
+                    );
 
                     &:focus {
                         #{$nav}-button-text {
-                            @include indicator(theme("secondary"));
+                            @include indicator(themes.color("secondary"));
                         }
                     }
 
                     &.current {
-                        @include mix-colors(transparent, theme("primary"));
+                        @include mix-colors(
+                            transparent,
+                            themes.color("primary")
+                        );
 
                         #{$nav}-button-text {
-                            @include indicator(theme("primary"));
+                            @include indicator(themes.color("primary"));
                         }
                     }
                 }
@@ -70,9 +79,9 @@
             height: sys("components", "tabs", "secondary-height");
 
             #{$nav}-button--active {
-                @include themify {
+                @include themes.themify {
                     #{$nav}-button-text {
-                        @include indicator(theme("primary"));
+                        @include indicator(themes.color("primary"));
                     }
                 }
             }
@@ -85,9 +94,9 @@
         #{$parent}__nav {
             grid-row: 1;
 
-            @include themify {
+            @include themes.themify {
                 border-bottom: sys("components", "tabs", "divider-height") solid
-                    theme("outline-variant");
+                    themes.color("outline-variant");
             }
         }
 
@@ -102,9 +111,9 @@
         #{$parent}__nav {
             grid-row: 2;
 
-            @include themify {
+            @include themes.themify {
                 border-top: sys("components", "tabs", "divider-height") solid
-                    theme("outline-variant");
+                    themes.color("outline-variant");
             }
         }
 

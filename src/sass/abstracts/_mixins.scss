@@ -1,3 +1,35 @@
+@use "functions" as *;
+@use "sys" as *;
+@use "../themes";
+
+@mixin font-styling($typescale) {
+    $font: sys("typescale", $typescale);
+
+    font-family: map-get($font, "font");
+    line-height: map-get($font, "line-height");
+    size: map-get($font, "size");
+    font-weight: map-get($font, "weight");
+    letter-spacing: map-get($font, "tracking");
+
+    &--prominent {
+        font-weight: map-get($font, "weight-prominent");
+    }
+}
+
+@mixin font($type) {
+    &--large {
+        @include font-styling("#{$type}-large");
+    }
+
+    &--medium {
+        @include font-styling("#{$type}-medium");
+    }
+
+    &--small {
+        @include font-styling("#{$type}-small");
+    }
+}
+
 @mixin mix-colors($default, $states) {
     color: $states;
     background-color: $default;
@@ -29,7 +61,8 @@
 
 @mixin elevation($elevation) {
     $offset: sys("elevation", "level#{$elevation}");
-    box-shadow: rgba(theme("shadow"), 0.2) 0 $offset floor($offset * 1.5) 0;
+    box-shadow: rgba(themes.color("shadow"), 0.2) 0 $offset floor($offset * 1.5)
+        0;
 }
 
 @mixin indicator($color) {
@@ -37,18 +70,18 @@
         0px $color;
 }
 
-@mixin style-toggled($disabled-overrides: ()) {
+@mixin toggle-styling($disabled-overrides: ()) {
     &:disabled {
         @if (not map-has-key($disabled-overrides, "background-color")) {
             background-color: rgba(
-                theme("on-surface"),
+                themes.color("on-surface"),
                 sys("state", "disabled", "container-opacity")
             );
         }
 
         @if (not map-has-key($disabled-overrides, "color")) {
             color: rgba(
-                theme("on-surface"),
+                themes.color("on-surface"),
                 sys("state", "disabled", "label-opacity")
             );
         }

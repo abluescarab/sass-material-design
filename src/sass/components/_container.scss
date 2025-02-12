@@ -1,7 +1,9 @@
+@use "../themes";
+
 .material-container {
-    @include themify {
-        background-color: theme("surface");
-        color: theme("on-surface");
+    @include themes.themify {
+        background-color: themes.color("surface");
+        color: themes.color("on-surface");
     }
 
     &--hfill {
