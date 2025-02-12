@@ -19,8 +19,8 @@
         }
 
         &-button {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             background-color: transparent;
             border: 0;
@@ -29,7 +29,8 @@
             &-icon,
             &-text {
                 display: flex;
-                justify-content: center;
+                flex: 1;
+                align-self: center;
             }
 
             &-icon {
@@ -37,11 +38,20 @@
             }
 
             &-text {
+                width: max-content;
                 align-items: center;
             }
 
             &:not(:disabled) {
                 cursor: pointer;
+            }
+
+            @include themes.themify {
+                @include mix-colors(transparent, themes.color("on-surface"));
+
+                &.current {
+                    @include mix-colors(transparent, themes.color("primary"));
+                }
             }
         }
 
@@ -49,27 +59,15 @@
             height: sys("components", "tabs", "primary-height");
 
             #{$nav}-button {
-                @include themes.themify {
-                    @include mix-colors(
-                        transparent,
-                        themes.color("on-surface")
-                    );
+                grid-template-rows: 1fr 1fr;
 
-                    &:focus {
-                        #{$nav}-button-text {
-                            @include indicator(themes.color("secondary"));
-                        }
+                @include themes.themify {
+                    &:focus #{$nav}-button-text {
+                        @include indicator(themes.color("secondary"));
                     }
 
-                    &.current {
-                        @include mix-colors(
-                            transparent,
-                            themes.color("primary")
-                        );
-
-                        #{$nav}-button-text {
-                            @include indicator(themes.color("primary"));
-                        }
+                    &.current #{$nav}-button-text {
+                        @include indicator(themes.color("primary"));
                     }
                 }
             }
@@ -78,9 +76,14 @@
         &--secondary {
             height: sys("components", "tabs", "secondary-height");
 
-            #{$nav}-button--active {
+            #{$nav}-button {
                 @include themes.themify {
-                    #{$nav}-button-text {
+                    &:focus {
+                        @include indicator(themes.color("secondary"));
+                    }
+
+                    &.current {
+                        color: themes.color("on-surface");
                         @include indicator(themes.color("primary"));
                     }
                 }
