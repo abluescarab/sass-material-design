@@ -38,15 +38,17 @@
         </style>
     </head>
     <body class="material-theme--light">
-        <div class="material-app-bar--center"></div>
-
-        <div class="material-app-bar--small"></div>
-
-        <div class="material-app-bar--medium"></div>
-
-        <div class="material-app-bar--large"></div>
-
         <div class="material-container material-container--hfill">
+            <section id="material-app-bars">
+                <div class="material-app-bar material-app-bar--center"></div>
+
+                <div class="material-app-bar material-app-bar--small"></div>
+
+                <div class="material-app-bar material-app-bar--medium"></div>
+
+                <div class="material-app-bar material-app-bar--large"></div>
+            </section>
+
             <section id="theme-buttons" class="flex horizontal">
                 <button
                     id="reset-theme"
@@ -73,6 +75,7 @@
                         Button
                     </button>
                 </div>
+
                 <div id="plain-buttons" class="flex vertical">
                     <button class="material-button">Button</button>
                     <button class="material-button" disabled>Button</button>
@@ -91,6 +94,7 @@
                         Button
                     </button>
                 </div>
+
                 <div id="elevated-buttons" class="flex vertical">
                     <button class="material-button material-button--elevated">
                         Elevated
@@ -117,6 +121,7 @@
                         Elevated
                     </button>
                 </div>
+
                 <div id="filled-buttons" class="flex vertical">
                     <button class="material-button material-button--filled">
                         Filled
@@ -143,6 +148,7 @@
                         Filled
                     </button>
                 </div>
+
                 <div id="tonal-buttons" class="flex vertical">
                     <button class="material-button material-button--tonal">
                         Tonal
@@ -169,6 +175,7 @@
                         Tonal
                     </button>
                 </div>
+
                 <div id="outlined-buttons" class="flex vertical">
                     <button class="material-button material-button--outlined">
                         Outlined
@@ -195,6 +202,7 @@
                         Outlined
                     </button>
                 </div>
+
                 <div id="text-buttons" class="flex vertical">
                     <button class="material-button material-button--text">
                         Text
@@ -230,27 +238,27 @@
                             class="material-tabs__nav-button current"
                             data-tab="1">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                home
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >home</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 1</span
                             >
                         </button>
                         <button class="material-tabs__nav-button" data-tab="2">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                search
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >search</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 2</span
                             >
                         </button>
                         <button class="material-tabs__nav-button" data-tab="3">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                menu
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >menu</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 3</span
                             >
@@ -277,27 +285,27 @@
                             class="material-tabs__nav-button current"
                             data-tab="1">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                home
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >home</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 1</span
                             >
                         </button>
                         <button class="material-tabs__nav-button" data-tab="2">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                search
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >search</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 2</span
                             >
                         </button>
                         <button class="material-tabs__nav-button" data-tab="3">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined">
-                                menu
-                            </span>
+                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                >menu</span
+                            >
                             <span class="material-tabs__nav-button-text"
                                 >Tab 3</span
                             >
@@ -357,8 +365,7 @@
             </section>
         </div>
 
-        <script type="module" src="material.js"></script>
-
+        <script type="module" src="../material.js"></script>
         <script type="module">
             import { cycleThemes, setTheme } from "./material.js";
 
