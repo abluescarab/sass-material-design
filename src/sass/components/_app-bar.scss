@@ -1,0 +1,99 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.material-app-bar {
+    $parent: &;
+    $gap: sys("padding", "md");
+    $button-size: 48px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: $gap;
+    box-sizing: border-box;
+    padding: 0 $gap;
+
+    @include themes.themify {
+        background-color: themes.color("surface");
+        color: themes.color("on-surface");
+    }
+
+    &__trailing {
+        display: flex;
+        flex-direction: row;
+        column-gap: $gap;
+
+        #{$parent}__icon {
+            @include themes.themify {
+                color: themes.color("on-surface-variant");
+            }
+        }
+    }
+
+    &__icon {
+        border: 0;
+        font-size: calc($button-size / 2);
+        border-radius: $button-size;
+        @include square($button-size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include themes.themify {
+            @include mix-colors(transparent, themes.color("on-surface"));
+        }
+    }
+
+    &__headline {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &--center,
+    &--small {
+        height: 64px;
+        align-items: center;
+
+        #{$parent}__headline {
+            @include font-styling("title-large");
+        }
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--medium,
+    &--large {
+        grid-template-rows: auto 1fr;
+
+        #{$parent}__leading {
+            grid-column: span 2;
+        }
+
+        #{$parent}__headline {
+            align-content: end;
+            grid-column: span 3;
+            grid-row: 2;
+            padding: 0 12px;
+        }
+    }
+
+    &--medium {
+        height: 112px;
+        padding-bottom: 24px;
+
+        #{$parent}__headline {
+            @include font-styling("headline-small");
+        }
+    }
+
+    &--large {
+        height: 152px;
+        padding-bottom: 28px;
+
+        #{$parent}__headline {
+            @include font-styling("headline-medium");
+        }
+    }
+}

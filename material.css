@@ -135,6 +135,124 @@ body {
 
 /* layout */
 /* components */
+.material-app-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+  box-sizing: border-box;
+  padding: 0 4px;
+}
+.material-theme--light .material-app-bar {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.material-theme--dark .material-app-bar {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+.material-app-bar__trailing {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.material-theme--light .material-app-bar__trailing .material-app-bar__icon {
+  color: rgb(73, 69, 78);
+}
+.material-theme--dark .material-app-bar__trailing .material-app-bar__icon {
+  color: rgb(203, 196, 207);
+}
+.material-app-bar__icon {
+  border: 0;
+  font-size: 24px;
+  border-radius: 48px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material-theme--light .material-app-bar__icon {
+  color: rgb(29, 27, 32);
+  background-color: transparent;
+}
+.material-theme--light .material-app-bar__icon:hover {
+  background-color: rgba(29, 27, 32, 0.08);
+}
+.material-theme--light .material-app-bar__icon:focus {
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-app-bar__icon:active {
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--dark .material-app-bar__icon {
+  color: rgb(231, 224, 232);
+  background-color: transparent;
+}
+.material-theme--dark .material-app-bar__icon:hover {
+  background-color: rgba(231, 224, 232, 0.08);
+}
+.material-theme--dark .material-app-bar__icon:focus {
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-app-bar__icon:active {
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-app-bar__headline {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.material-app-bar--center, .material-app-bar--small {
+  height: 64px;
+  align-items: center;
+}
+.material-app-bar--center .material-app-bar__headline, .material-app-bar--small .material-app-bar__headline {
+  font-family: "Roboto";
+  line-height: 28pt;
+  font-size: 22pt;
+  font-weight: 400;
+  letter-spacing: 0pt;
+}
+.material-app-bar--center {
+  text-align: center;
+}
+.material-app-bar--medium, .material-app-bar--large {
+  grid-template-rows: auto 1fr;
+}
+.material-app-bar--medium .material-app-bar__leading, .material-app-bar--large .material-app-bar__leading {
+  grid-column: span 2;
+}
+.material-app-bar--medium .material-app-bar__headline, .material-app-bar--large .material-app-bar__headline {
+  align-content: end;
+  grid-column: span 3;
+  grid-row: 2;
+  padding: 0 12px;
+}
+.material-app-bar--medium {
+  height: 112px;
+  padding-bottom: 24px;
+}
+.material-app-bar--medium .material-app-bar__headline {
+  font-family: "Roboto";
+  line-height: 32pt;
+  font-size: 24pt;
+  font-weight: 400;
+  letter-spacing: 0pt;
+}
+.material-app-bar--large {
+  height: 152px;
+  padding-bottom: 28px;
+}
+.material-app-bar--large .material-app-bar__headline {
+  font-family: "Roboto";
+  line-height: 36pt;
+  font-size: 28pt;
+  font-weight: 400;
+  letter-spacing: 0pt;
+}
 .material-button {
   display: flex;
   align-items: center;
