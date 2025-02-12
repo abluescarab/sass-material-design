@@ -12,7 +12,7 @@
 
         @include themify {
             background-color: theme("surface");
-            color: theme("onSurface");
+            color: theme("on-surface");
         }
 
         &-button {
@@ -43,11 +43,11 @@
         }
 
         &--primary {
-            height: sys("components", "tabs", "primaryHeight");
+            height: sys("components", "tabs", "primary-height");
 
             #{$nav}-button {
                 @include themify {
-                    @include mix-colors(transparent, theme("onSurface"));
+                    @include mix-colors(transparent, theme("on-surface"));
 
                     &:focus {
                         #{$nav}-button-text {
@@ -67,7 +67,7 @@
         }
 
         &--secondary {
-            height: sys("components", "tabs", "secondaryHeight");
+            height: sys("components", "tabs", "secondary-height");
 
             #{$nav}-button--active {
                 @include themify {
@@ -86,8 +86,8 @@
             grid-row: 1;
 
             @include themify {
-                border-bottom: sys("components", "tabs", "dividerHeight") solid
-                    theme("outlineVariant");
+                border-bottom: sys("components", "tabs", "divider-height") solid
+                    theme("outline-variant");
             }
         }
 
@@ -103,8 +103,8 @@
             grid-row: 2;
 
             @include themify {
-                border-top: sys("components", "tabs", "dividerHeight") solid
-                    theme("outlineVariant");
+                border-top: sys("components", "tabs", "divider-height") solid
+                    theme("outline-variant");
             }
         }
 

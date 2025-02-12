@@ -5,10 +5,10 @@ $sys: (
             padding: 24px,
         ),
         tabs: (
-            dividerHeight: 1px,
-            indicatorHeight: 3px,
-            primaryHeight: 64px,
-            secondaryHeight: 48px,
+            divider-height: 1px,
+            indicator-height: 3px,
+            primary-height: 64px,
+            secondary-height: 48px,
         ),
     ),
     elevation: (
@@ -27,18 +27,18 @@ $sys: (
     ),
     state: (
         disabled: (
-            containerOpacity: 0.12,
-            labelOpacity: 0.38,
-            outlineOpacity: 0.12,
+            container-opacity: 0.12,
+            label-opacity: 0.38,
+            outline-opacity: 0.12,
         ),
         focus: (
-            stateLayerOpacity: 10%,
+            state-layer-opacity: 10%,
         ),
         hover: (
-            stateLayerOpacity: 8%,
+            state-layer-opacity: 8%,
         ),
         pressed: (
-            stateLayerOpacity: 10%,
+            state-layer-opacity: 10%,
         ),
     ),
 );

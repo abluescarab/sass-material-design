@@ -16,7 +16,7 @@
         &--elevated {
             @include style-toggled() {
                 @include mix-colors(
-                    theme("surfaceContainerLow"),
+                    theme("surface-container-low"),
                     theme("primary")
                 );
                 @include elevation(1);
@@ -25,7 +25,7 @@
 
         &--filled {
             @include style-toggled() {
-                @include mix-colors(theme("primary"), theme("onPrimary"));
+                @include mix-colors(theme("primary"), theme("on-primary"));
 
                 &:hover {
                     @include elevation(1);
@@ -36,8 +36,8 @@
         &--tonal {
             @include style-toggled() {
                 @include mix-colors(
-                    theme("secondaryContainer"),
-                    theme("onSecondaryContainer")
+                    theme("secondary-container"),
+                    theme("on-secondary-container")
                 );
 
                 &:hover {

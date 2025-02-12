@@ -1,7 +1,7 @@
 .material-container {
     @include themify {
         background-color: theme("surface");
-        color: theme("onSurface");
+        color: theme("on-surface");
     }
 
     &--hfill {
