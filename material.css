@@ -20,91 +20,91 @@
 .material-display--large {
   font-family: "Roboto";
   line-height: 64pt;
-  size: 57pt;
+  font-size: 57pt;
   font-weight: 400;
   letter-spacing: -0.25pt;
 }
 .material-display--medium {
   font-family: "Roboto";
   line-height: 52pt;
-  size: 45pt;
+  font-size: 45pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-display--small {
   font-family: "Roboto";
   line-height: 44pt;
-  size: 36pt;
+  font-size: 36pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-headline--large {
   font-family: "Roboto";
   line-height: 40pt;
-  size: 32pt;
+  font-size: 32pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-headline--medium {
   font-family: "Roboto";
   line-height: 36pt;
-  size: 28pt;
+  font-size: 28pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-headline--small {
   font-family: "Roboto";
   line-height: 32pt;
-  size: 24pt;
+  font-size: 24pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-title--large {
   font-family: "Roboto";
   line-height: 28pt;
-  size: 22pt;
+  font-size: 22pt;
   font-weight: 400;
   letter-spacing: 0pt;
 }
 .material-title--medium {
   font-family: "Roboto";
   line-height: 24pt;
-  size: 16pt;
+  font-size: 16pt;
   font-weight: 500;
   letter-spacing: 0.15pt;
 }
 .material-title--small {
   font-family: "Roboto";
   line-height: 20pt;
-  size: 14pt;
+  font-size: 14pt;
   font-weight: 500;
   letter-spacing: 0.1pt;
 }
 .material-body--large {
   font-family: "Roboto";
   line-height: 24pt;
-  size: 16pt;
+  font-size: 16pt;
   font-weight: 400;
   letter-spacing: 0.5pt;
 }
 .material-body--medium {
   font-family: "Roboto";
   line-height: 20pt;
-  size: 14pt;
+  font-size: 14pt;
   font-weight: 400;
   letter-spacing: 0.25pt;
 }
 .material-body--small {
   font-family: "Roboto";
   line-height: 16pt;
-  size: 12pt;
+  font-size: 12pt;
   font-weight: 400;
   letter-spacing: 0.4pt;
 }
 .material-label--large {
   font-family: "Roboto";
   line-height: 20pt;
-  size: 14pt;
+  font-size: 14pt;
   font-weight: 500;
   letter-spacing: 0.1pt;
 }
@@ -114,7 +114,7 @@
 .material-label--medium {
   font-family: "Roboto";
   line-height: 16pt;
-  size: 12pt;
+  font-size: 12pt;
   font-weight: 500;
   letter-spacing: 0.5pt;
 }
@@ -124,7 +124,7 @@
 .material-label--small {
   font-family: "Roboto";
   line-height: 16pt;
-  size: 11pt;
+  font-size: 11pt;
   font-weight: 500;
   letter-spacing: 0.5pt;
 }

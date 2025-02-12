@@ -7,7 +7,7 @@
 
     font-family: map-get($font, "font");
     line-height: map-get($font, "line-height");
-    size: map-get($font, "size");
+    font-size: map-get($font, "size");
     font-weight: map-get($font, "weight");
     letter-spacing: map-get($font, "tracking");
 
