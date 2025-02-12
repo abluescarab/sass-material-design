@@ -1,0 +1,12 @@
+$ref: (
+    typeface: (
+        brand: "Roboto",
+        weight-regular: 400,
+        weight-medium: 500,
+        weight-bold: 700,
+    ),
+);
+
+@function ref($properties...) {
+    @return map-get($ref, $properties...);
+}

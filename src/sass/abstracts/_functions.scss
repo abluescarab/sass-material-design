@@ -1,0 +1,3 @@
+@function opacity($percent) {
+    @return 100% - $percent;
+}
