@@ -1,4 +1,4 @@
-import { getParentWithClass } from "../utils";
+import { getParentWithClass } from "../utils.js";
 export function initialize(container) {
     container.addEventListener("click", (e) => {
         var _a;
