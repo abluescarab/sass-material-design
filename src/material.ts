@@ -5,3 +5,5 @@ document.querySelectorAll(".material-tabs").forEach((e) => {
 });
 
 export { setTheme, cycleThemes } from "./modules/themer.js";
+
+console.info("Material design loaded.");
