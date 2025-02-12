@@ -47,6 +47,7 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        grid-column: 2;
     }
 
     &--center,

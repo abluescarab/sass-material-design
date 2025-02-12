@@ -204,6 +204,7 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  grid-column: 2;
 }
 .material-app-bar--center, .material-app-bar--small {
   height: 64px;
