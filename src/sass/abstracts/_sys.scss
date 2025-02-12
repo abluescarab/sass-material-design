@@ -1,18 +1,6 @@
 @use "ref";
 
 $sys: (
-    components: (
-        button: (
-            height: 40px,
-            padding: 24px,
-        ),
-        tabs: (
-            divider-height: 1px,
-            indicator-height: 3px,
-            primary-height: 64px,
-            secondary-height: 48px,
-        ),
-    ),
     elevation: (
         level1: 1px,
         level2: 3px,

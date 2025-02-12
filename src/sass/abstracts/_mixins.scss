@@ -65,9 +65,8 @@
         0;
 }
 
-@mixin indicator($color) {
-    box-shadow: inset 0px sys("components", "tabs", "indicator-height") * -1 0px
-        0px $color;
+@mixin indicator($color, $height) {
+    box-shadow: inset 0px $height * -1 0px 0px $color;
 }
 
 @mixin toggle-styling($disabled-overrides: ()) {

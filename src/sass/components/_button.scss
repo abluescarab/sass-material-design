@@ -3,11 +3,12 @@
 
 .material-button {
     $parent: &;
+    $height: 40px;
 
     // reset
-    height: sys("components", "button", "height");
-    border-radius: sys("components", "button", "height");
-    padding: 0 sys("components", "button", "padding");
+    height: $height;
+    border-radius: $height;
+    padding: 0 24px;
     border: 0;
     cursor: pointer;
 
