@@ -5,6 +5,7 @@
 @mixin square($size) {
     width: $size;
     height: $size;
+    line-height: $size;
 }
 
 @mixin font-styling($typescale) {
