@@ -1,0 +1,386 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-button {
+  height: 40px;
+  border-radius: 40px;
+  padding: 0 24px;
+  border: 0;
+  cursor: pointer;
+}
+.material-button:disabled {
+  cursor: default;
+}
+.material-theme--light .material-button--elevated:disabled {
+  background-color: rgba(29, 27, 32, 0.12);
+  color: rgba(29, 27, 32, 0.38);
+}
+.material-theme--light .material-button--elevated:not(:disabled) {
+  color: rgb(104, 84, 142);
+  background-color: rgb(248, 241, 250);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--light .material-button--elevated:not(:disabled):hover {
+  background-color: #ece4f1;
+}
+.material-theme--light .material-button--elevated:not(:disabled):focus {
+  background-color: #eae1ef;
+}
+.material-theme--light .material-button--elevated:not(:disabled):active {
+  background-color: #eae1ef;
+}
+.material-theme--light .material-button--filled:disabled {
+  background-color: rgba(29, 27, 32, 0.12);
+  color: rgba(29, 27, 32, 0.38);
+}
+.material-theme--light .material-button--filled:not(:disabled) {
+  color: rgb(255, 255, 255);
+  background-color: rgb(104, 84, 142);
+}
+.material-theme--light .material-button--filled:not(:disabled):hover {
+  background-color: #746297;
+}
+.material-theme--light .material-button--filled:not(:disabled):focus {
+  background-color: #776599;
+}
+.material-theme--light .material-button--filled:not(:disabled):active {
+  background-color: #776599;
+}
+.material-theme--light .material-button--filled:not(:disabled):hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--light .material-button--tonal:disabled {
+  background-color: rgba(29, 27, 32, 0.12);
+  color: rgba(29, 27, 32, 0.38);
+}
+.material-theme--light .material-button--tonal:not(:disabled) {
+  color: rgb(31, 24, 43);
+  background-color: rgb(233, 222, 248);
+}
+.material-theme--light .material-button--tonal:not(:disabled):hover {
+  background-color: #d9cee8;
+}
+.material-theme--light .material-button--tonal:not(:disabled):focus {
+  background-color: #d5cae4;
+}
+.material-theme--light .material-button--tonal:not(:disabled):active {
+  background-color: #d5cae4;
+}
+.material-theme--light .material-button--tonal:not(:disabled):hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--light .material-button--outlined:disabled {
+  color: rgba(29, 27, 32, 0.38);
+  background-color: transparent;
+}
+.material-theme--light .material-button--outlined:not(:disabled) {
+  color: rgb(104, 84, 142);
+  background-color: transparent;
+  border: 1px solid rgb(122, 117, 127);
+}
+.material-theme--light .material-button--outlined:not(:disabled):hover {
+  background-color: rgba(104, 84, 142, 0.08);
+}
+.material-theme--light .material-button--outlined:not(:disabled):focus {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-button--outlined:not(:disabled):active {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-button--text:disabled {
+  color: rgba(29, 27, 32, 0.38);
+  background-color: transparent;
+}
+.material-theme--light .material-button--text:not(:disabled) {
+  color: rgb(104, 84, 142);
+  background-color: transparent;
+  color: rgb(104, 84, 142);
+}
+.material-theme--light .material-button--text:not(:disabled):hover {
+  background-color: rgba(104, 84, 142, 0.08);
+}
+.material-theme--light .material-button--text:not(:disabled):focus {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-button--text:not(:disabled):active {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--dark .material-button--elevated:disabled {
+  background-color: rgba(231, 224, 232, 0.12);
+  color: rgba(231, 224, 232, 0.38);
+}
+.material-theme--dark .material-button--elevated:not(:disabled) {
+  color: rgb(211, 188, 253);
+  background-color: rgb(29, 27, 32);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--dark .material-button--elevated:not(:disabled):hover {
+  background-color: #2c2832;
+}
+.material-theme--dark .material-button--elevated:not(:disabled):focus {
+  background-color: #2f2b36;
+}
+.material-theme--dark .material-button--elevated:not(:disabled):active {
+  background-color: #2f2b36;
+}
+.material-theme--dark .material-button--filled:disabled {
+  background-color: rgba(231, 224, 232, 0.12);
+  color: rgba(231, 224, 232, 0.38);
+}
+.material-theme--dark .material-button--filled:not(:disabled) {
+  color: rgb(56, 38, 92);
+  background-color: rgb(211, 188, 253);
+}
+.material-theme--dark .material-button--filled:not(:disabled):hover {
+  background-color: #c7b0f0;
+}
+.material-theme--dark .material-button--filled:not(:disabled):focus {
+  background-color: #c4aded;
+}
+.material-theme--dark .material-button--filled:not(:disabled):active {
+  background-color: #c4aded;
+}
+.material-theme--dark .material-button--filled:not(:disabled):hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--dark .material-button--tonal:disabled {
+  background-color: rgba(231, 224, 232, 0.12);
+  color: rgba(231, 224, 232, 0.38);
+}
+.material-theme--dark .material-button--tonal:not(:disabled) {
+  color: rgb(233, 222, 248);
+  background-color: rgb(75, 67, 88);
+}
+.material-theme--dark .material-button--tonal:not(:disabled):hover {
+  background-color: #584f65;
+}
+.material-theme--dark .material-button--tonal:not(:disabled):focus {
+  background-color: #5b5368;
+}
+.material-theme--dark .material-button--tonal:not(:disabled):active {
+  background-color: #5b5368;
+}
+.material-theme--dark .material-button--tonal:not(:disabled):hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+}
+.material-theme--dark .material-button--outlined:disabled {
+  color: rgba(231, 224, 232, 0.38);
+  background-color: transparent;
+}
+.material-theme--dark .material-button--outlined:not(:disabled) {
+  color: rgb(211, 188, 253);
+  background-color: transparent;
+  border: 1px solid rgb(148, 143, 153);
+}
+.material-theme--dark .material-button--outlined:not(:disabled):hover {
+  background-color: rgba(211, 188, 253, 0.08);
+}
+.material-theme--dark .material-button--outlined:not(:disabled):focus {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-button--outlined:not(:disabled):active {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-button--text:disabled {
+  color: rgba(231, 224, 232, 0.38);
+  background-color: transparent;
+}
+.material-theme--dark .material-button--text:not(:disabled) {
+  color: rgb(211, 188, 253);
+  background-color: transparent;
+  color: rgb(211, 188, 253);
+}
+.material-theme--dark .material-button--text:not(:disabled):hover {
+  background-color: rgba(211, 188, 253, 0.08);
+}
+.material-theme--dark .material-button--text:not(:disabled):focus {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-button--text:not(:disabled):active {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+
+.material-theme--light .material-container {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.material-theme--dark .material-container {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+.material-container--hfill {
+  height: 100vh;
+}
+.material-container--wfill {
+  width: 100vh;
+}
+
+.material-tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex: 1;
+}
+.material-tabs__nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+.material-theme--light .material-tabs__nav {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.material-theme--dark .material-tabs__nav {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+.material-tabs__nav-button {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  flex: 1;
+}
+.material-tabs__nav-button-icon, .material-tabs__nav-button-text {
+  display: flex;
+  justify-content: center;
+}
+.material-tabs__nav-button-icon {
+  align-items: end;
+}
+.material-tabs__nav-button-text {
+  align-items: center;
+}
+.material-tabs__nav-button:not(:disabled) {
+  cursor: pointer;
+}
+.material-tabs__nav--primary {
+  height: 64px;
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button {
+  color: rgb(29, 27, 32);
+  background-color: transparent;
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button:hover {
+  background-color: rgba(29, 27, 32, 0.08);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button:focus {
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button:active {
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button:focus .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(99, 91, 112);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current {
+  color: rgb(104, 84, 142);
+  background-color: transparent;
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current:hover {
+  background-color: rgba(104, 84, 142, 0.08);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current:focus {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current:active {
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(104, 84, 142);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button {
+  color: rgb(231, 224, 232);
+  background-color: transparent;
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button:hover {
+  background-color: rgba(231, 224, 232, 0.08);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button:focus {
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button:active {
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button:focus .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current {
+  color: rgb(211, 188, 253);
+  background-color: transparent;
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current:hover {
+  background-color: rgba(211, 188, 253, 0.08);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current:focus {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current:active {
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(211, 188, 253);
+}
+.material-tabs__nav--secondary {
+  height: 48px;
+}
+.material-theme--light .material-tabs__nav--secondary .material-tabs__nav-button--active .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(104, 84, 142);
+}
+.material-theme--dark .material-tabs__nav--secondary .material-tabs__nav-button--active .material-tabs__nav-button-text {
+  box-shadow: inset 0px -3px 0px 0px rgb(211, 188, 253);
+}
+.material-tabs--top {
+  grid-template-rows: auto 1fr;
+}
+.material-tabs--top .material-tabs__nav {
+  grid-row: 1;
+}
+.material-theme--light .material-tabs--top .material-tabs__nav {
+  border-bottom: 1px solid rgb(203, 196, 207);
+}
+.material-theme--dark .material-tabs--top .material-tabs__nav {
+  border-bottom: 1px solid rgb(73, 69, 78);
+}
+.material-tabs--top .material-tabs__content {
+  grid-row: 2;
+}
+.material-tabs--bottom {
+  grid-template-rows: 1fr auto;
+}
+.material-tabs--bottom .material-tabs__nav {
+  grid-row: 2;
+}
+.material-theme--light .material-tabs--bottom .material-tabs__nav {
+  border-top: 1px solid rgb(203, 196, 207);
+}
+.material-theme--dark .material-tabs--bottom .material-tabs__nav {
+  border-top: 1px solid rgb(73, 69, 78);
+}
+.material-tabs--bottom .material-tabs__content {
+  grid-row: 1;
+}
+.material-tabs__page {
+  display: none;
+}
+.material-tabs__page.current {
+  display: block;
+}

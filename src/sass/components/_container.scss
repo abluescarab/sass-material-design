@@ -1,0 +1,14 @@
+.material-container {
+    @include themify {
+        background-color: theme("surface");
+        color: theme("onSurface");
+    }
+
+    &--hfill {
+        height: 100vh;
+    }
+
+    &--wfill {
+        width: 100vh;
+    }
+}

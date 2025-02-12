@@ -1,0 +1,123 @@
+.material-tabs {
+    $parent: &;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    flex: 1;
+
+    &__nav {
+        $nav: &;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include themify {
+            background-color: theme("surface");
+            color: theme("onSurface");
+        }
+
+        &-button {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            justify-content: center;
+            background-color: transparent;
+            border: 0;
+            flex: 1;
+
+            &-icon,
+            &-text {
+                display: flex;
+                justify-content: center;
+            }
+
+            &-icon {
+                align-items: end;
+            }
+
+            &-text {
+                align-items: center;
+            }
+
+            &:not(:disabled) {
+                cursor: pointer;
+            }
+        }
+
+        &--primary {
+            height: sys("components", "tabs", "primaryHeight");
+
+            #{$nav}-button {
+                @include themify {
+                    @include mix-colors(transparent, theme("onSurface"));
+
+                    &:focus {
+                        #{$nav}-button-text {
+                            @include indicator(theme("secondary"));
+                        }
+                    }
+
+                    &.current {
+                        @include mix-colors(transparent, theme("primary"));
+
+                        #{$nav}-button-text {
+                            @include indicator(theme("primary"));
+                        }
+                    }
+                }
+            }
+        }
+
+        &--secondary {
+            height: sys("components", "tabs", "secondaryHeight");
+
+            #{$nav}-button--active {
+                @include themify {
+                    #{$nav}-button-text {
+                        @include indicator(theme("primary"));
+                    }
+                }
+            }
+        }
+    }
+
+    &--top {
+        grid-template-rows: auto 1fr;
+
+        #{$parent}__nav {
+            grid-row: 1;
+
+            @include themify {
+                border-bottom: sys("components", "tabs", "dividerHeight") solid
+                    theme("outlineVariant");
+            }
+        }
+
+        #{$parent}__content {
+            grid-row: 2;
+        }
+    }
+
+    &--bottom {
+        grid-template-rows: 1fr auto;
+
+        #{$parent}__nav {
+            grid-row: 2;
+
+            @include themify {
+                border-top: sys("components", "tabs", "dividerHeight") solid
+                    theme("outlineVariant");
+            }
+        }
+
+        #{$parent}__content {
+            grid-row: 1;
+        }
+    }
+
+    &__page {
+        display: none;
+
+        &.current {
+            display: block;
+        }
+    }
+}

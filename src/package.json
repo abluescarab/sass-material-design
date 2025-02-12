@@ -1,0 +1,9 @@
+{
+  "name": "sass-material-design",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

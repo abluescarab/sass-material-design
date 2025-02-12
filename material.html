@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Material Design Example</title>
+
+        <!-- Google styles -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" />
+        <!-- includes all icons-->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <!-- Project styles -->
+        <link rel="stylesheet" href="material.css" />
+        <style>
+            header {
+                width: max-content;
+                margin: 10px auto 20px auto;
+            }
+            .flex {
+                display: flex;
+                gap: 4px;
+                margin-bottom: 8px;
+                flex-wrap: wrap;
+            }
+            .vertical {
+                flex-direction: column;
+            }
+            .horizontal {
+                flex-direction: row;
+            }
+        </style>
+    </head>
+    <body class="material-theme--light">
+        <div class="material-container material-container--hfill">
+            <header class="flex horizontal">
+                <button
+                    id="reset-theme"
+                    class="material-button material-button--elevated">
+                    Reset theme
+                </button>
+                <button
+                    id="change-theme"
+                    class="material-button material-button--elevated">
+                    Change theme
+                </button>
+            </header>
+
+            <section id="buttons" class="flex horizontal">
+                <div id="default-buttons" class="flex vertical">
+                    <button>Button</button>
+                    <button disabled>Button</button>
+                </div>
+                <div id="plain-buttons" class="flex vertical">
+                    <button class="material-button">Button</button>
+                    <button class="material-button" disabled>Button</button>
+                </div>
+                <div id="elevated-buttons" class="flex vertical">
+                    <button class="material-button material-button--elevated">
+                        Elevated
+                    </button>
+                    <button
+                        class="material-button material-button--elevated"
+                        disabled>
+                        Elevated
+                    </button>
+                </div>
+                <div id="filled-buttons" class="flex vertical">
+                    <button class="material-button material-button--filled">
+                        Filled
+                    </button>
+                    <button
+                        class="material-button material-button--filled"
+                        disabled>
+                        Filled
+                    </button>
+                </div>
+                <div id="tonal-buttons" class="flex vertical">
+                    <button class="material-button material-button--tonal">
+                        Tonal
+                    </button>
+                    <button
+                        class="material-button material-button--tonal"
+                        disabled>
+                        Tonal
+                    </button>
+                </div>
+                <div id="outlined-buttons" class="flex vertical">
+                    <button class="material-button material-button--outlined">
+                        Outlined
+                    </button>
+                    <button
+                        class="material-button material-button--outlined"
+                        disabled>
+                        Outlined
+                    </button>
+                </div>
+                <div id="text-buttons" class="flex vertical">
+                    <button class="material-button material-button--text">
+                        Text
+                    </button>
+                    <button
+                        class="material-button material-button--text"
+                        disabled>
+                        Text
+                    </button>
+                </div>
+            </section>
+
+            <section id="tabs" class="flex horizontal">
+                <div class="material-tabs material-tabs--top" data-tab="1">
+                    <nav class="material-tabs__nav material-tabs__nav--primary">
+                        <button
+                            class="material-tabs__nav-button current"
+                            data-tab="1">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                home
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 1</span
+                            >
+                        </button>
+                        <button class="material-tabs__nav-button" data-tab="2">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                search
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 2</span
+                            >
+                        </button>
+                        <button class="material-tabs__nav-button" data-tab="3">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                menu
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 3</span
+                            >
+                        </button>
+                    </nav>
+                    <div class="material-tabs__content">
+                        <section
+                            class="material-tabs__page current"
+                            data-tab="1">
+                            Tab 1 content.
+                        </section>
+                        <section class="material-tabs__page" data-tab="2">
+                            Tab 2 content.
+                        </section>
+                        <section class="material-tabs__page" data-tab="3">
+                            Tab 3 content.
+                        </section>
+                    </div>
+                </div>
+
+                <div class="material-tabs material-tabs--bottom" data-tab="1">
+                    <nav class="material-tabs__nav material-tabs__nav--primary">
+                        <button
+                            class="material-tabs__nav-button current"
+                            data-tab="1">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                home
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 1</span
+                            >
+                        </button>
+                        <button class="material-tabs__nav-button" data-tab="2">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                search
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 2</span
+                            >
+                        </button>
+                        <button class="material-tabs__nav-button" data-tab="3">
+                            <span
+                                class="material-tabs__nav-button-icon material-symbols-outlined">
+                                menu
+                            </span>
+                            <span class="material-tabs__nav-button-text"
+                                >Tab 3</span
+                            >
+                        </button>
+                    </nav>
+                    <div class="material-tabs__content">
+                        <section
+                            class="material-tabs__page current"
+                            data-tab="1">
+                            Tab 1 content.
+                        </section>
+                        <section class="material-tabs__page" data-tab="2">
+                            Tab 2 content.
+                        </section>
+                        <section class="material-tabs__page" data-tab="3">
+                            Tab 3 content.
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script type="module" src="material.js"></script>
+
+        <script type="module">
+            import { cycleThemes, setTheme } from "./material.js";
+
+            document
+                .getElementById("reset-theme")
+                .addEventListener("click", () =>
+                    setTheme(document.body, "light")
+                );
+
+            document
+                .getElementById("change-theme")
+                .addEventListener("click", () => {
+                    cycleThemes(document.body, ["light", "dark"]);
+                });
+        </script>
+    </body>
+</html>

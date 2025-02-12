@@ -1,0 +1,71 @@
+.material-button {
+    $parent: &;
+
+    // reset
+    height: sys("components", "button", "height");
+    border-radius: sys("components", "button", "height");
+    padding: 0 sys("components", "button", "padding");
+    border: 0;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+    }
+
+    @include themify {
+        &--elevated {
+            @include style-toggled() {
+                @include mix-colors(
+                    theme("surfaceContainerLow"),
+                    theme("primary")
+                );
+                @include elevation(1);
+            }
+        }
+
+        &--filled {
+            @include style-toggled() {
+                @include mix-colors(theme("primary"), theme("onPrimary"));
+
+                &:hover {
+                    @include elevation(1);
+                }
+            }
+        }
+
+        &--tonal {
+            @include style-toggled() {
+                @include mix-colors(
+                    theme("secondaryContainer"),
+                    theme("onSecondaryContainer")
+                );
+
+                &:hover {
+                    @include elevation(1);
+                }
+            }
+        }
+
+        &--outlined {
+            @include style-toggled(
+                (
+                    background-color: transparent,
+                )
+            ) {
+                @include mix-colors(transparent, theme("primary"));
+                border: 1px solid theme("outline");
+            }
+        }
+
+        &--text {
+            @include style-toggled(
+                (
+                    background-color: transparent,
+                )
+            ) {
+                @include mix-colors(transparent, theme("primary"));
+                color: theme("primary");
+            }
+        }
+    }
+}

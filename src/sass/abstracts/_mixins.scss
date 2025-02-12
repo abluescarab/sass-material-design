@@ -1,0 +1,66 @@
+@mixin mix-colors($default, $states) {
+    color: $states;
+    background-color: $default;
+
+    &:hover {
+        background-color: mix(
+            $default,
+            $states,
+            opacity(sys("state", "hover", "stateLayerOpacity"))
+        );
+    }
+
+    &:focus {
+        background-color: mix(
+            $default,
+            $states,
+            opacity(sys("state", "focus", "stateLayerOpacity"))
+        );
+    }
+
+    &:active {
+        background-color: mix(
+            $default,
+            $states,
+            opacity(sys("state", "pressed", "stateLayerOpacity"))
+        );
+    }
+}
+
+@mixin elevation($elevation) {
+    $offset: sys("elevation", "level#{$elevation}");
+    box-shadow: rgba(theme("shadow"), 0.2) 0 $offset floor($offset * 1.5) 0;
+}
+
+@mixin indicator($color) {
+    box-shadow: inset 0px sys("components", "tabs", "indicatorHeight") * -1 0px
+        0px $color;
+}
+
+@mixin style-toggled($disabled-overrides: ()) {
+    &:disabled {
+        @if (not map-has-key($disabled-overrides, "background-color")) {
+            background-color: rgba(
+                theme("onSurface"),
+                sys("state", "disabled", "containerOpacity")
+            );
+        }
+
+        @if (not map-has-key($disabled-overrides, "color")) {
+            color: rgba(
+                theme("onSurface"),
+                sys("state", "disabled", "labelOpacity")
+            );
+        }
+
+        @if ($disabled-overrides) {
+            @each $property, $value in $disabled-overrides {
+                #{$property}: #{$value};
+            }
+        }
+    }
+
+    &:not(:disabled) {
+        @content;
+    }
+}
