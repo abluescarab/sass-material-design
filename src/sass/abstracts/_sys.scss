@@ -1,4 +1,16 @@
 $sys: (
+    components: (
+        button: (
+            height: 40px,
+            padding: 24px,
+        ),
+        tabs: (
+            dividerHeight: 1px,
+            indicatorHeight: 3px,
+            primaryHeight: 64px,
+            secondaryHeight: 48px,
+        ),
+    ),
     elevation: (
         level1: 1px,
         level2: 3px,
@@ -13,29 +25,17 @@ $sys: (
         lg: 8px,
         xl: 16px,
     ),
-    components: (
-        button: (
-            height: 40px,
-            padding: 24px,
-        ),
-        tabs: (
-            dividerHeight: 1px,
-            primaryHeight: 64px,
-            secondaryHeight: 48px,
-            indicatorHeight: 3px,
-        ),
-    ),
     state: (
         disabled: (
-            outlineOpacity: 0.12,
             containerOpacity: 0.12,
             labelOpacity: 0.38,
-        ),
-        hover: (
-            stateLayerOpacity: 8%,
+            outlineOpacity: 0.12,
         ),
         focus: (
             stateLayerOpacity: 10%,
+        ),
+        hover: (
+            stateLayerOpacity: 8%,
         ),
         pressed: (
             stateLayerOpacity: 10%,
