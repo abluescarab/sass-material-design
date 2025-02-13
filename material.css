@@ -475,10 +475,10 @@ body {
   color: rgb(231, 224, 232);
 }
 .material-container--hfill {
-  height: 100vh;
+  min-height: 100vh;
 }
 .material-container--wfill {
-  width: 100vh;
+  min-width: 100vh;
 }
 
 .material-tabs {
