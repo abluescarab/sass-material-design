@@ -6,8 +6,10 @@ export function cycleThemes(element, themes = []) {
         element.classList.remove(themeMatch[0]);
         index = (themes.indexOf(themeMatch[1]) + 1) % themes.length;
     }
-    element.classList.add(`${themePrefix}${themes[index]}`);
+    const theme = themes[index];
+    element.classList.add(`${themePrefix}${theme}`);
+    return theme;
 }
 export function setTheme(element, theme = "") {
-    cycleThemes(element, [theme]);
+    return cycleThemes(element, [theme]);
 }

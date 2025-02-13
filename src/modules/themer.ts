@@ -10,9 +10,12 @@ export function cycleThemes(element: HTMLElement, themes: string[] = []) {
         index = (themes.indexOf(themeMatch[1]) + 1) % themes.length;
     }
 
-    element.classList.add(`${themePrefix}${themes[index]}`);
+    const theme = themes[index];
+
+    element.classList.add(`${themePrefix}${theme}`);
+    return theme;
 }
 
 export function setTheme(element: HTMLElement, theme: string = "") {
-    cycleThemes(element, [theme]);
+    return cycleThemes(element, [theme]);
 }
