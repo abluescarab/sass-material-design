@@ -2,6 +2,12 @@
 @use "sys" as *;
 @use "../themes";
 
+@mixin props($value, $props...) {
+    @each $prop in $props {
+        #{$prop}: #{$value};
+    }
+}
+
 @mixin square($size) {
     width: $size;
     height: $size;
