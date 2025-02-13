@@ -166,7 +166,7 @@ body {
 .material-app-bar__icon {
   border: 0;
   font-size: 24px;
-  border-radius: 48px;
+  border-radius: 9999px;
   width: 48px;
   height: 48px;
   line-height: 48px;
@@ -259,7 +259,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 40px;
-  border-radius: 40px;
+  border-radius: 9999px;
   padding: 0 24px;
   border: 0;
   cursor: pointer;
