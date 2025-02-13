@@ -71,10 +71,10 @@
     }
 }
 
-@mixin elevation($elevation) {
+@mixin elevation($elevation, $negative-offset: false) {
     $offset: sys("elevation", "level#{$elevation}");
-    box-shadow: rgba(themes.color("shadow"), 0.2) 0 $offset floor($offset * 1.5)
-        0;
+    box-shadow: rgba(themes.color("shadow"), 0.2) 0
+        if($negative-offset, -$offset, $offset) floor($offset * 1.5) 0;
 }
 
 @mixin indicator($color, $height) {
