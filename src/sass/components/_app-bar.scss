@@ -3,7 +3,7 @@
 
 .material-app-bar {
     $parent: &;
-    $gap: sys("padding", "md");
+    $gap: 4px;
     $button-size: 48px;
 
     display: grid;
