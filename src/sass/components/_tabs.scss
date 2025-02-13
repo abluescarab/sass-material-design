@@ -12,6 +12,7 @@
 
     &__nav {
         $nav: &;
+
         display: flex;
         flex-wrap: wrap;
 
@@ -42,6 +43,7 @@
             &-text {
                 width: max-content;
                 align-items: center;
+                @include font-styling("title-small");
             }
 
             &:not(:disabled) {

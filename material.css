@@ -266,6 +266,14 @@ body {
   width: -moz-max-content;
   width: max-content;
   gap: 8px;
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+.material-button--prominent {
+  font-weight: 700;
 }
 .material-button__icon {
   width: 18px;
@@ -518,6 +526,11 @@ body {
   width: -moz-max-content;
   width: max-content;
   align-items: center;
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
 }
 .material-tabs__nav-button:not(:disabled) {
   cursor: pointer;
