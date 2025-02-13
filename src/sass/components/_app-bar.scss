@@ -39,7 +39,7 @@
         justify-content: center;
 
         @include themes.themify {
-            @include mix-colors(transparent, themes.color("on-surface"));
+            @include mix-states(transparent, themes.color("on-surface"));
         }
     }
 

@@ -35,10 +35,42 @@
             .horizontal {
                 flex-direction: row;
             }
+            #tabs {
+                height: 150px;
+            }
         </style>
     </head>
     <body class="material-theme--light">
         <div class="material-container material-container--hfill">
+            <div class="material-app-bar material-app-bar--center">
+                <span class="material-app-bar__headline"
+                    >Material Design Showcase</span
+                >
+                <div class="material-app-bar__trailing">
+                    <button
+                        id="toggle-theme"
+                        class="material-app-bar__icon material-symbols-outlined">
+                        dark_mode
+                    </button>
+                </div>
+            </div>
+
+            <div class="material-snackbar material-snackbar--one">
+                <span class="material-snackbar__text"
+                    >Look at this snackbar!</span
+                >
+                <span class="material-snackbar__action">Okay</span>
+                <span class="material-snack__icon"></span>
+            </div>
+
+            <div class="material-snackbar material-snackbar--two">
+                <span class="material-snackbar__text"
+                    >Look at this snackbar! Isn't it neat!</span
+                >
+                <span class="material-snackbar__action">Okay</span>
+                <span class="material-snack__icon"></span>
+            </div>
+
             <section id="material-app-bars">
                 <div class="material-app-bar material-app-bar--center">
                     <button
@@ -316,36 +348,30 @@
             </section>
 
             <section id="tabs" class="flex horizontal">
-                <div class="material-tabs material-tabs--top" data-tab="1">
-                    <div class="material-tabs__nav material-tabs__nav--primary">
+                <div class="material-tabs material-tabs--primary" data-tab="1">
+                    <div class="material-tabs__nav">
                         <button
                             class="material-tabs__nav-button current"
                             data-tab="1">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                class="material-tabs__nav-icon material-symbols-outlined"
                                 >home</span
                             >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 1</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 1</span>
                         </button>
                         <button class="material-tabs__nav-button" data-tab="2">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                class="material-tabs__nav-icon material-symbols-outlined"
                                 >search</span
                             >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 2</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 2</span>
                         </button>
                         <button class="material-tabs__nav-button" data-tab="3">
                             <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
+                                class="material-tabs__nav-icon material-symbols-outlined"
                                 >menu</span
                             >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 3</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 3</span>
                         </button>
                     </div>
                     <div class="material-tabs__content">
@@ -363,73 +389,22 @@
                     </div>
                 </div>
 
-                <div class="material-tabs material-tabs--bottom" data-tab="1">
-                    <div class="material-tabs__nav material-tabs__nav--primary">
-                        <button
-                            class="material-tabs__nav-button current"
-                            data-tab="1">
-                            <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
-                                >home</span
-                            >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 1</span
-                            >
-                        </button>
-                        <button class="material-tabs__nav-button" data-tab="2">
-                            <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
-                                >search</span
-                            >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 2</span
-                            >
-                        </button>
-                        <button class="material-tabs__nav-button" data-tab="3">
-                            <span
-                                class="material-tabs__nav-button-icon material-symbols-outlined"
-                                >menu</span
-                            >
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 3</span
-                            >
-                        </button>
-                    </div>
-                    <div class="material-tabs__content">
-                        <section
-                            class="material-tabs__page current"
-                            data-tab="1">
-                            Tab 1 content.
-                        </section>
-                        <section class="material-tabs__page" data-tab="2">
-                            Tab 2 content.
-                        </section>
-                        <section class="material-tabs__page" data-tab="3">
-                            Tab 3 content.
-                        </section>
-                    </div>
-                </div>
-
-                <div class="material-tabs material-tabs--top" data-tab="1">
+                <div
+                    class="material-tabs material-tabs--secondary"
+                    data-tab="1">
                     <div
-                        class="material-tabs__nav material-tabs__nav--secondary"
+                        class="material-tabs__nav material-tabs__nav"
                         data-tab="1">
                         <button
                             class="material-tabs__nav-button current"
                             data-tab="1">
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 1</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 1</span>
                         </button>
                         <button class="material-tabs__nav-button" data-tab="2">
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 2</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 2</span>
                         </button>
                         <button class="material-tabs__nav-button" data-tab="3">
-                            <span class="material-tabs__nav-button-text"
-                                >Tab 3</span
-                            >
+                            <span class="material-tabs__nav-text">Tab 3</span>
                         </button>
                     </div>
                     <div class="material-tabs__content">
@@ -453,15 +428,15 @@
             import { cycleThemes, setTheme } from "../material.js";
 
             document
-                .getElementById("reset-theme")
-                .addEventListener("click", () =>
-                    setTheme(document.body, "light")
-                );
-
-            document
-                .getElementById("change-theme")
-                .addEventListener("click", () => {
-                    cycleThemes(document.body, ["light", "dark"]);
+                .getElementById("toggle-theme")
+                .addEventListener("click", (e) => {
+                    if (
+                        cycleThemes(document.body, ["light", "dark"]) == "light"
+                    ) {
+                        e.currentTarget.innerText = "dark_mode";
+                    } else {
+                        e.currentTarget.innerText = "light_mode";
+                    }
                 });
         </script>
     </body>

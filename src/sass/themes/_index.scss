@@ -28,5 +28,6 @@ $themes: (
 }
 
 @function color($key) {
-    @return map-get($theme-map, $key);
+    $result: map-get($theme-map, $key);
+    @return if($result, $result, $key);
 }

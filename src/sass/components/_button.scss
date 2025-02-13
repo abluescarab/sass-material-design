@@ -32,9 +32,10 @@
     @include themes.themify {
         &--elevated {
             @include toggle-styling() {
-                @include mix-colors(
+                @include mix-states(
                     themes.color("surface-container-low"),
-                    themes.color("primary")
+                    themes.color("primary"),
+                    true
                 );
                 @include elevation(1);
             }
@@ -42,9 +43,10 @@
 
         &--filled {
             @include toggle-styling() {
-                @include mix-colors(
+                @include mix-states(
                     themes.color("primary"),
-                    themes.color("on-primary")
+                    themes.color("on-primary"),
+                    true
                 );
 
                 &:hover {
@@ -55,9 +57,10 @@
 
         &--tonal {
             @include toggle-styling() {
-                @include mix-colors(
+                @include mix-states(
                     themes.color("secondary-container"),
-                    themes.color("on-secondary-container")
+                    themes.color("on-secondary-container"),
+                    true
                 );
 
                 &:hover {
@@ -72,7 +75,7 @@
                     background-color: transparent,
                 )
             ) {
-                @include mix-colors(transparent, themes.color("primary"));
+                @include mix-states(transparent, themes.color("primary"), true);
                 border: 1px solid themes.color("outline");
             }
         }
@@ -83,7 +86,7 @@
                     background-color: transparent,
                 )
             ) {
-                @include mix-colors(transparent, themes.color("primary"));
+                @include mix-states(transparent, themes.color("primary"), true);
                 color: themes.color("primary");
             }
         }

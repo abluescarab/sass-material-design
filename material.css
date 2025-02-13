@@ -175,29 +175,33 @@ body {
   justify-content: center;
 }
 .material-theme--light .material-app-bar__icon {
-  color: rgb(29, 27, 32);
   background-color: transparent;
 }
 .material-theme--light .material-app-bar__icon:hover {
+  color: rgb(29, 27, 32);
   background-color: rgba(29, 27, 32, 0.08);
 }
 .material-theme--light .material-app-bar__icon:focus {
+  color: rgb(29, 27, 32);
   background-color: rgba(29, 27, 32, 0.1);
 }
 .material-theme--light .material-app-bar__icon:active {
+  color: rgb(29, 27, 32);
   background-color: rgba(29, 27, 32, 0.1);
 }
 .material-theme--dark .material-app-bar__icon {
-  color: rgb(231, 224, 232);
   background-color: transparent;
 }
 .material-theme--dark .material-app-bar__icon:hover {
+  color: rgb(231, 224, 232);
   background-color: rgba(231, 224, 232, 0.08);
 }
 .material-theme--dark .material-app-bar__icon:focus {
+  color: rgb(231, 224, 232);
   background-color: rgba(231, 224, 232, 0.1);
 }
 .material-theme--dark .material-app-bar__icon:active {
+  color: rgb(231, 224, 232);
   background-color: rgba(231, 224, 232, 0.1);
 }
 .material-app-bar__headline {
@@ -290,17 +294,20 @@ body {
   color: rgba(29, 27, 32, 0.38);
 }
 .material-theme--light .material-button--elevated:not(:disabled) {
-  color: rgb(104, 84, 142);
   background-color: rgb(248, 241, 250);
+  color: rgb(104, 84, 142);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 .material-theme--light .material-button--elevated:not(:disabled):hover {
+  color: rgb(104, 84, 142);
   background-color: #ece4f1;
 }
 .material-theme--light .material-button--elevated:not(:disabled):focus {
+  color: rgb(104, 84, 142);
   background-color: #eae1ef;
 }
 .material-theme--light .material-button--elevated:not(:disabled):active {
+  color: rgb(104, 84, 142);
   background-color: #eae1ef;
 }
 .material-theme--light .material-button--filled:disabled {
@@ -308,16 +315,19 @@ body {
   color: rgba(29, 27, 32, 0.38);
 }
 .material-theme--light .material-button--filled:not(:disabled) {
-  color: rgb(255, 255, 255);
   background-color: rgb(104, 84, 142);
+  color: rgb(255, 255, 255);
 }
 .material-theme--light .material-button--filled:not(:disabled):hover {
+  color: rgb(255, 255, 255);
   background-color: #746297;
 }
 .material-theme--light .material-button--filled:not(:disabled):focus {
+  color: rgb(255, 255, 255);
   background-color: #776599;
 }
 .material-theme--light .material-button--filled:not(:disabled):active {
+  color: rgb(255, 255, 255);
   background-color: #776599;
 }
 .material-theme--light .material-button--filled:not(:disabled):hover {
@@ -328,16 +338,19 @@ body {
   color: rgba(29, 27, 32, 0.38);
 }
 .material-theme--light .material-button--tonal:not(:disabled) {
-  color: rgb(31, 24, 43);
   background-color: rgb(233, 222, 248);
+  color: rgb(31, 24, 43);
 }
 .material-theme--light .material-button--tonal:not(:disabled):hover {
+  color: rgb(31, 24, 43);
   background-color: #d9cee8;
 }
 .material-theme--light .material-button--tonal:not(:disabled):focus {
+  color: rgb(31, 24, 43);
   background-color: #d5cae4;
 }
 .material-theme--light .material-button--tonal:not(:disabled):active {
+  color: rgb(31, 24, 43);
   background-color: #d5cae4;
 }
 .material-theme--light .material-button--tonal:not(:disabled):hover {
@@ -348,17 +361,20 @@ body {
   background-color: transparent;
 }
 .material-theme--light .material-button--outlined:not(:disabled) {
-  color: rgb(104, 84, 142);
   background-color: transparent;
+  color: rgb(104, 84, 142);
   border: 1px solid rgb(122, 117, 127);
 }
 .material-theme--light .material-button--outlined:not(:disabled):hover {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.08);
 }
 .material-theme--light .material-button--outlined:not(:disabled):focus {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
 }
 .material-theme--light .material-button--outlined:not(:disabled):active {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
 }
 .material-theme--light .material-button--text:disabled {
@@ -366,17 +382,20 @@ body {
   background-color: transparent;
 }
 .material-theme--light .material-button--text:not(:disabled) {
-  color: rgb(104, 84, 142);
   background-color: transparent;
+  color: rgb(104, 84, 142);
   color: rgb(104, 84, 142);
 }
 .material-theme--light .material-button--text:not(:disabled):hover {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.08);
 }
 .material-theme--light .material-button--text:not(:disabled):focus {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
 }
 .material-theme--light .material-button--text:not(:disabled):active {
+  color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
 }
 .material-theme--dark .material-button--elevated:disabled {
@@ -384,17 +403,20 @@ body {
   color: rgba(231, 224, 232, 0.38);
 }
 .material-theme--dark .material-button--elevated:not(:disabled) {
-  color: rgb(211, 188, 253);
   background-color: rgb(29, 27, 32);
+  color: rgb(211, 188, 253);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 .material-theme--dark .material-button--elevated:not(:disabled):hover {
+  color: rgb(211, 188, 253);
   background-color: #2c2832;
 }
 .material-theme--dark .material-button--elevated:not(:disabled):focus {
+  color: rgb(211, 188, 253);
   background-color: #2f2b36;
 }
 .material-theme--dark .material-button--elevated:not(:disabled):active {
+  color: rgb(211, 188, 253);
   background-color: #2f2b36;
 }
 .material-theme--dark .material-button--filled:disabled {
@@ -402,16 +424,19 @@ body {
   color: rgba(231, 224, 232, 0.38);
 }
 .material-theme--dark .material-button--filled:not(:disabled) {
-  color: rgb(56, 38, 92);
   background-color: rgb(211, 188, 253);
+  color: rgb(56, 38, 92);
 }
 .material-theme--dark .material-button--filled:not(:disabled):hover {
+  color: rgb(56, 38, 92);
   background-color: #c7b0f0;
 }
 .material-theme--dark .material-button--filled:not(:disabled):focus {
+  color: rgb(56, 38, 92);
   background-color: #c4aded;
 }
 .material-theme--dark .material-button--filled:not(:disabled):active {
+  color: rgb(56, 38, 92);
   background-color: #c4aded;
 }
 .material-theme--dark .material-button--filled:not(:disabled):hover {
@@ -422,16 +447,19 @@ body {
   color: rgba(231, 224, 232, 0.38);
 }
 .material-theme--dark .material-button--tonal:not(:disabled) {
-  color: rgb(233, 222, 248);
   background-color: rgb(75, 67, 88);
+  color: rgb(233, 222, 248);
 }
 .material-theme--dark .material-button--tonal:not(:disabled):hover {
+  color: rgb(233, 222, 248);
   background-color: #584f65;
 }
 .material-theme--dark .material-button--tonal:not(:disabled):focus {
+  color: rgb(233, 222, 248);
   background-color: #5b5368;
 }
 .material-theme--dark .material-button--tonal:not(:disabled):active {
+  color: rgb(233, 222, 248);
   background-color: #5b5368;
 }
 .material-theme--dark .material-button--tonal:not(:disabled):hover {
@@ -442,17 +470,20 @@ body {
   background-color: transparent;
 }
 .material-theme--dark .material-button--outlined:not(:disabled) {
-  color: rgb(211, 188, 253);
   background-color: transparent;
+  color: rgb(211, 188, 253);
   border: 1px solid rgb(148, 143, 153);
 }
 .material-theme--dark .material-button--outlined:not(:disabled):hover {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.08);
 }
 .material-theme--dark .material-button--outlined:not(:disabled):focus {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
 }
 .material-theme--dark .material-button--outlined:not(:disabled):active {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
 }
 .material-theme--dark .material-button--text:disabled {
@@ -460,17 +491,20 @@ body {
   background-color: transparent;
 }
 .material-theme--dark .material-button--text:not(:disabled) {
-  color: rgb(211, 188, 253);
   background-color: transparent;
+  color: rgb(211, 188, 253);
   color: rgb(211, 188, 253);
 }
 .material-theme--dark .material-button--text:not(:disabled):hover {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.08);
 }
 .material-theme--dark .material-button--text:not(:disabled):focus {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
 }
 .material-theme--dark .material-button--text:not(:disabled):active {
+  color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
 }
 
@@ -489,9 +523,24 @@ body {
   min-width: 100vh;
 }
 
+.material-theme--light .material-snackbar {
+  background-color: rgb(50, 47, 53);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
+  border-radius: 4px;
+}
+.material-theme--dark .material-snackbar {
+  background-color: rgb(231, 224, 232);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
+  border-radius: 4px;
+}
+.material-snackbar--one {
+  height: 48px;
+}
+.material-snackbar--two {
+  height: 68px;
+}
+
 .material-tabs {
-  display: grid;
-  grid-template-columns: 1fr;
   flex: 1;
 }
 .material-tabs__nav {
@@ -500,29 +549,31 @@ body {
 }
 .material-theme--light .material-tabs__nav {
   background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
+  border-bottom: 1px solid rgb(203, 196, 207);
 }
 .material-theme--dark .material-tabs__nav {
   background-color: rgb(21, 18, 24);
-  color: rgb(231, 224, 232);
+  border-bottom: 1px solid rgb(73, 69, 78);
 }
 .material-tabs__nav-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: transparent;
   border: 0;
   flex: 1;
 }
-.material-tabs__nav-button-icon, .material-tabs__nav-button-text {
+.material-tabs__nav-button:not(:disabled) {
+  cursor: pointer;
+}
+.material-tabs__nav-icon, .material-tabs__nav-text {
   display: flex;
   flex: 1;
   align-self: center;
 }
-.material-tabs__nav-button-icon {
+.material-tabs__nav-icon {
   align-items: end;
 }
-.material-tabs__nav-button-text {
+.material-tabs__nav-text {
   width: -moz-max-content;
   width: max-content;
   align-items: center;
@@ -532,125 +583,115 @@ body {
   font-weight: 500;
   letter-spacing: 0.1px;
 }
-.material-tabs__nav-button:not(:disabled) {
-  cursor: pointer;
-}
-.material-theme--light .material-tabs__nav-button {
-  color: rgb(29, 27, 32);
-  background-color: transparent;
-}
-.material-theme--light .material-tabs__nav-button:hover {
-  background-color: rgba(29, 27, 32, 0.08);
-}
-.material-theme--light .material-tabs__nav-button:focus {
-  background-color: rgba(29, 27, 32, 0.1);
-}
-.material-theme--light .material-tabs__nav-button:active {
-  background-color: rgba(29, 27, 32, 0.1);
-}
-.material-theme--light .material-tabs__nav-button.current {
-  color: rgb(104, 84, 142);
-  background-color: transparent;
-}
-.material-theme--light .material-tabs__nav-button.current:hover {
-  background-color: rgba(104, 84, 142, 0.08);
-}
-.material-theme--light .material-tabs__nav-button.current:focus {
-  background-color: rgba(104, 84, 142, 0.1);
-}
-.material-theme--light .material-tabs__nav-button.current:active {
-  background-color: rgba(104, 84, 142, 0.1);
-}
-.material-theme--dark .material-tabs__nav-button {
-  color: rgb(231, 224, 232);
-  background-color: transparent;
-}
-.material-theme--dark .material-tabs__nav-button:hover {
-  background-color: rgba(231, 224, 232, 0.08);
-}
-.material-theme--dark .material-tabs__nav-button:focus {
-  background-color: rgba(231, 224, 232, 0.1);
-}
-.material-theme--dark .material-tabs__nav-button:active {
-  background-color: rgba(231, 224, 232, 0.1);
-}
-.material-theme--dark .material-tabs__nav-button.current {
-  color: rgb(211, 188, 253);
-  background-color: transparent;
-}
-.material-theme--dark .material-tabs__nav-button.current:hover {
-  background-color: rgba(211, 188, 253, 0.08);
-}
-.material-theme--dark .material-tabs__nav-button.current:focus {
-  background-color: rgba(211, 188, 253, 0.1);
-}
-.material-theme--dark .material-tabs__nav-button.current:active {
-  background-color: rgba(211, 188, 253, 0.1);
-}
-.material-tabs__nav--primary {
+.material-tabs--primary .material-tabs__nav {
   height: 64px;
 }
-.material-tabs__nav--primary .material-tabs__nav-button {
-  grid-template-rows: 1fr 1fr;
+.material-theme--light .material-tabs--primary .material-tabs__nav-button {
+  color: rgb(73, 69, 78);
+  background-color: transparent;
+  color: rgb(29, 27, 32);
 }
-.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button:focus .material-tabs__nav-button-text {
-  box-shadow: inset 0px -3px 0px 0px rgb(99, 91, 112);
+.material-theme--light .material-tabs--primary .material-tabs__nav-button:focus {
+  color: rgb(29, 27, 32);
+  background-color: rgba(29, 27, 32, 0.1);
 }
-.material-theme--light .material-tabs__nav--primary .material-tabs__nav-button.current .material-tabs__nav-button-text {
-  box-shadow: inset 0px -3px 0px 0px rgb(104, 84, 142);
+.material-theme--light .material-tabs--primary .material-tabs__nav-button:active {
+  color: rgb(29, 27, 32);
+  background-color: rgba(104, 84, 142, 0.1);
 }
-.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button:focus .material-tabs__nav-button-text {
-  box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current {
+  background-color: transparent;
+  color: rgb(104, 84, 142);
 }
-.material-theme--dark .material-tabs__nav--primary .material-tabs__nav-button.current .material-tabs__nav-button-text {
-  box-shadow: inset 0px -3px 0px 0px rgb(211, 188, 253);
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current:hover {
+  color: rgb(104, 84, 142);
+  background-color: rgba(104, 84, 142, 0.08);
 }
-.material-tabs__nav--secondary {
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current:focus {
+  color: rgb(104, 84, 142);
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current:active {
+  color: rgb(104, 84, 142);
+  background-color: rgba(104, 84, 142, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button {
+  color: rgb(203, 196, 207);
+  background-color: transparent;
+  color: rgb(231, 224, 232);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button:focus {
+  color: rgb(231, 224, 232);
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button:active {
+  color: rgb(231, 224, 232);
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current {
+  background-color: transparent;
+  color: rgb(211, 188, 253);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current:hover {
+  color: rgb(211, 188, 253);
+  background-color: rgba(211, 188, 253, 0.08);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current:focus {
+  color: rgb(211, 188, 253);
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current:active {
+  color: rgb(211, 188, 253);
+  background-color: rgba(211, 188, 253, 0.1);
+}
+.material-tabs--secondary .material-tabs__nav {
   height: 48px;
 }
-.material-theme--light .material-tabs__nav--secondary .material-tabs__nav-button:focus {
-  box-shadow: inset 0px -3px 0px 0px rgb(99, 91, 112);
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button {
+  color: rgb(73, 69, 78);
+  background-color: transparent;
 }
-.material-theme--light .material-tabs__nav--secondary .material-tabs__nav-button.current {
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button:hover {
+  color: rgb(29, 27, 32);
+  background-color: rgba(29, 27, 32, 0.08);
+}
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button:focus {
+  color: rgb(29, 27, 32);
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button:active {
+  color: rgb(29, 27, 32);
+  background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button.current {
   color: rgb(29, 27, 32);
   box-shadow: inset 0px -3px 0px 0px rgb(104, 84, 142);
 }
-.material-theme--dark .material-tabs__nav--secondary .material-tabs__nav-button:focus {
-  box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
+.material-theme--light .material-tabs--secondary .material-tabs__nav-button.current:focus {
+  box-shadow: inset 0px -3px 0px 0px rgb(99, 91, 112);
 }
-.material-theme--dark .material-tabs__nav--secondary .material-tabs__nav-button.current {
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button {
+  color: rgb(203, 196, 207);
+  background-color: transparent;
+}
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button:hover {
+  color: rgb(231, 224, 232);
+  background-color: rgba(231, 224, 232, 0.08);
+}
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button:focus {
+  color: rgb(231, 224, 232);
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button:active {
+  color: rgb(231, 224, 232);
+  background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button.current {
   color: rgb(231, 224, 232);
   box-shadow: inset 0px -3px 0px 0px rgb(211, 188, 253);
 }
-.material-tabs--top {
-  grid-template-rows: auto 1fr;
-}
-.material-tabs--top .material-tabs__nav {
-  grid-row: 1;
-}
-.material-theme--light .material-tabs--top .material-tabs__nav {
-  border-bottom: 1px solid rgb(203, 196, 207);
-}
-.material-theme--dark .material-tabs--top .material-tabs__nav {
-  border-bottom: 1px solid rgb(73, 69, 78);
-}
-.material-tabs--top .material-tabs__content {
-  grid-row: 2;
-}
-.material-tabs--bottom {
-  grid-template-rows: 1fr auto;
-}
-.material-tabs--bottom .material-tabs__nav {
-  grid-row: 2;
-}
-.material-theme--light .material-tabs--bottom .material-tabs__nav {
-  border-top: 1px solid rgb(203, 196, 207);
-}
-.material-theme--dark .material-tabs--bottom .material-tabs__nav {
-  border-top: 1px solid rgb(73, 69, 78);
-}
-.material-tabs--bottom .material-tabs__content {
-  grid-row: 1;
+.material-theme--dark .material-tabs--secondary .material-tabs__nav-button.current:focus {
+  box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
 }
 .material-tabs__page {
   display: none;

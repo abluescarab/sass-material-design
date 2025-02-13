@@ -1,3 +1,23 @@
+@use "sys" as *;
+
 @function opacity($percent) {
     @return 100% - $percent;
+}
+
+@function sp-to-rem($sp) {
+    @return $sp / 16;
+}
+
+@function mix-color($default, $mix, $state) {
+    $state-name: $state;
+
+    @if ($state-name == "active") {
+        $state-name: "pressed";
+    }
+
+    @return mix(
+        $default,
+        $mix,
+        opacity(sys("state", $state-name, "state-layer-opacity"))
+    );
 }

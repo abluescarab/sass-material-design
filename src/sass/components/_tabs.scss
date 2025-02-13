@@ -4,10 +4,7 @@
 .material-tabs {
     $parent: &;
     $divider-height: 1px;
-    $indicator-height: 3px;
 
-    display: grid;
-    grid-template-columns: 1fr;
     flex: 1;
 
     &__nav {
@@ -18,88 +15,70 @@
 
         @include themes.themify {
             background-color: themes.color("surface");
-            color: themes.color("on-surface");
+            @include divider;
         }
 
         &-button {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: transparent;
             border: 0;
             flex: 1;
-
-            &-icon,
-            &-text {
-                display: flex;
-                flex: 1;
-                align-self: center;
-            }
-
-            &-icon {
-                align-items: end;
-            }
-
-            &-text {
-                width: max-content;
-                align-items: center;
-                @include font-styling("title-small");
-            }
 
             &:not(:disabled) {
                 cursor: pointer;
             }
-
-            @include themes.themify {
-                @include mix-colors(transparent, themes.color("on-surface"));
-
-                &.current {
-                    @include mix-colors(transparent, themes.color("primary"));
-                }
-            }
         }
 
-        &--primary {
+        &-icon,
+        &-text {
+            display: flex;
+            flex: 1;
+            align-self: center;
+        }
+
+        &-icon {
+            align-items: end;
+        }
+
+        &-text {
+            width: max-content;
+            align-items: center;
+            @include font-styling("title-small");
+        }
+    }
+
+    &--primary {
+        #{$parent}__nav {
             height: 64px;
 
-            #{$nav}-button {
-                grid-template-rows: 1fr 1fr;
-
+            &-button {
                 @include themes.themify {
-                    &:focus #{$nav}-button-text {
-                        @include indicator(
-                            themes.color("secondary"),
-                            $indicator-height
-                        );
-                    }
+                    // TODO: indicator (check end of specs page for details)
+                    color: themes.color("on-surface-variant");
 
-                    &.current #{$nav}-button-text {
-                        @include indicator(
+                    @include mix-states(
+                        transparent,
+                        themes.color("on-surface"),
+                        true,
+                        "hover",
+                        "focus"
+                    );
+
+                    &:active {
+                        color: themes.color("on-surface");
+                        background-color: mix-color(
+                            transparent,
                             themes.color("primary"),
-                            $indicator-height
-                        );
-                    }
-                }
-            }
-        }
-
-        &--secondary {
-            height: 48px;
-
-            #{$nav}-button {
-                @include themes.themify {
-                    &:focus {
-                        @include indicator(
-                            themes.color("secondary"),
-                            $indicator-height
+                            "pressed"
                         );
                     }
 
                     &.current {
-                        color: themes.color("on-surface");
-                        @include indicator(
+                        @include mix-states(
+                            transparent,
                             themes.color("primary"),
-                            $indicator-height
+                            true
                         );
                     }
                 }
@@ -107,37 +86,29 @@
         }
     }
 
-    &--top {
-        grid-template-rows: auto 1fr;
-
+    &--secondary {
         #{$parent}__nav {
-            grid-row: 1;
+            height: 48px;
 
-            @include themes.themify {
-                border-bottom: $divider-height solid
-                    themes.color("outline-variant");
+            &-button {
+                @include themes.themify {
+                    color: themes.color("on-surface-variant");
+
+                    @include mix-states(
+                        transparent,
+                        themes.color("on-surface")
+                    );
+
+                    &.current {
+                        color: themes.color("on-surface");
+                        @include indicator(themes.color("primary"));
+
+                        &:focus {
+                            @include indicator(themes.color("secondary"));
+                        }
+                    }
+                }
             }
-        }
-
-        #{$parent}__content {
-            grid-row: 2;
-        }
-    }
-
-    &--bottom {
-        grid-template-rows: 1fr auto;
-
-        #{$parent}__nav {
-            grid-row: 2;
-
-            @include themes.themify {
-                border-top: $divider-height solid
-                    themes.color("outline-variant");
-            }
-        }
-
-        #{$parent}__content {
-            grid-row: 1;
         }
     }
 

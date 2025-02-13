@@ -14,6 +14,22 @@
     line-height: $size;
 }
 
+@mixin side-radius($side, $value) {
+    @if ($side == "left") {
+        border-top-left-radius: #{$value};
+        border-bottom-left-radius: #{$value};
+    } @else if($side == "right") {
+        border-top-right-radius: #{$value};
+        border-bottom-right-radius: #{$value};
+    } @else if($side == "top") {
+        border-top-left-radius: #{$value};
+        border-top-right-radius: #{$value};
+    } @else if($side == "bottom") {
+        border-bottom-left-radius: #{$value};
+        border-bottom-right-radius: #{$value};
+    }
+}
+
 @mixin font-styling($typescale) {
     $font: sys("typescale", $typescale);
 
@@ -39,6 +55,34 @@
 
     &--small {
         @include font-styling("#{$type}-small");
+    }
+}
+
+@mixin mix-states(
+    $background,
+    $mix,
+    $set-color: false,
+    $set-state-color: true,
+    $states...
+) {
+    @if (length($states) == 0) {
+        $states: "hover", "focus", "active";
+    }
+
+    background-color: $background;
+
+    @if ($set-color) {
+        color: $mix;
+    }
+
+    @each $state in $states {
+        &:#{$state} {
+            @if ($set-state-color) {
+                color: $mix;
+            }
+
+            background-color: mix-color($background, $mix, $state);
+        }
     }
 }
 
@@ -77,8 +121,27 @@
         if($negative-offset, -$offset, $offset) floor($offset * 1.5) 0;
 }
 
-@mixin indicator($color, $height) {
+@mixin indicator($color) {
+    $height: sys("state", "focus-indicator", "thickness");
     box-shadow: inset 0px $height * -1 0px 0px $color;
+
+    // #{$element}::after {
+    //     content: "";
+    //     height: $height;
+    //     display: block;
+    //     border-radius: $height $height 0 0;
+    // }
+
+    // &.current #{$element} {
+    //     @debug &;
+    //     &::after {
+    //         box-shadow: inset 0px $height * -1 0px 0px $color;
+    //     }
+    // }
+}
+
+@mixin divider {
+    border-bottom: 1px solid themes.color("outline-variant");
 }
 
 @mixin toggle-styling($disabled-overrides: ()) {

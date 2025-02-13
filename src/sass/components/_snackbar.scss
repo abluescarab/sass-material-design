@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.material-snackbar {
+    @include themes.themify {
+        background-color: themes.color("inverse-surface");
+        @include elevation(3);
+        border-radius: sys("shape", "corner", "extra-small");
+    }
+
+    &--one {
+        height: 48px;
+    }
+
+    &--two {
+        height: 68px;
+    }
+}
