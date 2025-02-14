@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+.material-rounded {
+    @each $corner, $size in sys("shape", "corner") {
+        &--#{$corner} {
+            border-radius: $size !important;
+        }
+    }
+}

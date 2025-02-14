@@ -13,8 +13,7 @@
     padding: 0 $gap;
 
     @include themes.themify() {
-        background-color: themes.color("surface");
-        color: themes.color("on-surface");
+        @include themes.colorify("surface");
     }
 
     &__icon {

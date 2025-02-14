@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.material-color {
+    @include themes.themify() {
+        &--transparent {
+            background-color: transparent !important;
+        }
+
+        &--surface {
+            @include themes.colorify("surface", true);
+        }
+
+        &--variant {
+            @include themes.colorify("surface-variant", true);
+        }
+
+        &--inverse {
+            background-color: themes.color("inverse-surface") !important;
+            color: themes.color("inverse-on-surface") !important;
+        }
+
+        &--primary {
+            @include themes.colorify("primary-container", true);
+        }
+
+        &--secondary {
+            @include themes.colorify("secondary-container", true);
+        }
+
+        &--tertiary {
+            @include themes.colorify("tertiary-container", true);
+        }
+
+        &--error {
+            @include themes.colorify("error-container", true);
+        }
+    }
+}

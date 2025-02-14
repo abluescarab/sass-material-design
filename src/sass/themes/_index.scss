@@ -45,3 +45,8 @@ $themes: (
     $result: map-get($theme-map, $key);
     @return if($result, $result, $key);
 }
+
+@mixin colorify($color, $important: false) {
+    background-color: color($color) if($important, !important, null);
+    color: color("on-#{$color}") if($important, !important, null);
+}

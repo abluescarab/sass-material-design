@@ -128,6 +128,88 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+.material-theme--light .material-color--transparent {
+  background-color: transparent !important;
+}
+.material-theme--light .material-color--surface {
+  background-color: rgb(254, 247, 255) !important;
+  color: rgb(29, 27, 32) !important;
+}
+.material-theme--light .material-color--variant {
+  background-color: rgb(231, 224, 235) !important;
+  color: rgb(73, 69, 78) !important;
+}
+.material-theme--light .material-color--inverse {
+  background-color: rgb(50, 47, 53) !important;
+  color: rgb(245, 239, 247) !important;
+}
+.material-theme--light .material-color--primary {
+  background-color: rgb(235, 221, 255) !important;
+  color: rgb(35, 15, 70) !important;
+}
+.material-theme--light .material-color--secondary {
+  background-color: rgb(233, 222, 248) !important;
+  color: rgb(31, 24, 43) !important;
+}
+.material-theme--light .material-color--tertiary {
+  background-color: rgb(255, 217, 225) !important;
+  color: rgb(49, 16, 27) !important;
+}
+.material-theme--light .material-color--error {
+  background-color: rgb(255, 218, 214) !important;
+  color: rgb(65, 0, 2) !important;
+}
+.material-theme--dark .material-color--transparent {
+  background-color: transparent !important;
+}
+.material-theme--dark .material-color--surface {
+  background-color: rgb(21, 18, 24) !important;
+  color: rgb(231, 224, 232) !important;
+}
+.material-theme--dark .material-color--variant {
+  background-color: rgb(73, 69, 78) !important;
+  color: rgb(203, 196, 207) !important;
+}
+.material-theme--dark .material-color--inverse {
+  background-color: rgb(231, 224, 232) !important;
+  color: rgb(50, 47, 53) !important;
+}
+.material-theme--dark .material-color--primary {
+  background-color: rgb(79, 61, 116) !important;
+  color: rgb(235, 221, 255) !important;
+}
+.material-theme--dark .material-color--secondary {
+  background-color: rgb(75, 67, 88) !important;
+  color: rgb(233, 222, 248) !important;
+}
+.material-theme--dark .material-color--tertiary {
+  background-color: rgb(100, 59, 70) !important;
+  color: rgb(255, 217, 225) !important;
+}
+.material-theme--dark .material-color--error {
+  background-color: rgb(147, 0, 10) !important;
+  color: rgb(255, 218, 214) !important;
+}
+
+.material-rounded--extra-small {
+  border-radius: 4px !important;
+}
+.material-rounded--small {
+  border-radius: 8px !important;
+}
+.material-rounded--medium {
+  border-radius: 12px !important;
+}
+.material-rounded--large {
+  border-radius: 16px !important;
+}
+.material-rounded--extra-large {
+  border-radius: 28px !important;
+}
+.material-rounded--full {
+  border-radius: 9999px !important;
+}
+
 /* layout */
 .material-window {
   display: flex;
