@@ -128,12 +128,12 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+/* layout */
 body {
   display: flex;
   flex-direction: column;
 }
 
-/* layout */
 .material-theme--light .material-container {
   background-color: rgb(254, 247, 255);
   color: rgb(29, 27, 32);
