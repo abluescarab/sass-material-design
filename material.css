@@ -129,16 +129,16 @@
   letter-spacing: 0.5px;
 }
 /* layout */
-.material-body {
+.material-window {
   display: flex;
   flex-direction: column;
 }
-.material-body.material-theme--light {
-  background-color: rgb(254, 247, 255);
+.material-window.material-theme--light {
+  background-color: rgb(242, 236, 244);
   color: rgb(29, 27, 32);
 }
-.material-body.material-theme--dark {
-  background-color: rgb(21, 18, 24);
+.material-window.material-theme--dark {
+  background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
 
