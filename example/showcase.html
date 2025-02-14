@@ -379,6 +379,68 @@
                     </div>
                 </div>
             </section>
+
+            <section id="snackbars" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <h1 class="md-app-bar__headline">Snackbars</h1>
+                </div>
+
+                <div class="md-pane__content flex rows">
+                    <button class="md-button md-button--tonal">
+                        Show snackbar without action
+                    </button>
+                    <div class="md-snackbar">
+                        <span class="md-snackbar__text">
+                            Snackbar without action
+                        </span>
+                    </div>
+
+                    <button class="md-button md-button--tonal">
+                        Show snackbar with action
+                    </button>
+                    <div class="md-snackbar">
+                        <span class="md-snackbar__text">
+                            Lorem ipsum dolor sit amet.
+                        </span>
+                        <button class="md-snackbar__action">Action</button>
+                    </div>
+
+                    <button class="md-button md-button--tonal">
+                        Show long snackbar without action
+                    </button>
+                    <div class="md-snackbar">
+                        <span class="md-snackbar__text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                        </span>
+                    </div>
+
+                    <button class="md-button md-button--tonal">
+                        Show long snackbar with action
+                    </button>
+                    <div class="md-snackbar">
+                        <span class="md-snackbar__text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                        </span>
+                        <button class="md-snackbar__action">Action</button>
+                    </div>
+
+                    <button class="md-button md-button--tonal">
+                        Show long snackbar with long action
+                    </button>
+                    <div class="md-snackbar">
+                        <span class="md-snackbar__text"
+                            >Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit.</span
+                        >
+                        <button
+                            class="md-snackbar__action md-snackbar__action--long">
+                            Long action
+                        </button>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script type="module">
@@ -395,6 +457,26 @@
                         e.currentTarget.innerText = "light_mode";
                     }
                 });
+
+            document
+                .querySelectorAll("#snackbars .md-pane__content > .md-button")
+                .forEach((element) =>
+                    element.addEventListener("click", (e) =>
+                        e.currentTarget.nextElementSibling.classList.toggle(
+                            "md-snackbar--visible"
+                        )
+                    )
+                );
+
+            document
+                .querySelectorAll(".md-snackbar__action")
+                .forEach((element) =>
+                    element.addEventListener("click", (e) =>
+                        e.currentTarget.parentElement.classList.remove(
+                            "md-snackbar--visible"
+                        )
+                    )
+                );
         </script>
     </body>
 </html>
