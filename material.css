@@ -134,6 +134,21 @@ body {
 }
 
 /* layout */
+.material-theme--light .material-container {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.material-theme--dark .material-container {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+.material-container--hfill {
+  min-height: 100vh;
+}
+.material-container--wfill {
+  min-width: 100vh;
+}
+
 /* components */
 .material-app-bar {
   display: grid;
@@ -511,21 +526,6 @@ body {
 .material-theme--dark .material-button--text:not(:disabled):active {
   color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
-}
-
-.material-theme--light .material-container {
-  background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
-}
-.material-theme--dark .material-container {
-  background-color: rgb(21, 18, 24);
-  color: rgb(231, 224, 232);
-}
-.material-container--hfill {
-  min-height: 100vh;
-}
-.material-container--wfill {
-  min-width: 100vh;
 }
 
 .material-snackbar {
