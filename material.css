@@ -577,6 +577,8 @@ body {
   width: -moz-max-content;
   width: max-content;
   align-items: center;
+  display: grid;
+  grid-template-rows: 1fr auto;
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
@@ -594,6 +596,15 @@ body {
 .material-theme--light .material-tabs--primary .material-tabs__nav-button:focus {
   color: rgb(29, 27, 32);
   background-color: rgba(29, 27, 32, 0.1);
+}
+.material-theme--light .material-tabs--primary .material-tabs__nav-button .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: transparent;
+  min-width: 24px;
+  margin: 0 2px;
 }
 .material-theme--light .material-tabs--primary .material-tabs__nav-button:active {
   color: rgb(29, 27, 32);
@@ -615,6 +626,24 @@ body {
   color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
 }
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(104, 84, 142);
+  min-width: 24px;
+  margin: 0 2px;
+}
+.material-theme--light .material-tabs--primary .material-tabs__nav-button.current:focus .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(99, 91, 112);
+  min-width: 24px;
+  margin: 0 2px;
+}
 .material-theme--dark .material-tabs--primary .material-tabs__nav-button {
   color: rgb(203, 196, 207);
   background-color: transparent;
@@ -623,6 +652,15 @@ body {
 .material-theme--dark .material-tabs--primary .material-tabs__nav-button:focus {
   color: rgb(231, 224, 232);
   background-color: rgba(231, 224, 232, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: transparent;
+  min-width: 24px;
+  margin: 0 2px;
 }
 .material-theme--dark .material-tabs--primary .material-tabs__nav-button:active {
   color: rgb(231, 224, 232);
@@ -643,6 +681,24 @@ body {
 .material-theme--dark .material-tabs--primary .material-tabs__nav-button.current:active {
   color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(211, 188, 253);
+  min-width: 24px;
+  margin: 0 2px;
+}
+.material-theme--dark .material-tabs--primary .material-tabs__nav-button.current:focus .material-tabs__nav-text::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(205, 194, 219);
+  min-width: 24px;
+  margin: 0 2px;
 }
 .material-tabs--secondary .material-tabs__nav {
   height: 48px;
