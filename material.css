@@ -129,6 +129,7 @@
 .md-pane__content {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   flex: 1;
   padding: 24px;
 }
