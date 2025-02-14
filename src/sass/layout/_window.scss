@@ -4,7 +4,7 @@
     // prevents border collapse
     display: flex;
     flex-direction: column;
-
+    @debug "test";
     @include themes.themify(true) {
         background-color: themes.color("surface-container");
         color: themes.color("on-surface");
