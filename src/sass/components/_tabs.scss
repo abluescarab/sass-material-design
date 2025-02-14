@@ -13,7 +13,7 @@
         display: flex;
         flex-wrap: wrap;
 
-        @include themes.themify {
+        @include themes.themify() {
             background-color: themes.color("surface");
             @include divider;
         }
@@ -57,7 +57,7 @@
             &-button {
                 $text: #{$parent}__nav-text;
 
-                @include themes.themify {
+                @include themes.themify() {
                     color: themes.color("on-surface-variant");
 
                     @include mix-states(
@@ -106,7 +106,7 @@
             height: 48px;
 
             &-button {
-                @include themes.themify {
+                @include themes.themify() {
                     color: themes.color("on-surface-variant");
 
                     @include mix-states(

@@ -29,7 +29,7 @@
         cursor: default;
     }
 
-    @include themes.themify {
+    @include themes.themify() {
         &--elevated {
             @include toggle-styling() {
                 @include mix-states(

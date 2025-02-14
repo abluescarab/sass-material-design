@@ -12,7 +12,7 @@
     box-sizing: border-box;
     padding: 0 $gap;
 
-    @include themes.themify {
+    @include themes.themify() {
         background-color: themes.color("surface");
         color: themes.color("on-surface");
     }
@@ -26,7 +26,7 @@
         align-items: center;
         justify-content: center;
 
-        @include themes.themify {
+        @include themes.themify() {
             color: themes.color("on-surface");
             @include mix-states(transparent, themes.color("on-surface"));
         }
@@ -38,7 +38,7 @@
         column-gap: $gap;
 
         #{$parent}__icon {
-            @include themes.themify {
+            @include themes.themify() {
                 color: themes.color("on-surface-variant");
             }
         }

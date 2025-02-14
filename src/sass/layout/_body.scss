@@ -1,5 +1,12 @@
-body {
+@use "../themes";
+
+.material-body {
     // prevents border collapse
     display: flex;
     flex-direction: column;
+
+    @include themes.themify(true) {
+        background-color: themes.color("surface");
+        color: themes.color("on-surface");
+    }
 }

@@ -129,9 +129,17 @@
   letter-spacing: 0.5px;
 }
 /* layout */
-body {
+.material-body {
   display: flex;
   flex-direction: column;
+}
+.material-body.material-theme--light {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.material-body.material-theme--dark {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
 }
 
 .material-theme--light .material-container {
