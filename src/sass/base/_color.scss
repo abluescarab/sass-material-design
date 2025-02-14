@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 @use "../themes";
 
-.material-color {
+.md-color {
     @include themes.themify() {
         &--transparent {
             background-color: transparent !important;

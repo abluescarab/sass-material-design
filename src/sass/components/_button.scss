@@ -1,21 +1,24 @@
 @use "../abstracts" as *;
 @use "../themes";
 
-.material-button {
+.md-button {
     $parent: &;
     $gap: 8px;
 
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 40px;
-    border-radius: sys("shape", "corner", "full");
-    padding: 0 24px;
-    border: 0;
-    cursor: pointer;
+    line-height: 40px;
     width: max-content;
+    padding: 0 24px;
     gap: $gap;
+    border: 0;
+    border-radius: sys("shape", "corner", "full");
+
     @include font-styling("label-large");
+    cursor: pointer;
 
     &__icon {
         $icon-size: 18px;

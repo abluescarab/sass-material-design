@@ -11,23 +11,3 @@
 .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
-
-.material-display {
-    @include font("display");
-}
-
-.material-headline {
-    @include font("headline");
-}
-
-.material-title {
-    @include font("title");
-}
-
-.material-body {
-    @include font("body");
-}
-
-.material-label {
-    @include font("label");
-}

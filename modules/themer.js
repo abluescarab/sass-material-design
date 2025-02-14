@@ -1,5 +1,5 @@
 export function cycleThemes(element, themes = []) {
-    const themePrefix = "material-theme--";
+    const themePrefix = "md-theme--";
     const themeMatch = element.className.match(new RegExp(`\\b${themePrefix}(\\S+)\\b`));
     let index = 0;
     if (themeMatch) {

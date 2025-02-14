@@ -1,29 +1,27 @@
 @use "../abstracts" as *;
 @use "../themes";
 
-.material-app-bar {
+.md-app-bar {
     $parent: &;
     $gap: 4px;
     $button-size: 48px;
 
     display: grid;
     grid-template-columns: auto 1fr auto;
-    column-gap: $gap;
+    gap: $gap;
     box-sizing: border-box;
-    padding: 0 $gap;
+    padding: $gap;
 
     @include themes.themify() {
         @include themes.colorify("surface");
     }
 
     &__icon {
+        grid-row: 1;
         border: 0;
         font-size: calc($button-size / 2);
         border-radius: sys("shape", "corner", "full");
         @include square($button-size);
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         @include themes.themify() {
             color: themes.color("on-surface");
@@ -34,7 +32,7 @@
     &__trailing {
         display: flex;
         flex-direction: row;
-        column-gap: $gap;
+        gap: $gap;
 
         #{$parent}__icon {
             @include themes.themify() {
@@ -44,16 +42,22 @@
     }
 
     &__headline {
+        grid-row: 1;
+        grid-column: 2;
+        margin: 0 16px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-        grid-column: 2;
     }
 
     &--center,
     &--small {
         height: 64px;
         align-items: center;
+
+        > #{$parent}__icon:first-child + #{$parent}__headline {
+            margin: 0;
+        }
 
         #{$parent}__headline {
             @include font-styling("title-large");
@@ -68,19 +72,14 @@
     &--large {
         grid-template-rows: auto 1fr;
 
-        #{$parent}__icon:has(+ #{$parent}__headline) {
-            grid-column: span 2;
-        }
-
-        #{$parent}__leading {
+        > #{$parent}__icon:first-child {
             grid-column: span 2;
         }
 
         #{$parent}__headline {
-            align-content: end;
             grid-column: span 3;
             grid-row: 2;
-            padding: 0 12px;
+            align-content: end;
         }
     }
 

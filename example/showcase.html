@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Material Design Example</title>
+        <title>Material Design Showcase</title>
 
         <!-- Google styles -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,379 +18,368 @@
 
         <!-- Project styles -->
         <link rel="stylesheet" href="../material.css" />
+
         <style>
-            #theme-buttons {
-                width: max-content;
-                margin: 10px auto 20px auto;
-            }
             .flex {
                 display: flex;
                 gap: 4px;
-                margin-bottom: 8px;
-                flex-wrap: wrap;
             }
-            .vertical {
+            .flex.center {
+                align-items: center;
+                justify-content: center;
+            }
+            .cols {
                 flex-direction: column;
             }
-            .horizontal {
+            .rows {
                 flex-direction: row;
-            }
-            #tabs {
-                height: 150px;
-            }
-            #snackbars {
-                display: flex;
-                flex-direction: column;
             }
         </style>
     </head>
-    <body class="material-window material-theme--light">
-        <div class="material-app-bar material-app-bar--center">
-            <span class="material-app-bar__headline"
-                >Material Design Showcase</span
-            >
-            <div class="material-app-bar__trailing">
-                <button
-                    id="toggle-theme"
-                    class="material-app-bar__icon material-symbols-outlined">
-                    dark_mode
-                </button>
+    <body class="md-window md-theme--light">
+        <div class="md-navigation"></div>
+        <div class="md-body">
+            <div id="center-app-bar" class="md-pane">
+                <div class="md-app-bar md-app-bar--center">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        arrow_back
+                    </button>
+                    <h1 class="md-app-bar__headline">Center App Bar</h1>
+                    <div class="md-app-bar__trailing">
+                        <button
+                            id="toggle-theme"
+                            class="md-app-bar__icon material-symbols-outlined">
+                            dark_mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="small-app-bar" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        arrow_back
+                    </button>
+                    <h1 class="md-app-bar__headline">Small App Bar</h1>
+                    <div class="md-app-bar__trailing">
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            search
+                        </button>
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            more_vert
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="medium-app-bar" class="md-pane">
+                <div class="md-app-bar md-app-bar--medium">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        arrow_back
+                    </button>
+                    <h1 class="md-app-bar__headline">Medium App Bar</h1>
+                    <div class="md-app-bar__trailing">
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            search
+                        </button>
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            more_vert
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="large-app-bar" class="md-pane">
+                <div class="md-app-bar md-app-bar--large">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        arrow_back
+                    </button>
+                    <h1 class="md-app-bar__headline">Large App Bar</h1>
+                    <div class="md-app-bar__trailing">
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            search
+                        </button>
+                        <button
+                            class="md-app-bar__icon material-symbols-outlined">
+                            more_vert
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buttons" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <h1 class="md-app-bar__headline">Buttons</h1>
+                </div>
+
+                <div class="md-pane__content flex">
+                    <div class="flex cols center">
+                        <button class="md-button">Button</button>
+                        <button class="md-button">
+                            <span class="material-symbols-outlined">add</span>
+                            Button
+                        </button>
+                        <button class="md-button" disabled>Button</button>
+                        <button class="md-button" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Button
+                        </button>
+                    </div>
+
+                    <div class="flex cols center">
+                        <button class="md-button md-button--elevated">
+                            Elevated
+                        </button>
+                        <button class="md-button md-button--elevated">
+                            <span class="material-symbols-outlined">add</span>
+                            Elevated
+                        </button>
+                        <button class="md-button md-button--elevated" disabled>
+                            Elevated
+                        </button>
+                        <button class="md-button md-button--elevated" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Elevated
+                        </button>
+                    </div>
+
+                    <div class="flex cols center">
+                        <button class="md-button md-button--filled">
+                            Filled
+                        </button>
+                        <button class="md-button md-button--filled">
+                            <span class="material-symbols-outlined">add</span>
+                            Filled
+                        </button>
+                        <button class="md-button md-button--filled" disabled>
+                            Filled
+                        </button>
+                        <button class="md-button md-button--filled" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Filled
+                        </button>
+                    </div>
+
+                    <div class="flex cols center">
+                        <button class="md-button md-button--tonal">
+                            Tonal
+                        </button>
+                        <button class="md-button md-button--tonal">
+                            <span class="material-symbols-outlined">add</span>
+                            Tonal
+                        </button>
+                        <button class="md-button md-button--tonal" disabled>
+                            Tonal
+                        </button>
+                        <button class="md-button md-button--tonal" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Tonal
+                        </button>
+                    </div>
+
+                    <div class="flex cols center">
+                        <button class="md-button md-button--outlined">
+                            Outlined
+                        </button>
+                        <button class="md-button md-button--outlined">
+                            <span class="material-symbols-outlined">add</span>
+                            Outlined
+                        </button>
+                        <button class="md-button md-button--outlined" disabled>
+                            Outlined
+                        </button>
+                        <button class="md-button md-button--outlined" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Outlined
+                        </button>
+                    </div>
+
+                    <div class="flex cols center">
+                        <button class="md-button md-button--text">Text</button>
+                        <button class="md-button md-button--text">
+                            <span class="material-symbols-outlined">add</span>
+                            Text
+                        </button>
+                        <button class="md-button md-button--text" disabled>
+                            Text
+                        </button>
+                        <button class="md-button md-button--text" disabled>
+                            <span class="material-symbols-outlined">add</span>
+                            Text
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="primary-tabs-icons" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <div class="md-app-bar__headline">
+                        Primary tabs with icons
+                    </div>
+                </div>
+
+                <div class="md-pane__content md-pane__content--fill">
+                    <div class="md-tabs" data-tab="1">
+                        <div class="md-tabs__nav md-tabs__nav--primary">
+                            <button
+                                class="md-tabs__button md-tabs__button--selected"
+                                data-tab="1">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    home
+                                </span>
+                                <span class="md-tabs__text">Tab 1</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="2">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    shopping_bag
+                                </span>
+                                <span class="md-tabs__text">Tab 2</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="3">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    local_shipping
+                                </span>
+                                <span class="md-tabs__text">Tab 3</span>
+                            </button>
+                        </div>
+                        <div class="md-tabs__content">
+                            <div
+                                class="md-tabs__page md-tabs__page--selected"
+                                data-tab="1">
+                                Tab 1.
+                            </div>
+                            <div class="md-tabs__page" data-tab="2">Tab 2.</div>
+                            <div class="md-tabs__page" data-tab="3">Tab 3.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="primary-tabs" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <div class="md-app-bar__headline">
+                        Primary tabs without icons
+                    </div>
+                </div>
+
+                <div class="md-pane__content md-pane__content--fill">
+                    <div class="md-tabs" data-tab="1">
+                        <div class="md-tabs__nav md-tabs__nav--primary">
+                            <button
+                                class="md-tabs__button md-tabs__button--selected"
+                                data-tab="1">
+                                <span class="md-tabs__text">Tab 1</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="2">
+                                <span class="md-tabs__text">Tab 2</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="3">
+                                <span class="md-tabs__text">Tab 3</span>
+                            </button>
+                        </div>
+                        <div class="md-tabs__content">
+                            <div
+                                class="md-tabs__page md-tabs__page--selected"
+                                data-tab="1">
+                                Tab 1.
+                            </div>
+                            <div class="md-tabs__page" data-tab="2">Tab 2.</div>
+                            <div class="md-tabs__page" data-tab="3">Tab 3.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="secondary-tabs-icons" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <div class="md-app-bar__headline">
+                        Secondary tabs with icons
+                    </div>
+                </div>
+
+                <div class="md-pane__content md-pane__content--fill">
+                    <div class="md-tabs" data-tab="1">
+                        <div class="md-tabs__nav md-tabs__nav--secondary">
+                            <button
+                                class="md-tabs__button md-tabs__button--selected"
+                                data-tab="1">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    home
+                                </span>
+                                <span class="md-tabs__text">Tab 1</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="2">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    shopping_bag
+                                </span>
+                                <span class="md-tabs__text">Tab 2</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="3">
+                                <span
+                                    class="md-tabs__icon material-symbols-outlined">
+                                    local_shipping
+                                </span>
+                                <span class="md-tabs__text">Tab 3</span>
+                            </button>
+                        </div>
+                        <div class="md-tabs__content">
+                            <div
+                                class="md-tabs__page md-tabs__page--selected"
+                                data-tab="1">
+                                Tab 1.
+                            </div>
+                            <div class="md-tabs__page" data-tab="2">Tab 2.</div>
+                            <div class="md-tabs__page" data-tab="3">Tab 3.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="secondary-tabs" class="md-pane">
+                <div class="md-app-bar md-app-bar--small">
+                    <div class="md-app-bar__headline">
+                        Secondary tabs without icons
+                    </div>
+                </div>
+
+                <div class="md-pane__content md-pane__content--fill">
+                    <div class="md-tabs" data-tab="1">
+                        <div class="md-tabs__nav md-tabs__nav--secondary">
+                            <button
+                                class="md-tabs__button md-tabs__button--selected"
+                                data-tab="1">
+                                <span class="md-tabs__text">Tab 1</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="2">
+                                <span class="md-tabs__text">Tab 2</span>
+                            </button>
+                            <button class="md-tabs__button" data-tab="3">
+                                <span class="md-tabs__text">Tab 3</span>
+                            </button>
+                        </div>
+                        <div class="md-tabs__content">
+                            <div
+                                class="md-tabs__page md-tabs__page--selected"
+                                data-tab="1">
+                                Tab 1.
+                            </div>
+                            <div class="md-tabs__page" data-tab="2">Tab 2.</div>
+                            <div class="md-tabs__page" data-tab="3">Tab 3.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- <section id="snackbars">
-            <div class="material-snackbar">
-                <span class="material-snackbar__text"
-                    >Snackbar without action</span
-                >
-            </div>
-            <div class="material-snackbar">
-                <span class="material-snackbar__text"
-                    >Snackbar with action</span
-                >
-                <button class="material-snackbar__action">Action</button>
-            </div>
-
-            <div class="material-snackbar">
-                <span class="material-snackbar__text"
-                    >Two line height snackbar without action</span
-                >
-            </div>
-
-            <div class="material-snackbar">
-                <span class="material-snackbar__text"
-                    >Extra long snackbar with action</span
-                >
-                <button class="material-snackbar__action">Action</button>
-            </div>
-
-            <div class="material-snackbar">
-                <span class="material-snackbar__text"
-                    >Extra long snackbar with longer action</span
-                >
-                <button
-                    class="material-snackbar__action material-snackbar__action--long"
-                    >Longer action</b
-                >
-            </div>
-        </section> -->
-
-        <section id="material-app-bars">
-            <div class="material-app-bar material-app-bar--center">
-                <button class="material-app-bar__icon">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-                <span class="material-app-bar__headline">Center App Bar</span>
-                <div class="material-app-bar__trailing">
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">settings</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="material-app-bar material-app-bar--small">
-                <button class="material-app-bar__icon">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-                <span class="material-app-bar__headline">Small App Bar</span>
-                <div class="material-app-bar__trailing">
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">sort</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">settings</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="material-app-bar material-app-bar--medium">
-                <button class="material-app-bar__icon">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-                <span class="material-app-bar__headline">Medium App Bar</span>
-                <div class="material-app-bar__trailing">
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">sort</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">settings</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="material-app-bar material-app-bar--large">
-                <button class="material-app-bar__icon">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-                <span class="material-app-bar__headline">Large App Bar</span>
-                <div class="material-app-bar__trailing">
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">search</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">sort</span>
-                    </button>
-                    <button class="material-app-bar__icon">
-                        <span class="material-symbols-outlined">settings</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section id="buttons" class="flex horizontal">
-            <div id="default-buttons" class="flex vertical">
-                <button>Button</button>
-                <button disabled>Button</button>
-                <button>
-                    <span class="material-symbols-outlined">add</span>
-                    Button
-                </button>
-                <button disabled>
-                    <span class="material-symbols-outlined">add</span>
-                    Button
-                </button>
-            </div>
-
-            <div id="plain-buttons" class="flex vertical">
-                <button class="material-button">Button</button>
-                <button class="material-button" disabled>Button</button>
-                <button class="material-button">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Button
-                </button>
-                <button class="material-button" disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Button
-                </button>
-            </div>
-
-            <div id="elevated-buttons" class="flex vertical">
-                <button class="material-button material-button--elevated">
-                    Elevated
-                </button>
-                <button
-                    class="material-button material-button--elevated"
-                    disabled>
-                    Elevated
-                </button>
-                <button class="material-button material-button--elevated">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Elevated
-                </button>
-                <button
-                    class="material-button material-button--elevated"
-                    disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Elevated
-                </button>
-            </div>
-
-            <div id="filled-buttons" class="flex vertical">
-                <button class="material-button material-button--filled">
-                    Filled
-                </button>
-                <button
-                    class="material-button material-button--filled"
-                    disabled>
-                    Filled
-                </button>
-                <button class="material-button material-button--filled">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Filled
-                </button>
-                <button
-                    class="material-button material-button--filled"
-                    disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Filled
-                </button>
-            </div>
-
-            <div id="tonal-buttons" class="flex vertical">
-                <button class="material-button material-button--tonal">
-                    Tonal
-                </button>
-                <button class="material-button material-button--tonal" disabled>
-                    Tonal
-                </button>
-                <button class="material-button material-button--tonal">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Tonal
-                </button>
-                <button class="material-button material-button--tonal" disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Tonal
-                </button>
-            </div>
-
-            <div id="outlined-buttons" class="flex vertical">
-                <button class="material-button material-button--outlined">
-                    Outlined
-                </button>
-                <button
-                    class="material-button material-button--outlined"
-                    disabled>
-                    Outlined
-                </button>
-                <button class="material-button material-button--outlined">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Outlined
-                </button>
-                <button
-                    class="material-button material-button--outlined"
-                    disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Outlined
-                </button>
-            </div>
-
-            <div id="text-buttons" class="flex vertical">
-                <button class="material-button material-button--text">
-                    Text
-                </button>
-                <button class="material-button material-button--text" disabled>
-                    Text
-                </button>
-                <button class="material-button material-button--text">
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Text
-                </button>
-                <button class="material-button material-button--text" disabled>
-                    <span
-                        class="material-button__icon material-symbols-outlined"
-                        >add</span
-                    >
-                    Text
-                </button>
-            </div>
-        </section>
-
-        <section id="tabs" class="flex horizontal">
-            <div class="material-tabs material-tabs--primary" data-tab="1">
-                <div class="material-tabs__nav">
-                    <button
-                        class="material-tabs__nav-button current"
-                        data-tab="1">
-                        <span
-                            class="material-tabs__nav-icon material-symbols-outlined"
-                            >home</span
-                        >
-                        <span class="material-tabs__nav-text">Tab 1</span>
-                    </button>
-                    <button class="material-tabs__nav-button" data-tab="2">
-                        <span
-                            class="material-tabs__nav-icon material-symbols-outlined"
-                            >search</span
-                        >
-                        <span class="material-tabs__nav-text">Tab 2</span>
-                    </button>
-                    <button class="material-tabs__nav-button" data-tab="3">
-                        <span
-                            class="material-tabs__nav-icon material-symbols-outlined"
-                            >menu</span
-                        >
-                        <span class="material-tabs__nav-text">Tab 3</span>
-                    </button>
-                </div>
-                <div class="material-tabs__content">
-                    <section class="material-tabs__page current" data-tab="1">
-                        Tab 1 content.
-                    </section>
-                    <section class="material-tabs__page" data-tab="2">
-                        Tab 2 content.
-                    </section>
-                    <section class="material-tabs__page" data-tab="3">
-                        Tab 3 content.
-                    </section>
-                </div>
-            </div>
-
-            <div class="material-tabs material-tabs--secondary" data-tab="1">
-                <div class="material-tabs__nav material-tabs__nav" data-tab="1">
-                    <button
-                        class="material-tabs__nav-button current"
-                        data-tab="1">
-                        <span class="material-tabs__nav-text">Tab 1</span>
-                    </button>
-                    <button class="material-tabs__nav-button" data-tab="2">
-                        <span class="material-tabs__nav-text">Tab 2</span>
-                    </button>
-                    <button class="material-tabs__nav-button" data-tab="3">
-                        <span class="material-tabs__nav-text">Tab 3</span>
-                    </button>
-                </div>
-                <div class="material-tabs__content">
-                    <section class="material-tabs__page current" data-tab="1">
-                        Tab 1 content.
-                    </section>
-                    <section class="material-tabs__page" data-tab="2">
-                        Tab 2 content.
-                    </section>
-                    <section class="material-tabs__page" data-tab="3">
-                        Tab 3 content.
-                    </section>
-                </div>
-            </div>
-        </section>
 
         <script type="module">
             import { cycleThemes, setTheme } from "../material.js";

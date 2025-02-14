@@ -8,11 +8,12 @@
 
 /* layout */
 @use "layout/window";
+@use "layout/pane";
 
 /* components */
 @use "components/app-bar";
 @use "components/button";
-@use "components/snackbar";
+// @use "components/snackbar";
 @use "components/tabs";
 
 /* pages */

@@ -4,7 +4,7 @@ export function initialize(container: HTMLElement) {
     container.addEventListener("click", (e) => {
         const button = getParentWithClass(
             e.target as HTMLElement,
-            "material-tabs__nav-button"
+            "md-tabs__button"
         );
 
         // ensure button is direct child of current tab container
@@ -33,19 +33,17 @@ function changeTab(
     const [oldButton, oldContent] = getTab(container, oldTab);
     const [newButton, newContent] = getTab(container, newTab);
 
-    oldButton?.classList.remove("current");
-    oldContent?.classList.remove("current");
-    newButton?.classList.add("current");
-    newContent?.classList.add("current");
+    oldButton?.classList.remove("md-tabs__button--selected");
+    oldContent?.classList.remove("md-tabs__page--selected");
+    newButton?.classList.add("md-tabs__button--selected");
+    newContent?.classList.add("md-tabs__page--selected");
 
     container.dataset.tab = newTab;
 }
 
 function getTab(container: HTMLElement, tab: string | undefined) {
     return [
-        container.querySelector(
-            '.material-tabs__nav-button[data-tab="' + tab + '"]'
-        ),
-        container.querySelector('.material-tabs__page[data-tab="' + tab + '"]'),
+        container.querySelector('.md-tabs__button[data-tab="' + tab + '"]'),
+        container.querySelector('.md-tabs__page[data-tab="' + tab + '"]'),
     ];
 }

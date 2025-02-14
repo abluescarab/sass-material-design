@@ -26,13 +26,13 @@ $themes: (
 @mixin themify($self: false) {
     @each $theme, $map in $themes {
         @if ($self) {
-            &.material-theme--#{$theme} {
+            &.md-theme--#{$theme} {
                 @include -themify($theme, $map) {
                     @content;
                 }
             }
         } @else {
-            .material-theme--#{$theme} & {
+            .md-theme--#{$theme} & {
                 @include -themify($theme, $map) {
                     @content;
                 }
