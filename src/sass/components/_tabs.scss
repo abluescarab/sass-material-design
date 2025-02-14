@@ -58,7 +58,6 @@
                 $text: #{$parent}__nav-text;
 
                 @include themes.themify {
-                    // TODO: indicator (check end of specs page for details)
                     color: themes.color("on-surface-variant");
 
                     @include mix-states(
