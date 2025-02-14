@@ -2,17 +2,59 @@
 @use "../themes";
 
 .material-snackbar {
+    $parent: &;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    border-radius: sys("shape", "corner", "extra-small");
+    box-sizing: border-box;
+    align-items: center;
+    padding: 16px;
+    margin: 16px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include font-styling("label-large");
+
+    &__text {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    &__action {
+        grid-row: 1;
+        grid-column: 2;
+        justify-self: end;
+        width: max-content;
+        height: max-content;
+        background-color: transparent;
+        margin-right: 0;
+        box-sizing: border-box;
+        border: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--long {
+            grid-row: 2;
+            grid-column: span 2;
+        }
+    }
+
     @include themes.themify {
-        background-color: themes.color("inverse-surface");
         @include elevation(3);
-        border-radius: sys("shape", "corner", "extra-small");
-    }
 
-    &--one {
-        height: 48px;
-    }
+        background-color: themes.color("inverse-surface");
 
-    &--two {
-        height: 68px;
+        &__text {
+            color: themes.color("inverse-on-surface");
+        }
+
+        &__action {
+            color: themes.color("inverse-primary");
+        }
     }
 }

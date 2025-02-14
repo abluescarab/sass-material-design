@@ -17,18 +17,6 @@
         color: themes.color("on-surface");
     }
 
-    &__trailing {
-        display: flex;
-        flex-direction: row;
-        column-gap: $gap;
-
-        #{$parent}__icon {
-            @include themes.themify {
-                color: themes.color("on-surface-variant");
-            }
-        }
-    }
-
     &__icon {
         border: 0;
         font-size: calc($button-size / 2);
@@ -39,7 +27,20 @@
         justify-content: center;
 
         @include themes.themify {
+            color: themes.color("on-surface");
             @include mix-states(transparent, themes.color("on-surface"));
+        }
+    }
+
+    &__trailing {
+        display: flex;
+        flex-direction: row;
+        column-gap: $gap;
+
+        #{$parent}__icon {
+            @include themes.themify {
+                color: themes.color("on-surface-variant");
+            }
         }
     }
 
@@ -67,6 +68,10 @@
     &--medium,
     &--large {
         grid-template-rows: auto 1fr;
+
+        #{$parent}__icon:has(+ #{$parent}__headline) {
+            grid-column: span 2;
+        }
 
         #{$parent}__leading {
             grid-column: span 2;
