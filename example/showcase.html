@@ -461,21 +461,35 @@
             document
                 .querySelectorAll("#snackbars .md-pane__content > .md-button")
                 .forEach((element) =>
-                    element.addEventListener("click", (e) =>
-                        e.currentTarget.nextElementSibling.classList.toggle(
-                            "md-snackbar--visible"
-                        )
-                    )
+                    element.addEventListener("click", (e) => {
+                        const el = e.currentTarget;
+                        const snackbar = el.nextElementSibling;
+
+                        snackbar.classList.toggle("md-snackbar--visible");
+
+                        if (
+                            snackbar.classList.contains("md-snackbar--visible")
+                        ) {
+                            el.innerText = el.innerText.replace("Show", "Hide");
+                        } else {
+                            el.innerText = el.innerText.replace("Hide", "Show");
+                        }
+                    })
                 );
 
             document
                 .querySelectorAll(".md-snackbar__action")
                 .forEach((element) =>
-                    element.addEventListener("click", (e) =>
-                        e.currentTarget.parentElement.classList.remove(
-                            "md-snackbar--visible"
-                        )
-                    )
+                    element.addEventListener("click", (e) => {
+                        const el = e.currentTarget.parentElement;
+
+                        el.classList.remove("md-snackbar--visible");
+                        el.previousElementSibling.innerText =
+                            el.previousElementSibling.innerText.replace(
+                                "Hide",
+                                "Show"
+                            );
+                    })
                 );
         </script>
     </body>
