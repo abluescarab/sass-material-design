@@ -1,16 +1,20 @@
 @use "../abstracts" as *;
 @use "../themes";
 
+// defaults to small style
 .md-app-bar {
     $parent: &;
     $gap: 4px;
     $button-size: 48px;
+    $headline-margin: 0 16px;
 
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: $gap;
     box-sizing: border-box;
     padding: $gap;
+    height: 64px;
+    align-items: center;
 
     @include themes.themify() {
         @include themes.colorify("surface");
@@ -29,6 +33,19 @@
         }
     }
 
+    &__headline {
+        grid-row: 1;
+        grid-column: 2;
+        @include font-styling("title-large");
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        &:first-child {
+            margin: $headline-margin;
+        }
+    }
+
     &__trailing {
         grid-column: 3;
         display: flex;
@@ -42,39 +59,16 @@
         }
     }
 
-    &__headline {
-        grid-row: 1;
-        grid-column: 2;
-        margin: 0 16px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    // TODO: use data to make types mutually exclusive
-    &--center,
-    &--small {
-        height: 64px;
-        align-items: center;
-
-        > #{$parent}__icon:first-child + #{$parent}__headline {
-            margin: 0;
-        }
-
-        #{$parent}__headline {
-            @include font-styling("title-large");
-        }
-    }
-
-    &--center {
+    &[data-type="center"] {
         text-align: center;
     }
 
-    &--medium,
-    &--large {
+    &[data-type="medium"],
+    &[data-type="large"] {
         grid-template-rows: auto 1fr;
+        align-items: end;
 
-        > #{$parent}__icon:first-child {
+        #{$parent}__icon:first-child {
             grid-column: span 2;
         }
 
@@ -82,10 +76,11 @@
             grid-column: span 3;
             grid-row: 2;
             align-content: end;
+            margin: $headline-margin;
         }
     }
 
-    &--medium {
+    &[data-type="medium"] {
         height: 112px;
         padding-bottom: 24px;
 
@@ -94,7 +89,7 @@
         }
     }
 
-    &--large {
+    &[data-type="large"] {
         height: 152px;
         padding-bottom: 28px;
 
