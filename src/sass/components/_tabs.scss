@@ -134,11 +134,8 @@
         }
     }
 
-    &__content {
-        padding: 16px;
-    }
-
     &__page {
+        padding: 16px;
         display: none;
 
         &--selected {

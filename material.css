@@ -810,10 +810,8 @@
 .md-theme--dark .md-tabs__nav--secondary .md-tabs__button--selected:focus {
   box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
 }
-.md-tabs__content {
-  padding: 16px;
-}
 .md-tabs__page {
+  padding: 16px;
   display: none;
 }
 .md-tabs__page--selected {
