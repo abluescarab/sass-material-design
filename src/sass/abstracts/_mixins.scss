@@ -30,17 +30,18 @@
     }
 }
 
-@mixin font-styling($typescale) {
+@mixin font-styling($typescale, $prominent: false) {
     $font: sys("typescale", $typescale);
 
     font-family: map-get($font, "font");
     line-height: map-get($font, "line-height");
     font-size: map-get($font, "size");
-    font-weight: map-get($font, "weight");
     letter-spacing: map-get($font, "tracking");
 
-    &--prominent {
+    @if ($prominent) {
         font-weight: map-get($font, "weight-prominent");
+    } @else {
+        font-weight: map-get($font, "weight");
     }
 }
 

@@ -256,8 +256,8 @@
   font-family: "Roboto";
   line-height: 28px;
   font-size: 22px;
-  font-weight: 400;
   letter-spacing: 0px;
+  font-weight: 400;
 }
 .md-app-bar--center {
   text-align: center;
@@ -281,8 +281,8 @@
   font-family: "Roboto";
   line-height: 32px;
   font-size: 24px;
-  font-weight: 400;
   letter-spacing: 0px;
+  font-weight: 400;
 }
 .md-app-bar--large {
   height: 152px;
@@ -311,12 +311,9 @@
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
-  font-weight: 500;
   letter-spacing: 0.1px;
+  font-weight: 500;
   cursor: pointer;
-}
-.md-button--prominent {
-  font-weight: 700;
 }
 .md-button__icon {
   width: 18px;
@@ -563,8 +560,8 @@
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
-  font-weight: 400;
   letter-spacing: 0.25px;
+  font-weight: 400;
 }
 .md-theme--light .md-snackbar {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
@@ -641,8 +638,8 @@
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
-  font-weight: 500;
   letter-spacing: 0.1px;
+  font-weight: 500;
   align-content: center;
 }
 .md-tabs__nav {
