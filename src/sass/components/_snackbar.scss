@@ -21,6 +21,7 @@
     @include themes.themify() {
         @include elevation(3);
         background-color: themes.color("inverse-surface");
+        color: themes.color("inverse-on-surface");
     }
 
     &--visible {
@@ -30,10 +31,6 @@
     &__text {
         grid-row: 1;
         grid-column: 1;
-
-        @include themes.themify() {
-            color: themes.color("inverse-on-surface");
-        }
     }
 
     &__action {
