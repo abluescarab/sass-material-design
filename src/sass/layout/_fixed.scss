@@ -7,23 +7,23 @@
     gap: calc($padding / 2);
     align-items: center;
 
-    &[data-lr="left"] {
+    &[data-md-lr="left"] {
         left: $padding;
     }
 
-    &[data-lr="right"] {
+    &[data-md-lr="right"] {
         right: $padding;
     }
 
-    &[data-tb="top"] {
+    &[data-md-tb="top"] {
         top: $padding;
     }
 
-    &[data-tb="bottom"] {
+    &[data-md-tb="bottom"] {
         bottom: $padding;
     }
 
-    &[data-direction="vertical"] {
+    &[data-md-direction="vertical"] {
         flex-direction: column;
 
         &#{$parent}--reverse {
@@ -31,7 +31,7 @@
         }
     }
 
-    &[data-direction="horizontal"] {
+    &[data-md-direction="horizontal"] {
         flex-direction: row;
 
         &#{$parent}--reverse {

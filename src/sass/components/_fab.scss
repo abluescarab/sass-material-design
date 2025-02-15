@@ -67,12 +67,12 @@
         }
     }
 
-    &[data-size="small"]:not(&--branded) {
+    &[data-md-size="small"]:not(&--branded) {
         @include square(40px);
         border-radius: sys("shape", "corner", "medium");
     }
 
-    &[data-size="large"],
+    &[data-md-size="large"],
     &--branded {
         #{$parent}__icon {
             $icon-size: 36px;
@@ -82,7 +82,7 @@
         }
     }
 
-    &[data-size="large"] {
+    &[data-md-size="large"] {
         @include square(96px);
         border-radius: sys("shape", "corner", "extra-large");
 
@@ -96,7 +96,7 @@
         }
     }
 
-    &[data-size="extended"] {
+    &[data-md-size="extended"] {
         min-width: 80px;
         width: auto;
         padding: 0 16px;
@@ -104,7 +104,7 @@
 
     @include themes.themify() {
         @each $color in primary, secondary, tertiary {
-            &[data-color="#{$color}"] {
+            &[data-md-color="#{$color}"] {
                 @include mix-states(
                     themes.color("#{$color}-container"),
                     themes.color("on-#{$color}-container"),

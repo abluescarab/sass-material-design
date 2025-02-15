@@ -32,9 +32,8 @@
         cursor: default;
     }
 
-    // TODO: use data to make styles mutually exclusive
     @include themes.themify() {
-        &--elevated {
+        &[data-md-type="elevated"] {
             @include toggle-styling() {
                 @include mix-states(
                     themes.color("surface-container-low"),
@@ -45,7 +44,7 @@
             }
         }
 
-        &--filled {
+        &[data-md-type="filled"] {
             @include toggle-styling() {
                 @include mix-states(
                     themes.color("primary"),
@@ -59,7 +58,7 @@
             }
         }
 
-        &--tonal {
+        &[data-md-type="tonal"] {
             @include toggle-styling() {
                 @include mix-states(
                     themes.color("secondary-container"),
@@ -73,7 +72,7 @@
             }
         }
 
-        &--outlined {
+        &[data-md-type="outlined"] {
             @include toggle-styling(
                 (
                     background-color: transparent,
@@ -84,7 +83,7 @@
             }
         }
 
-        &--text {
+        &[data-md-type="text"] {
             @include toggle-styling(
                 (
                     background-color: transparent,

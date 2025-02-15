@@ -59,12 +59,12 @@
         }
     }
 
-    &[data-type="center"] {
+    &[data-md-type="center"] {
         text-align: center;
     }
 
-    &[data-type="medium"],
-    &[data-type="large"] {
+    &[data-md-type="medium"],
+    &[data-md-type="large"] {
         grid-template-rows: auto 1fr;
         align-items: end;
 
@@ -80,7 +80,7 @@
         }
     }
 
-    &[data-type="medium"] {
+    &[data-md-type="medium"] {
         height: 112px;
         padding-bottom: 24px;
 
@@ -89,7 +89,7 @@
         }
     }
 
-    &[data-type="large"] {
+    &[data-md-type="large"] {
         height: 152px;
         padding-bottom: 28px;
 

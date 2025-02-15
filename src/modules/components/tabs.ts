@@ -56,7 +56,7 @@ function changeTab(
 
 function getTab(container: HTMLElement, tab: string | undefined) {
     return [
-        container.querySelector('.md-tabs__button[data-tab="' + tab + '"]'),
-        container.querySelector('.md-tabs__page[data-tab="' + tab + '"]'),
+        container.querySelector('.md-tabs__button[data-md-tab="' + tab + '"]'),
+        container.querySelector('.md-tabs__page[data-md-tab="' + tab + '"]'),
     ];
 }
