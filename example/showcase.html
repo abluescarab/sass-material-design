@@ -48,7 +48,9 @@
                 </span>
                 <div class="md-banner__actions">
                     <button class="md-banner__action">Dummy</button>
-                    <button class="md-banner__action">Close</button>
+                    <button id="close-banner" class="md-banner__action">
+                        Close
+                    </button>
                 </div>
             </div>
 
@@ -427,7 +429,20 @@
         </div>
 
         <script type="module">
-            import { cycleThemes, setTheme } from "../material.js";
+            import {
+                getParentWithClass,
+                cycleThemes,
+                setTheme,
+            } from "../material.js";
+
+            document
+                .getElementById("close-banner")
+                .addEventListener("click", (e) =>
+                    getParentWithClass(
+                        e.currentTarget,
+                        "md-banner"
+                    ).classList.remove("md-banner--visible")
+                );
 
             document
                 .getElementById("toggle-theme")
