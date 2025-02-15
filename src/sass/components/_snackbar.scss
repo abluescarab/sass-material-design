@@ -16,7 +16,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    @include font-styling("label-large");
+    @include font-styling("body-medium");
 
     @include themes.themify() {
         @include elevation(3);

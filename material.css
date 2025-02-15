@@ -532,11 +532,8 @@
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.1px;
-}
-.md-snackbar--prominent {
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 0.25px;
 }
 .md-theme--light .md-snackbar {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
