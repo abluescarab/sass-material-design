@@ -45,6 +45,7 @@
             @include divider;
         }
 
+        // TODO: use data to make primary/secondary mutually exclusive
         &--primary {
             #{$parent}__button {
                 display: grid;

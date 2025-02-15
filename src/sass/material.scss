@@ -8,13 +8,15 @@
 @use "base/rounded";
 
 /* layout */
-@use "layout/window";
+@use "layout/fixed";
 @use "layout/pane";
+@use "layout/window";
 
 /* components */
 @use "components/app-bar";
 @use "components/banner";
 @use "components/button";
+@use "components/fab";
 @use "components/snackbar";
 @use "components/tabs";
 

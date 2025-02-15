@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
 .md-rounded {
+    // TODO: use data to make mutually exclusive?
     @each $corner, $size in sys("shape", "corner") {
         &--#{$corner} {
             border-radius: $size !important;

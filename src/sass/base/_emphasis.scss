@@ -1,6 +1,7 @@
 @use "../themes";
 
 .md-emphasis {
+    // TODO: use data to make mutually exclusive?
     @include themes.themify() {
         &--lowest {
             background-color: themes.color(

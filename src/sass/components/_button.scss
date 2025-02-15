@@ -32,6 +32,7 @@
         cursor: default;
     }
 
+    // TODO: use data to make styles mutually exclusive
     @include themes.themify() {
         &--elevated {
             @include toggle-styling() {

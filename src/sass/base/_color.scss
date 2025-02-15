@@ -2,6 +2,7 @@
 @use "../themes";
 
 .md-color {
+    // TODO: use data to make mutually exclusive?
     @include themes.themify() {
         &--transparent {
             background-color: transparent !important;

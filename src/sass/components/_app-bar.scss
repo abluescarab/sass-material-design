@@ -51,6 +51,7 @@
         white-space: nowrap;
     }
 
+    // TODO: use data to make types mutually exclusive
     &--center,
     &--small {
         height: 64px;
