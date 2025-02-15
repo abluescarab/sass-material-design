@@ -1,8 +1,8 @@
 import { getParentWithClass } from "../utils.js";
 export function initialize(container) {
     // set default tab if not given
-    if (container.dataset.tab == undefined) {
-        changeTab(container, "", container.getElementsByClassName("md-tabs__page")[0].dataset.tab);
+    if (container.dataset.mdTab == undefined) {
+        changeTab(container, "", container.getElementsByClassName("md-tabs__page")[0].dataset.mdTab);
     }
     container.addEventListener("click", (e) => {
         var _a;
@@ -10,7 +10,7 @@ export function initialize(container) {
         // ensure button is direct child of current tab container
         if (button != null &&
             ((_a = button.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) == container) {
-            changeTab(container, container.dataset.tab, button.dataset.tab);
+            changeTab(container, container.dataset.mdTab, button.dataset.mdTab);
         }
     });
 }
@@ -27,7 +27,7 @@ function changeTab(container, oldTab, newTab) {
     oldContent === null || oldContent === void 0 ? void 0 : oldContent.classList.remove("md-tabs__page--selected");
     newButton === null || newButton === void 0 ? void 0 : newButton.classList.add("md-tabs__button--selected");
     newContent === null || newContent === void 0 ? void 0 : newContent.classList.add("md-tabs__page--selected");
-    container.dataset.tab = newTab;
+    container.dataset.mdTab = newTab;
 }
 function getTab(container, tab) {
     return [

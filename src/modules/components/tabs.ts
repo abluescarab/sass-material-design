@@ -2,7 +2,7 @@ import { getParentWithClass } from "../utils.js";
 
 export function initialize(container: HTMLElement) {
     // set default tab if not given
-    if (container.dataset.tab == undefined) {
+    if (container.dataset.mdTab == undefined) {
         changeTab(
             container,
             "",
@@ -10,7 +10,7 @@ export function initialize(container: HTMLElement) {
                 container.getElementsByClassName(
                     "md-tabs__page"
                 )[0] as HTMLElement
-            ).dataset.tab
+            ).dataset.mdTab
         );
     }
 
@@ -25,7 +25,7 @@ export function initialize(container: HTMLElement) {
             button != null &&
             button.parentElement?.parentElement == container
         ) {
-            changeTab(container, container.dataset.tab, button.dataset.tab);
+            changeTab(container, container.dataset.mdTab, button.dataset.mdTab);
         }
     });
 }
@@ -51,7 +51,7 @@ function changeTab(
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
 
-    container.dataset.tab = newTab;
+    container.dataset.mdTab = newTab;
 }
 
 function getTab(container: HTMLElement, tab: string | undefined) {
