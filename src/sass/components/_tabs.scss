@@ -45,8 +45,7 @@
             @include divider;
         }
 
-        // TODO: use data to make primary/secondary mutually exclusive
-        &--primary {
+        &[data-md-type="primary"] {
             #{$parent}__button {
                 display: grid;
                 grid-template-rows: 1fr;
@@ -107,7 +106,7 @@
             }
         }
 
-        &--secondary {
+        &[data-md-type="secondary"] {
             height: 48px;
 
             #{$parent}__button {
