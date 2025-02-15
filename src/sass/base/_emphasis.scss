@@ -1,0 +1,29 @@
+@use "../themes";
+
+.md-emphasis {
+    @include themes.themify() {
+        &--lowest {
+            background-color: themes.color(
+                "surface-container-lowest"
+            ) !important;
+        }
+
+        &--low {
+            background-color: themes.color("surface-container-low") !important;
+        }
+
+        &--normal {
+            background-color: themes.color("surface-container") !important;
+        }
+
+        &--high {
+            background-color: themes.color("surface-container-high") !important;
+        }
+
+        &--highest {
+            background-color: themes.color(
+                "surface-container-highest"
+            ) !important;
+        }
+    }
+}

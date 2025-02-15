@@ -80,6 +80,37 @@
   color: rgb(255, 218, 214) !important;
 }
 
+.md-theme--light .md-emphasis--lowest {
+  background-color: rgb(255, 255, 255) !important;
+}
+.md-theme--light .md-emphasis--low {
+  background-color: rgb(248, 241, 250) !important;
+}
+.md-theme--light .md-emphasis--normal {
+  background-color: rgb(242, 236, 244) !important;
+}
+.md-theme--light .md-emphasis--high {
+  background-color: rgb(237, 230, 238) !important;
+}
+.md-theme--light .md-emphasis--highest {
+  background-color: rgb(231, 224, 232) !important;
+}
+.md-theme--dark .md-emphasis--lowest {
+  background-color: rgb(15, 13, 19) !important;
+}
+.md-theme--dark .md-emphasis--low {
+  background-color: rgb(29, 27, 32) !important;
+}
+.md-theme--dark .md-emphasis--normal {
+  background-color: rgb(33, 31, 36) !important;
+}
+.md-theme--dark .md-emphasis--high {
+  background-color: rgb(44, 41, 47) !important;
+}
+.md-theme--dark .md-emphasis--highest {
+  background-color: rgb(54, 52, 58) !important;
+}
+
 .md-rounded--extra-small {
   border-radius: 4px !important;
 }
