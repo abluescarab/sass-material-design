@@ -1,5 +1,9 @@
 import { getParentWithClass } from "../utils.js";
 export function initialize(container) {
+    // set default tab if not given
+    if (container.dataset.tab == undefined) {
+        changeTab(container, "", container.getElementsByClassName("md-tabs__page")[0].dataset.tab);
+    }
     container.addEventListener("click", (e) => {
         var _a;
         const button = getParentWithClass(e.target, "md-tabs__button");
