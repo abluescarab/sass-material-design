@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-banner {
+    display: none;
+    grid-template-rows: 2;
+    grid-template-columns: auto 1fr;
+    padding: 16px;
+    padding-right: 24px;
+    gap: 16px;
+
+    @include font-styling("title-small");
+
+    @include themes.themify() {
+        @include divider;
+        color: themes.color("on-surface");
+        background-color: themes.color("surface-container");
+    }
+
+    &--visible {
+        display: grid;
+    }
+
+    &__icon {
+        $icon-size: 56px;
+
+        font-size: $icon-size;
+        @include square($icon-size);
+        grid-column: 1;
+        grid-row: span 2;
+    }
+
+    &__text {
+        grid-column: 2;
+        grid-row: 1;
+        padding-top: 8px;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 32px;
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    &__action {
+        background-color: transparent;
+        border: 0;
+        @include font-styling("label-large");
+
+        @include themes.themify() {
+            color: themes.color("primary");
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
