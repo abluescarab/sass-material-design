@@ -548,10 +548,6 @@
 .md-snackbar--visible {
   display: grid;
 }
-.md-snackbar__text {
-  grid-row: 1;
-  grid-column: 1;
-}
 .md-snackbar__action {
   grid-row: 1;
   grid-column: 2;
