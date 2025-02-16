@@ -537,11 +537,6 @@
   gap: 8px;
   border: 0;
   border-radius: 16px;
-  font-family: "Roboto";
-  line-height: 20px;
-  font-size: 14px;
-  letter-spacing: 0.1px;
-  font-weight: 500;
 }
 [data-md-theme=light] .md-fab {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
@@ -597,6 +592,14 @@
   height: 24px;
   line-height: 24px;
   font-size: 24px;
+}
+.md-fab__text {
+  display: none;
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
 }
 [data-md-theme=light] .md-fab--low {
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
@@ -672,6 +675,9 @@
   min-width: 80px;
   width: auto;
   padding: 0 16px;
+}
+.md-fab[data-md-size=extended] .md-fab__text {
+  display: initial;
 }
 [data-md-theme=light] .md-fab[data-md-color=primary] {
   background-color: rgb(235, 221, 255);

@@ -12,7 +12,6 @@
     gap: 8px;
     border: 0;
     border-radius: sys("shape", "corner", "large");
-    @include font-styling("label-large");
 
     @include themes.themify() {
         @include elevation(3);
@@ -44,6 +43,11 @@
 
         @include square($icon-size);
         font-size: $icon-size;
+    }
+
+    &__text {
+        display: none;
+        @include font-styling("label-large");
     }
 
     &--low {
@@ -100,6 +104,10 @@
         min-width: 80px;
         width: auto;
         padding: 0 16px;
+
+        #{$parent}__text {
+            display: initial;
+        }
     }
 
     @include themes.themify() {
