@@ -450,29 +450,39 @@
         </div>
 
         <div
-            class="md-fixed"
+            class="md-fixed md-fixed--reverse"
             data-md-lr="right"
             data-md-tb="bottom"
             data-md-direction="vertical">
-            <button class="md-fab md-fab--low" data-md-size="extended">
+            <button
+                id="fab-elevation"
+                class="md-fab md-fab--low"
+                data-md-size="extended">
                 <span class="md-fab__button material-symbols-outlined"
                     >height</span
                 >
-                <span class="md-fab__text">Elevation</span>
+                <span class="md-fab__text">High</span>
             </button>
-            <button class="md-fab md-fab--low" data-md-size="extended">
+            <button
+                id="fab-size"
+                class="md-fab md-fab--low"
+                data-md-size="extended">
                 <span class="md-fab__button material-symbols-outlined"
                     >aspect_ratio</span
                 >
-                <span class="md-fab__text">Size</span>
+                <span class="md-fab__text">Extended</span>
             </button>
-            <button class="md-fab md-fab--low" data-md-size="extended">
+            <button
+                id="fab-color"
+                class="md-fab md-fab--low"
+                data-md-size="extended">
                 <span class="md-fab__button material-symbols-outlined"
                     >palette</span
                 >
-                <span class="md-fab__text">Color</span>
+                <span class="md-fab__text">Primary</span>
             </button>
             <button
+                id="fab"
                 class="md-fab"
                 data-md-size="extended"
                 data-md-color="primary">
@@ -486,6 +496,8 @@
         <script type="module">
             import {
                 getParentWithClass,
+                cycleData,
+                capitalize,
                 cycleThemes,
                 setTheme,
             } from "../material.js";
@@ -502,13 +514,10 @@
             document
                 .getElementById("toggle-theme")
                 .addEventListener("click", (e) => {
-                    if (
+                    e.currentTarget.innerText =
                         cycleThemes(document.body, "light", "dark") == "light"
-                    ) {
-                        e.currentTarget.innerText = "dark_mode";
-                    } else {
-                        e.currentTarget.innerText = "light_mode";
-                    }
+                            ? "dark_mode"
+                            : "light_mode";
                 });
 
             document
@@ -544,6 +553,60 @@
                             );
                     })
                 );
+
+            const fab = document.getElementById("fab");
+
+            fab.addEventListener("click", (e) =>
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                })
+            );
+
+            document
+                .getElementById("fab-elevation")
+                .addEventListener("click", (e) => {
+                    fab.classList.toggle("md-fab--low");
+                    e.currentTarget.getElementsByClassName(
+                        "md-fab__text"
+                    )[0].innerText = fab.classList.contains("md-fab--low")
+                        ? "Low"
+                        : "High";
+                });
+
+            document
+                .getElementById("fab-size")
+                .addEventListener("click", (e) => {
+                    const size = cycleData(
+                        fab,
+                        "size",
+                        "",
+                        "small",
+                        "large",
+                        "extended"
+                    );
+                    e.currentTarget.getElementsByClassName(
+                        "md-fab__text"
+                    )[0].innerText = size == "" ? "Medium" : capitalize(size);
+                });
+
+            document
+                .getElementById("fab-color")
+                .addEventListener("click", (e) => {
+                    const color = cycleData(
+                        fab,
+                        "color",
+                        "",
+                        "primary",
+                        "secondary",
+                        "tertiary"
+                    );
+                    e.currentTarget.getElementsByClassName(
+                        "md-fab__text"
+                    )[0].innerText =
+                        color == "" ? "Surface" : capitalize(color);
+                });
         </script>
     </body>
 </html>
