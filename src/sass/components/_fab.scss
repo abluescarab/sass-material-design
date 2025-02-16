@@ -111,7 +111,7 @@
     }
 
     @include themes.themify() {
-        @each $color in primary, secondary, tertiary {
+        @each $color in "primary", "secondary", "tertiary" {
             &[data-md-color="#{$color}"] {
                 @include mix-states(
                     themes.color("#{$color}-container"),

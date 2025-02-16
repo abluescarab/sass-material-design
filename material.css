@@ -85,6 +85,30 @@
   background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
+.md-window[data-md-color=surface][data-md-theme=light] {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.md-window[data-md-color=surface][data-md-theme=dark] {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+.md-window[data-md-color=surface-variant][data-md-theme=light] {
+  background-color: rgb(231, 224, 235);
+  color: rgb(73, 69, 78);
+}
+.md-window[data-md-color=surface-variant][data-md-theme=dark] {
+  background-color: rgb(73, 69, 78);
+  color: rgb(203, 196, 207);
+}
+.md-window[data-md-color=background][data-md-theme=light] {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.md-window[data-md-color=background][data-md-theme=dark] {
+  background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
 
 /* components */
 .md-app-bar {
