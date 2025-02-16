@@ -503,7 +503,7 @@
                 .getElementById("toggle-theme")
                 .addEventListener("click", (e) => {
                     if (
-                        cycleThemes(document.body, ["light", "dark"]) == "light"
+                        cycleThemes(document.body, "light", "dark") == "light"
                     ) {
                         e.currentTarget.innerText = "dark_mode";
                     } else {
