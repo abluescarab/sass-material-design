@@ -447,6 +447,33 @@
                     </div>
                 </div>
             </section>
+
+            <section id="miscellaneous" class="md-pane">
+                <div class="md-app-bar">
+                    <h1 class="md-app-bar__headline">Miscellaneous</h1>
+                </div>
+
+                <div class="md-pane__content flex rows">
+                    <div class="md-checkbox">
+                        <input
+                            type="checkbox"
+                            id="checkbox-1"
+                            name="checkbox-1" />
+                        <label for="checkbox-1">Checkbox 1</label>
+                    </div>
+                    <div class="md-checkbox">
+                        <div class="md-checkbox__wrapper">
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
+                                id="checkbox-2"
+                                name="checkbox-2"
+                                disabled />
+                        </div>
+                        <label for="checkbox-2">Checkbox 2</label>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <div
@@ -552,6 +579,15 @@
                                 "Show"
                             );
                     })
+                );
+
+            document
+                .getElementById("checkbox-1")
+                .addEventListener(
+                    "change",
+                    (e) =>
+                        (document.getElementById("checkbox-2").disabled =
+                            !e.currentTarget.checked)
                 );
 
             const fab = document.getElementById("fab");

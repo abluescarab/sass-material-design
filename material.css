@@ -551,6 +551,32 @@
   background-color: rgba(211, 188, 253, 0.1);
 }
 
+.md-checkbox {
+  display: flex;
+  flex-direction: row;
+}
+[data-md-theme=light] .md-checkbox {
+  color: rgb(29, 27, 32);
+}
+[data-md-theme=dark] .md-checkbox {
+  color: rgb(231, 224, 232);
+}
+[data-md-theme=light] .md-checkbox input[type=checkbox] {
+  accent-color: rgb(104, 84, 142);
+}
+[data-md-theme=light] .md-checkbox input[type=checkbox]:disabled {
+  accent-color: rgba(29, 27, 32, 0.38);
+}
+[data-md-theme=dark] .md-checkbox input[type=checkbox] {
+  accent-color: rgb(211, 188, 253);
+}
+[data-md-theme=dark] .md-checkbox input[type=checkbox]:disabled {
+  accent-color: rgba(231, 224, 232, 0.38);
+}
+.md-checkbox label {
+  padding-left: 16px;
+}
+
 .md-fab {
   display: flex;
   align-items: center;
