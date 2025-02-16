@@ -5,9 +5,9 @@
 @use "base/typography";
 
 /* layout */
+@use "layout/body";
 @use "layout/fixed";
 @use "layout/pane";
-@use "layout/window";
 
 /* components */
 @use "components/app-bar";
