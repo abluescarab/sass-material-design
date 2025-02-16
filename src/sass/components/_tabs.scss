@@ -139,7 +139,7 @@
         display: none;
 
         &--selected {
-            display: block;
+            display: initial;
         }
 
         @include themes.themify() {

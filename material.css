@@ -1058,7 +1058,7 @@
   display: none;
 }
 .md-tabs__page--selected {
-  display: block;
+  display: initial;
 }
 [data-md-theme=light] .md-tabs__page {
   background-color: rgb(254, 247, 255);
