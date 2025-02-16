@@ -17,7 +17,7 @@ export function cycleData(element, data, ...values) {
     const dataName = `md${capitalize(data)}`;
     const dataValue = element.dataset[dataName];
     let index = 0;
-    if (dataValue) {
+    if (dataValue != null) {
         index = (values.indexOf(dataValue) + 1) % values.length;
     }
     const newValue = values[index];

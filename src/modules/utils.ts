@@ -31,7 +31,7 @@ export function cycleData(
     const dataValue = element.dataset[dataName];
     let index = 0;
 
-    if (dataValue) {
+    if (dataValue != null) {
         index = (values.indexOf(dataValue) + 1) % values.length;
     }
 
