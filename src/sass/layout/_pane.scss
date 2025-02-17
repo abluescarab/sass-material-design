@@ -19,13 +19,13 @@
         flex-wrap: wrap;
         flex: 1;
         padding: $padding;
+
+        &--fill {
+            padding: 0;
+        }
     }
 
     &--fill {
         margin: 0;
-
-        #{$parent}__content {
-            padding: 0;
-        }
     }
 }

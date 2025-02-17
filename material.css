@@ -106,11 +106,11 @@
   flex: 1;
   padding: 24px;
 }
+.md-pane__content--fill {
+  padding: 0;
+}
 .md-pane--fill {
   margin: 0;
-}
-.md-pane--fill .md-pane__content {
-  padding: 0;
 }
 
 /* components */
