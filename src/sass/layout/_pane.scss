@@ -2,6 +2,7 @@
 @use "../themes";
 
 .md-pane {
+    $parent: &;
     $padding: 24px;
 
     overflow: hidden;
@@ -18,8 +19,12 @@
         flex-wrap: wrap;
         flex: 1;
         padding: $padding;
+    }
 
-        &--fill {
+    &--fill {
+        margin: 0;
+
+        #{$parent}__content {
             padding: 0;
         }
     }
