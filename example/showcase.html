@@ -54,6 +54,66 @@
             </div>
         </div>
 
+        <section id="fab-controls" class="md-pane">
+            <div class="md-app-bar">
+                <h1 class="md-app-bar__headline">FAB Controls</h1>
+            </div>
+
+            <div class="md-pane__content flex rows">
+                <button id="fab-color" class="md-button" data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        palette
+                    </span>
+                    Primary
+                </button>
+                <button id="fab-size" class="md-button" data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        aspect_ratio
+                    </span>
+                    Extended
+                </button>
+                <button
+                    id="fab-elevation"
+                    class="md-button"
+                    data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        height
+                    </span>
+                    High
+                </button>
+                <button id="fab-lr" class="md-button" data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        swap_horiz
+                    </span>
+                    Right
+                </button>
+                <button id="fab-tb" class="md-button" data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        swap_vert
+                    </span>
+                    Bottom
+                </button>
+                <button
+                    id="fab-orientation"
+                    class="md-button"
+                    data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        sync
+                    </span>
+                    Forward
+                </button>
+                <button
+                    id="fab-visibility"
+                    class="md-button"
+                    data-md-type="tonal">
+                    <span class="md-button__icon material-symbols-outlined">
+                        visibility_off
+                    </span>
+                    Hide
+                </button>
+            </div>
+        </section>
+
         <section id="fonts" class="md-pane">
             <div class="md-app-bar">
                 <span class="md-app-bar__headline">Fonts</span>
@@ -84,10 +144,8 @@
                 </button>
                 <h1 class="md-app-bar__headline">Center App Bar</h1>
                 <div class="md-app-bar__trailing">
-                    <button
-                        id="toggle-theme"
-                        class="md-app-bar__icon material-symbols-outlined">
-                        dark_mode
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        more_vert
                     </button>
                 </div>
             </div>
@@ -457,36 +515,19 @@
         TODO: add hide button
         -->
         <div
-            class="md-fixed md-fixed--reverse"
+            id="fab-container"
+            class="md-fixed"
             data-md-lr="right"
             data-md-tb="bottom"
             data-md-direction="vertical">
             <button
-                id="fab-elevation"
+                id="toggle-theme"
                 class="md-fab md-fab--low"
-                data-md-size="extended">
-                <span class="md-fab__button material-symbols-outlined"
-                    >height</span
-                >
-                <span class="md-fab__text">High</span>
-            </button>
-            <button
-                id="fab-size"
-                class="md-fab md-fab--low"
-                data-md-size="extended">
-                <span class="md-fab__button material-symbols-outlined"
-                    >aspect_ratio</span
-                >
-                <span class="md-fab__text">Extended</span>
-            </button>
-            <button
-                id="fab-color"
-                class="md-fab md-fab--low"
-                data-md-size="extended">
-                <span class="md-fab__button material-symbols-outlined"
-                    >palette</span
-                >
-                <span class="md-fab__text">Primary</span>
+                data-md-size="small"
+                data-md-color="secondary">
+                <span class="md-fab__icon material-symbols-outlined">
+                    dark_mode
+                </span>
             </button>
             <button
                 id="fab"
@@ -507,9 +548,47 @@
                 </div>
 
                 <div class="md-card" data-md-type="elevated">
-                    <div data-md-typescale="display-small">Headline</div>
+                    <div data-md-typescale="display-small">Elevated</div>
                     <div data-md-typescale="title-large">Subhead</div>
-                    <div>
+                    <div class="md-card__row">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Nesciunt impedit quo consectetur nulla quasi?
+                        Perspiciatis a eos atque. Doloremque perspiciatis magnam
+                        inventore ab dolorum obcaecati? Porro corrupti mollitia
+                        nulla dolorum.
+                    </div>
+                    <div class="md-card__row" style="justify-content: end">
+                        <button class="md-button" data-md-type="outlined">
+                            Action
+                        </button>
+                        <button class="md-button" data-md-type="filled">
+                            Action
+                        </button>
+                    </div>
+                </div>
+                <div class="md-card" data-md-type="filled">
+                    <div data-md-typescale="display-small">Filled</div>
+                    <div data-md-typescale="title-large">Subhead</div>
+                    <div class="md-card__row">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Nesciunt impedit quo consectetur nulla quasi?
+                        Perspiciatis a eos atque. Doloremque perspiciatis magnam
+                        inventore ab dolorum obcaecati? Porro corrupti mollitia
+                        nulla dolorum.
+                    </div>
+                    <div class="md-card__row" style="justify-content: end">
+                        <button class="md-button" data-md-type="outlined">
+                            Action
+                        </button>
+                        <button class="md-button" data-md-type="filled">
+                            Action
+                        </button>
+                    </div>
+                </div>
+                <div class="md-card" data-md-type="outlined">
+                    <div data-md-typescale="display-small">Outlined</div>
+                    <div data-md-typescale="title-large">Subhead</div>
+                    <div class="md-card__row">
                         Lorem, ipsum dolor sit amet consectetur adipisicing
                         elit. Nesciunt impedit quo consectetur nulla quasi?
                         Perspiciatis a eos atque. Doloremque perspiciatis magnam
@@ -538,6 +617,14 @@
                 setTheme,
             } from "../material.js";
 
+            function replaceFabButtonText(element, replacement) {
+                const node = element.childNodes[2];
+                node.nodeValue = node.nodeValue.replace(
+                    node.nodeValue.trim(),
+                    replacement
+                );
+            }
+
             document
                 .getElementById("close-banner")
                 .addEventListener("click", (e) =>
@@ -550,7 +637,9 @@
             document
                 .getElementById("toggle-theme")
                 .addEventListener("click", (e) => {
-                    e.currentTarget.innerText =
+                    e.currentTarget.getElementsByClassName(
+                        "md-fab__icon"
+                    )[0].innerText =
                         cycleThemes(document.body, "light", "dark") == "light"
                             ? "dark_mode"
                             : "light_mode";
@@ -599,6 +688,7 @@
                             !e.currentTarget.checked)
                 );
 
+            const container = document.getElementById("fab-container");
             const fab = document.getElementById("fab");
 
             fab.addEventListener("click", (e) =>
@@ -610,14 +700,20 @@
             );
 
             document
-                .getElementById("fab-elevation")
+                .getElementById("fab-color")
                 .addEventListener("click", (e) => {
-                    fab.classList.toggle("md-fab--low");
-                    e.currentTarget.getElementsByClassName(
-                        "md-fab__text"
-                    )[0].innerText = fab.classList.contains("md-fab--low")
-                        ? "Low"
-                        : "High";
+                    const color = cycleData(
+                        fab,
+                        "color",
+                        "",
+                        "primary",
+                        "secondary",
+                        "tertiary"
+                    );
+                    replaceFabButtonText(
+                        e.currentTarget,
+                        color == "" ? "Surface" : capitalize(color)
+                    );
                 });
 
             document
@@ -631,26 +727,62 @@
                         "large",
                         "extended"
                     );
-                    e.currentTarget.getElementsByClassName(
-                        "md-fab__text"
-                    )[0].innerText = size == "" ? "Medium" : capitalize(size);
+                    replaceFabButtonText(
+                        e.currentTarget,
+                        size == "" ? "Medium" : capitalize(size)
+                    );
                 });
 
             document
-                .getElementById("fab-color")
+                .getElementById("fab-elevation")
                 .addEventListener("click", (e) => {
-                    const color = cycleData(
-                        fab,
-                        "color",
-                        "",
-                        "primary",
-                        "secondary",
-                        "tertiary"
+                    fab.classList.toggle("md-fab--low");
+                    replaceFabButtonText(
+                        e.currentTarget,
+                        fab.classList.contains("md-fab--low") ? "Low" : "High"
                     );
-                    e.currentTarget.getElementsByClassName(
-                        "md-fab__text"
-                    )[0].innerText =
-                        color == "" ? "Surface" : capitalize(color);
+                });
+
+            document.getElementById("fab-lr").addEventListener("click", (e) => {
+                const side =
+                    container.dataset.mdLr == "right" ? "left" : "right";
+                container.dataset.mdLr = side;
+                replaceFabButtonText(e.currentTarget, capitalize(side));
+            });
+
+            document.getElementById("fab-tb").addEventListener("click", (e) => {
+                const side =
+                    container.dataset.mdTb == "bottom" ? "top" : "bottom";
+                container.dataset.mdTb = side;
+                replaceFabButtonText(e.currentTarget, capitalize(side));
+            });
+
+            document
+                .getElementById("fab-orientation")
+                .addEventListener("click", (e) => {
+                    replaceFabButtonText(
+                        e.currentTarget,
+                        container.classList.toggle("md-fixed--reverse")
+                            ? "Reverse"
+                            : "Forward"
+                    );
+                });
+
+            document
+                .getElementById("fab-visibility")
+                .addEventListener("click", (e) => {
+                    container.style.display =
+                        container.style.display == "none" ? "flex" : "none";
+
+                    e.currentTarget.childNodes[1].innerText =
+                        container.style.display == "none"
+                            ? "visibility"
+                            : "visibility_off";
+
+                    replaceFabButtonText(
+                        e.currentTarget,
+                        fab.style.display == "none" ? "Show" : "Hide"
+                    );
                 });
         </script>
     </body>
