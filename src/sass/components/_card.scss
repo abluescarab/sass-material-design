@@ -1,0 +1,71 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-card {
+    $parent: &;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-radius: sys("shape", "corner", "medium");
+    @include props(16px, padding, margin);
+
+    @include themes.themify() {
+        color: themes.color("on-surface");
+
+        &[data-md-type="elevated"] {
+            @include mix-states(
+                themes.color("surface-container-low"),
+                themes.color("on-surface"),
+                $set-state-color: false
+            );
+
+            @include elevation(1);
+
+            &:hover {
+                @include elevation(2);
+            }
+        }
+
+        &[data-md-type="filled"],
+        &[data-md-type="outlined"] {
+            &:hover {
+                @include elevation(1);
+            }
+        }
+
+        &[data-md-type="filled"] {
+            @include mix-states(
+                themes.color("surface-container-highest"),
+                themes.color("on-surface"),
+                $set-state-color: false
+            );
+        }
+
+        &[data-md-type="outlined"] {
+            border: 1px solid themes.color("outline-variant");
+
+            @include mix-states(
+                themes.color("surface"),
+                themes.color("on-surface"),
+                $set-state-color: false
+            );
+        }
+
+        &--disabled {
+            background-color: rgba(
+                themes.color("surface"),
+                sys("state", "disabled", "label-opacity")
+            );
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // TODO: keep gap?
+        gap: 8px;
+    }
+}
