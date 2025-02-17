@@ -15,6 +15,7 @@
         background-color: transparent;
 
         @include themes.themify() {
+            background-color: themes.color("surface");
             color: themes.color("on-surface-variant");
         }
 

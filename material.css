@@ -897,9 +897,11 @@
   background-color: transparent;
 }
 [data-md-theme=light] .md-tabs__button {
+  background-color: rgb(254, 247, 255);
   color: rgb(73, 69, 78);
 }
 [data-md-theme=dark] .md-tabs__button {
+  background-color: rgb(21, 18, 24);
   color: rgb(203, 196, 207);
 }
 .md-tabs__button:not(:disabled) {
