@@ -141,9 +141,5 @@
         &--selected {
             display: block;
         }
-
-        @include themes.themify() {
-            @include themes.colorify("surface");
-        }
     }
 }

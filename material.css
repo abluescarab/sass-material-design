@@ -1116,14 +1116,6 @@
 .md-tabs__page--selected {
   display: block;
 }
-[data-md-theme=light] .md-tabs__page {
-  background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
-}
-[data-md-theme=dark] .md-tabs__page {
-  background-color: rgb(21, 18, 24);
-  color: rgb(231, 224, 232);
-}
 
 /* pages */
 /* themes */
