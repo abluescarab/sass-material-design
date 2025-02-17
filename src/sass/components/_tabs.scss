@@ -8,10 +8,6 @@
     flex-direction: column;
     flex: 1;
 
-    @include themes.themify() {
-        @include themes.colorify("surface");
-    }
-
     &__button {
         box-sizing: border-box;
         flex: 1;

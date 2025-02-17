@@ -890,14 +890,6 @@
   flex-direction: column;
   flex: 1;
 }
-[data-md-theme=light] .md-tabs {
-  background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
-}
-[data-md-theme=dark] .md-tabs {
-  background-color: rgb(21, 18, 24);
-  color: rgb(231, 224, 232);
-}
 .md-tabs__button {
   box-sizing: border-box;
   flex: 1;
