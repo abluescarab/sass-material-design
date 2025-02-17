@@ -15,7 +15,6 @@
         background-color: transparent;
 
         @include themes.themify() {
-            background-color: themes.color("surface");
             color: themes.color("on-surface-variant");
         }
 
@@ -40,6 +39,7 @@
 
         @include themes.themify() {
             @include divider;
+            background-color: themes.color("surface");
         }
 
         &[data-md-type="primary"] {

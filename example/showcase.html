@@ -38,443 +38,410 @@
     </head>
     <body class="md-body" data-md-theme="light">
         <div class="md-navigation"></div>
-        <div class="md-body">
-            <div class="md-banner md-banner--visible">
-                <span class="md-banner__icon material-symbols-outlined">
-                    sentiment_satisfied
-                </span>
-                <span class="md-banner__text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </span>
-                <div class="md-banner__actions">
-                    <button class="md-banner__action">Dummy</button>
-                    <button id="close-banner" class="md-banner__action">
+
+        <div class="md-banner md-banner--visible">
+            <span class="md-banner__icon material-symbols-outlined">
+                sentiment_satisfied
+            </span>
+            <span class="md-banner__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </span>
+            <div class="md-banner__actions">
+                <button class="md-banner__action">Dummy</button>
+                <button id="close-banner" class="md-banner__action">
+                    Close
+                </button>
+            </div>
+        </div>
+
+        <section id="center-app-bar" class="md-pane">
+            <div class="md-app-bar" data-md-type="center">
+                <button class="md-app-bar__icon material-symbols-outlined">
+                    arrow_back
+                </button>
+                <h1 class="md-app-bar__headline">Center App Bar</h1>
+                <div class="md-app-bar__trailing">
+                    <button
+                        id="toggle-theme"
+                        class="md-app-bar__icon material-symbols-outlined">
+                        dark_mode
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="small-app-bar" class="md-pane">
+            <div class="md-app-bar">
+                <button class="md-app-bar__icon material-symbols-outlined">
+                    arrow_back
+                </button>
+                <h1 class="md-app-bar__headline">Small App Bar</h1>
+                <div class="md-app-bar__trailing">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        search
+                    </button>
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        more_vert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="medium-app-bar" class="md-pane">
+            <div class="md-app-bar" data-md-type="medium">
+                <button class="md-app-bar__icon material-symbols-outlined">
+                    arrow_back
+                </button>
+                <h1 class="md-app-bar__headline">Medium App Bar</h1>
+                <div class="md-app-bar__trailing">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        search
+                    </button>
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        more_vert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="large-app-bar" class="md-pane">
+            <div class="md-app-bar" data-md-type="large">
+                <button class="md-app-bar__icon material-symbols-outlined">
+                    arrow_back
+                </button>
+                <h1 class="md-app-bar__headline">Large App Bar</h1>
+                <div class="md-app-bar__trailing">
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        search
+                    </button>
+                    <button class="md-app-bar__icon material-symbols-outlined">
+                        more_vert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="buttons" class="md-pane">
+            <div class="md-app-bar">
+                <h1 class="md-app-bar__headline">Buttons</h1>
+            </div>
+
+            <div class="md-pane__content flex rows">
+                <div class="flex cols center">
+                    <button class="md-button">Button</button>
+                    <button class="md-button">
+                        <span class="material-symbols-outlined">add</span>
+                        Button
+                    </button>
+                    <button class="md-button" disabled>Button</button>
+                    <button class="md-button" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Button
+                    </button>
+                </div>
+
+                <div class="flex cols center">
+                    <button class="md-button" data-md-type="elevated">
+                        Elevated
+                    </button>
+                    <button class="md-button" data-md-type="elevated">
+                        <span class="material-symbols-outlined">add</span>
+                        Elevated
+                    </button>
+                    <button class="md-button" data-md-type="elevated" disabled>
+                        Elevated
+                    </button>
+                    <button class="md-button" data-md-type="elevated" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Elevated
+                    </button>
+                </div>
+
+                <div class="flex cols center">
+                    <button class="md-button" data-md-type="filled">
+                        Filled
+                    </button>
+                    <button class="md-button" data-md-type="filled">
+                        <span class="material-symbols-outlined">add</span>
+                        Filled
+                    </button>
+                    <button class="md-button" data-md-type="filled" disabled>
+                        Filled
+                    </button>
+                    <button class="md-button" data-md-type="filled" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Filled
+                    </button>
+                </div>
+
+                <div class="flex cols center">
+                    <button class="md-button" data-md-type="tonal">
+                        Tonal
+                    </button>
+                    <button class="md-button" data-md-type="tonal">
+                        <span class="material-symbols-outlined">add</span>
+                        Tonal
+                    </button>
+                    <button class="md-button" data-md-type="tonal" disabled>
+                        Tonal
+                    </button>
+                    <button class="md-button" data-md-type="tonal" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Tonal
+                    </button>
+                </div>
+
+                <div class="flex cols center">
+                    <button class="md-button" data-md-type="outlined">
+                        Outlined
+                    </button>
+                    <button class="md-button" data-md-type="outlined">
+                        <span class="material-symbols-outlined">add</span>
+                        Outlined
+                    </button>
+                    <button class="md-button" data-md-type="outlined" disabled>
+                        Outlined
+                    </button>
+                    <button class="md-button" data-md-type="outlined" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Outlined
+                    </button>
+                </div>
+
+                <div class="flex cols center">
+                    <button class="md-button" data-md-type="text">Text</button>
+                    <button class="md-button" data-md-type="text">
+                        <span class="material-symbols-outlined">add</span>
+                        Text
+                    </button>
+                    <button class="md-button" data-md-type="text" disabled>
+                        Text
+                    </button>
+                    <button class="md-button" data-md-type="text" disabled>
+                        <span class="material-symbols-outlined">add</span>
+                        Text
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="primary-tabs-icons" class="md-pane">
+            <div class="md-app-bar">
+                <div class="md-app-bar__headline">Primary tabs with icons</div>
+            </div>
+
+            <div class="md-pane__content md-pane__content--fill">
+                <div class="md-tabs">
+                    <div class="md-tabs__nav" data-md-type="primary">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                home
+                            </span>
+                            <span class="md-tabs__text">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                shopping_bag
+                            </span>
+                            <span class="md-tabs__text">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                local_shipping
+                            </span>
+                            <span class="md-tabs__text">Tab 3</span>
+                        </button>
+                    </div>
+                    <div
+                        class="md-tabs__page md-tabs__page--selected"
+                        data-md-tab="1">
+                        Tab 1.
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="primary-tabs" class="md-pane">
+            <div class="md-app-bar">
+                <div class="md-app-bar__headline">
+                    Primary tabs without icons
+                </div>
+            </div>
+
+            <div class="md-pane__content md-pane__content--fill">
+                <div class="md-tabs">
+                    <div class="md-tabs__nav" data-md-type="primary">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__text">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__text">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__text">Tab 3</span>
+                        </button>
+                    </div>
+                    <div
+                        class="md-tabs__page md-tabs__page--selected"
+                        data-md-tab="1">
+                        Tab 1.
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="secondary-tabs-icons" class="md-pane">
+            <div class="md-app-bar">
+                <div class="md-app-bar__headline">
+                    Secondary tabs with icons
+                </div>
+            </div>
+
+            <div class="md-pane__content md-pane__content--fill">
+                <div class="md-tabs">
+                    <div class="md-tabs__nav" data-md-type="secondary">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                home
+                            </span>
+                            <span class="md-tabs__text">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                shopping_bag
+                            </span>
+                            <span class="md-tabs__text">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span
+                                class="md-tabs__icon material-symbols-outlined">
+                                local_shipping
+                            </span>
+                            <span class="md-tabs__text">Tab 3</span>
+                        </button>
+                    </div>
+                    <div
+                        class="md-tabs__page md-tabs__page--selected"
+                        data-md-tab="1">
+                        Tab 1.
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="secondary-tabs" class="md-pane">
+            <div class="md-app-bar">
+                <div class="md-app-bar__headline">
+                    Secondary tabs without icons
+                </div>
+            </div>
+
+            <div class="md-pane__content md-pane__content--fill">
+                <div class="md-tabs">
+                    <div class="md-tabs__nav" data-md-type="secondary">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__text">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__text">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__text">Tab 3</span>
+                        </button>
+                    </div>
+                    <div
+                        class="md-tabs__page md-tabs__page--selected"
+                        data-md-tab="1">
+                        Tab 1.
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TODO: move snackbars to fixed div? -->
+        <section id="snackbars" class="md-pane">
+            <div class="md-app-bar">
+                <h1 class="md-app-bar__headline">Snackbars</h1>
+            </div>
+
+            <div class="md-pane__content flex rows">
+                <button class="md-button" data-md-type="tonal">
+                    Show snackbar without action
+                </button>
+                <div class="md-snackbar">Lorem ipsum dolor sit amet.</div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show snackbar with action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet.
+                    <button class="md-snackbar__action">Close</button>
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar without action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar with action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <button class="md-snackbar__action">Close</button>
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar with long action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    <button
+                        class="md-snackbar__action md-snackbar__action--long">
                         Close
                     </button>
                 </div>
             </div>
+        </section>
 
-            <section id="center-app-bar" class="md-pane">
-                <div class="md-app-bar" data-md-type="center">
-                    <button class="md-app-bar__icon material-symbols-outlined">
-                        arrow_back
-                    </button>
-                    <h1 class="md-app-bar__headline">Center App Bar</h1>
-                    <div class="md-app-bar__trailing">
-                        <button
-                            id="toggle-theme"
-                            class="md-app-bar__icon material-symbols-outlined">
-                            dark_mode
-                        </button>
-                    </div>
+        <section id="miscellaneous" class="md-pane">
+            <div class="md-app-bar">
+                <h1 class="md-app-bar__headline">Miscellaneous</h1>
+            </div>
+
+            <div class="md-pane__content flex rows">
+                <div class="md-checkbox">
+                    <input type="checkbox" id="checkbox-1" name="checkbox-1" />
+                    <label for="checkbox-1">Checkbox 1</label>
                 </div>
-            </section>
-
-            <section id="small-app-bar" class="md-pane">
-                <div class="md-app-bar">
-                    <button class="md-app-bar__icon material-symbols-outlined">
-                        arrow_back
-                    </button>
-                    <h1 class="md-app-bar__headline">Small App Bar</h1>
-                    <div class="md-app-bar__trailing">
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            search
-                        </button>
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            more_vert
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="medium-app-bar" class="md-pane">
-                <div class="md-app-bar" data-md-type="medium">
-                    <button class="md-app-bar__icon material-symbols-outlined">
-                        arrow_back
-                    </button>
-                    <h1 class="md-app-bar__headline">Medium App Bar</h1>
-                    <div class="md-app-bar__trailing">
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            search
-                        </button>
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            more_vert
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="large-app-bar" class="md-pane">
-                <div class="md-app-bar" data-md-type="large">
-                    <button class="md-app-bar__icon material-symbols-outlined">
-                        arrow_back
-                    </button>
-                    <h1 class="md-app-bar__headline">Large App Bar</h1>
-                    <div class="md-app-bar__trailing">
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            search
-                        </button>
-                        <button
-                            class="md-app-bar__icon material-symbols-outlined">
-                            more_vert
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="buttons" class="md-pane">
-                <div class="md-app-bar">
-                    <h1 class="md-app-bar__headline">Buttons</h1>
-                </div>
-
-                <div class="md-pane__content flex rows">
-                    <div class="flex cols center">
-                        <button class="md-button">Button</button>
-                        <button class="md-button">
-                            <span class="material-symbols-outlined">add</span>
-                            Button
-                        </button>
-                        <button class="md-button" disabled>Button</button>
-                        <button class="md-button" disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Button
-                        </button>
-                    </div>
-
-                    <div class="flex cols center">
-                        <button class="md-button" data-md-type="elevated">
-                            Elevated
-                        </button>
-                        <button class="md-button" data-md-type="elevated">
-                            <span class="material-symbols-outlined">add</span>
-                            Elevated
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="elevated"
-                            disabled>
-                            Elevated
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="elevated"
-                            disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Elevated
-                        </button>
-                    </div>
-
-                    <div class="flex cols center">
-                        <button class="md-button" data-md-type="filled">
-                            Filled
-                        </button>
-                        <button class="md-button" data-md-type="filled">
-                            <span class="material-symbols-outlined">add</span>
-                            Filled
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="filled"
-                            disabled>
-                            Filled
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="filled"
-                            disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Filled
-                        </button>
-                    </div>
-
-                    <div class="flex cols center">
-                        <button class="md-button" data-md-type="tonal">
-                            Tonal
-                        </button>
-                        <button class="md-button" data-md-type="tonal">
-                            <span class="material-symbols-outlined">add</span>
-                            Tonal
-                        </button>
-                        <button class="md-button" data-md-type="tonal" disabled>
-                            Tonal
-                        </button>
-                        <button class="md-button" data-md-type="tonal" disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Tonal
-                        </button>
-                    </div>
-
-                    <div class="flex cols center">
-                        <button class="md-button" data-md-type="outlined">
-                            Outlined
-                        </button>
-                        <button class="md-button" data-md-type="outlined">
-                            <span class="material-symbols-outlined">add</span>
-                            Outlined
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="outlined"
-                            disabled>
-                            Outlined
-                        </button>
-                        <button
-                            class="md-button"
-                            data-md-type="outlined"
-                            disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Outlined
-                        </button>
-                    </div>
-
-                    <div class="flex cols center">
-                        <button class="md-button" data-md-type="text">
-                            Text
-                        </button>
-                        <button class="md-button" data-md-type="text">
-                            <span class="material-symbols-outlined">add</span>
-                            Text
-                        </button>
-                        <button class="md-button" data-md-type="text" disabled>
-                            Text
-                        </button>
-                        <button class="md-button" data-md-type="text" disabled>
-                            <span class="material-symbols-outlined">add</span>
-                            Text
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="primary-tabs-icons" class="md-pane">
-                <div class="md-app-bar">
-                    <div class="md-app-bar__headline">
-                        Primary tabs with icons
-                    </div>
-                </div>
-
-                <div class="md-pane__content md-pane__content--fill">
-                    <div class="md-tabs">
-                        <div class="md-tabs__nav" data-md-type="primary">
-                            <button class="md-tabs__button" data-md-tab="1">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    home
-                                </span>
-                                <span class="md-tabs__text">Tab 1</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="2">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    shopping_bag
-                                </span>
-                                <span class="md-tabs__text">Tab 2</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="3">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    local_shipping
-                                </span>
-                                <span class="md-tabs__text">Tab 3</span>
-                            </button>
-                        </div>
-                        <div
-                            class="md-tabs__page md-tabs__page--selected"
-                            data-md-tab="1">
-                            Tab 1.
-                        </div>
-                        <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                        <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="primary-tabs" class="md-pane">
-                <div class="md-app-bar">
-                    <div class="md-app-bar__headline">
-                        Primary tabs without icons
-                    </div>
-                </div>
-
-                <div class="md-pane__content md-pane__content--fill">
-                    <div class="md-tabs">
-                        <div class="md-tabs__nav" data-md-type="primary">
-                            <button class="md-tabs__button" data-md-tab="1">
-                                <span class="md-tabs__text">Tab 1</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="2">
-                                <span class="md-tabs__text">Tab 2</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="3">
-                                <span class="md-tabs__text">Tab 3</span>
-                            </button>
-                        </div>
-                        <div
-                            class="md-tabs__page md-tabs__page--selected"
-                            data-md-tab="1">
-                            Tab 1.
-                        </div>
-                        <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                        <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="secondary-tabs-icons" class="md-pane">
-                <div class="md-app-bar">
-                    <div class="md-app-bar__headline">
-                        Secondary tabs with icons
-                    </div>
-                </div>
-
-                <div class="md-pane__content md-pane__content--fill">
-                    <div class="md-tabs">
-                        <div class="md-tabs__nav" data-md-type="secondary">
-                            <button class="md-tabs__button" data-md-tab="1">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    home
-                                </span>
-                                <span class="md-tabs__text">Tab 1</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="2">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    shopping_bag
-                                </span>
-                                <span class="md-tabs__text">Tab 2</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="3">
-                                <span
-                                    class="md-tabs__icon material-symbols-outlined">
-                                    local_shipping
-                                </span>
-                                <span class="md-tabs__text">Tab 3</span>
-                            </button>
-                        </div>
-                        <div
-                            class="md-tabs__page md-tabs__page--selected"
-                            data-md-tab="1">
-                            Tab 1.
-                        </div>
-                        <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                        <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="secondary-tabs" class="md-pane">
-                <div class="md-app-bar">
-                    <div class="md-app-bar__headline">
-                        Secondary tabs without icons
-                    </div>
-                </div>
-
-                <div class="md-pane__content md-pane__content--fill">
-                    <div class="md-tabs">
-                        <div class="md-tabs__nav" data-md-type="secondary">
-                            <button class="md-tabs__button" data-md-tab="1">
-                                <span class="md-tabs__text">Tab 1</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="2">
-                                <span class="md-tabs__text">Tab 2</span>
-                            </button>
-                            <button class="md-tabs__button" data-md-tab="3">
-                                <span class="md-tabs__text">Tab 3</span>
-                            </button>
-                        </div>
-                        <div
-                            class="md-tabs__page md-tabs__page--selected"
-                            data-md-tab="1">
-                            Tab 1.
-                        </div>
-                        <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                        <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TODO: move snackbars to fixed div? -->
-            <section id="snackbars" class="md-pane">
-                <div class="md-app-bar">
-                    <h1 class="md-app-bar__headline">Snackbars</h1>
-                </div>
-
-                <div class="md-pane__content flex rows">
-                    <button class="md-button" data-md-type="tonal">
-                        Show snackbar without action
-                    </button>
-                    <div class="md-snackbar">Lorem ipsum dolor sit amet.</div>
-
-                    <button class="md-button" data-md-type="tonal">
-                        Show snackbar with action
-                    </button>
-                    <div class="md-snackbar">
-                        Lorem ipsum dolor sit amet.
-                        <button class="md-snackbar__action">Close</button>
-                    </div>
-
-                    <button class="md-button" data-md-type="tonal">
-                        Show long snackbar without action
-                    </button>
-                    <div class="md-snackbar">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-
-                    <button class="md-button" data-md-type="tonal">
-                        Show long snackbar with action
-                    </button>
-                    <div class="md-snackbar">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        <button class="md-snackbar__action">Close</button>
-                    </div>
-
-                    <button class="md-button" data-md-type="tonal">
-                        Show long snackbar with long action
-                    </button>
-                    <div class="md-snackbar">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit.
-                        <button
-                            class="md-snackbar__action md-snackbar__action--long">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="miscellaneous" class="md-pane">
-                <div class="md-app-bar">
-                    <h1 class="md-app-bar__headline">Miscellaneous</h1>
-                </div>
-
-                <div class="md-pane__content flex rows">
-                    <div class="md-checkbox">
+                <div class="md-checkbox">
+                    <div class="md-checkbox__wrapper">
                         <input
                             type="checkbox"
-                            id="checkbox-1"
-                            name="checkbox-1" />
-                        <label for="checkbox-1">Checkbox 1</label>
+                            class="md-checkbox__box"
+                            id="checkbox-2"
+                            name="checkbox-2"
+                            disabled />
                     </div>
-                    <div class="md-checkbox">
-                        <div class="md-checkbox__wrapper">
-                            <input
-                                type="checkbox"
-                                class="md-checkbox__box"
-                                id="checkbox-2"
-                                name="checkbox-2"
-                                disabled />
-                        </div>
-                        <label for="checkbox-2">Checkbox 2</label>
-                    </div>
+                    <label for="checkbox-2">Checkbox 2</label>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
         <div
             class="md-fixed md-fixed--reverse"

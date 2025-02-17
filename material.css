@@ -897,11 +897,9 @@
   background-color: transparent;
 }
 [data-md-theme=light] .md-tabs__button {
-  background-color: rgb(254, 247, 255);
   color: rgb(73, 69, 78);
 }
 [data-md-theme=dark] .md-tabs__button {
-  background-color: rgb(21, 18, 24);
   color: rgb(203, 196, 207);
 }
 .md-tabs__button:not(:disabled) {
@@ -925,9 +923,11 @@
 }
 [data-md-theme=light] .md-tabs__nav {
   border-bottom: 1px solid rgb(203, 196, 207);
+  background-color: rgb(254, 247, 255);
 }
 [data-md-theme=dark] .md-tabs__nav {
   border-bottom: 1px solid rgb(73, 69, 78);
+  background-color: rgb(21, 18, 24);
 }
 .md-tabs__nav[data-md-type=primary] .md-tabs__button {
   display: grid;
