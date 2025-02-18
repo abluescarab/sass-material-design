@@ -1,11 +1,26 @@
 @use "sys" as *;
 
-@function opacity($percent) {
-    @return 100% - $percent;
+@function create-list($start, $end, $step, $prefix: "", $suffix: "") {
+    $list: null;
+    $i: $start;
+
+    @while ($i <= $end) {
+        $value: "#{$prefix}#{$i}#{$suffix}";
+
+        @if ($list == null) {
+            $list: $value;
+        } @else {
+            $list: append($list, $value);
+        }
+
+        $i: $i + $step;
+    }
+
+    @return $list;
 }
 
-@function sp-to-rem($sp) {
-    @return $sp / 16;
+@function opacity($percent) {
+    @return 100% - $percent;
 }
 
 @function mix-color($default, $mix, $state) {
@@ -20,4 +35,8 @@
         $mix,
         opacity(sys("state", $state-name, "state-layer-opacity"))
     );
+}
+
+@function sp-to-rem($sp) {
+    @return $sp / 16;
 }
