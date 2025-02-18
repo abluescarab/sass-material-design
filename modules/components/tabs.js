@@ -4,6 +4,10 @@ export function initialize(container) {
     if (container.dataset.mdTab == undefined) {
         changeTab(container, "", container.getElementsByClassName("md-tabs__page")[0].dataset.mdTab);
     }
+    else {
+        // otherwise ensure tabs are --selected
+        changeTab(container, container.dataset.mdTab, container.dataset.mdTab);
+    }
     container.addEventListener("click", (e) => {
         var _a;
         const button = getParentWithClass(e.target, "md-tabs__button");
@@ -16,9 +20,6 @@ export function initialize(container) {
 }
 function changeTab(container, oldTab, newTab) {
     if (newTab == null) {
-        return;
-    }
-    if (oldTab == newTab) {
         return;
     }
     const [oldButton, oldContent] = getTab(container, oldTab);

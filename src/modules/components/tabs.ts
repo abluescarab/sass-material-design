@@ -12,6 +12,9 @@ export function initialize(container: HTMLElement) {
                 )[0] as HTMLElement
             ).dataset.mdTab
         );
+    } else {
+        // otherwise ensure tabs are --selected
+        changeTab(container, container.dataset.mdTab, container.dataset.mdTab);
     }
 
     container.addEventListener("click", (e) => {
@@ -36,10 +39,6 @@ function changeTab(
     newTab: string | undefined
 ) {
     if (newTab == null) {
-        return;
-    }
-
-    if (oldTab == newTab) {
         return;
     }
 
