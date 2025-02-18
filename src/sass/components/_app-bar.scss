@@ -9,7 +9,7 @@
     $headline-margin: 0 16px;
 
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: $gap;
     box-sizing: border-box;
     padding: $gap;

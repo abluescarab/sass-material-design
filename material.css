@@ -237,7 +237,7 @@
 /* components */
 .md-app-bar {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 4px;
   box-sizing: border-box;
   padding: 4px;
