@@ -233,7 +233,6 @@
 .md-pane {
   overflow: hidden;
   margin: 24px;
-  border-radius: 16px;
   gap: 8px;
 }
 [data-md-theme=light] .md-pane[data-md-background=primary] {
@@ -283,6 +282,9 @@
 [data-md-theme=dark] .md-pane[data-md-background=surface-container] {
   background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
+}
+.md-pane[data-md-background] {
+  border-radius: 16px;
 }
 .md-pane__content {
   display: flex;
