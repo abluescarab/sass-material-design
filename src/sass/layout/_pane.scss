@@ -8,6 +8,7 @@
     overflow: hidden;
     margin: $padding;
     border-radius: sys("shape", "corner", "large");
+    gap: 8px;
 
     @include themes.themify() {
         @include container-backgrounds;
