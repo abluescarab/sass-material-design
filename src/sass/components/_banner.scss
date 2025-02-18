@@ -24,6 +24,7 @@
     &__icon {
         $icon-size: 56px;
 
+        user-select: none;
         font-size: $icon-size;
         @include square($icon-size);
         grid-column: 1;

@@ -385,6 +385,9 @@
   display: grid;
 }
 .md-banner__icon {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-size: 56px;
   width: 56px;
   height: 56px;
