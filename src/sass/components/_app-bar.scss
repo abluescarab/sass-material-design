@@ -25,6 +25,7 @@
         border: 0;
         font-size: calc($button-size / 2);
         border-radius: sys("shape", "corner", "full");
+        user-select: none;
         @include square($button-size);
 
         @include themes.themify() {
