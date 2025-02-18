@@ -868,14 +868,20 @@
 }
 
 .md-checkbox {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 [data-md-theme=light] .md-checkbox {
   color: rgb(29, 27, 32);
 }
 [data-md-theme=dark] .md-checkbox {
   color: rgb(231, 224, 232);
+}
+.md-checkbox input[type=checkbox] {
+  grid-column: 1;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
 }
 [data-md-theme=light] .md-checkbox input[type=checkbox] {
   accent-color: rgb(104, 84, 142);
@@ -890,7 +896,9 @@
   accent-color: rgba(231, 224, 232, 0.38);
 }
 .md-checkbox label {
+  grid-column: 2;
   padding-left: 16px;
+  margin-top: -2px;
 }
 
 .md-fab {

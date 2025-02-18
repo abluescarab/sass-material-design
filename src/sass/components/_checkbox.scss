@@ -4,8 +4,8 @@
 .md-checkbox {
     $parent: &;
 
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto 1fr;
 
     @include themes.themify() {
         color: themes.color("on-surface");
@@ -14,6 +14,9 @@
     // restrict to only checkboxes
     input[type="checkbox"] {
         $input: &;
+
+        grid-column: 1;
+        @include square(18px);
 
         @include themes.themify() {
             accent-color: themes.color("primary");
@@ -29,6 +32,9 @@
 
     // restrict to only labels
     label {
+        grid-column: 2;
         padding-left: 16px;
+        // align with checkbox at first baseline
+        margin-top: -2px;
     }
 }
