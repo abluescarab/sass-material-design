@@ -10,9 +10,8 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     gap: $padding;
-    max-width: calc(100% - $padding * 2);
-    width: max-content;
-    @include props($padding, padding, margin);
+    padding: $padding;
+    flex: 1 1 200px;
     border-radius: sys("shape", "corner", "medium");
 
     @include themes.themify() {
