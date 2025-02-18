@@ -146,32 +146,56 @@
   background-color: rgb(242, 236, 244);
   color: rgb(29, 27, 32);
 }
+.md-body[data-md-theme=light][data-md-background=primary] {
+  background-color: rgb(235, 221, 255);
+  color: rgb(35, 15, 70);
+}
+.md-body[data-md-theme=light][data-md-background=secondary] {
+  background-color: rgb(233, 222, 248);
+  color: rgb(31, 24, 43);
+}
+.md-body[data-md-theme=light][data-md-background=tertiary] {
+  background-color: rgb(255, 217, 225);
+  color: rgb(49, 16, 27);
+}
+.md-body[data-md-theme=light][data-md-background=error] {
+  background-color: rgb(255, 218, 214);
+  color: rgb(65, 0, 2);
+}
+.md-body[data-md-theme=light][data-md-background=surface] {
+  background-color: rgb(254, 247, 255);
+  color: rgb(29, 27, 32);
+}
+.md-body[data-md-theme=light][data-md-background=surface-container] {
+  background-color: rgb(242, 236, 244);
+  color: rgb(29, 27, 32);
+}
 .md-body[data-md-theme=dark] {
   background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
-.md-body[data-md-color=surface][data-md-theme=light] {
-  background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
+.md-body[data-md-theme=dark][data-md-background=primary] {
+  background-color: rgb(79, 61, 116);
+  color: rgb(235, 221, 255);
 }
-.md-body[data-md-color=surface][data-md-theme=dark] {
+.md-body[data-md-theme=dark][data-md-background=secondary] {
+  background-color: rgb(75, 67, 88);
+  color: rgb(233, 222, 248);
+}
+.md-body[data-md-theme=dark][data-md-background=tertiary] {
+  background-color: rgb(100, 59, 70);
+  color: rgb(255, 217, 225);
+}
+.md-body[data-md-theme=dark][data-md-background=error] {
+  background-color: rgb(147, 0, 10);
+  color: rgb(255, 218, 214);
+}
+.md-body[data-md-theme=dark][data-md-background=surface] {
   background-color: rgb(21, 18, 24);
   color: rgb(231, 224, 232);
 }
-.md-body[data-md-color=surface-variant][data-md-theme=light] {
-  background-color: rgb(231, 224, 235);
-  color: rgb(73, 69, 78);
-}
-.md-body[data-md-color=surface-variant][data-md-theme=dark] {
-  background-color: rgb(73, 69, 78);
-  color: rgb(203, 196, 207);
-}
-.md-body[data-md-color=background][data-md-theme=light] {
-  background-color: rgb(254, 247, 255);
-  color: rgb(29, 27, 32);
-}
-.md-body[data-md-color=background][data-md-theme=dark] {
-  background-color: rgb(21, 18, 24);
+.md-body[data-md-theme=dark][data-md-background=surface-container] {
+  background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
 
@@ -210,13 +234,54 @@
   overflow: hidden;
   margin: 24px;
   border-radius: 16px;
+  gap: 8px;
 }
-[data-md-theme=light] .md-pane {
+[data-md-theme=light] .md-pane[data-md-background=primary] {
+  background-color: rgb(235, 221, 255);
+  color: rgb(35, 15, 70);
+}
+[data-md-theme=light] .md-pane[data-md-background=secondary] {
+  background-color: rgb(233, 222, 248);
+  color: rgb(31, 24, 43);
+}
+[data-md-theme=light] .md-pane[data-md-background=tertiary] {
+  background-color: rgb(255, 217, 225);
+  color: rgb(49, 16, 27);
+}
+[data-md-theme=light] .md-pane[data-md-background=error] {
+  background-color: rgb(255, 218, 214);
+  color: rgb(65, 0, 2);
+}
+[data-md-theme=light] .md-pane[data-md-background=surface] {
   background-color: rgb(254, 247, 255);
   color: rgb(29, 27, 32);
 }
-[data-md-theme=dark] .md-pane {
+[data-md-theme=light] .md-pane[data-md-background=surface-container] {
+  background-color: rgb(242, 236, 244);
+  color: rgb(29, 27, 32);
+}
+[data-md-theme=dark] .md-pane[data-md-background=primary] {
+  background-color: rgb(79, 61, 116);
+  color: rgb(235, 221, 255);
+}
+[data-md-theme=dark] .md-pane[data-md-background=secondary] {
+  background-color: rgb(75, 67, 88);
+  color: rgb(233, 222, 248);
+}
+[data-md-theme=dark] .md-pane[data-md-background=tertiary] {
+  background-color: rgb(100, 59, 70);
+  color: rgb(255, 217, 225);
+}
+[data-md-theme=dark] .md-pane[data-md-background=error] {
+  background-color: rgb(147, 0, 10);
+  color: rgb(255, 218, 214);
+}
+[data-md-theme=dark] .md-pane[data-md-background=surface] {
   background-color: rgb(21, 18, 24);
+  color: rgb(231, 224, 232);
+}
+[data-md-theme=dark] .md-pane[data-md-background=surface-container] {
+  background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
 .md-pane__content {

@@ -48,5 +48,10 @@ $themes: (
 
 @mixin colorify($color, $important: false) {
     background-color: color($color) if($important, !important, null);
-    color: color("on-#{$color}") if($important, !important, null);
+
+    @if $color == "surface-container" {
+        color: color("on-surface") if($important, !important, null);
+    } @else {
+        color: color("on-#{$color}") if($important, !important, null);
+    }
 }

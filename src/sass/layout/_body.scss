@@ -1,3 +1,4 @@
+@use "../abstracts" as *;
 @use "../themes";
 
 .md-body {
@@ -6,15 +7,7 @@
     flex-direction: column;
 
     @include themes.themify(true) {
-        background-color: themes.color("surface-container");
-        color: themes.color("on-surface");
-    }
-
-    @each $color in "surface", "surface-variant", "background" {
-        &[data-md-color="#{$color}"] {
-            @include themes.themify(true) {
-                @include themes.colorify($color);
-            }
-        }
+        @include themes.colorify("surface-container");
+        @include container-backgrounds;
     }
 }

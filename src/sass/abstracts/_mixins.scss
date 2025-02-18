@@ -2,6 +2,32 @@
 @use "sys" as *;
 @use "../themes";
 
+@mixin container-backgrounds {
+    &[data-md-background="primary"] {
+        @include themes.colorify("primary-container");
+    }
+
+    &[data-md-background="secondary"] {
+        @include themes.colorify("secondary-container");
+    }
+
+    &[data-md-background="tertiary"] {
+        @include themes.colorify("tertiary-container");
+    }
+
+    &[data-md-background="error"] {
+        @include themes.colorify("error-container");
+    }
+
+    &[data-md-background="surface"] {
+        @include themes.colorify("surface");
+    }
+
+    &[data-md-background="surface-container"] {
+        @include themes.colorify("surface-container");
+    }
+}
+
 @mixin divider {
     border-bottom: 1px solid themes.color("outline-variant");
 }

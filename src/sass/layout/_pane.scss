@@ -10,7 +10,7 @@
     border-radius: sys("shape", "corner", "large");
 
     @include themes.themify() {
-        @include themes.colorify("surface");
+        @include container-backgrounds;
     }
 
     &__content {
