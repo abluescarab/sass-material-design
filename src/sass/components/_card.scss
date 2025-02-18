@@ -11,7 +11,7 @@
     box-sizing: border-box;
     gap: $padding;
     padding: $padding;
-    flex: 1 1 200px;
+    min-width: 200px;
     border-radius: sys("shape", "corner", "medium");
 
     @include themes.themify() {
