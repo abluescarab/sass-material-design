@@ -19,6 +19,7 @@
         flex-wrap: wrap;
         flex: 1;
         padding: $padding;
+        gap: 8px;
 
         &--fill {
             padding: 0;
