@@ -9,7 +9,7 @@
     $headline-margin: 0 16px;
 
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: $gap;
     box-sizing: border-box;
     padding: $gap;
@@ -50,6 +50,7 @@
         grid-column: 3;
         display: flex;
         flex-direction: row;
+        justify-content: end;
         gap: $gap;
 
         #{$parent}__icon {

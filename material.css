@@ -236,7 +236,7 @@
 /* components */
 .md-app-bar {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 4px;
   box-sizing: border-box;
   padding: 4px;
@@ -311,6 +311,7 @@
   grid-column: 3;
   display: flex;
   flex-direction: row;
+  justify-content: end;
   gap: 4px;
 }
 [data-md-theme=light] .md-app-bar__trailing .md-app-bar__icon {
