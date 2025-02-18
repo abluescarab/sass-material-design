@@ -2,25 +2,27 @@
 @use "sys" as *;
 @use "../themes";
 
-@mixin square($size) {
-    width: $size;
-    height: $size;
-    line-height: $size;
+@mixin divider {
+    border-bottom: 1px solid themes.color("outline-variant");
 }
 
-@mixin side-radius($side, $value) {
-    @if ($side == "left") {
-        border-top-left-radius: #{$value};
-        border-bottom-left-radius: #{$value};
-    } @else if($side == "right") {
-        border-top-right-radius: #{$value};
-        border-bottom-right-radius: #{$value};
-    } @else if($side == "top") {
-        border-top-left-radius: #{$value};
-        border-top-right-radius: #{$value};
-    } @else if($side == "bottom") {
-        border-bottom-left-radius: #{$value};
-        border-bottom-right-radius: #{$value};
+@mixin elevation($elevation, $negative-offset: false) {
+    $offset: sys("elevation", "level#{$elevation}");
+    box-shadow: rgba(themes.color("shadow"), 0.2) 0
+        if($negative-offset, -$offset, $offset) floor($offset * 1.5) 0;
+}
+
+@mixin font($type) {
+    &--large {
+        @include font-styling("#{$type}-large");
+    }
+
+    &--medium {
+        @include font-styling("#{$type}-medium");
+    }
+
+    &--small {
+        @include font-styling("#{$type}-small");
     }
 }
 
@@ -39,45 +41,23 @@
     }
 }
 
-@mixin font($type) {
-    &--large {
-        @include font-styling("#{$type}-large");
-    }
+@mixin indicator($color, $primary: false) {
+    $height: sys("state", "focus-indicator", "thickness");
 
-    &--medium {
-        @include font-styling("#{$type}-medium");
-    }
+    @if ($primary) {
+        $radius: sys("shape", "corner", "full");
 
-    &--small {
-        @include font-styling("#{$type}-small");
-    }
-}
-
-@mixin mix-states(
-    $background,
-    $mix,
-    $set-color: false,
-    $set-state-color: true,
-    $states...
-) {
-    @if (length($states) == 0) {
-        $states: "hover", "focus", "active";
-    }
-
-    background-color: $background;
-
-    @if ($set-color) {
-        color: $mix;
-    }
-
-    @each $state in $states {
-        &:#{$state} {
-            @if ($set-state-color) {
-                color: $mix;
-            }
-
-            background-color: mix-color($background, $mix, $state);
+        &::after {
+            content: "";
+            height: $height;
+            display: block;
+            border-radius: $radius $radius 0 0;
+            background-color: $color;
+            min-width: 24px;
+            margin: 0 2px;
         }
+    } @else {
+        box-shadow: inset 0px $height * -1 0px 0px $color;
     }
 }
 
@@ -110,34 +90,54 @@
     }
 }
 
-@mixin elevation($elevation, $negative-offset: false) {
-    $offset: sys("elevation", "level#{$elevation}");
-    box-shadow: rgba(themes.color("shadow"), 0.2) 0
-        if($negative-offset, -$offset, $offset) floor($offset * 1.5) 0;
-}
+@mixin mix-states(
+    $background,
+    $mix,
+    $set-color: false,
+    $set-state-color: true,
+    $states...
+) {
+    @if (length($states) == 0) {
+        $states: "hover", "focus", "active";
+    }
 
-@mixin indicator($color, $primary: false) {
-    $height: sys("state", "focus-indicator", "thickness");
+    background-color: $background;
 
-    @if ($primary) {
-        $radius: sys("shape", "corner", "full");
+    @if ($set-color) {
+        color: $mix;
+    }
 
-        &::after {
-            content: "";
-            height: $height;
-            display: block;
-            border-radius: $radius $radius 0 0;
-            background-color: $color;
-            min-width: 24px;
-            margin: 0 2px;
+    @each $state in $states {
+        &:#{$state} {
+            @if ($set-state-color) {
+                color: $mix;
+            }
+
+            background-color: mix-color($background, $mix, $state);
         }
-    } @else {
-        box-shadow: inset 0px $height * -1 0px 0px $color;
     }
 }
 
-@mixin divider {
-    border-bottom: 1px solid themes.color("outline-variant");
+@mixin side-radius($side, $value) {
+    @if ($side == "left") {
+        border-top-left-radius: #{$value};
+        border-bottom-left-radius: #{$value};
+    } @else if($side == "right") {
+        border-top-right-radius: #{$value};
+        border-bottom-right-radius: #{$value};
+    } @else if($side == "top") {
+        border-top-left-radius: #{$value};
+        border-top-right-radius: #{$value};
+    } @else if($side == "bottom") {
+        border-bottom-left-radius: #{$value};
+        border-bottom-right-radius: #{$value};
+    }
+}
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+    line-height: $size;
 }
 
 @mixin toggle-styling($disabled-overrides: ()) {
