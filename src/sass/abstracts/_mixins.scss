@@ -116,13 +116,7 @@
     }
 }
 
-@mixin mix-states(
-    $background,
-    $mix,
-    $set-color: false,
-    $set-state-color: true,
-    $states...
-) {
+@mixin mix-states($background, $mix, $set-color, $set-state-color, $states...) {
     @if (length($states) == 0) {
         $states: "hover", "focus", "active";
     }

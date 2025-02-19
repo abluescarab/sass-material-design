@@ -40,6 +40,7 @@
                 @include mix-states(
                     themes.color("surface-container-low"),
                     themes.color("primary"),
+                    true,
                     true
                 );
                 @include elevation(1);
@@ -51,6 +52,7 @@
                 @include mix-states(
                     themes.color("primary"),
                     themes.color("on-primary"),
+                    true,
                     true
                 );
 
@@ -65,6 +67,7 @@
                 @include mix-states(
                     themes.color("secondary-container"),
                     themes.color("on-secondary-container"),
+                    true,
                     true
                 );
 
@@ -85,7 +88,13 @@
                         ),
                 )
             ) {
-                @include mix-states(transparent, themes.color("primary"), true);
+                @include mix-states(
+                    transparent,
+                    themes.color("primary"),
+                    true,
+                    true
+                );
+
                 border: 1px solid themes.color("outline");
             }
         }

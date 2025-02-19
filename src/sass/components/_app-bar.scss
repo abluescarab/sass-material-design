@@ -30,7 +30,12 @@
 
         @include themes.themify() {
             color: themes.color("on-surface");
-            @include mix-states(transparent, themes.color("on-surface"));
+            @include mix-states(
+                transparent,
+                themes.color("on-surface"),
+                false,
+                true
+            );
         }
     }
 

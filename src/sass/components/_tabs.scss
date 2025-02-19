@@ -73,6 +73,7 @@
                         @include mix-states(
                             transparent,
                             themes.color("primary"),
+                            true,
                             true
                         );
 
@@ -115,7 +116,9 @@
                 @include themes.themify() {
                     @include mix-states(
                         transparent,
-                        themes.color("on-surface")
+                        themes.color("on-surface"),
+                        false,
+                        true
                     );
 
                     &--selected {

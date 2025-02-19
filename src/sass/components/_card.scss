@@ -20,7 +20,8 @@
             @include mix-states(
                 themes.color("surface-container-low"),
                 themes.color("on-surface"),
-                $set-state-color: false
+                false,
+                false
             );
 
             @include elevation(1);
@@ -41,7 +42,8 @@
             @include mix-states(
                 themes.color("surface-container-highest"),
                 themes.color("on-surface"),
-                $set-state-color: false
+                false,
+                false
             );
         }
 
@@ -51,7 +53,8 @@
             @include mix-states(
                 themes.color("surface"),
                 themes.color("on-surface"),
-                $set-state-color: false
+                false,
+                false
             );
         }
 

@@ -19,6 +19,7 @@
         @include mix-states(
             themes.color("surface-container-high"),
             themes.color("primary"),
+            true,
             true
         );
     }
@@ -57,6 +58,7 @@
             @include mix-states(
                 themes.color("surface-container-low"),
                 themes.color("primary"),
+                true,
                 true
             );
 
@@ -116,6 +118,7 @@
                 @include mix-states(
                     themes.color("#{$color}-container"),
                     themes.color("on-#{$color}-container"),
+                    true,
                     true
                 );
             }
