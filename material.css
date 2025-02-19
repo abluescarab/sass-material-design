@@ -662,6 +662,7 @@
 [data-md-theme=light] .md-button[data-md-type=outlined]:disabled {
   color: rgba(29, 27, 32, 0.38);
   background-color: transparent;
+  border: 1px solid rgba(29, 27, 32, 0.12);
 }
 [data-md-theme=light] .md-button[data-md-type=outlined]:not(:disabled) {
   background-color: transparent;
@@ -692,7 +693,6 @@
 }
 [data-md-theme=light] .md-button[data-md-type=text]:not(:disabled) {
   background-color: transparent;
-  color: rgb(104, 84, 142);
   color: rgb(104, 84, 142);
 }
 [data-md-theme=light] .md-button[data-md-type=text]:not(:disabled):hover {
@@ -777,6 +777,7 @@
 [data-md-theme=dark] .md-button[data-md-type=outlined]:disabled {
   color: rgba(231, 224, 232, 0.38);
   background-color: transparent;
+  border: 1px solid rgba(231, 224, 232, 0.12);
 }
 [data-md-theme=dark] .md-button[data-md-type=outlined]:not(:disabled) {
   background-color: transparent;
@@ -807,7 +808,6 @@
 }
 [data-md-theme=dark] .md-button[data-md-type=text]:not(:disabled) {
   background-color: transparent;
-  color: rgb(211, 188, 253);
   color: rgb(211, 188, 253);
 }
 [data-md-theme=dark] .md-button[data-md-type=text]:not(:disabled):hover {

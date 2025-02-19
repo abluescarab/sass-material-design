@@ -78,6 +78,11 @@
             @include toggle-styling(
                 (
                     background-color: transparent,
+                    border: 1px solid
+                        rgba(
+                            themes.color("on-surface"),
+                            sys("state", "disabled", "outline-opacity")
+                        ),
                 )
             ) {
                 @include mix-states(transparent, themes.color("primary"), true);
@@ -97,8 +102,12 @@
                     background-color: transparent,
                 )
             ) {
-                @include mix-states(transparent, themes.color("primary"), true);
-                color: themes.color("primary");
+                @include mix-states(
+                    transparent,
+                    themes.color("primary"),
+                    true,
+                    true
+                );
             }
         }
     }
