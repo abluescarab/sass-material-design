@@ -2,6 +2,7 @@
 
 /* base */
 @use "base/reset";
+@use "base/fonts";
 @use "base/typography";
 
 /* layout */
@@ -16,6 +17,7 @@
 @use "components/card";
 @use "components/checkbox";
 @use "components/fab";
+@use "components/icon-button";
 @use "components/snackbar";
 @use "components/tabs";
 

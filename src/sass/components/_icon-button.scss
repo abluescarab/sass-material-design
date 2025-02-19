@@ -1,0 +1,97 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-icon-button {
+    $parent: &;
+
+    @include square(40px);
+    border: 0;
+    border-radius: sys("shape", "corner", "full");
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+
+    &:disabled {
+        cursor: default;
+    }
+
+    @include themes.themify() {
+        @include mix-states(
+            transparent,
+            themes.color("on-surface-variant"),
+            true
+        );
+
+        &:disabled {
+            color: rgba(
+                themes.color("on-surface"),
+                sys("state", "disabled", "label-opacity")
+            );
+        }
+
+        &--selected {
+            @include mix-states(transparent, themes.color("primary"), true);
+            font-variation-settings: "FILL" 1;
+        }
+
+        &[data-md-type="filled"] {
+            background-color: themes.color("surface-container-highest");
+
+            &--selected {
+            }
+        }
+
+        &[data-md-type="tonal"] {
+            &--selected {
+            }
+        }
+
+        &[data-md-type="outlined"] {
+            &--selected {
+            }
+        }
+
+        // @include toggle-styling(
+        //     (
+        //         background-color: transparent,
+        //     )
+        // ) {
+        //     @include mix-states(
+        //         transparent,
+        //         themes.color("on-surface-variant"),
+        //         true
+        //     );
+        // }
+
+        // &--selected {
+        //     font-variation-settings: "FILL" 1;
+
+        //     @include toggle-styling(
+        //         (
+        //             background-color: transparent,
+        //         )
+        //     ) {
+        //         @include mix-states(transparent, themes.color("primary"), true);
+        //     }
+        // }
+
+        // &[data-md-type="filled"] {
+        //     background-color: themes.color("surface-container-highest");
+        // }
+
+        // &[data-md-type="tonal"] {
+        // }
+
+        // &[data-md-type="outlined"] {
+        // }
+    }
+
+    // &:disabled {
+    //     @include themes.themify() {
+    //         color: rgba(
+    //             themes.color("on-surface"),
+    //             sys("state", "disabled", "label-opacity")
+    //         );
+    //     }
+    // }
+}
