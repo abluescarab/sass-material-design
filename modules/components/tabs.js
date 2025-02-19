@@ -1,4 +1,5 @@
 import { getParentWithClass } from "../utils.js";
+// TODO: change container -> tabs or something similar
 export function initialize(container) {
     // set default tab if not given
     if (container.dataset.mdTab == undefined) {

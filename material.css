@@ -1849,5 +1849,31 @@
   display: block;
 }
 
+.md-tree,
+.md-tree ul,
+.md-tree ol {
+  list-style-type: none;
+}
+.md-tree__text {
+  height: 20px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.md-tree[data-md-margin=small] .md-tree__subtree {
+  margin-left: 4px;
+}
+.md-tree[data-md-margin=medium] .md-tree__subtree {
+  margin-left: 8px;
+}
+.md-tree[data-md-margin=large] .md-tree__subtree {
+  margin-left: 16px;
+}
+.md-tree[data-md-margin=extra-large] .md-tree__subtree {
+  margin-left: 32px;
+}
+
 /* pages */
 /* themes */

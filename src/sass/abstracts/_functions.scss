@@ -5,7 +5,7 @@
     $i: $start;
 
     @while ($i <= $end) {
-        $value: "#{$prefix}#{$i}#{$suffix}";
+        $value: #{$prefix}#{$i}#{$suffix};
 
         @if ($list == null) {
             $list: $value;

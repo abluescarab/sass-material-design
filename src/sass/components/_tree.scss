@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-tree {
+    $parent: &;
+    $margins: (
+        small: 4px,
+        medium: 8px,
+        large: 16px,
+        extra-large: 32px,
+    );
+
+    &,
+    ul,
+    ol {
+        list-style-type: none;
+    }
+
+    &__text {
+        height: 20px;
+        line-height: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    @each $name, $size in $margins {
+        &[data-md-margin="#{$name}"] {
+            #{$parent}__subtree {
+                margin-left: $size;
+            }
+        }
+    }
+}
