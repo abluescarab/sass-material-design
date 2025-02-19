@@ -160,7 +160,7 @@
     line-height: $size;
 }
 
-@mixin toggle-styling($disabled-overrides: ()) {
+@mixin enabled-styling($disabled-overrides: ()) {
     &:disabled {
         @if (not map-has-key($disabled-overrides, "background-color")) {
             background-color: rgba(

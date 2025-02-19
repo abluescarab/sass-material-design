@@ -36,7 +36,7 @@
 
     @include themes.themify() {
         &[data-md-type="elevated"] {
-            @include toggle-styling() {
+            @include enabled-styling() {
                 @include mix-states(
                     themes.color("surface-container-low"),
                     themes.color("primary"),
@@ -48,7 +48,7 @@
         }
 
         &[data-md-type="filled"] {
-            @include toggle-styling() {
+            @include enabled-styling() {
                 @include mix-states(
                     themes.color("primary"),
                     themes.color("on-primary"),
@@ -63,7 +63,7 @@
         }
 
         &[data-md-type="tonal"] {
-            @include toggle-styling() {
+            @include enabled-styling() {
                 @include mix-states(
                     themes.color("secondary-container"),
                     themes.color("on-secondary-container"),
@@ -78,7 +78,7 @@
         }
 
         &[data-md-type="outlined"] {
-            @include toggle-styling(
+            @include enabled-styling(
                 (
                     background-color: transparent,
                     border: 1px solid
@@ -106,7 +106,7 @@
                 padding-right: 16px;
             }
 
-            @include toggle-styling(
+            @include enabled-styling(
                 (
                     background-color: transparent,
                 )
