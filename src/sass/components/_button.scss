@@ -3,7 +3,6 @@
 
 .md-button {
     $parent: &;
-    $gap: 8px;
 
     display: flex;
     flex-direction: row;
@@ -13,19 +12,22 @@
     line-height: 40px;
     width: max-content;
     padding: 0 24px;
-    gap: $gap;
+    gap: 8px;
     border: 0;
     border-radius: sys("shape", "corner", "full");
 
     @include font-styling("label-large");
     cursor: pointer;
 
+    &:has(&__icon) {
+        padding-left: 16px;
+    }
+
     &__icon {
         $icon-size: 18px;
 
         @include square($icon-size);
         font-size: $icon-size;
-        margin-left: -$gap;
     }
 
     &:disabled {
@@ -84,6 +86,12 @@
         }
 
         &[data-md-type="text"] {
+            padding: 12px;
+
+            &:has(#{$parent}__icon) {
+                padding-right: 16px;
+            }
+
             @include toggle-styling(
                 (
                     background-color: transparent,

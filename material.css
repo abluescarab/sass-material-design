@@ -521,12 +521,14 @@
   font-weight: 500;
   cursor: pointer;
 }
+.md-button:has(.md-button__icon) {
+  padding-left: 16px;
+}
 .md-button__icon {
   width: 18px;
   height: 18px;
   line-height: 18px;
   font-size: 18px;
-  margin-left: -8px;
 }
 .md-button:disabled {
   cursor: default;
@@ -618,6 +620,12 @@
 [data-md-theme=light] .md-button[data-md-type=outlined]:not(:disabled):active {
   color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
+}
+[data-md-theme=light] .md-button[data-md-type=text] {
+  padding: 12px;
+}
+[data-md-theme=light] .md-button[data-md-type=text]:has(.md-button__icon) {
+  padding-right: 16px;
 }
 [data-md-theme=light] .md-button[data-md-type=text]:disabled {
   color: rgba(29, 27, 32, 0.38);
@@ -727,6 +735,12 @@
 [data-md-theme=dark] .md-button[data-md-type=outlined]:not(:disabled):active {
   color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
+}
+[data-md-theme=dark] .md-button[data-md-type=text] {
+  padding: 12px;
+}
+[data-md-theme=dark] .md-button[data-md-type=text]:has(.md-button__icon) {
+  padding-right: 16px;
 }
 [data-md-theme=dark] .md-button[data-md-type=text]:disabled {
   color: rgba(231, 224, 232, 0.38);
