@@ -34,11 +34,11 @@
     /* Support for IE. */
     font-feature-settings: "liga";
 
-    &[data-md-type="rounded"] {
+    &[data-md-symbols="rounded"] {
         font-family: "Material Symbols Rounded";
     }
 
-    &[data-md-type="sharp"] {
+    &[data-md-symbols="sharp"] {
         font-family: "Material Symbols Sharp";
     }
 }

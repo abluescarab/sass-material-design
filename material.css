@@ -70,10 +70,10 @@
   /* Support for IE. */
   font-feature-settings: "liga";
 }
-.md-symbol[data-md-type=rounded] {
+.md-symbol[data-md-symbols=rounded] {
   font-family: "Material Symbols Rounded";
 }
-.md-symbol[data-md-type=sharp] {
+.md-symbol[data-md-symbols=sharp] {
   font-family: "Material Symbols Sharp";
 }
 
