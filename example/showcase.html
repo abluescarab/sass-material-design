@@ -5,17 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Material Design Showcase</title>
 
-        <!-- Google styles -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <!-- <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" /> -->
-        <!-- includes all icons-->
-        <!-- <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
-
         <!-- Project styles -->
         <link rel="stylesheet" href="../material.css" />
 
@@ -560,56 +549,6 @@
             </div>
         </section>
 
-        <section
-            id="miscellaneous"
-            class="md-pane"
-            data-md-background="surface">
-            <div class="md-app-bar">
-                <h1 class="md-app-bar__headline">Miscellaneous</h1>
-            </div>
-
-            <div class="md-pane__content flex rows">
-                <div class="md-checkbox">
-                    <input type="checkbox" id="checkbox-1" name="checkbox-1" />
-                    <label for="checkbox-1">Checkbox 1</label>
-                </div>
-                <div class="md-checkbox">
-                    <div class="md-checkbox__wrapper">
-                        <input
-                            type="checkbox"
-                            class="md-checkbox__box"
-                            id="checkbox-2"
-                            name="checkbox-2"
-                            disabled />
-                    </div>
-                    <label for="checkbox-2">Checkbox 2</label>
-                </div>
-            </div>
-        </section>
-
-        <div
-            id="fab-container"
-            class="md-fixed"
-            data-md-lr="right"
-            data-md-tb="bottom"
-            data-md-direction="vertical">
-            <button
-                id="toggle-theme"
-                class="md-fab md-fab--low"
-                data-md-size="small"
-                data-md-color="secondary">
-                <span class="md-fab__icon md-symbol"> dark_mode </span>
-            </button>
-            <button
-                id="fab"
-                class="md-fab"
-                data-md-size="extended"
-                data-md-color="primary">
-                <span class="md-fab__icon md-symbol">arrow_upward</span>
-                <span class="md-fab__text">Top</span>
-            </button>
-        </div>
-
         <section id="cards">
             <div class="md-pane" data-md-background="surface">
                 <div class="md-app-bar">
@@ -677,6 +616,56 @@
                 </div>
             </div>
         </section>
+
+        <section
+            id="miscellaneous"
+            class="md-pane"
+            data-md-background="surface">
+            <div class="md-app-bar">
+                <h1 class="md-app-bar__headline">Miscellaneous</h1>
+            </div>
+
+            <div class="md-pane__content flex rows">
+                <div class="md-checkbox">
+                    <input type="checkbox" id="checkbox-1" name="checkbox-1" />
+                    <label for="checkbox-1">Checkbox 1</label>
+                </div>
+                <div class="md-checkbox">
+                    <div class="md-checkbox__wrapper">
+                        <input
+                            type="checkbox"
+                            class="md-checkbox__box"
+                            id="checkbox-2"
+                            name="checkbox-2"
+                            disabled />
+                    </div>
+                    <label for="checkbox-2">Checkbox 2</label>
+                </div>
+            </div>
+        </section>
+
+        <div
+            id="fab-container"
+            class="md-fixed"
+            data-md-lr="right"
+            data-md-tb="bottom"
+            data-md-direction="vertical">
+            <button
+                id="toggle-theme"
+                class="md-fab md-fab--low"
+                data-md-size="small"
+                data-md-color="secondary">
+                <span class="md-fab__icon md-symbol"> dark_mode </span>
+            </button>
+            <button
+                id="fab"
+                class="md-fab"
+                data-md-size="extended"
+                data-md-color="primary">
+                <span class="md-fab__icon md-symbol">arrow_upward</span>
+                <span class="md-fab__text">Top</span>
+            </button>
+        </div>
 
         <!-- TODO: implement up/down arrows on panes -->
         <script type="module">
