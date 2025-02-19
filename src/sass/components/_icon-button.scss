@@ -49,6 +49,12 @@
         }
     }
 
+    // not in MD3 specs
+    &--small {
+        @include square(20px);
+        font-size: 16px;
+    }
+
     @include themes.themify() {
         &[data-md-type="filled"] {
             @include enabled-styling() {
