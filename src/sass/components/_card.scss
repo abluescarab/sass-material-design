@@ -3,14 +3,13 @@
 
 .md-card {
     $parent: &;
-    $padding: 16px;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     box-sizing: border-box;
-    gap: $padding;
-    padding: $padding;
+    gap: 8px;
+    padding: 16px;
     min-width: 200px;
     border-radius: sys("shape", "corner", "medium");
 
@@ -62,13 +61,5 @@
                 sys("state", "disabled", "label-opacity")
             );
         }
-    }
-
-    &__row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        // TODO: keep gap?
-        gap: 8px;
     }
 }
