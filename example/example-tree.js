@@ -40,6 +40,5 @@ const exampleTree = Object.freeze({
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {
-    const element = document.getElementById("example-tree");
-    populate(element, exampleTree);
+    populate(document.getElementById("example-tree"), exampleTree);
 });
