@@ -6,7 +6,7 @@ function createButton() {
         var _a;
         const el = e.currentTarget;
         const expand = el.innerText == "add";
-        toggle((_a = el.parentElement) === null || _a === void 0 ? void 0 : _a.nextElementSibling, expand);
+        toggleAll((_a = el.parentElement) === null || _a === void 0 ? void 0 : _a.nextElementSibling, expand, false);
     });
     return button;
 }
@@ -24,15 +24,17 @@ function initializeTree(element) {
         }
     }
 }
-export function toggleAll(tree, expand) {
+export function toggleAll(tree, expand, cascadeExpand) {
     if (!tree) {
         return;
     }
     if (tree.classList.contains("md-tree__subtree")) {
         toggle(tree, expand);
     }
-    for (const subtree of tree.querySelectorAll(".md-tree__subtree")) {
-        toggle(subtree, expand);
+    if (!expand || (cascadeExpand && expand)) {
+        for (const subtree of tree.getElementsByClassName("md-tree__subtree")) {
+            toggle(subtree, expand);
+        }
     }
 }
 export function toggle(tree, expand) {
@@ -40,7 +42,7 @@ export function toggle(tree, expand) {
     if (!tree || !tree.classList.contains("md-tree__subtree")) {
         return;
     }
-    const button = (_a = tree.previousElementSibling) === null || _a === void 0 ? void 0 : _a.querySelector(".md-icon-button");
+    const button = (_a = tree.previousElementSibling) === null || _a === void 0 ? void 0 : _a.getElementsByClassName("md-icon-button")[0];
     if (!button) {
         return;
     }
@@ -63,5 +65,5 @@ export function populate(tree, map) {
 }
 export function initialize(tree) {
     initializeTree(tree);
-    toggleAll(tree, tree.dataset.mdExpanded == "true");
+    toggleAll(tree, tree.dataset.mdExpanded == "true", true);
 }

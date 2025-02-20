@@ -10,6 +10,8 @@
         extra-large: 32px,
     );
 
+    flex: 1;
+
     &__text {
         @include font-styling("body-medium");
         display: flex;

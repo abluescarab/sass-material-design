@@ -1849,6 +1849,9 @@
   display: block;
 }
 
+.md-tree {
+  flex: 1;
+}
 .md-tree__text {
   font-family: "Roboto";
   line-height: 20px;

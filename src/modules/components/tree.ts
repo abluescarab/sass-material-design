@@ -10,7 +10,11 @@ function createButton() {
     button.addEventListener("click", (e: MouseEvent) => {
         const el = e.currentTarget as HTMLElement;
         const expand = el.innerText == "add";
-        toggle(el.parentElement?.nextElementSibling as HTMLElement, expand);
+        toggleAll(
+            el.parentElement?.nextElementSibling as HTMLElement,
+            expand,
+            false
+        );
     });
 
     return button;
@@ -36,7 +40,11 @@ function initializeTree(element: HTMLElement) {
     }
 }
 
-export function toggleAll(tree: HTMLElement, expand: boolean) {
+export function toggleAll(
+    tree: HTMLElement,
+    expand: boolean,
+    cascadeExpand: boolean
+) {
     if (!tree) {
         return;
     }
@@ -45,8 +53,10 @@ export function toggleAll(tree: HTMLElement, expand: boolean) {
         toggle(tree, expand);
     }
 
-    for (const subtree of tree.querySelectorAll(".md-tree__subtree")) {
-        toggle(subtree as HTMLElement, expand);
+    if (!expand || (cascadeExpand && expand)) {
+        for (const subtree of tree.getElementsByClassName("md-tree__subtree")) {
+            toggle(subtree as HTMLElement, expand);
+        }
     }
 }
 
@@ -55,9 +65,9 @@ export function toggle(tree: HTMLElement | null, expand: boolean) {
         return;
     }
 
-    const button = tree.previousElementSibling?.querySelector(
-        ".md-icon-button"
-    ) as HTMLElement;
+    const button = tree.previousElementSibling?.getElementsByClassName(
+        "md-icon-button"
+    )[0] as HTMLElement;
 
     if (!button) {
         return;
@@ -87,5 +97,5 @@ export function populate(tree: HTMLElement, map: Map<string, any>) {
 
 export function initialize(tree: HTMLElement) {
     initializeTree(tree);
-    toggleAll(tree, tree.dataset.mdExpanded == "true");
+    toggleAll(tree, tree.dataset.mdExpanded == "true", true);
 }
