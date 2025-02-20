@@ -1849,14 +1849,12 @@
   display: block;
 }
 
-.md-tree,
-.md-tree ul,
-.md-tree ol {
-  list-style-type: none;
-}
 .md-tree__text {
-  height: 20px;
+  font-family: "Roboto";
   line-height: 20px;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  font-weight: 400;
   display: flex;
   flex-direction: row;
   align-items: center;

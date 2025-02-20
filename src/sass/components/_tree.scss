@@ -10,15 +10,8 @@
         extra-large: 32px,
     );
 
-    &,
-    ul,
-    ol {
-        list-style-type: none;
-    }
-
     &__text {
-        height: 20px;
-        line-height: 20px;
+        @include font-styling("body-medium");
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -26,10 +19,8 @@
     }
 
     @each $name, $size in $margins {
-        &[data-md-margin="#{$name}"] {
-            #{$parent}__subtree {
-                margin-left: $size;
-            }
+        &[data-md-margin="#{$name}"] &__subtree {
+            margin-left: $size;
         }
     }
 }

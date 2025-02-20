@@ -183,42 +183,35 @@
             </div>
 
             <div class="md-pane__content flex rows">
-                <ul class="md-tree" data-md-margin="extra-large">
-                    <li class="md-tree__item">
-                        <span class="md-tree__text">Item 1</span>
-                    </li>
-                    <li class="md-tree__item">
-                        <span class="md-tree__text">Item 2</span>
-                        <ul class="md-tree__subtree">
-                            <li class="md-tree__item">
-                                <span class="md-tree__text">Item 3</span>
-                            </li>
-                            <li class="md-tree__item">
-                                <span class="md-tree__text">Item 4</span>
-                            </li>
-                            <li class="md-tree__item">
-                                <span class="md-tree__text">Item 5</span>
-                                <ul class="md-tree__subtree">
-                                    <li class="md-tree__item">
-                                        <span class="md-tree__text"
-                                            >Item 6</span
-                                        >
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- <div class="md-tree__row" data-md-level="0">Item 1</div>
-                <div class="md-tree__row" data-md-level="1">Item 2</div>
-                <div class="md-tree__row" data-md-level="1">Item 3</div>
-                <div class="md-tree__row" data-md-level="2">Item 4</div>
-                <div class="md-tree__row" data-md-level="3">Item 5</div>
-                <div class="md-tree__row" data-md-level="4">Item 6</div>
-                <div class="md-tree__row" data-md-level="0">Item 7</div>
-                <div class="md-tree__row" data-md-level="1">Item 8</div>
-                <div class="md-tree__row" data-md-level="1">Item 9</div> -->
-                <div class="md-tree">
+                <div class="md-tree" data-md-margin="extra-large">
+                    <span class="md-tree__text">Item 1</span>
+                    <span class="md-tree__text">Item 2</span>
+                    <div class="md-tree__subtree">
+                        <span class="md-tree__text">Item 3</span>
+                        <span class="md-tree__text">Item 4</span>
+                        <span class="md-tree__text">Item 5</span>
+                        <div class="md-tree__subtree">
+                            <span class="md-tree__text">Item 6</span>
+                        </div>
+                    </div>
+                    <span class="md-tree__text">Item 7</span>
+                    <span class="md-tree__text">Item 8</span>
+                    <div class="md-tree__subtree">
+                        <span class="md-tree__text">Item 9</span>
+                        <div class="md-tree__subtree">
+                            <span class="md-tree__text">Item 10</span>
+                            <div class="md-tree__subtree">
+                                <span class="md-tree__text"> Item 11 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    id="example-tree"
+                    class="md-tree"
+                    data-md-margin="extra-large"
+                    data-md-expanded="true">
                     <!-- dynamically generated -->
                 </div>
             </div>
@@ -713,6 +706,8 @@
                 <span class="md-fab__text">Top</span>
             </button>
         </div>
+
+        <script type="module" src="example-tree.js"></script>
 
         <!-- TODO: implement up/down arrows on panes -->
         <script type="module">

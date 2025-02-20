@@ -6,72 +6,86 @@ function createButton() {
         "md-symbol"
     );
     button.innerText = "add";
-    button.dataset.mdExpanded = "no";
 
     button.addEventListener("click", (e: MouseEvent) => {
         const el = e.currentTarget as HTMLElement;
-        const expand = el.dataset.mdExpanded == "no";
-
-        el.dataset.mdExpanded = expand ? "yes" : "no";
-        toggleSection(el, expand);
+        const expand = el.innerText == "add";
+        toggle(el.parentElement?.nextElementSibling as HTMLElement, expand);
     });
 
     return button;
 }
 
-function toggleSection(target: HTMLElement, expand: boolean) {
-    const prev = target.previousElementSibling as HTMLElement;
-
-    if (!prev || !prev.dataset.level) {
+function initializeTree(element: HTMLElement) {
+    if (!element) {
         return;
     }
 
-    const prevLevel = parseInt(prev.dataset.level);
-    let next = prev.parentElement?.nextElementSibling as HTMLElement;
+    for (const child of element.children) {
+        const el = child as HTMLElement;
 
-    while (next) {
-        const level: number = next.dataset.level
-            ? parseInt(next.dataset.level)
-            : -1;
+        if (el.classList.contains("md-tree__subtree")) {
+            el.style.display = "none";
+            el.previousElementSibling?.insertAdjacentElement(
+                "beforeend",
+                createButton()
+            );
 
-        if (level <= prevLevel) {
-            break;
+            initializeTree(el);
         }
-
-        next.style.display = expand ? "flex" : "none";
-        next = next.nextElementSibling as HTMLElement;
     }
-
-    target.innerText = expand ? "remove" : "add";
 }
 
-function initializeR(element: HTMLElement) {
-    for (let i = 1; i < element.children.length; i++) {
-        initializeR(element.children[i] as HTMLElement);
+export function toggleAll(tree: HTMLElement, expand: boolean) {
+    if (!tree) {
+        return;
+    }
+
+    if (tree.classList.contains("md-tree__subtree")) {
+        toggle(tree, expand);
+    }
+
+    for (const subtree of tree.querySelectorAll(".md-tree__subtree")) {
+        toggle(subtree as HTMLElement, expand);
+    }
+}
+
+export function toggle(tree: HTMLElement | null, expand: boolean) {
+    if (!tree || !tree.classList.contains("md-tree__subtree")) {
+        return;
+    }
+
+    const button = tree.previousElementSibling?.querySelector(
+        ".md-icon-button"
+    ) as HTMLElement;
+
+    if (!button) {
+        return;
+    }
+
+    tree.style.display = expand ? "block" : "none";
+    button.innerText = expand ? "remove" : "add";
+}
+
+export function populate(tree: HTMLElement, map: Map<string, any>) {
+    for (const [key, value] of Object.entries(map)) {
+        const text = document.createElement("span");
+        text.classList.add("md-tree__text");
+        text.innerText = key;
+
+        tree.appendChild(text);
+
+        if (Object.keys(value).length > 0) {
+            const subtree = document.createElement("div");
+            subtree.classList.add("md-tree__subtree");
+            populate(subtree, value);
+
+            tree.appendChild(subtree);
+        }
     }
 }
 
 export function initialize(tree: HTMLElement) {
-    for (let i = 1; i < tree.children.length; i++) {
-        initializeR(tree.children[i] as HTMLElement);
-    }
-
-    // const children = tree.children;
-
-    // console.log(children);
-    // for(let i = 0; i < )
-
-    // const items = tree.querySelectorAll(".md-tree__item");
-
-    // for (let i = 0; i < items.length; i++) {
-    //     const curr = items[i] as HTMLElement;
-
-    //     if (curr.children.length > 1) {
-    //         curr.children[0].insertAdjacentElement("beforeend", createButton());
-    //     }
-
-    //     if (curr.parentElement?.classList.contains("md-tree__subtree")) {
-    //         curr.style.display = "none";
-    //     }
-    // }
+    initializeTree(tree);
+    toggleAll(tree, tree.dataset.mdExpanded == "true");
 }
