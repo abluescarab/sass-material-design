@@ -2,8 +2,6 @@
 @use "../themes";
 
 .md-checkbox {
-    $parent: &;
-
     display: grid;
     grid-template-columns: auto 1fr;
 
@@ -13,8 +11,6 @@
 
     // restrict to only checkboxes
     input[type="checkbox"] {
-        $input: &;
-
         grid-column: 1;
         @include square(18px);
 

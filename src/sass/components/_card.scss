@@ -2,8 +2,6 @@
 @use "../themes";
 
 .md-card {
-    $parent: &;
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

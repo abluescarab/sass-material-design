@@ -2,7 +2,6 @@
 @use "../themes";
 
 .md-pane {
-    $parent: &;
     $padding: 24px;
 
     overflow: hidden;

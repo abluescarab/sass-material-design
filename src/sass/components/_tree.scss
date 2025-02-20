@@ -2,7 +2,6 @@
 @use "../themes";
 
 .md-tree {
-    $parent: &;
     $margins: (
         small: 4px,
         medium: 8px,
