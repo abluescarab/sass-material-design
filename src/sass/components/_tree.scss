@@ -1,6 +1,10 @@
 @use "../abstracts" as *;
 @use "../themes";
 
+// TODO: (maybe) add options for:
+//      dividers between lines
+//      depth indicators
+//      button styles
 .md-tree {
     $margins: (
         small: 4px,
