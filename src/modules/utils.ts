@@ -2,22 +2,6 @@ export function capitalize(str: string) {
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 
-export function getParentWithClass(
-    element: HTMLElement | null,
-    parentClass: string,
-    includeChild: boolean = true
-) {
-    if (element == null) {
-        return null;
-    }
-
-    if (includeChild && element.classList.contains(parentClass)) {
-        return element;
-    }
-
-    return getParentWithClass(element.parentElement, parentClass, true);
-}
-
 export function cycleData(
     element: HTMLElement | null,
     data: string,
@@ -38,4 +22,20 @@ export function cycleData(
     const newValue = values[index];
     element.dataset[dataName] = newValue;
     return newValue;
+}
+
+export function getParentWithClass(
+    element: HTMLElement | null,
+    parentClass: string,
+    includeChild: boolean = true
+) {
+    if (element == null) {
+        return null;
+    }
+
+    if (includeChild && element.classList.contains(parentClass)) {
+        return element;
+    }
+
+    return getParentWithClass(element.parentElement, parentClass, true);
 }

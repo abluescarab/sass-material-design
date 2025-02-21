@@ -942,9 +942,12 @@ label:has(input:not(:disabled)) {
   background-color: rgba(21, 18, 24, 0.38);
 }
 
-.md-checkbox {
-  display: grid;
-  grid-template-columns: auto 1fr;
+.md-checkbox,
+.md-checkbox label {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 [data-md-theme=light] .md-checkbox {
   color: rgb(29, 27, 32);
@@ -952,8 +955,13 @@ label:has(input:not(:disabled)) {
 [data-md-theme=dark] .md-checkbox {
   color: rgb(231, 224, 232);
 }
+.md-checkbox label:not(:has(input)) {
+  padding-left: 16px;
+}
+.md-checkbox label input[type=checkbox] {
+  margin-right: 16px;
+}
 .md-checkbox input[type=checkbox] {
-  grid-column: 1;
   width: 18px;
   height: 18px;
   line-height: 18px;
@@ -969,11 +977,6 @@ label:has(input:not(:disabled)) {
 }
 [data-md-theme=dark] .md-checkbox input[type=checkbox]:disabled {
   accent-color: rgba(231, 224, 232, 0.38);
-}
-.md-checkbox label {
-  grid-column: 2;
-  padding-left: 16px;
-  margin-top: -2px;
 }
 
 .md-fab {
@@ -1004,6 +1007,12 @@ label:has(input:not(:disabled)) {
   color: rgb(104, 84, 142);
   background-color: #e0d7e4;
 }
+[data-md-theme=light] .md-fab:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 8px 12px 0;
+}
+[data-md-theme=light] .md-fab:focus, [data-md-theme=light] .md-fab:active {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
+}
 [data-md-theme=dark] .md-fab {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
   background-color: rgb(44, 41, 47);
@@ -1021,14 +1030,8 @@ label:has(input:not(:disabled)) {
   color: rgb(211, 188, 253);
   background-color: #3d3844;
 }
-[data-md-theme=light] .md-fab:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 8px 12px 0;
-}
 [data-md-theme=dark] .md-fab:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0 8px 12px 0;
-}
-[data-md-theme=light] .md-fab:focus, [data-md-theme=light] .md-fab:active {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
 }
 [data-md-theme=dark] .md-fab:focus, [data-md-theme=dark] .md-fab:active {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
@@ -1970,6 +1973,19 @@ label:has(input:not(:disabled)) {
 .md-tree__subtree {
   border-left: 1px dotted transparent;
 }
+.md-tree .md-checkbox:not(:has(.md-icon-button)), .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 28px;
+}
+.md-tree .md-checkbox .md-tree__label {
+  padding-left: 0;
+  margin-left: 4px;
+}
+.md-tree .md-checkbox:has(.md-icon-button) .md-tree__label {
+  margin-left: 12px;
+}
+.md-tree .md-checkbox input[type=checkbox] {
+  margin-right: 0;
+}
 .md-tree__label {
   font-family: "Roboto";
   line-height: 20px;
@@ -1980,9 +1996,6 @@ label:has(input:not(:disabled)) {
   flex-direction: row;
   align-items: center;
   gap: 8px;
-}
-.md-tree__text:not(:has(.md-icon-button)) {
-  padding-left: 28px;
 }
 
 /* pages */

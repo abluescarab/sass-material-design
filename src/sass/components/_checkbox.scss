@@ -2,16 +2,32 @@
 @use "../themes";
 
 .md-checkbox {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    // TODO: allow checkbox on right side with flex-direction: row-reverse
+    &,
+    label {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
 
     @include themes.themify() {
         color: themes.color("on-surface");
     }
 
+    // restrict to only labels
+    label {
+        &:not(:has(input)) {
+            padding-left: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 16px;
+        }
+    }
+
     // restrict to only checkboxes
     input[type="checkbox"] {
-        grid-column: 1;
         @include square(18px);
 
         @include themes.themify() {
@@ -24,13 +40,5 @@
                 );
             }
         }
-    }
-
-    // restrict to only labels
-    label {
-        grid-column: 2;
-        padding-left: 16px;
-        // align with checkbox at first baseline
-        margin-top: -2px;
     }
 }

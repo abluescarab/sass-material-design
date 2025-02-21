@@ -7,8 +7,7 @@
     @include square(40px);
     border: 0;
     border-radius: sys("shape", "corner", "full");
-    font-size: 24px;
-    cursor: pointer;
+    font-size: $icon__font-size;
     background-color: transparent;
 
     @include themes.themify() {

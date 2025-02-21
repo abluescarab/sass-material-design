@@ -4,52 +4,61 @@ function createButton(buttonStyle) {
     button.dataset.mdType = buttonStyle;
     button.innerText = "add";
     button.addEventListener("click", (e) => {
-        var _a;
         const el = e.currentTarget;
         const expand = el.innerText == "add";
-        toggleAll((_a = el.parentElement) === null || _a === void 0 ? void 0 : _a.nextElementSibling, expand, false);
+        toggleAll(el.parentElement?.nextElementSibling, expand, false);
     });
     return button;
 }
-function initializeTree(element, buttonStyle) {
-    var _a;
-    console.log(buttonStyle);
+function initializeTree(element, buttonStyle, checkboxes = false) {
     if (!element) {
         return;
     }
     for (const child of element.children) {
         const el = child;
+        if (checkboxes && el.classList.contains("md-tree__label")) {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("md-checkbox");
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            el.insertAdjacentElement("afterbegin", input);
+            el.insertAdjacentElement("beforebegin", wrapper);
+            wrapper.appendChild(el);
+        }
         if (el.classList.contains("md-tree__subtree")) {
+            const label = el.previousElementSibling;
             el.style.display = "none";
-            (_a = el.previousElementSibling) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("afterbegin", createButton(buttonStyle));
-            initializeTree(el, buttonStyle);
+            label.insertAdjacentElement("afterbegin", createButton(buttonStyle));
+            initializeTree(el, buttonStyle, checkboxes);
         }
     }
 }
-export function initialize(tree) {
-    initializeTree(tree, tree.dataset.mdButtonStyle);
-    toggleAll(tree, tree.dataset.mdExpanded == "true", true);
-}
-export function populate(tree, map) {
+function populateTree(tree, map) {
     for (const [key, value] of Object.entries(map)) {
-        const text = document.createElement("span");
-        text.classList.add("md-tree__label");
-        text.innerText = key;
-        tree.appendChild(text);
+        const label = document.createElement("label");
+        label.classList.add("md-tree__label");
+        label.innerText = key;
+        tree.appendChild(label);
         if (Object.keys(value).length > 0) {
             const subtree = document.createElement("div");
             subtree.classList.add("md-tree__subtree");
-            populate(subtree, value);
+            populateTree(subtree, value);
             tree.appendChild(subtree);
         }
     }
 }
+export function initialize(tree) {
+    initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes == "true");
+    toggleAll(tree, tree.dataset.mdExpanded == "true", true);
+}
+export function populate(tree, map) {
+    populateTree(tree, map);
+}
 export function toggle(tree, expand) {
-    var _a;
     if (!tree || !tree.classList.contains("md-tree__subtree")) {
         return;
     }
-    const button = (_a = tree.previousElementSibling) === null || _a === void 0 ? void 0 : _a.getElementsByClassName("md-icon-button")[0];
+    const button = tree.previousElementSibling?.getElementsByClassName("md-icon-button")[0];
     if (!button) {
         return;
     }

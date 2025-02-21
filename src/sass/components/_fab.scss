@@ -22,26 +22,20 @@
             true,
             true
         );
-    }
 
-    &:hover {
-        @include themes.themify() {
+        &:hover {
             @include elevation(4);
         }
-    }
 
-    &:focus,
-    &:active {
-        @include themes.themify() {
+        &:focus,
+        &:active {
             @include elevation(3);
         }
     }
 
     &__icon {
-        $icon-size: 24px;
-
-        @include square($icon-size);
-        font-size: $icon-size;
+        @include square($icon__font-size);
+        font-size: $icon__font-size;
     }
 
     &__label {

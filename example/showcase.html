@@ -221,7 +221,8 @@
                     data-md-indicator-color="secondary"
                     data-md-indicator-style="solid"
                     data-md-indicator-size="small"
-                    data-md-button-style="tonal">
+                    data-md-button-style="tonal"
+                    data-md-checkboxes="true">
                     <!-- dynamically generated (see example-tree.js) -->
                 </div>
             </div>
@@ -697,20 +698,44 @@
             </div>
 
             <div class="md-pane__content flex rows">
-                <div class="md-checkbox">
-                    <input type="checkbox" id="checkbox-1" name="checkbox-1" />
-                    <label for="checkbox-1">Checkbox 1</label>
+                <div class="flex cols">
+                    <div class="md-checkbox">
+                        <input
+                            type="checkbox"
+                            id="checkbox-1"
+                            name="checkbox-1" />
+                        <label for="checkbox-1">Checkbox</label>
+                    </div>
+                    <div class="md-checkbox">
+                        <label
+                            ><input
+                                type="checkbox"
+                                id="checkbox-3"
+                                name="checkbox-3" />Checkbox inside label</label
+                        >
+                    </div>
                 </div>
-                <div class="md-checkbox">
-                    <div class="md-checkbox__wrapper">
+
+                <div class="flex cols">
+                    <div class="md-checkbox">
                         <input
                             type="checkbox"
                             class="md-checkbox__box"
                             id="checkbox-2"
                             name="checkbox-2"
                             disabled />
+                        <label for="checkbox-2">Toggled checkbox</label>
                     </div>
-                    <label for="checkbox-2">Checkbox 2</label>
+                    <div class="md-checkbox">
+                        <label
+                            ><input
+                                type="checkbox"
+                                id="checkbox-4"
+                                name="checkbox-4"
+                                disabled />
+                            Toggled checkbox inside label</label
+                        >
+                    </div>
                 </div>
             </div>
         </section>
@@ -820,6 +845,15 @@
                     "change",
                     (e) =>
                         (document.getElementById("checkbox-2").disabled =
+                            !e.currentTarget.checked)
+                );
+
+            document
+                .getElementById("checkbox-3")
+                .addEventListener(
+                    "change",
+                    (e) =>
+                        (document.getElementById("checkbox-4").disabled =
                             !e.currentTarget.checked)
                 );
 

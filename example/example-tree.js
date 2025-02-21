@@ -39,4 +39,5 @@ const exampleTree = Object.freeze({
 
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("example-tree"), exampleTree);
+    populate(document.getElementById("example-tree-checkboxes"), exampleTree);
 });

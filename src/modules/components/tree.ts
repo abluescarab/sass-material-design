@@ -21,9 +21,11 @@ function createButton(buttonStyle: string | undefined) {
     return button;
 }
 
-function initializeTree(element: HTMLElement, buttonStyle: string | undefined) {
-    console.log(buttonStyle);
-
+function initializeTree(
+    element: HTMLElement,
+    buttonStyle: string | undefined,
+    checkboxes: boolean = false
+) {
     if (!element) {
         return;
     }
@@ -31,39 +33,60 @@ function initializeTree(element: HTMLElement, buttonStyle: string | undefined) {
     for (const child of element.children) {
         const el = child as HTMLElement;
 
+        if (checkboxes && el.classList.contains("md-tree__label")) {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("md-checkbox");
+
+            const input = document.createElement("input");
+            input.type = "checkbox";
+
+            el.insertAdjacentElement("afterbegin", input);
+            el.insertAdjacentElement("beforebegin", wrapper);
+            wrapper.appendChild(el);
+        }
+
         if (el.classList.contains("md-tree__subtree")) {
+            const label = el.previousElementSibling as HTMLElement;
             el.style.display = "none";
-            el.previousElementSibling?.insertAdjacentElement(
+            label.insertAdjacentElement(
                 "afterbegin",
                 createButton(buttonStyle)
             );
 
-            initializeTree(el, buttonStyle);
+            initializeTree(el, buttonStyle, checkboxes);
+        }
+    }
+}
+
+function populateTree(tree: HTMLElement, map: Map<string, any>) {
+    for (const [key, value] of Object.entries(map)) {
+        const label = document.createElement("label");
+        label.classList.add("md-tree__label");
+        label.innerText = key;
+
+        tree.appendChild(label);
+
+        if (Object.keys(value).length > 0) {
+            const subtree = document.createElement("div");
+            subtree.classList.add("md-tree__subtree");
+            populateTree(subtree, value);
+
+            tree.appendChild(subtree);
         }
     }
 }
 
 export function initialize(tree: HTMLElement) {
-    initializeTree(tree, tree.dataset.mdButtonStyle);
+    initializeTree(
+        tree,
+        tree.dataset.mdButtonStyle,
+        tree.dataset.mdCheckboxes == "true"
+    );
     toggleAll(tree, tree.dataset.mdExpanded == "true", true);
 }
 
 export function populate(tree: HTMLElement, map: Map<string, any>) {
-    for (const [key, value] of Object.entries(map)) {
-        const text = document.createElement("span");
-        text.classList.add("md-tree__label");
-        text.innerText = key;
-
-        tree.appendChild(text);
-
-        if (Object.keys(value).length > 0) {
-            const subtree = document.createElement("div");
-            subtree.classList.add("md-tree__subtree");
-            populate(subtree, value);
-
-            tree.appendChild(subtree);
-        }
-    }
+    populateTree(tree, map);
 }
 
 export function toggle(tree: HTMLElement | null, expand: boolean) {
