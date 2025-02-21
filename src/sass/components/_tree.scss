@@ -4,7 +4,6 @@
 
 // TODO: (maybe) add options for:
 //      dividers between lines
-//      depth indicators
 //      button styles
 .md-tree {
     $parent: &;
@@ -14,6 +13,14 @@
         medium: 16px,
         large: 32px,
     );
+    $indicator-widths: (
+        small: 1px,
+        medium: 2px,
+        large: 3px,
+    );
+    $indicator-styles: "dotted", "dashed", "solid", "double", "groove", "ridge",
+        "inset", "outset";
+    $indicator-colors: "primary", "secondary", "tertiary", "on-surface";
 
     flex: 1;
 
@@ -23,6 +30,10 @@
         flex-direction: column;
         flex-wrap: nowrap;
         gap: calc($gap / 2);
+    }
+
+    &__subtree {
+        border-left: 1px dotted transparent;
     }
 
     &__text {
@@ -50,9 +61,22 @@
     }
 
     @include themes.themify() {
-        @each $color in "primary", "secondary", "tertiary", "on-surface" {
-            &[data-md-indicators="#{$color}"] #{$parent}__subtree {
-                border-left: 1px dotted themes.color($color);
+        @each $color in $indicator-colors {
+            &[data-md-indicator-color="#{$color}"] #{$parent}__subtree {
+                border-left-color: themes.color($color);
+            }
+        }
+
+        @each $style in $indicator-styles {
+            &[data-md-indicator-style="#{$style}"] #{$parent}__subtree {
+                border-left-style: #{$style};
+            }
+        }
+
+        @each $name, $size in $indicator-widths {
+            &[data-md-indicator-size="#{$name}"] #{$parent}__subtree {
+                border-left-width: #{$size};
+                margin-left: calc($icon-button--small__half - ($size / 2));
             }
         }
     }
