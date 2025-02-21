@@ -1,6 +1,7 @@
 function createButton() {
     const button = document.createElement("button");
     button.classList.add("md-tree__button", "md-symbol");
+    button.dataset.mdType = "filled";
     button.innerText = "add";
     button.addEventListener("click", (e) => {
         var _a;
@@ -46,7 +47,7 @@ export function toggle(tree, expand) {
     if (!button) {
         return;
     }
-    tree.style.display = expand ? "block" : "none";
+    tree.style.display = expand ? "flex" : "none";
     button.innerText = expand ? "remove" : "add";
 }
 export function populate(tree, map) {

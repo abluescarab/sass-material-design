@@ -1852,6 +1852,12 @@
 .md-tree {
   flex: 1;
 }
+.md-tree, .md-tree__subtree {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
 .md-tree__text {
   font-family: "Roboto";
   line-height: 20px;
@@ -1861,50 +1867,46 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 .md-tree__text:not(:has(.md-tree__button)) {
-  margin-left: 24px;
+  padding-left: 28px;
 }
 .md-tree[data-md-margin=small] .md-tree__subtree {
   margin-left: 10px;
-  padding-left: -6px;
-}
-[data-md-theme=light] .md-tree[data-md-margin=small] .md-tree__subtree {
-  border-left: 1px dotted rgb(99, 91, 112);
-}
-[data-md-theme=dark] .md-tree[data-md-margin=small] .md-tree__subtree {
-  border-left: 1px dotted rgb(205, 194, 219);
+  padding-left: -2px;
 }
 .md-tree[data-md-margin=medium] .md-tree__subtree {
   margin-left: 10px;
-  padding-left: -2px;
-}
-[data-md-theme=light] .md-tree[data-md-margin=medium] .md-tree__subtree {
-  border-left: 1px dotted rgb(99, 91, 112);
-}
-[data-md-theme=dark] .md-tree[data-md-margin=medium] .md-tree__subtree {
-  border-left: 1px dotted rgb(205, 194, 219);
+  padding-left: 6px;
 }
 .md-tree[data-md-margin=large] .md-tree__subtree {
   margin-left: 10px;
-  padding-left: 6px;
-}
-[data-md-theme=light] .md-tree[data-md-margin=large] .md-tree__subtree {
-  border-left: 1px dotted rgb(99, 91, 112);
-}
-[data-md-theme=dark] .md-tree[data-md-margin=large] .md-tree__subtree {
-  border-left: 1px dotted rgb(205, 194, 219);
-}
-.md-tree[data-md-margin=extra-large] .md-tree__subtree {
-  margin-left: 10px;
   padding-left: 22px;
 }
-[data-md-theme=light] .md-tree[data-md-margin=extra-large] .md-tree__subtree {
+[data-md-theme=light] .md-tree[data-md-indicators=primary] .md-tree__subtree {
+  border-left: 1px dotted rgb(104, 84, 142);
+}
+[data-md-theme=light] .md-tree[data-md-indicators=secondary] .md-tree__subtree {
   border-left: 1px dotted rgb(99, 91, 112);
 }
-[data-md-theme=dark] .md-tree[data-md-margin=extra-large] .md-tree__subtree {
+[data-md-theme=light] .md-tree[data-md-indicators=tertiary] .md-tree__subtree {
+  border-left: 1px dotted rgb(126, 82, 93);
+}
+[data-md-theme=light] .md-tree[data-md-indicators=on-surface] .md-tree__subtree {
+  border-left: 1px dotted rgb(29, 27, 32);
+}
+[data-md-theme=dark] .md-tree[data-md-indicators=primary] .md-tree__subtree {
+  border-left: 1px dotted rgb(211, 188, 253);
+}
+[data-md-theme=dark] .md-tree[data-md-indicators=secondary] .md-tree__subtree {
   border-left: 1px dotted rgb(205, 194, 219);
+}
+[data-md-theme=dark] .md-tree[data-md-indicators=tertiary] .md-tree__subtree {
+  border-left: 1px dotted rgb(240, 183, 197);
+}
+[data-md-theme=dark] .md-tree[data-md-indicators=on-surface] .md-tree__subtree {
+  border-left: 1px dotted rgb(231, 224, 232);
 }
 
 /* pages */

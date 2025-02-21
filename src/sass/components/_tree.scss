@@ -8,15 +8,22 @@
 //      button styles
 .md-tree {
     $parent: &;
-    $gap: 4px;
+    $gap: 8px;
     $margins: (
-        small: 4px,
-        medium: 8px,
-        large: 16px,
-        extra-large: 32px,
+        small: 8px,
+        medium: 16px,
+        large: 32px,
     );
 
     flex: 1;
+
+    &,
+    &__subtree {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: calc($gap / 2);
+    }
 
     &__text {
         @include font-styling("body-medium");
@@ -26,7 +33,7 @@
         gap: $gap;
 
         &:not(:has(#{$parent}__button)) {
-            margin-left: calc($icon-button--small__width + $gap);
+            padding-left: calc($icon-button--small__width + $gap);
         }
     }
 
@@ -36,15 +43,16 @@
     }
 
     @each $name, $size in $margins {
-        &[data-md-margin="#{$name}"] {
-            #{$parent}__subtree {
-                // TODO: make indicator optional
-                margin-left: $icon-button--small__half;
-                padding-left: calc($size - $icon-button--small__half);
+        &[data-md-margin="#{$name}"] #{$parent}__subtree {
+            margin-left: $icon-button--small__half;
+            padding-left: calc($size - $icon-button--small__half);
+        }
+    }
 
-                @include themes.themify() {
-                    border-left: 1px dotted themes.color("secondary");
-                }
+    @include themes.themify() {
+        @each $color in "primary", "secondary", "tertiary", "on-surface" {
+            &[data-md-indicators="#{$color}"] #{$parent}__subtree {
+                border-left: 1px dotted themes.color($color);
             }
         }
     }
