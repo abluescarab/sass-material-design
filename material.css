@@ -6,6 +6,21 @@
   text-decoration: none;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+input, input + label {
+  cursor: pointer;
+}
+input:disabled, input:disabled + label {
+  cursor: default;
+}
+
+label:has(input:not(:disabled)) {
+  cursor: pointer;
+}
+
 /* Roboto */
 @font-face {
   font-family: "Roboto";
@@ -556,9 +571,6 @@
 [data-md-theme=dark] .md-banner__action {
   color: rgb(211, 188, 253);
 }
-.md-banner__action:hover {
-  cursor: pointer;
-}
 
 .md-button {
   display: flex;
@@ -578,7 +590,6 @@
   font-size: 14px;
   letter-spacing: 0.1px;
   font-weight: 500;
-  cursor: pointer;
 }
 .md-button:has(.md-button__icon) {
   padding-left: 16px;
@@ -588,9 +599,6 @@
   height: 18px;
   line-height: 18px;
   font-size: 18px;
-}
-.md-button:disabled {
-  cursor: default;
 }
 [data-md-theme=light] .md-button[data-md-type=elevated]:disabled {
   background-color: rgba(29, 27, 32, 0.12);
@@ -1013,9 +1021,6 @@
   color: rgb(211, 188, 253);
   background-color: #3d3844;
 }
-.md-fab:hover {
-  cursor: pointer;
-}
 [data-md-theme=light] .md-fab:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0 8px 12px 0;
 }
@@ -1224,11 +1229,7 @@
   border: 0;
   border-radius: 9999px;
   font-size: 24px;
-  cursor: pointer;
   background-color: transparent;
-}
-.md-icon-button:disabled {
-  cursor: default;
 }
 [data-md-theme=light] .md-icon-button:disabled {
   color: rgba(29, 27, 32, 0.38);
@@ -1620,9 +1621,6 @@
 }
 [data-md-theme=dark] .md-snackbar__action {
   color: rgb(104, 84, 142);
-}
-.md-snackbar__action:hover {
-  cursor: pointer;
 }
 .md-snackbar__action--long {
   grid-row: 2;

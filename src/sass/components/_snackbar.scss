@@ -41,10 +41,6 @@
             color: themes.color("inverse-primary");
         }
 
-        &:hover {
-            cursor: pointer;
-        }
-
         &--long {
             grid-row: 2;
             grid-column: span 2;

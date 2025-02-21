@@ -17,10 +17,6 @@
         @include themes.themify() {
             color: themes.color("on-surface-variant");
         }
-
-        &:not(:disabled) {
-            cursor: pointer;
-        }
     }
 
     &__icon {

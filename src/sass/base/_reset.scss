@@ -3,3 +3,25 @@
     padding: 0;
     text-decoration: none;
 }
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+input {
+    &,
+    & + label {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        &,
+        & + label {
+            cursor: default;
+        }
+    }
+}
+
+label:has(input:not(:disabled)) {
+    cursor: pointer;
+}

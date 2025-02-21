@@ -17,7 +17,6 @@
     border-radius: sys("shape", "corner", "full");
 
     @include font-styling("label-large");
-    cursor: pointer;
 
     &:has(&__icon) {
         padding-left: 16px;
@@ -28,10 +27,6 @@
 
         @include square($icon-size);
         font-size: $icon-size;
-    }
-
-    &:disabled {
-        cursor: default;
     }
 
     @include themes.themify() {
