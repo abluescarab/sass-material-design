@@ -1,10 +1,6 @@
 function createButton() {
     const button = document.createElement("button");
-    button.classList.add(
-        "md-icon-button",
-        "md-icon-button--small",
-        "md-symbol"
-    );
+    button.classList.add("md-tree__button", "md-symbol");
     button.innerText = "add";
 
     button.addEventListener("click", (e: MouseEvent) => {
@@ -31,7 +27,7 @@ function initializeTree(element: HTMLElement) {
         if (el.classList.contains("md-tree__subtree")) {
             el.style.display = "none";
             el.previousElementSibling?.insertAdjacentElement(
-                "beforeend",
+                "afterbegin",
                 createButton()
             );
 
@@ -66,7 +62,7 @@ export function toggle(tree: HTMLElement | null, expand: boolean) {
     }
 
     const button = tree.previousElementSibling?.getElementsByClassName(
-        "md-icon-button"
+        "md-tree__button"
     )[0] as HTMLElement;
 
     if (!button) {

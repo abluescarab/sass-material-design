@@ -1,6 +1,6 @@
 function createButton() {
     const button = document.createElement("button");
-    button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");
+    button.classList.add("md-tree__button", "md-symbol");
     button.innerText = "add";
     button.addEventListener("click", (e) => {
         var _a;
@@ -19,7 +19,7 @@ function initializeTree(element) {
         const el = child;
         if (el.classList.contains("md-tree__subtree")) {
             el.style.display = "none";
-            (_a = el.previousElementSibling) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("beforeend", createButton());
+            (_a = el.previousElementSibling) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("afterbegin", createButton());
             initializeTree(el);
         }
     }
@@ -42,7 +42,7 @@ export function toggle(tree, expand) {
     if (!tree || !tree.classList.contains("md-tree__subtree")) {
         return;
     }
-    const button = (_a = tree.previousElementSibling) === null || _a === void 0 ? void 0 : _a.getElementsByClassName("md-icon-button")[0];
+    const button = (_a = tree.previousElementSibling) === null || _a === void 0 ? void 0 : _a.getElementsByClassName("md-tree__button")[0];
     if (!button) {
         return;
     }

@@ -1,11 +1,14 @@
 @use "../abstracts" as *;
 @use "../themes";
+@use "icon-button";
 
 // TODO: (maybe) add options for:
 //      dividers between lines
 //      depth indicators
 //      button styles
 .md-tree {
+    $parent: &;
+    $gap: 4px;
     $margins: (
         small: 4px,
         medium: 8px,
@@ -20,12 +23,29 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 8px;
+        gap: $gap;
+
+        &:not(:has(#{$parent}__button)) {
+            margin-left: calc($icon-button--small__width + $gap);
+        }
+    }
+
+    &__button {
+        @extend .md-icon-button;
+        @extend .md-icon-button--small;
     }
 
     @each $name, $size in $margins {
-        &[data-md-margin="#{$name}"] &__subtree {
-            margin-left: $size;
+        &[data-md-margin="#{$name}"] {
+            #{$parent}__subtree {
+                // TODO: make indicator optional
+                margin-left: $icon-button--small__half;
+                padding-left: calc($size - $icon-button--small__half);
+
+                @include themes.themify() {
+                    border-left: 1px dotted themes.color("secondary");
+                }
+            }
         }
     }
 }

@@ -51,7 +51,7 @@
 
     // not in MD3 specs
     &--small {
-        @include square(20px);
+        @include square($icon-button--small__width);
         font-size: 16px;
     }
 
