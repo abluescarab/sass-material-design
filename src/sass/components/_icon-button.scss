@@ -122,6 +122,8 @@
             }
 
             &#{$parent}--selected {
+                border: 0;
+
                 @include enabled-styling() {
                     @include mix-states(
                         themes.color("inverse-surface"),

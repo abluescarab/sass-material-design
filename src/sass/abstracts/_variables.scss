@@ -1,3 +1,10 @@
-// components
+// general
+$border-styles: "dotted", "dashed", "solid", "double", "groove", "ridge",
+    "inset", "outset";
+
+// md-icon-button
+$icon-button__styles: "filled", "tonal", "outlined";
 $icon-button--small__width: 20px;
 $icon-button--small__half: calc($icon-button--small__width / 2);
+
+// md-tree

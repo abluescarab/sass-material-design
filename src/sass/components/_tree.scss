@@ -4,7 +4,6 @@
 
 // TODO: (maybe) add options for:
 //      dividers between lines
-//      button styles
 .md-tree {
     $parent: &;
     $gap: 8px;
@@ -18,8 +17,6 @@
         medium: 2px,
         large: 3px,
     );
-    $indicator-styles: "dotted", "dashed", "solid", "double", "groove", "ridge",
-        "inset", "outset";
     $indicator-colors: "primary", "secondary", "tertiary", "on-surface";
 
     flex: 1;
@@ -30,27 +27,6 @@
         flex-direction: column;
         flex-wrap: nowrap;
         gap: calc($gap / 2);
-    }
-
-    &__subtree {
-        border-left: 1px dotted transparent;
-    }
-
-    &__text {
-        @include font-styling("body-medium");
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: $gap;
-
-        &:not(:has(#{$parent}__button)) {
-            padding-left: calc($icon-button--small__width + $gap);
-        }
-    }
-
-    &__button {
-        @extend .md-icon-button;
-        @extend .md-icon-button--small;
     }
 
     @each $name, $size in $margins {
@@ -67,17 +43,33 @@
             }
         }
 
-        @each $style in $indicator-styles {
-            &[data-md-indicator-style="#{$style}"] #{$parent}__subtree {
-                border-left-style: #{$style};
-            }
-        }
-
         @each $name, $size in $indicator-widths {
             &[data-md-indicator-size="#{$name}"] #{$parent}__subtree {
                 border-left-width: #{$size};
                 margin-left: calc($icon-button--small__half - ($size / 2));
             }
+        }
+
+        @each $style in $border-styles {
+            &[data-md-indicator-style="#{$style}"] #{$parent}__subtree {
+                border-left-style: #{$style};
+            }
+        }
+    }
+
+    &__subtree {
+        border-left: 1px dotted transparent;
+    }
+
+    &__text {
+        @include font-styling("body-medium");
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: $gap;
+
+        &:not(:has(.md-icon-button)) {
+            padding-left: calc($icon-button--small__width + $gap);
         }
     }
 }
