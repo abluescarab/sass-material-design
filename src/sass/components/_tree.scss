@@ -61,7 +61,7 @@
         border-left: 1px dotted transparent;
     }
 
-    &__text {
+    &__label {
         @include font-styling("body-medium");
         display: flex;
         flex-direction: row;

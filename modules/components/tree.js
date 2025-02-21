@@ -33,7 +33,7 @@ export function initialize(tree) {
 export function populate(tree, map) {
     for (const [key, value] of Object.entries(map)) {
         const text = document.createElement("span");
-        text.classList.add("md-tree__text");
+        text.classList.add("md-tree__label");
         text.innerText = key;
         tree.appendChild(text);
         if (Object.keys(value).length > 0) {

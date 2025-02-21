@@ -27,7 +27,7 @@
         font-size: 24px;
     }
 
-    &__text {
+    &__label {
         @include font-styling("title-small");
         align-content: center;
     }
@@ -98,7 +98,7 @@
                     align-content: end;
                 }
 
-                #{$parent}__text {
+                #{$parent}__label {
                     align-content: start;
                 }
             }

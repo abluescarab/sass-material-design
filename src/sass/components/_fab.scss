@@ -46,7 +46,7 @@
         font-size: $icon-size;
     }
 
-    &__text {
+    &__label {
         display: none;
         @include font-styling("label-large");
     }
@@ -107,7 +107,7 @@
         width: auto;
         padding: 0 16px;
 
-        #{$parent}__text {
+        #{$parent}__label {
             display: initial;
         }
     }

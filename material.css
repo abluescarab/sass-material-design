@@ -1034,7 +1034,7 @@
   line-height: 24px;
   font-size: 24px;
 }
-.md-fab__text {
+.md-fab__label {
   display: none;
   font-family: "Roboto";
   line-height: 20px;
@@ -1117,7 +1117,7 @@
   width: auto;
   padding: 0 16px;
 }
-.md-fab[data-md-size=extended] .md-fab__text {
+.md-fab[data-md-size=extended] .md-fab__label {
   display: initial;
 }
 [data-md-theme=light] .md-fab[data-md-color=primary] {
@@ -1646,13 +1646,10 @@
 [data-md-theme=dark] .md-tabs__button {
   color: rgb(203, 196, 207);
 }
-.md-tabs__button:not(:disabled) {
-  cursor: pointer;
-}
 .md-tabs__icon {
   font-size: 24px;
 }
-.md-tabs__text {
+.md-tabs__label {
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
@@ -1791,7 +1788,7 @@
 .md-tabs__nav[data-md-type=primary]:has(.md-tabs__icon) .md-tabs__icon {
   align-content: end;
 }
-.md-tabs__nav[data-md-type=primary]:has(.md-tabs__icon) .md-tabs__text {
+.md-tabs__nav[data-md-type=primary]:has(.md-tabs__icon) .md-tabs__label {
   align-content: start;
 }
 .md-tabs__nav[data-md-type=secondary] {
@@ -1975,7 +1972,7 @@
 .md-tree__subtree {
   border-left: 1px dotted transparent;
 }
-.md-tree__text {
+.md-tree__label {
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
