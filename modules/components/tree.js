@@ -36,6 +36,9 @@ function initializeTree(element, buttonStyle, checkboxes = false) {
     }
 }
 function populateTree(tree, map) {
+    if (!tree) {
+        return;
+    }
     for (const [key, value] of Object.entries(map)) {
         const label = document.createElement("label");
         label.classList.add("md-tree__label");
