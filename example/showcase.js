@@ -51,9 +51,54 @@ function replaceFabButtonText(button, replacement) {
     node.nodeValue = node.nodeValue.replace(node.nodeValue.trim(), replacement);
 }
 
+function dataToSelector(dataName) {
+    return dataName.replaceAll(/([A-Z])/g, "-$1").toLowerCase();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("example-tree"), exampleTree);
     populate(document.getElementById("example-tree-leaves-only"), exampleTree);
+
+    [].forEach.call(document.getElementsByClassName("attributes"), (el) => {
+        const attributes = document.createElement("div");
+        const pre = document.createElement("pre");
+        const code = document.createElement("code");
+        const h2 = document.createElement("h2");
+
+        h2.dataset.mdTypescale = "title-medium";
+        h2.innerText = "Attributes";
+
+        const element = el.children[0];
+        const dataset = Object.keys(element.dataset).sort();
+
+        const length = Math.max(
+            ...dataset.map((d) => dataToSelector(d).length)
+        );
+
+        if (element.disabled || element.className.includes("--disabled")) {
+            code.innerHTML += "disabled<br />";
+        }
+
+        for (const data of dataset) {
+            const str = `data-${dataToSelector(data)}:`;
+            code.innerHTML += str;
+            code.innerHTML += "&nbsp;".repeat(length + 7 - str.length);
+            const span = document.createElement("span");
+            span.style.fontStyle = "italic";
+            span.innerHTML +=
+                element.dataset[data] != "" ? element.dataset[data] : "true";
+            code.appendChild(span);
+            code.innerHTML += "<br />";
+        }
+        if (code.innerHTML == "") {
+            code.innerHTML = "No attributes.";
+        }
+
+        pre.appendChild(code);
+        attributes.appendChild(h2);
+        attributes.appendChild(pre);
+        el.insertAdjacentElement("afterbegin", attributes);
+    });
 
     initialize();
 });

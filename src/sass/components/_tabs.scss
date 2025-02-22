@@ -39,97 +39,6 @@
 
             background-color: themes.color("surface");
         }
-
-        @include data("type", "primary") {
-            #{$parent}__button {
-                display: grid;
-                grid-template-rows: 1fr;
-                justify-content: center;
-
-                @include indicator(transparent, true);
-
-                @include themes.themify {
-                    @include mix-states(
-                        transparent,
-                        themes.color("on-surface"),
-                        false,
-                        false,
-                        "hover",
-                        "focus"
-                    );
-
-                    &:active {
-                        color: themes.color("on-surface");
-                        background-color: mix-color(
-                            transparent,
-                            themes.color("primary"),
-                            "pressed"
-                        );
-                    }
-
-                    &--selected {
-                        @include indicator(themes.color("primary"), true);
-                        @include mix-states(
-                            transparent,
-                            themes.color("primary"),
-                            true,
-                            true
-                        );
-
-                        &:focus {
-                            @include indicator(themes.color("secondary"), true);
-                        }
-                    }
-                }
-            }
-
-            &:has(#{$parent}__icon) {
-                height: 64px;
-
-                #{$parent}__button {
-                    display: grid;
-                    grid-template-rows: 1fr 1fr;
-                }
-
-                #{$parent}__icon {
-                    align-content: end;
-                }
-
-                #{$parent}__label {
-                    align-content: start;
-                }
-            }
-        }
-
-        @include data("type", "secondary") {
-            height: 48px;
-
-            #{$parent}__button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 4px;
-
-                @include themes.themify {
-                    @include mix-states(
-                        transparent,
-                        themes.color("on-surface"),
-                        false,
-                        true
-                    );
-
-                    &--selected {
-                        @include indicator(themes.color("primary"));
-
-                        color: themes.color("on-surface");
-
-                        &:focus {
-                            @include indicator(themes.color("secondary"));
-                        }
-                    }
-                }
-            }
-        }
     }
 
     &__page {
@@ -138,6 +47,99 @@
 
         &:not(&--selected) {
             @include hidden;
+        }
+    }
+
+    @include data("type", "primary") {
+        #{$parent}__button {
+            display: grid;
+            grid-template-rows: 1fr;
+            justify-content: center;
+
+            @include indicator(transparent, true);
+
+            @include themes.themify {
+                @include mix-states(
+                    transparent,
+                    themes.color("on-surface"),
+                    false,
+                    false,
+                    "hover",
+                    "focus"
+                );
+
+                &:active {
+                    color: themes.color("on-surface");
+                    background-color: mix-color(
+                        transparent,
+                        themes.color("primary"),
+                        "pressed"
+                    );
+                }
+
+                &--selected {
+                    @include indicator(themes.color("primary"), true);
+                    @include mix-states(
+                        transparent,
+                        themes.color("primary"),
+                        true,
+                        true
+                    );
+
+                    &:focus {
+                        @include indicator(themes.color("secondary"), true);
+                    }
+                }
+            }
+        }
+
+        #{$parent}__nav:has(#{$parent}__icon) {
+            height: 64px;
+
+            #{$parent}__button {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            #{$parent}__icon {
+                align-content: end;
+            }
+
+            #{$parent}__label {
+                align-content: start;
+            }
+        }
+    }
+
+    @include data("type", "secondary") {
+        #{$parent}__nav {
+            height: 48px;
+        }
+
+        #{$parent}__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+
+            @include themes.themify {
+                @include mix-states(
+                    transparent,
+                    themes.color("on-surface"),
+                    false,
+                    true
+                );
+
+                &--selected {
+                    @include indicator(themes.color("primary"));
+
+                    color: themes.color("on-surface");
+
+                    &:focus {
+                        @include indicator(themes.color("secondary"));
+                    }
+                }
+            }
         }
     }
 }

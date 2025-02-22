@@ -26,6 +26,17 @@
             .fill {
                 flex: 1;
             }
+            .attributes {
+                display: flex;
+                flex-flow: row nowrap;
+                gap: 4px;
+            }
+            .attributes > div {
+                flex: 1;
+            }
+            .md-checkbox {
+                flex: 1;
+            }
         </style>
     </head>
     <body class="md-body" data-md-theme="light">
@@ -183,8 +194,8 @@
                 <h1 class="md-app-bar__headline">Trees</h1>
             </div>
 
-            <div class="md-tabs">
-                <div class="md-tabs__nav" data-md-type="primary">
+            <div class="md-tabs" data-md-type="secondary">
+                <div class="md-tabs__nav">
                     <button class="md-tabs__button" data-md-tab="1">
                         <span class="md-tabs__label">Static</span>
                     </button>
@@ -195,10 +206,7 @@
                         <span class="md-tabs__label">With leaf checkboxes</span>
                     </button>
                 </div>
-                <div
-                    class="md-tabs__page"
-                    style="margin: 0 auto"
-                    data-md-tab="1">
+                <div class="md-tabs__page attributes" data-md-tab="1">
                     <div
                         class="md-tree"
                         data-md-margin="medium"
@@ -232,10 +240,7 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    class="md-tabs__page"
-                    style="margin: 0 auto"
-                    data-md-tab="2">
+                <div class="md-tabs__page attributes" data-md-tab="2">
                     <div
                         id="example-tree"
                         class="md-tree"
@@ -248,10 +253,7 @@
                         <!-- dynamically generated (see example-tree.js) -->
                     </div>
                 </div>
-                <div
-                    class="md-tabs__page"
-                    style="margin: 0 auto"
-                    data-md-tab="3">
+                <div class="md-tabs__page attributes" data-md-tab="3">
                     <div
                         id="example-tree-leaves-only"
                         class="md-tree"
@@ -272,8 +274,28 @@
                 <h1 class="md-app-bar__headline">Buttons</h1>
             </div>
 
-            <div class="md-pane__content flex rows">
-                <div class="flex cols center">
+            <div class="md-tabs" data-md-type="secondary">
+                <div class="md-tabs__nav">
+                    <button class="md-tabs__button" data-md-tab="1">
+                        <span class="md-tabs__label">Unstyled</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="2">
+                        <span class="md-tabs__label">Elevated</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="3">
+                        <span class="md-tabs__label">Filled</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="4">
+                        <span class="md-tabs__label">Tonal</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="5">
+                        <span class="md-tabs__label">Outlined</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="6">
+                        <span class="md-tabs__label">Text</span>
+                    </button>
+                </div>
+                <div class="md-tabs__page attributes" data-md-tab="1">
                     <button class="md-button">Button</button>
                     <button class="md-button">
                         <span class="md-button__icon md-symbol">add</span>
@@ -285,8 +307,7 @@
                         Button
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="2">
                     <button class="md-button" data-md-type="elevated">
                         Elevated
                     </button>
@@ -302,8 +323,7 @@
                         Elevated
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="3">
                     <button class="md-button" data-md-type="filled">
                         Filled
                     </button>
@@ -320,7 +340,7 @@
                     </button>
                 </div>
 
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="4">
                     <button class="md-button" data-md-type="tonal">
                         Tonal
                     </button>
@@ -337,7 +357,7 @@
                     </button>
                 </div>
 
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="5">
                     <button class="md-button" data-md-type="outlined">
                         Outlined
                     </button>
@@ -353,8 +373,7 @@
                         Outlined
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="6">
                     <button class="md-button" data-md-type="text">Text</button>
                     <button class="md-button" data-md-type="text">
                         <span class="md-button__icon md-symbol">add</span>
@@ -376,8 +395,22 @@
                 <div class="md-app-bar__headline">Icon buttons</div>
             </div>
 
-            <div class="md-pane__content flex rows">
-                <div class="flex cols center">
+            <div class="md-tabs" data-md-type="secondary">
+                <div class="md-tabs__nav">
+                    <button class="md-tabs__button" data-md-tab="1">
+                        <span class="md-tabs__label">Plain</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="2">
+                        <span class="md-tabs__label">Filled</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="3">
+                        <span class="md-tabs__label">Tonal</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="4">
+                        <span class="md-tabs__label">Outlined</span>
+                    </button>
+                </div>
+                <div class="md-tabs__page attributes" data-md-tab="1">
                     <button class="md-icon-button md-symbol">favorite</button>
                     <button
                         class="md-icon-button md-icon-button--selected md-symbol">
@@ -392,8 +425,7 @@
                         favorite
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="2">
                     <button
                         class="md-icon-button md-symbol"
                         data-md-type="filled">
@@ -417,8 +449,7 @@
                         favorite
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="3">
                     <button
                         class="md-icon-button md-symbol"
                         data-md-type="tonal">
@@ -442,8 +473,7 @@
                         favorite
                     </button>
                 </div>
-
-                <div class="flex cols center">
+                <div class="md-tabs__page attributes" data-md-tab="4">
                     <button
                         class="md-icon-button md-symbol"
                         data-md-type="outlined">
@@ -478,28 +508,30 @@
                 <div class="md-app-bar__headline">Primary tabs with icons</div>
             </div>
 
-            <div class="md-tabs">
-                <div class="md-tabs__nav" data-md-type="primary">
-                    <button class="md-tabs__button" data-md-tab="1">
-                        <span class="md-tabs__icon md-symbol"> home </span>
-                        <span class="md-tabs__label">Tab 1</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__icon md-symbol">
-                            shopping_bag
-                        </span>
-                        <span class="md-tabs__label">Tab 2</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="3">
-                        <span class="md-tabs__icon md-symbol">
-                            local_shipping
-                        </span>
-                        <span class="md-tabs__label">Tab 3</span>
-                    </button>
+            <div class="md-pane__content attributes">
+                <div class="md-tabs" data-md-type="primary">
+                    <div class="md-tabs__nav">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__icon md-symbol"> home </span>
+                            <span class="md-tabs__label">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__icon md-symbol">
+                                shopping_bag
+                            </span>
+                            <span class="md-tabs__label">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__icon md-symbol">
+                                local_shipping
+                            </span>
+                            <span class="md-tabs__label">Tab 3</span>
+                        </button>
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
                 </div>
-                <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
-                <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
             </div>
         </section>
 
@@ -510,21 +542,23 @@
                 </div>
             </div>
 
-            <div class="md-tabs">
-                <div class="md-tabs__nav" data-md-type="primary">
-                    <button class="md-tabs__button" data-md-tab="1">
-                        <span class="md-tabs__label">Tab 1</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__label">Tab 2</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="3">
-                        <span class="md-tabs__label">Tab 3</span>
-                    </button>
+            <div class="md-pane__content attributes">
+                <div class="md-tabs" data-md-type="primary" data-md-tab="2">
+                    <div class="md-tabs__nav">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__label">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__label">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__label">Tab 3</span>
+                        </button>
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
                 </div>
-                <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
-                <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
             </div>
         </section>
 
@@ -538,28 +572,30 @@
                 </div>
             </div>
 
-            <div class="md-tabs">
-                <div class="md-tabs__nav" data-md-type="secondary">
-                    <button class="md-tabs__button" data-md-tab="1">
-                        <span class="md-tabs__icon md-symbol"> home </span>
-                        <span class="md-tabs__label">Tab 1</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__icon md-symbol">
-                            shopping_bag
-                        </span>
-                        <span class="md-tabs__label">Tab 2</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="3">
-                        <span class="md-tabs__icon md-symbol">
-                            local_shipping
-                        </span>
-                        <span class="md-tabs__label">Tab 3</span>
-                    </button>
+            <div class="md-pane__content attributes">
+                <div class="md-tabs" data-md-type="secondary" data-md-tab="3">
+                    <div class="md-tabs__nav">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__icon md-symbol"> home </span>
+                            <span class="md-tabs__label">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__icon md-symbol">
+                                shopping_bag
+                            </span>
+                            <span class="md-tabs__label">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__icon md-symbol">
+                                local_shipping
+                            </span>
+                            <span class="md-tabs__label">Tab 3</span>
+                        </button>
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
                 </div>
-                <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
-                <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
             </div>
         </section>
 
@@ -573,21 +609,23 @@
                 </div>
             </div>
 
-            <div class="md-tabs">
-                <div class="md-tabs__nav" data-md-type="secondary">
-                    <button class="md-tabs__button" data-md-tab="1">
-                        <span class="md-tabs__label">Tab 1</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__label">Tab 2</span>
-                    </button>
-                    <button class="md-tabs__button" data-md-tab="3">
-                        <span class="md-tabs__label">Tab 3</span>
-                    </button>
+            <div class="md-pane__content attributes">
+                <div class="md-tabs" data-md-type="secondary">
+                    <div class="md-tabs__nav">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__label">Tab 1</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__label">Tab 2</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__label">Tab 3</span>
+                        </button>
+                    </div>
+                    <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
+                    <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
+                    <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
                 </div>
-                <div class="md-tabs__page" data-md-tab="1">Tab 1.</div>
-                <div class="md-tabs__page" data-md-tab="2">Tab 2.</div>
-                <div class="md-tabs__page" data-md-tab="3">Tab 3.</div>
             </div>
         </section>
 
@@ -645,89 +683,138 @@
                     <h1 class="md-app-bar__headline">Cards</h1>
                 </div>
 
-                <div class="md-pane__content">
-                    <div class="md-card" data-md-type="elevated">
-                        <div data-md-typescale="display-small">Elevated</div>
-                        <div data-md-typescale="title-large">Subhead</div>
-                        <div class="md-card__row">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Nesciunt impedit quo consectetur nulla quasi?
-                            Perspiciatis a eos atque. Doloremque perspiciatis
-                            magnam inventore ab dolorum obcaecati? Porro
-                            corrupti mollitia nulla dolorum.
-                        </div>
-                        <div class="md-card__row" style="justify-content: end">
-                            <button class="md-button" data-md-type="outlined">
-                                Action
-                            </button>
-                            <button class="md-button" data-md-type="filled">
-                                Action
-                            </button>
+                <div class="md-tabs" data-md-type="secondary">
+                    <div class="md-tabs__nav">
+                        <button class="md-tabs__button" data-md-tab="1">
+                            <span class="md-tabs__label">Elevated</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="2">
+                            <span class="md-tabs__label">Filled</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="3">
+                            <span class="md-tabs__label">Outlined</span>
+                        </button>
+                        <button class="md-tabs__button" data-md-tab="4">
+                            <span class="md-tabs__label">Disabled</span>
+                        </button>
+                    </div>
+                    <div class="md-tabs__page attributes" data-md-tab="1">
+                        <div class="md-card" data-md-type="elevated">
+                            <div data-md-typescale="display-small">
+                                Elevated
+                            </div>
+                            <div data-md-typescale="title-large">Subhead</div>
+                            <div class="md-card__row">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nesciunt impedit quo
+                                consectetur nulla quasi? Perspiciatis a eos
+                                atque. Doloremque perspiciatis magnam inventore
+                                ab dolorum obcaecati? Porro corrupti mollitia
+                                nulla dolorum.
+                            </div>
+                            <div
+                                class="md-card__row"
+                                style="justify-content: end">
+                                <button
+                                    class="md-button"
+                                    data-md-type="outlined">
+                                    Action
+                                </button>
+                                <button class="md-button" data-md-type="filled">
+                                    Action
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="md-card" data-md-type="filled">
-                        <div data-md-typescale="display-small">Filled</div>
-                        <div data-md-typescale="title-large">Subhead</div>
-                        <div class="md-card__row">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Nesciunt impedit quo consectetur nulla quasi?
-                            Perspiciatis a eos atque. Doloremque perspiciatis
-                            magnam inventore ab dolorum obcaecati? Porro
-                            corrupti mollitia nulla dolorum.
-                        </div>
-                        <div class="md-card__row" style="justify-content: end">
-                            <button class="md-button" data-md-type="outlined">
-                                Action
-                            </button>
-                            <button class="md-button" data-md-type="filled">
-                                Action
-                            </button>
-                        </div>
-                    </div>
-                    <div class="md-card" data-md-type="outlined">
-                        <div data-md-typescale="display-small">Outlined</div>
-                        <div data-md-typescale="title-large">Subhead</div>
-                        <div class="md-card__row">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Nesciunt impedit quo consectetur nulla quasi?
-                            Perspiciatis a eos atque. Doloremque perspiciatis
-                            magnam inventore ab dolorum obcaecati? Porro
-                            corrupti mollitia nulla dolorum.
-                        </div>
-                        <div class="md-card__row" style="justify-content: end">
-                            <button class="md-button" data-md-type="outlined">
-                                Action
-                            </button>
-                            <button class="md-button" data-md-type="filled">
-                                Action
-                            </button>
+                    <div class="md-tabs__page attributes" data-md-tab="2">
+                        <div class="md-card" data-md-type="filled">
+                            <div data-md-typescale="display-small">Filled</div>
+                            <div data-md-typescale="title-large">Subhead</div>
+                            <div class="md-card__row">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nesciunt impedit quo
+                                consectetur nulla quasi? Perspiciatis a eos
+                                atque. Doloremque perspiciatis magnam inventore
+                                ab dolorum obcaecati? Porro corrupti mollitia
+                                nulla dolorum.
+                            </div>
+                            <div
+                                class="md-card__row"
+                                style="justify-content: end">
+                                <button
+                                    class="md-button"
+                                    data-md-type="outlined">
+                                    Action
+                                </button>
+                                <button class="md-button" data-md-type="filled">
+                                    Action
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div
-                        class="md-card md-card--disabled"
-                        data-md-type="elevated">
-                        <div data-md-typescale="display-small">Elevated</div>
-                        <div data-md-typescale="title-large">Subhead</div>
-                        <div class="md-card__row">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Nesciunt impedit quo consectetur nulla quasi?
-                            Perspiciatis a eos atque. Doloremque perspiciatis
-                            magnam inventore ab dolorum obcaecati? Porro
-                            corrupti mollitia nulla dolorum.
+                    <div class="md-tabs__page attributes" data-md-tab="3">
+                        <div class="md-card" data-md-type="outlined">
+                            <div data-md-typescale="display-small">
+                                Outlined
+                            </div>
+                            <div data-md-typescale="title-large">Subhead</div>
+                            <div class="md-card__row">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nesciunt impedit quo
+                                consectetur nulla quasi? Perspiciatis a eos
+                                atque. Doloremque perspiciatis magnam inventore
+                                ab dolorum obcaecati? Porro corrupti mollitia
+                                nulla dolorum.
+                            </div>
+                            <div
+                                class="md-card__row"
+                                style="justify-content: end">
+                                <button
+                                    class="md-button"
+                                    data-md-type="outlined">
+                                    Action
+                                </button>
+                                <button class="md-button" data-md-type="filled">
+                                    Action
+                                </button>
+                            </div>
                         </div>
-                        <div class="md-card__row" style="justify-content: end">
-                            <button class="md-button" data-md-type="outlined">
-                                Action
-                            </button>
-                            <button class="md-button" data-md-type="filled">
-                                Action
-                            </button>
+                    </div>
+                    <div class="md-tabs__page attributes" data-md-tab="4">
+                        <div
+                            class="md-card md-card--disabled"
+                            data-md-type="elevated">
+                            <div data-md-typescale="display-small">
+                                Disabled
+                            </div>
+                            <div data-md-typescale="title-large">Subhead</div>
+                            <div class="md-card__row">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nesciunt impedit quo
+                                consectetur nulla quasi? Perspiciatis a eos
+                                atque. Doloremque perspiciatis magnam inventore
+                                ab dolorum obcaecati? Porro corrupti mollitia
+                                nulla dolorum.
+                            </div>
+                            <div
+                                class="md-card__row"
+                                style="justify-content: end">
+                                <button
+                                    class="md-button"
+                                    data-md-type="outlined">
+                                    Action
+                                </button>
+                                <button class="md-button" data-md-type="filled">
+                                    Action
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- TODO: add attributes -->
         <section
             id="miscellaneous"
             class="md-pane"
@@ -736,8 +823,18 @@
                 <h1 class="md-app-bar__headline">Miscellaneous</h1>
             </div>
 
-            <div class="md-pane__content flex rows">
-                <div class="flex cols">
+            <div class="md-tabs" data-md-type="secondary">
+                <div class="md-tabs__nav">
+                    <button class="md-tabs__button" data-md-tab="1">
+                        <span class="md-tabs__label">Checkbox</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="2">
+                        <span class="md-tabs__label"
+                            >Checkbox inside label</span
+                        >
+                    </button>
+                </div>
+                <div class="md-tabs__page flex rows" data-md-tab="1">
                     <div class="md-checkbox">
                         <input
                             type="checkbox"
@@ -746,17 +843,6 @@
                         <label for="checkbox-1">Checkbox</label>
                     </div>
                     <div class="md-checkbox">
-                        <label
-                            ><input
-                                type="checkbox"
-                                id="checkbox-3"
-                                name="checkbox-3" />Checkbox inside label</label
-                        >
-                    </div>
-                </div>
-
-                <div class="flex cols">
-                    <div class="md-checkbox">
                         <input
                             type="checkbox"
                             class="md-checkbox__box"
@@ -764,6 +850,16 @@
                             name="checkbox-2"
                             disabled />
                         <label for="checkbox-2">Toggled checkbox</label>
+                    </div>
+                </div>
+                <div class="md-tabs__page flex rows" data-md-tab="2">
+                    <div class="md-checkbox">
+                        <label
+                            ><input
+                                type="checkbox"
+                                id="checkbox-3"
+                                name="checkbox-3" />Checkbox inside label</label
+                        >
                     </div>
                     <div class="md-checkbox">
                         <label
