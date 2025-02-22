@@ -30,29 +30,37 @@
     }
 
     @each $name, $size in $margins {
-        &[data-md-margin="#{$name}"] #{$parent}__subtree {
-            margin-left: $icon-button--small__half;
-            padding-left: calc($size - $icon-button--small__half);
+        @include data("margin", $name) {
+            #{$parent}__subtree {
+                margin-left: $icon-button--small__half;
+                padding-left: calc($size - $icon-button--small__half);
+            }
         }
     }
 
     @include themes.themify() {
         @each $color in $indicator-colors {
-            &[data-md-indicator-color="#{$color}"] #{$parent}__subtree {
-                border-left-color: themes.color($color);
+            @include data("indicator-color", $color) {
+                #{$parent}__subtree {
+                    border-left-color: themes.color($color);
+                }
             }
         }
 
         @each $name, $size in $indicator-widths {
-            &[data-md-indicator-size="#{$name}"] #{$parent}__subtree {
-                border-left-width: #{$size};
-                margin-left: calc($icon-button--small__half - ($size / 2));
+            @include data("indicator-size", $name) {
+                #{$parent}__subtree {
+                    border-left-width: #{$size};
+                    margin-left: calc($icon-button--small__half - ($size / 2));
+                }
             }
         }
 
         @each $style in $border-styles {
-            &[data-md-indicator-style="#{$style}"] #{$parent}__subtree {
-                border-left-style: #{$style};
+            @include data("indicator-style", $style) {
+                #{$parent}__subtree {
+                    border-left-style: #{$style};
+                }
             }
         }
     }

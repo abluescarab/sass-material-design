@@ -51,7 +51,7 @@
     }
 
     @include themes.themify() {
-        &[data-md-type="filled"] {
+        @include data("type", "filled") {
             @include enabled-styling() {
                 @include mix-states(
                     themes.color("surface-container-highest"),
@@ -73,7 +73,7 @@
             }
         }
 
-        &[data-md-type="tonal"] {
+        @include data("type", "tonal") {
             @include enabled-styling() {
                 @include mix-states(
                     themes.color("surface-container-highest"),
@@ -95,7 +95,7 @@
             }
         }
 
-        &[data-md-type="outlined"] {
+        @include data("type", "outlined") {
             @include enabled-styling(
                 (
                     background-color: transparent,

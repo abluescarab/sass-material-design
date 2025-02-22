@@ -66,12 +66,11 @@
         }
     }
 
-    &[data-md-type="center"] {
+    @include data("type", "center") {
         text-align: center;
     }
 
-    &[data-md-type="medium"],
-    &[data-md-type="large"] {
+    @include data("type", "medium", "large") {
         grid-template-rows: auto 1fr;
         align-items: end;
 
@@ -87,7 +86,7 @@
         }
     }
 
-    &[data-md-type="medium"] {
+    @include data("type", "medium") {
         height: 112px;
         padding-bottom: 24px;
 
@@ -96,7 +95,7 @@
         }
     }
 
-    &[data-md-type="large"] {
+    @include data("type", "large") {
         height: 152px;
         padding-bottom: 28px;
 

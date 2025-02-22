@@ -21,10 +21,14 @@
 
 // ensures prefix on all data attributes
 @mixin data($name, $values...) {
+    $selector: "";
+
     @each $value in $values {
-        &[data-md-#{$name}="#{$value}"] {
-            @content;
-        }
+        $selector: $selector + "&[data-md-#{$name}='#{$value}'],";
+    }
+
+    #{$selector} {
+        @content;
     }
 }
 

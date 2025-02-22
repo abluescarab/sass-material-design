@@ -38,7 +38,7 @@
             background-color: themes.color("surface");
         }
 
-        &[data-md-type="primary"] {
+        @include data("type", "primary") {
             #{$parent}__button {
                 display: grid;
                 grid-template-rows: 1fr;
@@ -100,7 +100,7 @@
             }
         }
 
-        &[data-md-type="secondary"] {
+        @include data("type", "secondary") {
             height: 48px;
 
             #{$parent}__button {

@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .md-fixed {
     $parent: &;
     $padding: 16px;
@@ -7,23 +9,23 @@
     gap: calc($padding / 2);
     align-items: center;
 
-    &[data-md-lr="left"] {
+    @include data("lr", "left") {
         left: $padding;
     }
 
-    &[data-md-lr="right"] {
+    @include data("lr", "right") {
         right: $padding;
     }
 
-    &[data-md-tb="top"] {
+    @include data("tb", "top") {
         top: $padding;
     }
 
-    &[data-md-tb="bottom"] {
+    @include data("tb", "bottom") {
         bottom: $padding;
     }
 
-    &[data-md-direction="vertical"] {
+    @include data("direction", "vertical") {
         flex-direction: column;
 
         &#{$parent}--reverse {
@@ -31,7 +33,7 @@
         }
     }
 
-    &[data-md-direction="horizontal"] {
+    @include data("direction", "horizontal") {
         flex-direction: row;
 
         &#{$parent}--reverse {

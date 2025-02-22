@@ -30,7 +30,7 @@
     }
 
     @include themes.themify() {
-        &[data-md-type="elevated"] {
+        @include data("type", "elevated") {
             @include enabled-styling() {
                 @include mix-states(
                     themes.color("surface-container-low"),
@@ -42,7 +42,7 @@
             }
         }
 
-        &[data-md-type="filled"] {
+        @include data("type", "filled") {
             @include enabled-styling() {
                 @include mix-states(
                     themes.color("primary"),
@@ -57,7 +57,7 @@
             }
         }
 
-        &[data-md-type="tonal"] {
+        @include data("type", "tonal") {
             @include enabled-styling() {
                 @include mix-states(
                     themes.color("secondary-container"),
@@ -72,7 +72,7 @@
             }
         }
 
-        &[data-md-type="outlined"] {
+        @include data("type", "outlined") {
             @include enabled-styling(
                 (
                     background-color: transparent,
@@ -94,7 +94,7 @@
             }
         }
 
-        &[data-md-type="text"] {
+        @include data("type", "text") {
             padding: 12px;
 
             &:has(#{$parent}__icon) {
