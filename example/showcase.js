@@ -1,5 +1,17 @@
-import { initialize } from "../material.js";
+// TODO: implement up/down arrows on panes
+// TODO: implement toggle for icon buttons
+import {
+    initialize,
+    getParentWithClass,
+    cycleData,
+    capitalize,
+    cycleThemes,
+    setTheme,
+} from "../material.js";
 import { populate } from "../modules/components/tree.js";
+
+const container = document.getElementById("fab-container");
+const fab = document.getElementById("fab");
 
 const exampleTree = Object.freeze({
     "Item 1": {
@@ -38,9 +50,145 @@ const exampleTree = Object.freeze({
     },
 });
 
+function replaceFabButtonText(element, replacement) {
+    const node = element.childNodes[2];
+    node.nodeValue = node.nodeValue.replace(node.nodeValue.trim(), replacement);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("example-tree"), exampleTree);
     populate(document.getElementById("example-tree-checkboxes"), exampleTree);
 
     initialize();
+});
+
+document
+    .getElementById("close-banner")
+    .addEventListener("click", (e) =>
+        getParentWithClass(e.currentTarget, "md-banner").classList.remove(
+            "md-banner--visible"
+        )
+    );
+
+document.getElementById("toggle-theme").addEventListener("click", (e) => {
+    e.currentTarget.getElementsByClassName("md-fab__icon")[0].innerText =
+        cycleThemes(document.body, "light", "dark") == "light"
+            ? "dark_mode"
+            : "light_mode";
+});
+
+document
+    .querySelectorAll("#snackbars .md-pane__content > .md-button")
+    .forEach((element) =>
+        element.addEventListener("click", (e) => {
+            const el = e.currentTarget;
+            const snackbar = el.nextElementSibling;
+
+            snackbar.classList.toggle("md-snackbar--visible");
+
+            if (snackbar.classList.contains("md-snackbar--visible")) {
+                el.innerText = el.innerText.replace("Show", "Hide");
+            } else {
+                el.innerText = el.innerText.replace("Hide", "Show");
+            }
+        })
+    );
+
+document.querySelectorAll(".md-snackbar__action").forEach((element) =>
+    element.addEventListener("click", (e) => {
+        const el = e.currentTarget.parentElement;
+
+        el.classList.remove("md-snackbar--visible");
+        el.previousElementSibling.innerText =
+            el.previousElementSibling.innerText.replace("Hide", "Show");
+    })
+);
+
+document
+    .getElementById("checkbox-1")
+    .addEventListener(
+        "change",
+        (e) =>
+            (document.getElementById("checkbox-2").disabled =
+                !e.currentTarget.checked)
+    );
+
+document
+    .getElementById("checkbox-3")
+    .addEventListener(
+        "change",
+        (e) =>
+            (document.getElementById("checkbox-4").disabled =
+                !e.currentTarget.checked)
+    );
+
+fab.addEventListener("click", (e) =>
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    })
+);
+
+document.getElementById("fab-color").addEventListener("click", (e) => {
+    const color = cycleData(
+        fab,
+        "color",
+        "",
+        "primary",
+        "secondary",
+        "tertiary"
+    );
+    replaceFabButtonText(
+        e.currentTarget,
+        color == "" ? "Surface" : capitalize(color)
+    );
+});
+
+document.getElementById("fab-size").addEventListener("click", (e) => {
+    const size = cycleData(fab, "size", "", "small", "large", "extended");
+    replaceFabButtonText(
+        e.currentTarget,
+        size == "" ? "Medium" : capitalize(size)
+    );
+});
+
+document.getElementById("fab-elevation").addEventListener("click", (e) => {
+    fab.classList.toggle("md-fab--low");
+    replaceFabButtonText(
+        e.currentTarget,
+        fab.classList.contains("md-fab--low") ? "Low" : "High"
+    );
+});
+
+document.getElementById("fab-lr").addEventListener("click", (e) => {
+    const side = container.dataset.mdLr == "right" ? "left" : "right";
+    container.dataset.mdLr = side;
+    replaceFabButtonText(e.currentTarget, capitalize(side));
+});
+
+document.getElementById("fab-tb").addEventListener("click", (e) => {
+    const side = container.dataset.mdTb == "bottom" ? "top" : "bottom";
+    container.dataset.mdTb = side;
+    replaceFabButtonText(e.currentTarget, capitalize(side));
+});
+
+document.getElementById("fab-orientation").addEventListener("click", (e) => {
+    replaceFabButtonText(
+        e.currentTarget,
+        container.classList.toggle("md-fixed--reverse") ? "Reverse" : "Forward"
+    );
+});
+
+document.getElementById("fab-visibility").addEventListener("click", (e) => {
+    container.style.display =
+        container.style.display == "none" ? "flex" : "none";
+
+    e.currentTarget.childNodes[1].innerText =
+        container.style.display == "none" ? "visibility" : "visibility_off";
+
+    replaceFabButtonText(
+        e.currentTarget,
+        fab.style.display == "none" ? "Show" : "Hide"
+    );
 });

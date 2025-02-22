@@ -1,4 +1,5 @@
 // TODO: add option to check children when checked
+// TODO: add option to not collapse children with parent
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
 import { getChildByClassName } from "../utils.js";
 function createButton(buttonStyle) {
