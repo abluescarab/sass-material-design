@@ -1889,23 +1889,17 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 .md-tree {
   flex: 1;
 }
-.md-tree, .md-tree__subtree {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 4px;
-}
 .md-tree[data-md-margin=small] .md-tree__subtree {
-  margin-left: 10px;
   padding-left: -2px;
 }
 .md-tree[data-md-margin=medium] .md-tree__subtree {
-  margin-left: 10px;
   padding-left: 6px;
 }
 .md-tree[data-md-margin=large] .md-tree__subtree {
-  margin-left: 10px;
   padding-left: 22px;
+}
+.md-tree[data-md-checkboxes=all] .md-tree__subtree, .md-tree[data-md-checkboxes=leaves] .md-tree__subtree {
+  padding-left: 19px;
 }
 [data-md-theme=light] .md-tree[data-md-indicator-color=primary] .md-tree__subtree {
   border-left-color: rgb(104, 84, 142);
@@ -2002,6 +1996,12 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 [data-md-theme=dark] .md-tree[data-md-indicator-style=outset] .md-tree__subtree {
   border-left-style: outset;
+}
+.md-tree, .md-tree__subtree {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 4px;
 }
 .md-tree__subtree {
   border-left: 1px dotted transparent;

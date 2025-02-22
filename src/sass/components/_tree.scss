@@ -21,20 +21,17 @@
 
     flex: 1;
 
-    &,
-    &__subtree {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: calc($gap / 2);
-    }
-
     @each $name, $size in $margins {
         @include data("margin", $name) {
             #{$parent}__subtree {
-                margin-left: $icon-button--small__half;
                 padding-left: calc($size - $icon-button--small__half);
             }
+        }
+    }
+
+    @include data("checkboxes", "all", "leaves") {
+        #{$parent}__subtree {
+            padding-left: $icon-button--small__half + 9px;
         }
     }
 
@@ -63,6 +60,14 @@
                 }
             }
         }
+    }
+
+    &,
+    &__subtree {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: calc($gap / 2);
     }
 
     &__subtree {
