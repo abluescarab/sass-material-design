@@ -59,9 +59,7 @@ function initializeTree(
         if (el.classList.contains("md-tree__subtree")) {
             const label = el.previousElementSibling as HTMLElement;
 
-            el.style.display = "none";
             label.insertAdjacentElement("afterbegin", createButton(buttonType));
-
             initializeTree(el, buttonType, checkboxes);
         }
     }
@@ -122,7 +120,6 @@ export function initialize(tree: Element): void {
             const expand = el.innerText == "add";
 
             toggleAll(el.parentElement?.nextElementSibling, expand, false);
-
             triggerEvent<MaterialToggleEvent>(tree, "toggled", {
                 state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
             });
@@ -162,14 +159,9 @@ export function toggle(tree: Element | null, expand: boolean): void {
         return;
     }
 
-    tree.style.display = expand ? "flex" : "none";
     button.innerText = expand ? "remove" : "add";
-
-    if (expand) {
-        button.classList.add("md-icon-button--selected");
-    } else {
-        button.classList.remove("md-icon-button--selected");
-    }
+    tree.classList.toggle("md-tree__subtree--expanded", expand);
+    button.classList.toggle("md-icon-button--selected", expand);
 }
 
 /**

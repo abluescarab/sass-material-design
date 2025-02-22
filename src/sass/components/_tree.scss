@@ -71,6 +71,10 @@
 
     &__subtree {
         border-left: 1px dotted transparent;
+
+        &:not(&--expanded) {
+            @include hidden;
+        }
     }
 
     &__label {

@@ -41,8 +41,7 @@
 
     &__label {
         @include font-styling("label-large");
-
-        display: none;
+        @include hidden;
     }
 
     &--low {

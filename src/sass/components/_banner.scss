@@ -2,7 +2,7 @@
 @use "../themes";
 
 .md-banner {
-    display: none;
+    display: grid;
     grid-template-rows: 2;
     grid-template-columns: auto 1fr;
     padding: 16px;
@@ -19,8 +19,8 @@
         @include divider;
     }
 
-    &--visible {
-        display: grid;
+    &:not(&--visible) {
+        @include hidden;
     }
 
     &__icon {

@@ -18,14 +18,16 @@
         @include data("typescale", $typescale) {
             @include font-styling($typescale);
         }
-
-        @include data("typescale", "#{$typescale}-mono") {
-            @include font-styling(
-                $typescale,
-                $overrides: (font-family: ref("typeface", "mono"))
-            );
-        }
     }
+
+    @include data("monospace") {
+        font-family: ref("typeface", "mono");
+    }
+}
+
+code,
+code * {
+    @include font-styling("body-medium", $mono: true);
 }
 
 .md-symbol {

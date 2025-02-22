@@ -3,6 +3,7 @@
 @use "sass:math";
 @use "functions" as *;
 @use "sys" as *;
+@use "ref" as *;
 @use "../themes";
 
 @mixin container-backgrounds {
@@ -26,8 +27,12 @@
 @mixin data($name, $values...) {
     $selector: "";
 
-    @each $value in $values {
-        $selector: $selector + "&[data-md-#{$name}='#{$value}'],";
+    @if length($values) > 0 {
+        @each $value in $values {
+            $selector: $selector + "&[data-md-#{$name}='#{$value}'],";
+        }
+    } @else {
+        $selector: "&[data-md-#{$name}],";
     }
 
     #{$selector} {
@@ -61,11 +66,20 @@
     }
 }
 
-@mixin font-styling($typescale, $prominent: false, $overrides: ()) {
+@mixin font-styling(
+    $typescale,
+    $prominent: false,
+    $mono: false,
+    $overrides: ()
+) {
     $font: sys("typescale", $typescale);
 
     @if not map.has-key($overrides, "font-family") {
-        font-family: map.get($font, "font");
+        @if $mono {
+            font-family: "#{ref("typeface", "mono")}";
+        } @else {
+            font-family: map.get($font, "font");
+        }
     }
 
     @if not map.has-key($overrides, "line-height") {
@@ -91,6 +105,14 @@
     } @else {
         font-weight: map.get($font, "weight");
     }
+}
+
+@mixin hidden() {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    bottom: auto;
+    right: auto;
 }
 
 @mixin indicator($color, $primary: false) {

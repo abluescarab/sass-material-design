@@ -133,11 +133,11 @@
     }
 
     &__page {
+        display: block;
         padding: 16px;
-        display: none;
 
-        &--selected {
-            display: block;
+        &:not(&--selected) {
+            @include hidden;
         }
     }
 }

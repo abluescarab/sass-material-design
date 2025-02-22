@@ -2,7 +2,7 @@
 @use "../themes";
 
 .md-snackbar {
-    display: none;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
     border-radius: sys("shape", "corner", "extra-small");
@@ -24,8 +24,8 @@
         color: themes.color("inverse-on-surface");
     }
 
-    &--visible {
-        display: grid;
+    &:not(&--visible) {
+        @include hidden;
     }
 
     &__action {

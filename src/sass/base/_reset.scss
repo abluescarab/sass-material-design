@@ -25,3 +25,7 @@ input {
 label:has(input:not(:disabled), button:not(:disabled)) {
     cursor: pointer;
 }
+
+pre code {
+    white-space: pre-line;
+}
