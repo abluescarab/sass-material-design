@@ -65,12 +65,13 @@
         }
     }
 
-    &[data-md-size="small"]:not(&--branded) {
-        @include square(40px);
-        border-radius: sys("shape", "corner", "medium");
+    @include data("size", "small") {
+        &:not(#{$parent}--branded) {
+            @include square(40px);
+            border-radius: sys("shape", "corner", "medium");
+        }
     }
 
-    &[data-md-size="large"],
     &--branded {
         #{$parent}__icon {
             $icon-size: 36px;
@@ -80,7 +81,8 @@
         }
     }
 
-    &[data-md-size="large"] {
+    @include data("size", "large") {
+        @extend #{$parent}--branded;
         @include square(96px);
         border-radius: sys("shape", "corner", "extra-large");
 
@@ -94,7 +96,7 @@
         }
     }
 
-    &[data-md-size="extended"] {
+    @include data("size", "extended") {
         min-width: 80px;
         width: auto;
         padding: 0 16px;
@@ -106,7 +108,7 @@
 
     @include themes.themify() {
         @each $color in "primary", "secondary", "tertiary" {
-            &[data-md-color="#{$color}"] {
+            @include data("color", $color) {
                 @include mix-states(
                     themes.color("#{$color}-container"),
                     themes.color("on-#{$color}-container"),
