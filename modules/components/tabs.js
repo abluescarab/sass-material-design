@@ -19,16 +19,20 @@ export function initialize(container) {
     });
 }
 function changeTab(container, oldTab, newTab) {
-    if (newTab == null) {
-        return;
-    }
     const [oldButton, oldContent] = getTab(container, oldTab);
     const [newButton, newContent] = getTab(container, newTab);
     oldButton?.classList.remove("md-tabs__button--selected");
     oldContent?.classList.remove("md-tabs__page--selected");
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
+    const event = new CustomEvent("change", {
+        detail: {
+            oldTab: oldTab,
+            newTab: newTab,
+        },
+    });
     container.dataset.mdTab = newTab;
+    container.dispatchEvent(event);
 }
 function getTab(container, tab) {
     return [
