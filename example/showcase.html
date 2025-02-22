@@ -182,60 +182,86 @@
                 <h1 class="md-app-bar__headline">Trees</h1>
             </div>
 
-            <div class="md-pane__content flex rows">
+            <div class="md-tabs">
+                <div class="md-tabs__nav" data-md-type="primary">
+                    <button class="md-tabs__button" data-md-tab="1">
+                        <span class="md-tabs__label">Static</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="2">
+                        <span class="md-tabs__label">With checkboxes</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="3">
+                        <span class="md-tabs__label">With leaf checkboxes</span>
+                    </button>
+                </div>
                 <div
-                    class="md-tree"
-                    data-md-margin="medium"
-                    data-md-indicator-color="primary"
-                    data-md-indicator-style="dotted"
-                    data-md-indicator-size="small"
-                    data-md-button-style="filled"
-                    data-md-expand-on-load>
-                    <label class="md-tree__label">Item 1</label>
-                    <label class="md-tree__label">Item 2</label>
-                    <div class="md-tree__subtree">
-                        <label class="md-tree__label">Item 3</label>
-                        <label class="md-tree__label">Item 4</label>
-                        <label class="md-tree__label">Item 5</label>
+                    class="md-tabs__page"
+                    style="margin: 0 auto"
+                    data-md-tab="1">
+                    <div
+                        class="md-tree"
+                        data-md-margin="medium"
+                        data-md-indicator-color="primary"
+                        data-md-indicator-style="dotted"
+                        data-md-indicator-size="small"
+                        data-md-button-style="filled"
+                        data-md-expand-on-load>
+                        <label class="md-tree__label">Item 1</label>
+                        <label class="md-tree__label">Item 2</label>
                         <div class="md-tree__subtree">
-                            <label class="md-tree__label">Item 6</label>
-                        </div>
-                    </div>
-                    <label class="md-tree__label">Item 7</label>
-                    <label class="md-tree__label">Item 8</label>
-                    <div class="md-tree__subtree">
-                        <label class="md-tree__label">Item 9</label>
-                        <div class="md-tree__subtree">
-                            <label class="md-tree__label">Item 10</label>
+                            <label class="md-tree__label">Item 3</label>
+                            <label class="md-tree__label">Item 4</label>
+                            <label class="md-tree__label">Item 5</label>
                             <div class="md-tree__subtree">
-                                <label class="md-tree__label"> Item 11 </label>
+                                <label class="md-tree__label">Item 6</label>
+                            </div>
+                        </div>
+                        <label class="md-tree__label">Item 7</label>
+                        <label class="md-tree__label">Item 8</label>
+                        <div class="md-tree__subtree">
+                            <label class="md-tree__label">Item 9</label>
+                            <div class="md-tree__subtree">
+                                <label class="md-tree__label">Item 10</label>
+                                <div class="md-tree__subtree">
+                                    <label class="md-tree__label">
+                                        Item 11
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div
-                    id="example-tree"
-                    class="md-tree"
-                    data-md-indicator-color="secondary"
-                    data-md-indicator-style="dashed"
-                    data-md-indicator-size="medium"
-                    data-md-button-style="tonal"
-                    data-md-checkboxes="all"
-                    data-md-expand-on-load>
-                    <!-- dynamically generated (see example-tree.js) -->
+                    class="md-tabs__page"
+                    style="margin: 0 auto"
+                    data-md-tab="2">
+                    <div
+                        id="example-tree"
+                        class="md-tree"
+                        data-md-indicator-color="secondary"
+                        data-md-indicator-style="dashed"
+                        data-md-indicator-size="medium"
+                        data-md-button-style="tonal"
+                        data-md-checkboxes="all"
+                        data-md-expand-on-load>
+                        <!-- dynamically generated (see example-tree.js) -->
+                    </div>
                 </div>
-
                 <div
-                    id="example-tree-leaves-only"
-                    class="md-tree"
-                    data-md-indicator-color="tertiary"
-                    data-md-indicator-style="solid"
-                    data-md-indicator-size="large"
-                    data-md-button-style="outlined"
-                    data-md-checkboxes="leaves"
-                    data-md-expand-on-load>
-                    <!-- dynamically generated (see example-tree.js) -->
+                    class="md-tabs__page"
+                    style="margin: 0 auto"
+                    data-md-tab="3">
+                    <div
+                        id="example-tree-leaves-only"
+                        class="md-tree"
+                        data-md-indicator-color="tertiary"
+                        data-md-indicator-style="solid"
+                        data-md-indicator-size="large"
+                        data-md-button-style="outlined"
+                        data-md-checkboxes="leaves"
+                        data-md-expand-on-load>
+                        <!-- dynamically generated (see example-tree.js) -->
+                    </div>
                 </div>
             </div>
         </section>
