@@ -4,10 +4,10 @@
     $list: null;
     $i: $start;
 
-    @while ($i <= $end) {
+    @while $i <= $end {
         $value: #{$prefix}#{$i}#{$suffix};
 
-        @if ($list == null) {
+        @if $list == null {
             $list: $value;
         } @else {
             $list: append($list, $value);
@@ -26,7 +26,7 @@
 @function mix-color($default, $mix, $state) {
     $state-name: $state;
 
-    @if ($state-name == "active") {
+    @if $state-name == "active" {
         $state-name: "pressed";
     }
 

@@ -25,7 +25,7 @@ $themes: (
 // modified from https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
 @mixin themify($self: false) {
     @each $theme, $map in $themes {
-        @if ($self) {
+        @if $self {
             &[data-md-theme="#{$theme}"] {
                 @include -themify($theme, $map) {
                     @content;
