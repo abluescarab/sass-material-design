@@ -1,3 +1,4 @@
+import { initialize } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 
 const exampleTree = Object.freeze({
@@ -40,4 +41,6 @@ const exampleTree = Object.freeze({
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("example-tree"), exampleTree);
     populate(document.getElementById("example-tree-checkboxes"), exampleTree);
+
+    initialize();
 });
