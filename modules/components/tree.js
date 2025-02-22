@@ -1,6 +1,7 @@
 // TODO: add option to check children when checked
 // TODO: add option to not collapse children with parent
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
+import { ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
 /**
  * Creates a button to insert in the tree.
@@ -12,11 +13,6 @@ function createButton(buttonType) {
     button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");
     button.dataset.mdType = buttonType;
     button.innerText = "add";
-    button.addEventListener("click", (e) => {
-        const el = e.currentTarget;
-        const expand = el.innerText == "add";
-        toggleAll(el.parentElement?.nextElementSibling, expand, false);
-    });
     return button;
 }
 /**
@@ -80,6 +76,16 @@ export function initialize(tree) {
     }
     initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes == "true");
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
+    tree.addEventListener("click", (e) => {
+        const el = e.target;
+        if (el.classList.contains("md-icon-button")) {
+            const expand = el.innerText == "add";
+            toggleAll(el.parentElement?.nextElementSibling, expand, false);
+            triggerEvent(tree, "toggled", {
+                state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
+            });
+        }
+    });
 }
 /**
  * Populates a tree from a map.
@@ -120,7 +126,7 @@ export function toggle(tree, expand) {
  * @param cascadeExpand whether to cascade expansion to children
  */
 export function toggleAll(tree, expand, cascadeExpand) {
-    if (!tree) {
+    if (!tree || !(tree instanceof HTMLElement)) {
         return;
     }
     if (tree.classList.contains("md-tree__subtree")) {

@@ -17,5 +17,6 @@ export function initialize(): void {
     console.info("Material design loaded.");
 }
 
+export * from "./modules/events.js";
 export * from "./modules/themer.js";
 export * from "./modules/utils.js";

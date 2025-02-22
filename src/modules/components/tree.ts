@@ -2,6 +2,7 @@
 // TODO: add option to not collapse children with parent
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
 
+import { MaterialToggleEvent, ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
 
 /**
@@ -18,13 +19,6 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
     );
     button.dataset.mdType = buttonType;
     button.innerText = "add";
-
-    button.addEventListener("click", (e: MouseEvent) => {
-        const el = e.currentTarget as HTMLElement;
-        const expand = el.innerText == "add";
-
-        toggleAll(el.parentElement?.nextElementSibling, expand, false);
-    });
 
     return button;
 }
@@ -75,7 +69,7 @@ function initializeTree(
  * @param tree tree to populate
  * @param map map to populate from
  */
-function populateTree(tree: Element, map: Map<string, any>): void {
+function populateTree(tree: Element, map: Map<string, unknown>): void {
     if (!tree) {
         return;
     }
@@ -112,6 +106,20 @@ export function initialize(tree: Element): void {
         tree.dataset.mdCheckboxes == "true"
     );
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
+
+    tree.addEventListener("click", (e) => {
+        const el = e.target as HTMLElement;
+
+        if (el.classList.contains("md-icon-button")) {
+            const expand = el.innerText == "add";
+
+            toggleAll(el.parentElement?.nextElementSibling, expand, false);
+
+            triggerEvent<MaterialToggleEvent>(tree, "toggled", {
+                state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
+            });
+        }
+    });
 }
 
 /**
@@ -119,7 +127,7 @@ export function initialize(tree: Element): void {
  * @param tree tree to populate
  * @param map map to populate from
  */
-export function populate(tree: Element, map: Map<string, any>): void {
+export function populate(tree: Element, map: Map<string, unknown>): void {
     populateTree(tree, map);
 }
 
@@ -167,7 +175,7 @@ export function toggleAll(
     expand: boolean,
     cascadeExpand: boolean
 ): void {
-    if (!tree) {
+    if (!tree || !(tree instanceof HTMLElement)) {
         return;
     }
 

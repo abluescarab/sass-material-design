@@ -1,3 +1,4 @@
+import { MaterialChangeEvent, triggerEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 
 /**
@@ -57,15 +58,12 @@ function changeTab(
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
 
-    const event = new CustomEvent("change", {
-        detail: {
-            oldTab: oldTab,
-            newTab: newTab,
-        },
-    });
-
     tabs.dataset.mdTab = newTab;
-    tabs.dispatchEvent(event);
+
+    triggerEvent<MaterialChangeEvent>(tabs, "tabchanged", {
+        oldValue: oldTab,
+        newValue: newTab,
+    });
 }
 
 /**

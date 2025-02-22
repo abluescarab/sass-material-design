@@ -1,3 +1,4 @@
+import { triggerEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 /**
  * Initializes the given tab container by adding buttons, checkboxes, etc.
@@ -39,14 +40,11 @@ function changeTab(tabs, oldTab, newTab) {
     oldContent?.classList.remove("md-tabs__page--selected");
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
-    const event = new CustomEvent("change", {
-        detail: {
-            oldTab: oldTab,
-            newTab: newTab,
-        },
-    });
     tabs.dataset.mdTab = newTab;
-    tabs.dispatchEvent(event);
+    triggerEvent(tabs, "tabchanged", {
+        oldValue: oldTab,
+        newValue: newTab,
+    });
 }
 /**
  * Gets a tab by name.
