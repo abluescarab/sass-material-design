@@ -1,7 +1,7 @@
 import * as tabs from "./modules/components/tabs.js";
 import * as tree from "./modules/components/tree.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initialize() {
     document.querySelectorAll(".md-tabs").forEach((e) => {
         tabs.initialize(e as HTMLElement);
     });
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     console.info("Material design loaded.");
-});
+}
 
 export * from "./modules/themer.js";
 export * from "./modules/utils.js";
