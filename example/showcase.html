@@ -768,6 +768,7 @@
         <!-- TODO: implement up/down arrows on panes -->
         <script type="module">
             import {
+                initialize,
                 getParentWithClass,
                 cycleData,
                 capitalize,
@@ -784,6 +785,8 @@
                     replacement
                 );
             }
+
+            document.addEventListener("DOMContentLoaded", (e) => initialize());
 
             document
                 .getElementById("close-banner")
