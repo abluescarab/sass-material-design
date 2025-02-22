@@ -3,11 +3,11 @@ export function capitalize(str: string) {
 }
 
 export function cycleData(
-    element: HTMLElement | null,
+    element: Element | null,
     data: string,
     ...values: string[]
 ) {
-    if (!element) {
+    if (!element || !(element instanceof HTMLElement)) {
         return;
     }
 
@@ -24,12 +24,22 @@ export function cycleData(
     return newValue;
 }
 
+export function getChild(parent: Element | null, className: string) {
+    if (!parent) {
+        return null;
+    }
+
+    return (parent as HTMLElement).getElementsByClassName(
+        className
+    )[0] as HTMLElement;
+}
+
 export function getParentWithClass(
-    element: HTMLElement | null,
+    element: Element | null,
     parentClass: string,
     includeChild: boolean = true
 ) {
-    if (element == null) {
+    if (element == null || !(element instanceof HTMLElement)) {
         return null;
     }
 

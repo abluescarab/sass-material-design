@@ -1,6 +1,8 @@
 // TODO: add option to check children when checked
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
 
+import { getChild } from "../utils.js";
+
 function createButton(buttonStyle: string | undefined) {
     const button = document.createElement("button");
     button.classList.add(
@@ -14,18 +16,15 @@ function createButton(buttonStyle: string | undefined) {
     button.addEventListener("click", (e: MouseEvent) => {
         const el = e.currentTarget as HTMLElement;
         const expand = el.innerText == "add";
-        toggleAll(
-            el.parentElement?.nextElementSibling as HTMLElement,
-            expand,
-            false
-        );
+
+        toggleAll(el.parentElement?.nextElementSibling, expand, false);
     });
 
     return button;
 }
 
 function initializeTree(
-    element: HTMLElement,
+    element: Element,
     buttonStyle: string | undefined,
     checkboxes: boolean = false
 ) {
@@ -50,6 +49,7 @@ function initializeTree(
 
         if (el.classList.contains("md-tree__subtree")) {
             const label = el.previousElementSibling as HTMLElement;
+
             el.style.display = "none";
             label.insertAdjacentElement(
                 "afterbegin",
@@ -61,7 +61,7 @@ function initializeTree(
     }
 }
 
-function populateTree(tree: HTMLElement, map: Map<string, any>) {
+function populateTree(tree: Element, map: Map<string, any>) {
     if (!tree) {
         return;
     }
@@ -83,7 +83,11 @@ function populateTree(tree: HTMLElement, map: Map<string, any>) {
     }
 }
 
-export function initialize(tree: HTMLElement) {
+export function initialize(tree: Element) {
+    if (!(tree instanceof HTMLElement)) {
+        return;
+    }
+
     initializeTree(
         tree,
         tree.dataset.mdButtonStyle,
@@ -92,18 +96,20 @@ export function initialize(tree: HTMLElement) {
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
 }
 
-export function populate(tree: HTMLElement, map: Map<string, any>) {
+export function populate(tree: Element, map: Map<string, any>) {
     populateTree(tree, map);
 }
 
-export function toggle(tree: HTMLElement | null, expand: boolean) {
-    if (!tree || !tree.classList.contains("md-tree__subtree")) {
+export function toggle(tree: Element | null, expand: boolean) {
+    if (
+        !tree ||
+        !(tree instanceof HTMLElement) ||
+        !tree.classList.contains("md-tree__subtree")
+    ) {
         return;
     }
 
-    const button = tree.previousElementSibling?.getElementsByClassName(
-        "md-icon-button"
-    )[0] as HTMLElement;
+    const button = getChild(tree.previousElementSibling, "md-icon-button");
 
     if (!button) {
         return;
@@ -120,7 +126,7 @@ export function toggle(tree: HTMLElement | null, expand: boolean) {
 }
 
 export function toggleAll(
-    tree: HTMLElement,
+    tree: Element | null | undefined,
     expand: boolean,
     cascadeExpand: boolean
 ) {
@@ -134,7 +140,7 @@ export function toggleAll(
 
     if (!expand || (cascadeExpand && expand)) {
         for (const subtree of tree.getElementsByClassName("md-tree__subtree")) {
-            toggle(subtree as HTMLElement, expand);
+            toggle(subtree, expand);
         }
     }
 }

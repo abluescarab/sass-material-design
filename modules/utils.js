@@ -2,7 +2,7 @@ export function capitalize(str) {
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 export function cycleData(element, data, ...values) {
-    if (!element) {
+    if (!element || !(element instanceof HTMLElement)) {
         return;
     }
     const dataName = `md${capitalize(data)}`;
@@ -15,8 +15,14 @@ export function cycleData(element, data, ...values) {
     element.dataset[dataName] = newValue;
     return newValue;
 }
+export function getChild(parent, className) {
+    if (!parent) {
+        return null;
+    }
+    return parent.getElementsByClassName(className)[0];
+}
 export function getParentWithClass(element, parentClass, includeChild = true) {
-    if (element == null) {
+    if (element == null || !(element instanceof HTMLElement)) {
         return null;
     }
     if (includeChild && element.classList.contains(parentClass)) {

@@ -1,5 +1,6 @@
 // TODO: add option to check children when checked
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
+import { getChild } from "../utils.js";
 function createButton(buttonStyle) {
     const button = document.createElement("button");
     button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");
@@ -53,6 +54,9 @@ function populateTree(tree, map) {
     }
 }
 export function initialize(tree) {
+    if (!(tree instanceof HTMLElement)) {
+        return;
+    }
     initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes == "true");
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
 }
@@ -60,10 +64,12 @@ export function populate(tree, map) {
     populateTree(tree, map);
 }
 export function toggle(tree, expand) {
-    if (!tree || !tree.classList.contains("md-tree__subtree")) {
+    if (!tree ||
+        !(tree instanceof HTMLElement) ||
+        !tree.classList.contains("md-tree__subtree")) {
         return;
     }
-    const button = tree.previousElementSibling?.getElementsByClassName("md-icon-button")[0];
+    const button = getChild(tree.previousElementSibling, "md-icon-button");
     if (!button) {
         return;
     }

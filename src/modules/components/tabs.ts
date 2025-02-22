@@ -1,46 +1,42 @@
-import { getParentWithClass } from "../utils.js";
+import { getChild, getParentWithClass } from "../utils.js";
 
-// TODO: change container -> tabs or something similar
-export function initialize(container: HTMLElement) {
-    // set default tab if not given
-    if (container.dataset.mdTab == undefined) {
-        changeTab(
-            container,
-            "",
-            (
-                container.getElementsByClassName(
-                    "md-tabs__page"
-                )[0] as HTMLElement
-            ).dataset.mdTab
-        );
-    } else {
-        // otherwise ensure tabs are --selected
-        changeTab(container, container.dataset.mdTab, container.dataset.mdTab);
+export function initialize(tabs: Element) {
+    if (!(tabs instanceof HTMLElement)) {
+        return;
     }
 
-    container.addEventListener("click", (e) => {
+    // set default tab if not given
+    if (tabs.dataset.mdTab == undefined) {
+        changeTab(tabs, "", getChild(tabs, "md-tabs__page")?.dataset.mdTab);
+    } else {
+        // otherwise ensure tabs are --selected
+        changeTab(tabs, tabs.dataset.mdTab, tabs.dataset.mdTab);
+    }
+
+    tabs.addEventListener("click", (e) => {
         const button = getParentWithClass(
-            e.target as HTMLElement,
+            e.target as Element,
             "md-tabs__button"
         );
 
         // ensure button is direct child of current tab container
-        if (
-            button != null &&
-            button.parentElement?.parentElement == container
-        ) {
-            changeTab(container, container.dataset.mdTab, button.dataset.mdTab);
+        if (button != null && button.parentElement?.parentElement == tabs) {
+            changeTab(tabs, tabs.dataset.mdTab, button.dataset.mdTab);
         }
     });
 }
 
 function changeTab(
-    container: HTMLElement,
+    tabs: Element,
     oldTab: string | undefined,
     newTab: string | undefined
 ) {
-    const [oldButton, oldContent] = getTab(container, oldTab);
-    const [newButton, newContent] = getTab(container, newTab);
+    if (!(tabs instanceof HTMLElement)) {
+        return;
+    }
+
+    const [oldButton, oldContent] = getTab(tabs, oldTab);
+    const [newButton, newContent] = getTab(tabs, newTab);
 
     oldButton?.classList.remove("md-tabs__button--selected");
     oldContent?.classList.remove("md-tabs__page--selected");
@@ -54,13 +50,13 @@ function changeTab(
         },
     });
 
-    container.dataset.mdTab = newTab;
-    container.dispatchEvent(event);
+    tabs.dataset.mdTab = newTab;
+    tabs.dispatchEvent(event);
 }
 
-function getTab(container: HTMLElement, tab: string | undefined) {
+function getTab(tabs: Element, tab: string | undefined) {
     return [
-        container.querySelector('.md-tabs__button[data-md-tab="' + tab + '"]'),
-        container.querySelector('.md-tabs__page[data-md-tab="' + tab + '"]'),
+        tabs.querySelector('.md-tabs__button[data-md-tab="' + tab + '"]'),
+        tabs.querySelector('.md-tabs__page[data-md-tab="' + tab + '"]'),
     ];
 }
