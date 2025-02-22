@@ -17,7 +17,7 @@ input:disabled, input:disabled + label {
   cursor: default;
 }
 
-label:has(input:not(:disabled)) {
+label:has(input:not(:disabled), button:not(:disabled)) {
   cursor: pointer;
 }
 
