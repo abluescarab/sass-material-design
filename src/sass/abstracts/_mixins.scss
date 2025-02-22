@@ -57,13 +57,30 @@
     }
 }
 
-@mixin font-styling($typescale, $prominent: false) {
+@mixin font-styling($typescale, $prominent: false, $overrides: ()) {
     $font: sys("typescale", $typescale);
 
-    font-family: map-get($font, "font");
-    line-height: map-get($font, "line-height");
-    font-size: map-get($font, "size");
-    letter-spacing: map-get($font, "tracking");
+    @if not map-has-key($overrides, "font-family") {
+        font-family: map-get($font, "font");
+    }
+
+    @if not map-has-key($overrides, "line-height") {
+        line-height: map-get($font, "line-height");
+    }
+
+    @if not map-has-key($overrides, "font-size") {
+        font-size: map-get($font, "size");
+    }
+
+    @if not map-has-key($overrides, "letter-spacing") {
+        letter-spacing: map-get($font, "tracking");
+    }
+
+    @if $overrides {
+        @each $property, $value in $overrides {
+            #{$property}: "#{$value}";
+        }
+    }
 
     @if ($prominent) {
         font-weight: map-get($font, "weight-prominent");

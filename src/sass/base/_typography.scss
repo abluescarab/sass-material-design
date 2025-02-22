@@ -12,6 +12,19 @@
             @include font-styling($typescale);
         }
     }
+
+    @each $typescale in map-keys(sys("typescale")) {
+        @include data("typescale", $typescale) {
+            @include font-styling($typescale);
+        }
+
+        @include data("typescale", "#{$typescale}-mono") {
+            @include font-styling(
+                $typescale,
+                $overrides: (font-family: ref("typeface", "mono"))
+            );
+        }
+    }
 }
 
 .md-symbol {
