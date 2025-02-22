@@ -4,14 +4,19 @@
 
 import { getChildByClassName } from "../utils.js";
 
-function createButton(buttonStyle: string | undefined) {
+/**
+ * Creates a button to insert in the tree.
+ * @param buttonType icon button type
+ * @returns new button
+ */
+function createButton(buttonType: string | undefined): HTMLButtonElement {
     const button = document.createElement("button");
     button.classList.add(
         "md-icon-button",
         "md-icon-button--small",
         "md-symbol"
     );
-    button.dataset.mdType = buttonStyle;
+    button.dataset.mdType = buttonType;
     button.innerText = "add";
 
     button.addEventListener("click", (e: MouseEvent) => {
@@ -24,11 +29,17 @@ function createButton(buttonStyle: string | undefined) {
     return button;
 }
 
+/**
+ * Initializes a tree recursively.
+ * @param element element to initialize
+ * @param buttonType icon button type
+ * @param checkboxes whether to include checkboxes
+ */
 function initializeTree(
     element: Element,
-    buttonStyle: string | undefined,
+    buttonType: string | undefined,
     checkboxes: boolean = false
-) {
+): void {
     if (!element) {
         return;
     }
@@ -52,17 +63,19 @@ function initializeTree(
             const label = el.previousElementSibling as HTMLElement;
 
             el.style.display = "none";
-            label.insertAdjacentElement(
-                "afterbegin",
-                createButton(buttonStyle)
-            );
+            label.insertAdjacentElement("afterbegin", createButton(buttonType));
 
-            initializeTree(el, buttonStyle, checkboxes);
+            initializeTree(el, buttonType, checkboxes);
         }
     }
 }
 
-function populateTree(tree: Element, map: Map<string, any>) {
+/**
+ * Populates a tree recursively from a map.
+ * @param tree tree to populate
+ * @param map map to populate from
+ */
+function populateTree(tree: Element, map: Map<string, any>): void {
     if (!tree) {
         return;
     }
@@ -84,7 +97,11 @@ function populateTree(tree: Element, map: Map<string, any>) {
     }
 }
 
-export function initialize(tree: Element) {
+/**
+ * Initializes a given tree.
+ * @param tree tree to initialize
+ */
+export function initialize(tree: Element): void {
     if (!(tree instanceof HTMLElement)) {
         return;
     }
@@ -97,11 +114,21 @@ export function initialize(tree: Element) {
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
 }
 
-export function populate(tree: Element, map: Map<string, any>) {
+/**
+ * Populates a tree from a map.
+ * @param tree tree to populate
+ * @param map map to populate from
+ */
+export function populate(tree: Element, map: Map<string, any>): void {
     populateTree(tree, map);
 }
 
-export function toggle(tree: Element | null, expand: boolean) {
+/**
+ * Expands or collapses a tree.
+ * @param tree element to toggle
+ * @param expand whether to expand or collapse
+ */
+export function toggle(tree: Element | null, expand: boolean): void {
     if (
         !tree ||
         !(tree instanceof HTMLElement) ||
@@ -129,11 +156,17 @@ export function toggle(tree: Element | null, expand: boolean) {
     }
 }
 
+/**
+ * Expands or collapses all elements in a tree.
+ * @param tree element to toggle
+ * @param expand whether to expand or collapse
+ * @param cascadeExpand whether to cascade expansion to children
+ */
 export function toggleAll(
     tree: Element | null | undefined,
     expand: boolean,
     cascadeExpand: boolean
-) {
+): void {
     if (!tree) {
         return;
     }

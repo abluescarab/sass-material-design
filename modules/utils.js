@@ -1,9 +1,21 @@
+/**
+ * Capitalizes the first letter of a string.
+ * @param str string to modify
+ * @returns capitalized string
+ */
 export function capitalize(str) {
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
+/**
+ * Cycles a data attribute on an element between the given values.
+ * @param element element with data value
+ * @param data data attribute name
+ * @param values values to cycle
+ * @returns new data value
+ */
 export function cycleData(element, data, ...values) {
     if (!element || !(element instanceof HTMLElement)) {
-        return;
+        return null;
     }
     const dataName = `md${capitalize(data)}`;
     const dataValue = element.dataset[dataName];
@@ -15,12 +27,25 @@ export function cycleData(element, data, ...values) {
     element.dataset[dataName] = newValue;
     return newValue;
 }
+/**
+ * Gets the first child of an element by its class name.
+ * @param parent direct parent
+ * @param className class to search by
+ * @returns child as {@link HTMLElement}
+ */
 export function getChildByClassName(parent, className) {
     if (!parent) {
         return null;
     }
     return parent.getElementsByClassName(className)[0];
 }
+/**
+ * Gets the closest parent with the given class.
+ * @param element child element
+ * @param parentClass class to search for
+ * @param includeChild whether to check if the child has the given class
+ * @returns closest parent with class
+ */
 export function getParentWithClass(element, parentClass, includeChild = true) {
     if (element == null || !(element instanceof HTMLElement)) {
         return null;

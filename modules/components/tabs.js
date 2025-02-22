@@ -1,4 +1,8 @@
 import { getChildByClassName, getParentWithClass } from "../utils.js";
+/**
+ * Initializes the given tab container by adding buttons, checkboxes, etc.
+ * @param tabs tab container
+ */
 export function initialize(tabs) {
     if (!(tabs instanceof HTMLElement)) {
         return;
@@ -19,6 +23,12 @@ export function initialize(tabs) {
         }
     });
 }
+/**
+ * Changes the current tab on the given tab container.
+ * @param tabs tab container
+ * @param oldTab name of old tab
+ * @param newTab name of new tab
+ */
 function changeTab(tabs, oldTab, newTab) {
     if (!(tabs instanceof HTMLElement)) {
         return;
@@ -38,9 +48,15 @@ function changeTab(tabs, oldTab, newTab) {
     tabs.dataset.mdTab = newTab;
     tabs.dispatchEvent(event);
 }
-function getTab(tabs, tab) {
+/**
+ * Gets a tab by name.
+ * @param tabs tab container
+ * @param name tab name
+ * @returns tab button and page
+ */
+function getTab(tabs, name) {
     return [
-        tabs.querySelector('.md-tabs__button[data-md-tab="' + tab + '"]'),
-        tabs.querySelector('.md-tabs__page[data-md-tab="' + tab + '"]'),
+        tabs.querySelector('.md-tabs__button[data-md-tab="' + name + '"]'),
+        tabs.querySelector('.md-tabs__page[data-md-tab="' + name + '"]'),
     ];
 }

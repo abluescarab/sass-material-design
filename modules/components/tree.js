@@ -2,10 +2,15 @@
 // TODO: add option to not collapse children with parent
 // TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
 import { getChildByClassName } from "../utils.js";
-function createButton(buttonStyle) {
+/**
+ * Creates a button to insert in the tree.
+ * @param buttonType icon button type
+ * @returns new button
+ */
+function createButton(buttonType) {
     const button = document.createElement("button");
     button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");
-    button.dataset.mdType = buttonStyle;
+    button.dataset.mdType = buttonType;
     button.innerText = "add";
     button.addEventListener("click", (e) => {
         const el = e.currentTarget;
@@ -14,7 +19,13 @@ function createButton(buttonStyle) {
     });
     return button;
 }
-function initializeTree(element, buttonStyle, checkboxes = false) {
+/**
+ * Initializes a tree recursively.
+ * @param element element to initialize
+ * @param buttonType icon button type
+ * @param checkboxes whether to include checkboxes
+ */
+function initializeTree(element, buttonType, checkboxes = false) {
     if (!element) {
         return;
     }
@@ -32,11 +43,16 @@ function initializeTree(element, buttonStyle, checkboxes = false) {
         if (el.classList.contains("md-tree__subtree")) {
             const label = el.previousElementSibling;
             el.style.display = "none";
-            label.insertAdjacentElement("afterbegin", createButton(buttonStyle));
-            initializeTree(el, buttonStyle, checkboxes);
+            label.insertAdjacentElement("afterbegin", createButton(buttonType));
+            initializeTree(el, buttonType, checkboxes);
         }
     }
 }
+/**
+ * Populates a tree recursively from a map.
+ * @param tree tree to populate
+ * @param map map to populate from
+ */
 function populateTree(tree, map) {
     if (!tree) {
         return;
@@ -54,6 +70,10 @@ function populateTree(tree, map) {
         }
     }
 }
+/**
+ * Initializes a given tree.
+ * @param tree tree to initialize
+ */
 export function initialize(tree) {
     if (!(tree instanceof HTMLElement)) {
         return;
@@ -61,9 +81,19 @@ export function initialize(tree) {
     initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes == "true");
     toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
 }
+/**
+ * Populates a tree from a map.
+ * @param tree tree to populate
+ * @param map map to populate from
+ */
 export function populate(tree, map) {
     populateTree(tree, map);
 }
+/**
+ * Expands or collapses a tree.
+ * @param tree element to toggle
+ * @param expand whether to expand or collapse
+ */
 export function toggle(tree, expand) {
     if (!tree ||
         !(tree instanceof HTMLElement) ||
@@ -83,6 +113,12 @@ export function toggle(tree, expand) {
         button.classList.remove("md-icon-button--selected");
     }
 }
+/**
+ * Expands or collapses all elements in a tree.
+ * @param tree element to toggle
+ * @param expand whether to expand or collapse
+ * @param cascadeExpand whether to cascade expansion to children
+ */
 export function toggleAll(tree, expand, cascadeExpand) {
     if (!tree) {
         return;
