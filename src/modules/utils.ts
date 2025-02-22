@@ -24,7 +24,7 @@ export function cycleData(
     return newValue;
 }
 
-export function getChild(parent: Element | null, className: string) {
+export function getChildByClassName(parent: Element | null, className: string) {
     if (!parent) {
         return null;
     }

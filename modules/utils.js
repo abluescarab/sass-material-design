@@ -15,7 +15,7 @@ export function cycleData(element, data, ...values) {
     element.dataset[dataName] = newValue;
     return newValue;
 }
-export function getChild(parent, className) {
+export function getChildByClassName(parent, className) {
     if (!parent) {
         return null;
     }

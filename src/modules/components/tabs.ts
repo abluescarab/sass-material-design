@@ -1,4 +1,4 @@
-import { getChild, getParentWithClass } from "../utils.js";
+import { getChildByClassName, getParentWithClass } from "../utils.js";
 
 export function initialize(tabs: Element) {
     if (!(tabs instanceof HTMLElement)) {
@@ -7,7 +7,11 @@ export function initialize(tabs: Element) {
 
     // set default tab if not given
     if (tabs.dataset.mdTab == undefined) {
-        changeTab(tabs, "", getChild(tabs, "md-tabs__page")?.dataset.mdTab);
+        changeTab(
+            tabs,
+            "",
+            getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
+        );
     } else {
         // otherwise ensure tabs are --selected
         changeTab(tabs, tabs.dataset.mdTab, tabs.dataset.mdTab);
