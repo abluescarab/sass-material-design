@@ -6,7 +6,6 @@ import {
     cycleData,
     capitalize,
     cycleThemes,
-    setTheme,
 } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 
@@ -50,8 +49,13 @@ const exampleTree = Object.freeze({
     },
 });
 
-function replaceFabButtonText(element, replacement) {
-    const node = element.childNodes[2];
+/**
+ * Replaces the text inside any button that controls the FAB display.
+ * @param {*} button button to replace text inside
+ * @param {*} replacement text to replace with
+ */
+function replaceFabButtonText(button, replacement) {
+    const node = button.childNodes[2];
     node.nodeValue = node.nodeValue.replace(node.nodeValue.trim(), replacement);
 }
 
