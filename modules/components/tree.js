@@ -1,3 +1,5 @@
+// TODO: add option to check children when checked
+// TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
 function createButton(buttonStyle) {
     const button = document.createElement("button");
     button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");

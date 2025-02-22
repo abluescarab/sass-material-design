@@ -12,9 +12,11 @@
     @include font-styling("title-small");
 
     @include themes.themify() {
-        @include divider;
         color: themes.color("on-surface");
         background-color: themes.color("surface-container");
+
+        @include container-backgrounds;
+        @include divider;
     }
 
     &--visible {
