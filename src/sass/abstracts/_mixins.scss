@@ -3,28 +3,28 @@
 @use "../themes";
 
 @mixin container-backgrounds {
-    &[data-md-background="primary"] {
-        @include themes.colorify("primary-container");
-    }
+    $backgrounds: (
+        "primary": "primary-container",
+        "secondary": "secondary-container",
+        "tertiary": "tertiary-container",
+        "error": "error-container",
+        "surface": "surface",
+        "surface-container": "surface-container",
+    );
 
-    &[data-md-background="secondary"] {
-        @include themes.colorify("secondary-container");
+    @each $name, $value in $backgrounds {
+        @include data("background", $name) {
+            @include themes.colorify($value);
+        }
     }
+}
 
-    &[data-md-background="tertiary"] {
-        @include themes.colorify("tertiary-container");
-    }
-
-    &[data-md-background="error"] {
-        @include themes.colorify("error-container");
-    }
-
-    &[data-md-background="surface"] {
-        @include themes.colorify("surface");
-    }
-
-    &[data-md-background="surface-container"] {
-        @include themes.colorify("surface-container");
+// ensures prefix on all data attributes
+@mixin data($name, $values...) {
+    @each $value in $values {
+        &[data-md-#{$name}="#{$value}"] {
+            @content;
+        }
     }
 }
 
