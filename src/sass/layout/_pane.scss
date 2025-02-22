@@ -8,7 +8,7 @@
     margin: $padding;
     gap: 8px;
 
-    @include themes.themify() {
+    @include themes.themify {
         @include container-backgrounds;
     }
 
@@ -18,8 +18,7 @@
 
     &__content {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        flex-flow: column wrap;
         flex: 1;
         padding: $padding;
         gap: 8px;

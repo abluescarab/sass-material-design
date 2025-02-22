@@ -6,13 +6,28 @@
     &,
     label {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        flex-flow: row nowrap;
         align-items: center;
     }
 
-    @include themes.themify() {
+    @include themes.themify {
         color: themes.color("on-surface");
+    }
+
+    // restrict to only checkboxes
+    input[type="checkbox"] {
+        @include square(18px);
+
+        @include themes.themify {
+            accent-color: themes.color("primary");
+
+            &:disabled {
+                accent-color: rgba(
+                    themes.color("on-surface"),
+                    sys("state", "disabled", "label-opacity")
+                );
+            }
+        }
     }
 
     // restrict to only labels
@@ -23,22 +38,6 @@
 
         input[type="checkbox"] {
             margin-right: 16px;
-        }
-    }
-
-    // restrict to only checkboxes
-    input[type="checkbox"] {
-        @include square(18px);
-
-        @include themes.themify() {
-            accent-color: themes.color("primary");
-
-            &:disabled {
-                accent-color: rgba(
-                    themes.color("on-surface"),
-                    sys("state", "disabled", "label-opacity")
-                );
-            }
         }
     }
 }

@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
 @use "functions" as *;
 @use "sys" as *;
 @use "../themes";
@@ -38,8 +41,9 @@
 
 @mixin elevation($elevation, $negative-offset: false) {
     $offset: sys("elevation", "level#{$elevation}");
+
     box-shadow: rgba(themes.color("shadow"), 0.2) 0
-        if($negative-offset, -$offset, $offset) floor($offset * 1.5) 0;
+        if($negative-offset, -$offset, $offset) math.floor($offset * 1.5) 0;
 }
 
 // TODO: change to data type?
@@ -60,20 +64,20 @@
 @mixin font-styling($typescale, $prominent: false, $overrides: ()) {
     $font: sys("typescale", $typescale);
 
-    @if not map-has-key($overrides, "font-family") {
-        font-family: map-get($font, "font");
+    @if not map.has-key($overrides, "font-family") {
+        font-family: map.get($font, "font");
     }
 
-    @if not map-has-key($overrides, "line-height") {
-        line-height: map-get($font, "line-height");
+    @if not map.has-key($overrides, "line-height") {
+        line-height: map.get($font, "line-height");
     }
 
-    @if not map-has-key($overrides, "font-size") {
-        font-size: map-get($font, "size");
+    @if not map.has-key($overrides, "font-size") {
+        font-size: map.get($font, "size");
     }
 
-    @if not map-has-key($overrides, "letter-spacing") {
-        letter-spacing: map-get($font, "tracking");
+    @if not map.has-key($overrides, "letter-spacing") {
+        letter-spacing: map.get($font, "tracking");
     }
 
     @if $overrides {
@@ -83,9 +87,9 @@
     }
 
     @if $prominent {
-        font-weight: map-get($font, "weight-prominent");
+        font-weight: map.get($font, "weight-prominent");
     } @else {
-        font-weight: map-get($font, "weight");
+        font-weight: map.get($font, "weight");
     }
 }
 
@@ -105,7 +109,7 @@
             margin: 0 2px;
         }
     } @else {
-        box-shadow: inset 0px $height * -1 0px 0px $color;
+        box-shadow: inset 0 $height * -1 0 0 $color;
     }
 }
 
@@ -114,7 +118,7 @@
     background-color: $default;
 
     &:hover {
-        background-color: mix(
+        background-color: color.mix(
             $default,
             $states,
             opacity(sys("state", "hover", "state-layer-opacity"))
@@ -122,7 +126,7 @@
     }
 
     &:focus {
-        background-color: mix(
+        background-color: color.mix(
             $default,
             $states,
             opacity(sys("state", "focus", "state-layer-opacity"))
@@ -130,7 +134,7 @@
     }
 
     &:active {
-        background-color: mix(
+        background-color: color.mix(
             $default,
             $states,
             opacity(sys("state", "pressed", "state-layer-opacity"))
@@ -139,7 +143,7 @@
 }
 
 @mixin mix-states($background, $mix, $set-color, $set-state-color, $states...) {
-    @if length($states) == 0 {
+    @if list.length($states) == 0 {
         $states: "hover", "focus", "active";
     }
 
@@ -164,13 +168,13 @@
     @if $side == "left" {
         border-top-left-radius: #{$value};
         border-bottom-left-radius: #{$value};
-    } @else if($side == "right") {
+    } @else if $side == "right" {
         border-top-right-radius: #{$value};
         border-bottom-right-radius: #{$value};
-    } @else if($side == "top") {
+    } @else if $side == "top" {
         border-top-left-radius: #{$value};
         border-top-right-radius: #{$value};
-    } @else if($side == "bottom") {
+    } @else if $side == "bottom" {
         border-bottom-left-radius: #{$value};
         border-bottom-right-radius: #{$value};
     }
@@ -184,14 +188,14 @@
 
 @mixin enabled-styling($disabled-overrides: ()) {
     &:disabled {
-        @if not map-has-key($disabled-overrides, "background-color") {
+        @if not map.has-key($disabled-overrides, "background-color") {
             background-color: rgba(
                 themes.color("on-surface"),
                 sys("state", "disabled", "container-opacity")
             );
         }
 
-        @if not map-has-key($disabled-overrides, "color") {
+        @if not map.has-key($disabled-overrides, "color") {
             color: rgba(
                 themes.color("on-surface"),
                 sys("state", "disabled", "label-opacity")

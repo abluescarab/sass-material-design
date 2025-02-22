@@ -11,7 +11,7 @@
 
     @include font-styling("title-small");
 
-    @include themes.themify() {
+    @include themes.themify {
         color: themes.color("on-surface");
         background-color: themes.color("surface-container");
 
@@ -26,9 +26,10 @@
     &__icon {
         $icon-size: 56px;
 
-        user-select: none;
-        font-size: $icon-size;
         @include square($icon-size);
+
+        font-size: $icon-size;
+        user-select: none;
         grid-column: 1;
         grid-row: span 2;
     }
@@ -41,8 +42,7 @@
 
     &__actions {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         justify-content: flex-end;
         gap: 32px;
         grid-column: 2;
@@ -50,11 +50,12 @@
     }
 
     &__action {
-        background-color: transparent;
-        border: 0;
         @include font-styling("label-large");
 
-        @include themes.themify() {
+        background-color: transparent;
+        border: 0;
+
+        @include themes.themify {
             color: themes.color("primary");
         }
     }

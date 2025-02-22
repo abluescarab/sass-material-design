@@ -14,7 +14,7 @@
         border: 0;
         background-color: transparent;
 
-        @include themes.themify() {
+        @include themes.themify {
             color: themes.color("on-surface-variant");
         }
     }
@@ -25,6 +25,7 @@
 
     &__label {
         @include font-styling("title-small");
+
         align-content: center;
     }
 
@@ -33,8 +34,9 @@
         flex-direction: row;
         height: 48px;
 
-        @include themes.themify() {
+        @include themes.themify {
             @include divider;
+
             background-color: themes.color("surface");
         }
 
@@ -46,7 +48,7 @@
 
                 @include indicator(transparent, true);
 
-                @include themes.themify() {
+                @include themes.themify {
                     @include mix-states(
                         transparent,
                         themes.color("on-surface"),
@@ -66,14 +68,13 @@
                     }
 
                     &--selected {
+                        @include indicator(themes.color("primary"), true);
                         @include mix-states(
                             transparent,
                             themes.color("primary"),
                             true,
                             true
                         );
-
-                        @include indicator(themes.color("primary"), true);
 
                         &:focus {
                             @include indicator(themes.color("secondary"), true);
@@ -109,7 +110,7 @@
                 justify-content: center;
                 gap: 4px;
 
-                @include themes.themify() {
+                @include themes.themify {
                     @include mix-states(
                         transparent,
                         themes.color("on-surface"),
@@ -118,8 +119,9 @@
                     );
 
                     &--selected {
-                        color: themes.color("on-surface");
                         @include indicator(themes.color("primary"));
+
+                        color: themes.color("on-surface");
 
                         &:focus {
                             @include indicator(themes.color("secondary"));

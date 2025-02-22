@@ -35,7 +35,7 @@
         }
     }
 
-    @include themes.themify() {
+    @include themes.themify {
         @each $color in $indicator-colors {
             @include data("indicator-color", $color) {
                 #{$parent}__subtree {
@@ -65,13 +65,21 @@
     &,
     &__subtree {
         display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
+        flex-flow: column nowrap;
         gap: calc($gap / 2);
     }
 
     &__subtree {
         border-left: 1px dotted transparent;
+    }
+
+    &__label {
+        @include font-styling("body-medium");
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: $gap;
     }
 
     .md-checkbox,
@@ -94,13 +102,5 @@
         input[type="checkbox"] {
             margin-right: 0;
         }
-    }
-
-    &__label {
-        @include font-styling("body-medium");
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: $gap;
     }
 }

@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sys" as *;
 
 @function create-list($start, $end, $step, $prefix: "", $suffix: "") {
@@ -7,10 +8,10 @@
     @while $i <= $end {
         $value: #{$prefix}#{$i}#{$suffix};
 
-        @if $list == null {
+        @if not $list {
             $list: $value;
         } @else {
-            $list: append($list, $value);
+            $list: list.append($list, $value);
         }
 
         $i: $i + $step;
@@ -30,7 +31,7 @@
         $state-name: "pressed";
     }
 
-    @return mix(
+    @return color.mix(
         $default,
         $mix,
         opacity(sys("state", $state-name, "state-layer-opacity"))

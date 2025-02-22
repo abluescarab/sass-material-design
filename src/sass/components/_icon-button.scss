@@ -5,12 +5,13 @@
     $parent: &;
 
     @include square(40px);
+
     border: 0;
     border-radius: sys("shape", "corner", "full");
     font-size: $icon__font-size;
     background-color: transparent;
 
-    @include themes.themify() {
+    @include themes.themify {
         @include enabled-styling(
             (
                 background-color: transparent,
@@ -28,7 +29,7 @@
     &--selected {
         font-variation-settings: "FILL" 1;
 
-        @include themes.themify() {
+        @include themes.themify {
             @include enabled-styling(
                 (
                     background-color: transparent,
@@ -47,12 +48,13 @@
     // not in MD3 specs
     &--small {
         @include square($icon-button--small__width);
+
         font-size: 16px;
     }
 
-    @include themes.themify() {
+    @include themes.themify {
         @include data("type", "filled") {
-            @include enabled-styling() {
+            @include enabled-styling {
                 @include mix-states(
                     themes.color("surface-container-highest"),
                     themes.color("primary"),
@@ -62,7 +64,7 @@
             }
 
             &#{$parent}--selected {
-                @include enabled-styling() {
+                @include enabled-styling {
                     @include mix-states(
                         themes.color("primary"),
                         themes.color("on-primary"),
@@ -74,7 +76,7 @@
         }
 
         @include data("type", "tonal") {
-            @include enabled-styling() {
+            @include enabled-styling {
                 @include mix-states(
                     themes.color("surface-container-highest"),
                     themes.color("on-surface-variant"),
@@ -84,7 +86,7 @@
             }
 
             &#{$parent}--selected {
-                @include enabled-styling() {
+                @include enabled-styling {
                     @include mix-states(
                         themes.color("secondary-container"),
                         themes.color("on-secondary-container"),
@@ -119,7 +121,7 @@
             &#{$parent}--selected {
                 border: 0;
 
-                @include enabled-styling() {
+                @include enabled-styling {
                     @include mix-states(
                         themes.color("inverse-surface"),
                         themes.color("inverse-on-surface"),

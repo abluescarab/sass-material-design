@@ -23,14 +23,14 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 
 /* Roboto */
 @font-face {
-  font-family: "Roboto";
+  font-family: Roboto;
   font-style: normal;
   font-weight: 100 900;
   font-stretch: 0% 200%;
   src: url("assets/fonts/roboto.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Roboto";
+  font-family: Roboto;
   font-style: italic;
   font-weight: 100 900;
   font-stretch: 0% 200%;
@@ -70,7 +70,7 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   src: url("assets/fonts/material-symbols-sharp.ttf") format("truetype");
 }
 * {
-  font-family: "Roboto";
+  font-family: Roboto, sans-serif;
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
@@ -393,7 +393,7 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 
 .md-symbol {
-  font-family: "Material Symbols Outlined";
+  font-family: "Material Symbols Outlined", sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 24px; /* Preferred icon size */
@@ -408,17 +408,17 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
   /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: "liga";
 }
 .md-symbol[data-md-symbols=rounded] {
-  font-family: "Material Symbols Rounded";
+  font-family: "Material Symbols Rounded", sans-serif;
 }
 .md-symbol[data-md-symbols=sharp] {
-  font-family: "Material Symbols Sharp";
+  font-family: "Material Symbols Sharp", sans-serif;
 }
 
 /* layout */
@@ -572,8 +572,7 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 .md-pane__content {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   flex: 1;
   padding: 24px;
   gap: 8px;
@@ -604,6 +603,9 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   color: rgb(231, 224, 232);
 }
 .md-app-bar__icon {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
   grid-row: 1;
   border: 0;
   font-size: 24px;
@@ -611,9 +613,6 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
 }
 [data-md-theme=light] .md-app-bar__icon {
   color: rgb(29, 27, 32);
@@ -648,13 +647,13 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   background-color: rgba(231, 224, 232, 0.1);
 }
 .md-app-bar__headline {
-  grid-row: 1;
-  grid-column: 2;
   font-family: "Roboto";
   line-height: 28px;
   font-size: 22px;
   letter-spacing: 0px;
   font-weight: 400;
+  grid-row: 1;
+  grid-column: 2;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -789,13 +788,13 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   display: grid;
 }
 .md-banner__icon {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  font-size: 56px;
   width: 56px;
   height: 56px;
   line-height: 56px;
+  font-size: 56px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   grid-column: 1;
   grid-row: span 2;
 }
@@ -806,21 +805,20 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 .md-banner__actions {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: flex-end;
   gap: 32px;
   grid-column: 2;
   grid-row: 2;
 }
 .md-banner__action {
-  background-color: transparent;
-  border: 0;
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
   letter-spacing: 0.1px;
   font-weight: 500;
+  background-color: transparent;
+  border: 0;
 }
 [data-md-theme=light] .md-banner__action {
   color: rgb(104, 84, 142);
@@ -862,9 +860,9 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   color: rgba(29, 27, 32, 0.38);
 }
 [data-md-theme=light] .md-button[data-md-type=elevated]:not(:disabled) {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
   background-color: rgb(248, 241, 250);
   color: rgb(104, 84, 142);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 [data-md-theme=light] .md-button[data-md-type=elevated]:not(:disabled):hover {
   color: rgb(104, 84, 142);
@@ -977,9 +975,9 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   color: rgba(231, 224, 232, 0.38);
 }
 [data-md-theme=dark] .md-button[data-md-type=elevated]:not(:disabled) {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
   background-color: rgb(29, 27, 32);
   color: rgb(211, 188, 253);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 [data-md-theme=dark] .md-button[data-md-type=elevated]:not(:disabled):hover {
   color: rgb(211, 188, 253);
@@ -1090,8 +1088,7 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 
 .md-card {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   box-sizing: border-box;
   gap: 8px;
   padding: 16px;
@@ -1102,8 +1099,8 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   color: rgb(29, 27, 32);
 }
 [data-md-theme=light] .md-card[data-md-type=elevated] {
-  background-color: rgb(248, 241, 250);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+  background-color: rgb(248, 241, 250);
 }
 [data-md-theme=light] .md-card[data-md-type=elevated]:hover {
   background-color: #e6e0e9;
@@ -1152,8 +1149,8 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   color: rgb(231, 224, 232);
 }
 [data-md-theme=dark] .md-card[data-md-type=elevated] {
-  background-color: rgb(29, 27, 32);
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
+  background-color: rgb(29, 27, 32);
 }
 [data-md-theme=dark] .md-card[data-md-type=elevated]:hover {
   background-color: #2d2b30;
@@ -1202,8 +1199,7 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 .md-checkbox,
 .md-checkbox label {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-items: center;
 }
 [data-md-theme=light] .md-checkbox {
@@ -1211,12 +1207,6 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 [data-md-theme=dark] .md-checkbox {
   color: rgb(231, 224, 232);
-}
-.md-checkbox label:not(:has(input)) {
-  padding-left: 16px;
-}
-.md-checkbox label input[type=checkbox] {
-  margin-right: 16px;
 }
 .md-checkbox input[type=checkbox] {
   width: 18px;
@@ -1235,14 +1225,20 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 [data-md-theme=dark] .md-checkbox input[type=checkbox]:disabled {
   accent-color: rgba(231, 224, 232, 0.38);
 }
+.md-checkbox label:not(:has(input)) {
+  padding-left: 16px;
+}
+.md-checkbox label input[type=checkbox] {
+  margin-right: 16px;
+}
 
 .md-fab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 56px;
   height: 56px;
   line-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
   border: 0;
   border-radius: 16px;
@@ -1300,12 +1296,12 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   font-size: 24px;
 }
 .md-fab__label {
-  display: none;
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
   letter-spacing: 0.1px;
   font-weight: 500;
+  display: none;
 }
 [data-md-theme=light] .md-fab--low {
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
@@ -1959,6 +1955,15 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   background-color: transparent;
   color: rgb(104, 84, 142);
 }
+[data-md-theme=light] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(104, 84, 142);
+  min-width: 24px;
+  margin: 0 2px;
+}
 [data-md-theme=light] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:hover {
   color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.08);
@@ -1970,15 +1975,6 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 [data-md-theme=light] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:active {
   color: rgb(104, 84, 142);
   background-color: rgba(104, 84, 142, 0.1);
-}
-[data-md-theme=light] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected::after {
-  content: "";
-  height: 3px;
-  display: block;
-  border-radius: 9999px 9999px 0 0;
-  background-color: rgb(104, 84, 142);
-  min-width: 24px;
-  margin: 0 2px;
 }
 [data-md-theme=light] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:focus::after {
   content: "";
@@ -2006,6 +2002,15 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   background-color: transparent;
   color: rgb(211, 188, 253);
 }
+[data-md-theme=dark] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected::after {
+  content: "";
+  height: 3px;
+  display: block;
+  border-radius: 9999px 9999px 0 0;
+  background-color: rgb(211, 188, 253);
+  min-width: 24px;
+  margin: 0 2px;
+}
 [data-md-theme=dark] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:hover {
   color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.08);
@@ -2017,15 +2022,6 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 [data-md-theme=dark] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:active {
   color: rgb(211, 188, 253);
   background-color: rgba(211, 188, 253, 0.1);
-}
-[data-md-theme=dark] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected::after {
-  content: "";
-  height: 3px;
-  display: block;
-  border-radius: 9999px 9999px 0 0;
-  background-color: rgb(211, 188, 253);
-  min-width: 24px;
-  margin: 0 2px;
 }
 [data-md-theme=dark] .md-tabs__nav[data-md-type=primary] .md-tabs__button--selected:focus::after {
   content: "";
@@ -2074,11 +2070,11 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   background-color: rgba(29, 27, 32, 0.1);
 }
 [data-md-theme=light] .md-tabs__nav[data-md-type=secondary] .md-tabs__button--selected {
+  box-shadow: inset 0 -3px 0 0 rgb(104, 84, 142);
   color: rgb(29, 27, 32);
-  box-shadow: inset 0px -3px 0px 0px rgb(104, 84, 142);
 }
 [data-md-theme=light] .md-tabs__nav[data-md-type=secondary] .md-tabs__button--selected:focus {
-  box-shadow: inset 0px -3px 0px 0px rgb(99, 91, 112);
+  box-shadow: inset 0 -3px 0 0 rgb(99, 91, 112);
 }
 [data-md-theme=dark] .md-tabs__nav[data-md-type=secondary] .md-tabs__button {
   background-color: transparent;
@@ -2096,11 +2092,11 @@ label:has(input:not(:disabled), button:not(:disabled)) {
   background-color: rgba(231, 224, 232, 0.1);
 }
 [data-md-theme=dark] .md-tabs__nav[data-md-type=secondary] .md-tabs__button--selected {
+  box-shadow: inset 0 -3px 0 0 rgb(211, 188, 253);
   color: rgb(231, 224, 232);
-  box-shadow: inset 0px -3px 0px 0px rgb(211, 188, 253);
 }
 [data-md-theme=dark] .md-tabs__nav[data-md-type=secondary] .md-tabs__button--selected:focus {
-  box-shadow: inset 0px -3px 0px 0px rgb(205, 194, 219);
+  box-shadow: inset 0 -3px 0 0 rgb(205, 194, 219);
 }
 .md-tabs__page {
   padding: 16px;
@@ -2223,12 +2219,22 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 .md-tree, .md-tree__subtree {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   gap: 4px;
 }
 .md-tree__subtree {
   border-left: 1px dotted transparent;
+}
+.md-tree__label {
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 .md-tree .md-checkbox:not(:has(.md-icon-button)), .md-tree__label:not(:has(.md-icon-button)) {
   margin-left: 28px;
@@ -2242,17 +2248,6 @@ label:has(input:not(:disabled), button:not(:disabled)) {
 }
 .md-tree .md-checkbox input[type=checkbox] {
   margin-right: 0;
-}
-.md-tree__label {
-  font-family: "Roboto";
-  line-height: 20px;
-  font-size: 14px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
 }
 
 /* pages */

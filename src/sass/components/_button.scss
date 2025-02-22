@@ -26,24 +26,25 @@
         $icon-size: 18px;
 
         @include square($icon-size);
+
         font-size: $icon-size;
     }
 
-    @include themes.themify() {
+    @include themes.themify {
         @include data("type", "elevated") {
-            @include enabled-styling() {
+            @include enabled-styling {
+                @include elevation(1);
                 @include mix-states(
                     themes.color("surface-container-low"),
                     themes.color("primary"),
                     true,
                     true
                 );
-                @include elevation(1);
             }
         }
 
         @include data("type", "filled") {
-            @include enabled-styling() {
+            @include enabled-styling {
                 @include mix-states(
                     themes.color("primary"),
                     themes.color("on-primary"),
@@ -58,7 +59,7 @@
         }
 
         @include data("type", "tonal") {
-            @include enabled-styling() {
+            @include enabled-styling {
                 @include mix-states(
                     themes.color("secondary-container"),
                     themes.color("on-secondary-container"),

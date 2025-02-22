@@ -5,17 +5,17 @@
 .md-fab {
     $parent: &;
 
+    @include square(56px);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    @include square(56px);
     gap: 8px;
     border: 0;
     border-radius: sys("shape", "corner", "large");
 
-    @include themes.themify() {
+    @include themes.themify {
         @include elevation(3);
-
         @include mix-states(
             themes.color("surface-container-high"),
             themes.color("primary"),
@@ -35,18 +35,19 @@
 
     &__icon {
         @include square($icon__font-size);
+
         font-size: $icon__font-size;
     }
 
     &__label {
-        display: none;
         @include font-styling("label-large");
+
+        display: none;
     }
 
     &--low {
-        @include themes.themify() {
+        @include themes.themify {
             @include elevation(1);
-
             @include mix-states(
                 themes.color("surface-container-low"),
                 themes.color("primary"),
@@ -68,6 +69,7 @@
     @include data("size", "small") {
         &:not(#{$parent}--branded) {
             @include square(40px);
+
             border-radius: sys("shape", "corner", "medium");
         }
     }
@@ -77,6 +79,7 @@
             $icon-size: 36px;
 
             @include square($icon-size);
+
             font-size: $icon-size;
         }
     }
@@ -84,6 +87,7 @@
     @include data("size", "large") {
         @extend #{$parent}--branded;
         @include square(96px);
+
         border-radius: sys("shape", "corner", "extra-large");
 
         #{$parent}--branded {
@@ -91,6 +95,7 @@
                 $icon-size: 48px;
 
                 @include square($icon-size);
+
                 font-size: $icon-size;
             }
         }
@@ -106,7 +111,7 @@
         }
     }
 
-    @include themes.themify() {
+    @include themes.themify {
         @each $color in "primary", "secondary", "tertiary" {
             @include data("color", $color) {
                 @include mix-states(

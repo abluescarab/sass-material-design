@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $ref: (
     typeface: (
         brand: "Roboto",
@@ -10,5 +12,5 @@ $ref: (
 );
 
 @function ref($properties...) {
-    @return map-get($ref, $properties...);
+    @return map.get($ref, $properties...);
 }
