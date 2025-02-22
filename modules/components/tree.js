@@ -21,13 +21,14 @@ function createButton(buttonType) {
  * @param buttonType icon button type
  * @param checkboxes whether to include checkboxes
  */
-function initializeTree(element, buttonType, checkboxes = false) {
+function initializeTree(element, buttonType, checkboxes) {
     if (!element) {
         return;
     }
     for (const child of element.children) {
         const el = child;
-        if (checkboxes && el.classList.contains("md-tree__label")) {
+        if ((checkboxes == "all" || (checkboxes == "leaves" && isLeaf(el))) &&
+            el.classList.contains("md-tree__label")) {
             const wrapper = document.createElement("div");
             wrapper.classList.add("md-checkbox");
             const input = document.createElement("input");
@@ -43,6 +44,14 @@ function initializeTree(element, buttonType, checkboxes = false) {
             initializeTree(el, buttonType, checkboxes);
         }
     }
+}
+/**
+ * Checks if the given element is a leaf node in the tree.
+ * @param element element to check
+ * @returns whether the given element is a leaf node
+ */
+function isLeaf(element) {
+    return !element.nextElementSibling?.classList.contains("md-tree__subtree");
 }
 /**
  * Populates a tree recursively from a map.
@@ -74,8 +83,8 @@ export function initialize(tree) {
     if (!(tree instanceof HTMLElement)) {
         return;
     }
-    initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes == "true");
-    toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
+    initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes);
+    toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
     tree.addEventListener("click", (e) => {
         const el = e.target;
         if (el.classList.contains("md-icon-button")) {

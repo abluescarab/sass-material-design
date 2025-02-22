@@ -32,7 +32,7 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
 function initializeTree(
     element: Element,
     buttonType: string | undefined,
-    checkboxes: boolean = false
+    checkboxes: string | undefined
 ): void {
     if (!element) {
         return;
@@ -41,7 +41,10 @@ function initializeTree(
     for (const child of element.children) {
         const el = child as HTMLElement;
 
-        if (checkboxes && el.classList.contains("md-tree__label")) {
+        if (
+            (checkboxes == "all" || (checkboxes == "leaves" && isLeaf(el))) &&
+            el.classList.contains("md-tree__label")
+        ) {
             const wrapper = document.createElement("div");
             wrapper.classList.add("md-checkbox");
 
@@ -62,6 +65,15 @@ function initializeTree(
             initializeTree(el, buttonType, checkboxes);
         }
     }
+}
+
+/**
+ * Checks if the given element is a leaf node in the tree.
+ * @param element element to check
+ * @returns whether the given element is a leaf node
+ */
+function isLeaf(element: Element): boolean {
+    return !element.nextElementSibling?.classList.contains("md-tree__subtree");
 }
 
 /**
@@ -100,12 +112,8 @@ export function initialize(tree: Element): void {
         return;
     }
 
-    initializeTree(
-        tree,
-        tree.dataset.mdButtonStyle,
-        tree.dataset.mdCheckboxes == "true"
-    );
-    toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
+    initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes);
+    toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
 
     tree.addEventListener("click", (e) => {
         const el = e.target as HTMLElement;

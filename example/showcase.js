@@ -17,15 +17,7 @@ const exampleTree = Object.freeze({
         "Item 2": {
             "Item 3": {
                 "Item 4": {
-                    "Item 5": {
-                        "Item 6": {
-                            "Item 7": {
-                                "Item 8": {
-                                    "Item 9": {},
-                                },
-                            },
-                        },
-                    },
+                    "Item 5": {},
                 },
             },
         },
@@ -61,7 +53,7 @@ function replaceFabButtonText(button, replacement) {
 
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("example-tree"), exampleTree);
-    populate(document.getElementById("example-tree-checkboxes"), exampleTree);
+    populate(document.getElementById("example-tree-leaves-only"), exampleTree);
 
     initialize();
 });
