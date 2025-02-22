@@ -89,7 +89,7 @@ export function initialize(tree: HTMLElement) {
         tree.dataset.mdButtonStyle,
         tree.dataset.mdCheckboxes == "true"
     );
-    toggleAll(tree, tree.dataset.mdExpanded == "true", true);
+    toggleAll(tree, tree.dataset.mdExpandOnLoad == "true", true);
 }
 
 export function populate(tree: HTMLElement, map: Map<string, any>) {
