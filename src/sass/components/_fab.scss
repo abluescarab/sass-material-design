@@ -41,7 +41,6 @@
 
     &__label {
         @include font-styling("label-large");
-        @include hidden;
     }
 
     &--low {
@@ -65,14 +64,6 @@
         }
     }
 
-    @include data("size", "small") {
-        &:not(#{$parent}--branded) {
-            @include square(40px);
-
-            border-radius: sys("shape", "corner", "medium");
-        }
-    }
-
     &--branded {
         #{$parent}__icon {
             $icon-size: 36px;
@@ -83,7 +74,21 @@
         }
     }
 
-    @include data("size", "large") {
+    &:not([data-md-size="extended"]) {
+        #{$parent}__label {
+            @include hidden;
+        }
+    }
+
+    &[data-md-size="small"] {
+        &:not(#{$parent}--branded) {
+            @include square(40px);
+
+            border-radius: sys("shape", "corner", "medium");
+        }
+    }
+
+    &[data-md-size="large"] {
         @extend #{$parent}--branded;
         @include square(96px);
 
@@ -100,19 +105,15 @@
         }
     }
 
-    @include data("size", "extended") {
+    &[data-md-size="extended"] {
         min-width: 80px;
         width: auto;
         padding: 0 16px;
-
-        #{$parent}__label {
-            display: initial;
-        }
     }
 
     @include themes.themify {
         @each $color in "primary", "secondary", "tertiary" {
-            @include data("color", $color) {
+            &[data-md-color="#{$color}"] {
                 @include mix-states(
                     themes.color("#{$color}-container"),
                     themes.color("on-#{$color}-container"),

@@ -50,7 +50,7 @@
         }
     }
 
-    @include data("type", "primary") {
+    &[data-md-type="primary"] {
         #{$parent}__button {
             display: grid;
             grid-template-rows: 1fr;
@@ -111,7 +111,7 @@
         }
     }
 
-    @include data("type", "secondary") {
+    &[data-md-type="secondary"] {
         #{$parent}__nav {
             height: 48px;
         }

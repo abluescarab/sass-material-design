@@ -31,7 +31,7 @@
     }
 
     @include themes.themify {
-        @include data("type", "elevated") {
+        &[data-md-type="elevated"] {
             @include enabled-styling {
                 @include elevation(1);
                 @include mix-states(
@@ -43,7 +43,7 @@
             }
         }
 
-        @include data("type", "filled") {
+        &[data-md-type="filled"] {
             @include enabled-styling {
                 @include mix-states(
                     themes.color("primary"),
@@ -58,7 +58,7 @@
             }
         }
 
-        @include data("type", "tonal") {
+        &[data-md-type="tonal"] {
             @include enabled-styling {
                 @include mix-states(
                     themes.color("secondary-container"),
@@ -73,7 +73,7 @@
             }
         }
 
-        @include data("type", "outlined") {
+        &[data-md-type="outlined"] {
             @include enabled-styling(
                 (
                     background-color: transparent,
@@ -95,7 +95,7 @@
             }
         }
 
-        @include data("type", "text") {
+        &[data-md-type="text"] {
             padding: 12px;
 
             &:has(#{$parent}__icon) {

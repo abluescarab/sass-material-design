@@ -13,7 +13,7 @@
     @include themes.themify {
         color: themes.color("on-surface");
 
-        @include data("type", "elevated") {
+        &[data-md-type="elevated"] {
             @include elevation(1);
             @include mix-states(
                 themes.color("surface-container-low"),
@@ -27,13 +27,14 @@
             }
         }
 
-        @include data("type", "filled", "outlined") {
+        &[data-md-type="filled"],
+        &[data-md-type="outlined"] {
             &:hover {
                 @include elevation(1);
             }
         }
 
-        @include data("type", "filled") {
+        &[data-md-type="filled"] {
             @include mix-states(
                 themes.color("surface-container-highest"),
                 themes.color("on-surface"),
@@ -42,7 +43,7 @@
             );
         }
 
-        @include data("type", "outlined") {
+        &[data-md-type="outlined"] {
             border: 1px solid themes.color("outline-variant");
 
             @include mix-states(

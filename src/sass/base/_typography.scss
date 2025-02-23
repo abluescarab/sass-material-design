@@ -9,18 +9,12 @@
     font-variation-settings: "wdth" 100;
 
     @each $typescale in map.keys(sys("typescale")) {
-        @include data("typescale", $typescale) {
+        &[data-md-typescale="#{$typescale}"] {
             @include font-styling($typescale);
         }
     }
 
-    @each $typescale in map.keys(sys("typescale")) {
-        @include data("typescale", $typescale) {
-            @include font-styling($typescale);
-        }
-    }
-
-    @include data("monospace") {
+    &[data-md-monospace] {
         font-family: ref("typeface", "mono");
     }
 }
@@ -56,11 +50,11 @@ code * {
     /* Support for IE. */
     font-feature-settings: "liga";
 
-    @include data("symbols", "rounded") {
+    &[data-md-symbols="rounded"] {
         font-family: "Material Symbols Rounded", sans-serif;
     }
 
-    @include data("symbols", "sharp") {
+    &[data-md-symbols="sharp"] {
         font-family: "Material Symbols Sharp", sans-serif;
     }
 }

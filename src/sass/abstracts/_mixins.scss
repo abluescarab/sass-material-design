@@ -17,26 +17,9 @@
     );
 
     @each $name, $value in $backgrounds {
-        @include data("background", $name) {
+        &[data-md-background="#{$name}"] {
             @include themes.colorify($value);
         }
-    }
-}
-
-// ensures prefix on all data attributes
-@mixin data($name, $values...) {
-    $selector: "";
-
-    @if length($values) > 0 {
-        @each $value in $values {
-            $selector: $selector + "&[data-md-#{$name}='#{$value}'],";
-        }
-    } @else {
-        $selector: "&[data-md-#{$name}],";
-    }
-
-    #{$selector} {
-        @content;
     }
 }
 
@@ -109,10 +92,9 @@
 
 @mixin hidden() {
     position: absolute !important;
+    inset: 0 auto auto 0;
     top: -9999px !important;
     left: -9999px !important;
-    bottom: auto;
-    right: auto;
 }
 
 @mixin indicator($color, $primary: false) {

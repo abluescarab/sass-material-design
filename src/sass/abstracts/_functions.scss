@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:list";
 @use "sys" as *;
 
 @function create-list($start, $end, $step, $prefix: "", $suffix: "") {
@@ -20,10 +21,6 @@
     @return $list;
 }
 
-@function opacity($percent) {
-    @return 100% - $percent;
-}
-
 @function mix-color($default, $mix, $state) {
     $state-name: $state;
 
@@ -36,6 +33,10 @@
         $mix,
         opacity(sys("state", $state-name, "state-layer-opacity"))
     );
+}
+
+@function opacity($percent) {
+    @return 100% - $percent;
 }
 
 @function sp-to-rem($sp) {

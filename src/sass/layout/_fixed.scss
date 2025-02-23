@@ -9,23 +9,23 @@
     gap: calc($padding / 2);
     align-items: center;
 
-    @include data("lr", "left") {
+    &[data-md-lr="left"] {
         left: $padding;
     }
 
-    @include data("lr", "right") {
+    &[data-md-lr="right"] {
         right: $padding;
     }
 
-    @include data("tb", "top") {
+    &[data-md-tb="top"] {
         top: $padding;
     }
 
-    @include data("tb", "bottom") {
+    &[data-md-tb="bottom"] {
         bottom: $padding;
     }
 
-    @include data("direction", "vertical") {
+    &[data-md-direction="vertical"] {
         flex-direction: column;
 
         &#{$parent}--reverse {
@@ -33,7 +33,7 @@
         }
     }
 
-    @include data("direction", "horizontal") {
+    &[data-md-direction="horizontal"] {
         flex-direction: row;
 
         &#{$parent}--reverse {

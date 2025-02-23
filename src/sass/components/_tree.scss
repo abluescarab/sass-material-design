@@ -22,14 +22,15 @@
     flex: 1;
 
     @each $name, $size in $margins {
-        @include data("margin", $name) {
+        &[data-md-margin="#{$name}"] {
             #{$parent}__subtree {
                 padding-left: calc($size - $icon-button--small__half);
             }
         }
     }
 
-    @include data("checkboxes", "all", "leaves") {
+    &[data-md-checkboxes="all"],
+    &[data-md-checkboxes="leaves"] {
         #{$parent}__subtree {
             padding-left: $icon-button--small__half + 9px;
         }
@@ -37,7 +38,7 @@
 
     @include themes.themify {
         @each $color in $indicator-colors {
-            @include data("indicator-color", $color) {
+            &[data-md-indicator-color="#{$color}"] {
                 #{$parent}__subtree {
                     border-left-color: themes.color($color);
                 }
@@ -45,7 +46,7 @@
         }
 
         @each $name, $size in $indicator-widths {
-            @include data("indicator-size", $name) {
+            &[data-md-indicator-size="#{$name}"] {
                 #{$parent}__subtree {
                     border-left-width: #{$size};
                     margin-left: calc($icon-button--small__half - ($size / 2));
@@ -54,7 +55,7 @@
         }
 
         @each $style in $border-styles {
-            @include data("indicator-style", $style) {
+            &[data-md-indicator-style="#{$style}"] {
                 #{$parent}__subtree {
                     border-left-style: #{$style};
                 }
