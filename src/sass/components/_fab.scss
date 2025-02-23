@@ -74,10 +74,8 @@
         }
     }
 
-    &:not([data-md-size="extended"]) {
-        #{$parent}__label {
-            @include hidden;
-        }
+    &:not([data-md-size="extended"]) #{$parent}__label {
+        @include hidden;
     }
 
     &[data-md-size="small"] {
