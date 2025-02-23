@@ -16,7 +16,7 @@
 
     // restrict to only checkboxes
     input[type="checkbox"] {
-        @include square(18px);
+        @include square($checkbox__width);
 
         @include themes.themify {
             accent-color: themes.color("primary");
@@ -33,11 +33,11 @@
     // restrict to only labels
     label {
         &:not(:has(input)) {
-            padding-left: 16px;
+            padding-left: $checkbox__margin;
         }
 
         input[type="checkbox"] {
-            margin-right: 16px;
+            margin-right: $checkbox__margin;
         }
     }
 }

@@ -22,19 +22,23 @@ const exampleTree = Object.freeze({
         },
     },
     "Item 11": {
-        "Item 12": {},
-        "Item 13": {},
-        "Item 14": {
+        "Item 12": {
+            "Item 13": {},
+            "Item 14": {},
             "Item 15": {},
-            "Item 16": {},
-            "Item 17": {},
+        },
+        "Item 16": {},
+        "Item 17": {
+            "Item 18": {},
+            "Item 19": {},
+            "Item 20": {},
         },
     },
-    "Item 18": {},
-    "Item 19": {
-        "Item 20": {
-            "Item 21": {
-                "Item 22": {},
+    "Item 21": {},
+    "Item 22": {
+        "Item 23": {
+            "Item 24": {
+                "Item 25": {},
             },
         },
     },
@@ -55,8 +59,10 @@ function dataToSelector(dataName) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    populate(document.getElementById("example-tree"), exampleTree);
-    populate(document.getElementById("example-tree-leaves-only"), exampleTree);
+    populate(document.getElementById("tree-all-checkboxes"), exampleTree);
+    populate(document.getElementById("tree-subtree-checkboxes"), exampleTree);
+    populate(document.getElementById("tree-root-checkboxes"), exampleTree);
+    populate(document.getElementById("tree-leaf-checkboxes"), exampleTree);
 
     [].forEach.call(document.getElementsByClassName("attributes"), (el) => {
         const attributes = document.createElement("div");

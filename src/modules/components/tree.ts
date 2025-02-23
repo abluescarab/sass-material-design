@@ -1,6 +1,6 @@
 // TODO: add option to check children when checked
 // TODO: add option to not collapse children with parent
-// TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
+// TODO: add option to have checkmarks only for subtrees & subtree elements (no top level)
 
 import { MaterialToggleEvent, ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
@@ -27,7 +27,7 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
  * Initializes a tree recursively.
  * @param element element to initialize
  * @param buttonType icon button type
- * @param checkboxes whether to include checkboxes
+ * @param where to include checkboxes
  */
 function initializeTree(
     element: Element,
@@ -42,8 +42,11 @@ function initializeTree(
         const el = child as HTMLElement;
 
         if (
-            (checkboxes == "all" || (checkboxes == "leaves" && isLeaf(el))) &&
-            el.classList.contains("md-tree__label")
+            el.classList.contains("md-tree__label") &&
+            (checkboxes == "all" ||
+                (checkboxes == "roots" && isRoot(el)) ||
+                (checkboxes == "leaves" && isLeaf(el)) ||
+                (checkboxes == "subtrees" && isInSubtree(el)))
         ) {
             const wrapper = document.createElement("div");
             wrapper.classList.add("md-checkbox");
@@ -66,12 +69,30 @@ function initializeTree(
 }
 
 /**
+ * Checks if the given element is in a subtree.
+ * @param element element to check
+ * @returns whether the given element is in a subtree
+ */
+function isInSubtree(element: Element): boolean | undefined {
+    return element.parentElement?.classList.contains("md-tree__subtree");
+}
+
+/**
  * Checks if the given element is a leaf node in the tree.
  * @param element element to check
  * @returns whether the given element is a leaf node
  */
 function isLeaf(element: Element): boolean {
     return !element.nextElementSibling?.classList.contains("md-tree__subtree");
+}
+
+/**
+ * Checks if the given element is a root node in the tree.
+ * @param element element to check
+ * @returns whether the given element is a root node
+ */
+function isRoot(element: Element): boolean | undefined {
+    return element.parentElement?.classList.contains("md-tree");
 }
 
 /**

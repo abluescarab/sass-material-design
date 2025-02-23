@@ -1,63 +1,39 @@
+@use "sass:map";
 @use "../abstracts" as *;
 @use "../themes";
 @use "icon-button";
 
 .md-tree {
     $parent: &;
-    $gap: 8px;
+    $gap: $checkbox__margin;
     $margins: (
         small: 8px,
         medium: 16px,
         large: 32px,
     );
+    $default-margin: map.get($margins, "medium");
     $indicator-widths: (
         small: 1px,
         medium: 2px,
         large: 3px,
     );
+    $default-indicator-width: map.get($indicator-widths, "small");
     $indicator-colors: "primary", "secondary", "tertiary", "on-surface";
 
-    flex: 1;
-
-    @each $name, $size in $margins {
-        &[data-md-margin="#{$name}"] {
-            #{$parent}__subtree {
-                padding-left: calc($size - $icon-button--small__half);
-            }
-        }
-    }
-
-    &[data-md-checkboxes="all"],
-    &[data-md-checkboxes="leaves"] {
-        #{$parent}__subtree {
-            padding-left: $icon-button--small__half + 9px;
-        }
-    }
-
-    @include themes.themify {
-        @each $color in $indicator-colors {
-            &[data-md-indicator-color="#{$color}"] {
-                #{$parent}__subtree {
-                    border-left-color: themes.color($color);
-                }
-            }
+    @mixin indicator-overrides($indicator-width) {
+        .md-icon-button {
+            margin-left: calc($indicator-width / 2);
         }
 
-        @each $name, $size in $indicator-widths {
-            &[data-md-indicator-size="#{$name}"] {
-                #{$parent}__subtree {
-                    border-left-width: #{$size};
-                    margin-left: calc($icon-button--small__half - ($size / 2));
-                }
-            }
+        &[data-md-checkboxes] .md-checkbox #{$parent}__label {
+            margin-left: $indicator-width;
         }
 
-        @each $style in $border-styles {
-            &[data-md-indicator-style="#{$style}"] {
-                #{$parent}__subtree {
-                    border-left-style: #{$style};
-                }
-            }
+        &[data-md-checkboxes="roots"]
+            .md-checkbox
+            + #{$parent}__subtree
+            > #{$parent}__label:not(:has(.md-icon-button)) {
+            margin-left: $checkbox__width + $gap + $indicator-width;
         }
     }
 
@@ -65,45 +41,86 @@
     &__subtree {
         display: flex;
         flex-flow: column nowrap;
-        gap: calc($gap / 2);
+        flex: 1;
+        gap: 4px;
+    }
+
+    @include themes.themify {
+        @each $color in $indicator-colors {
+            &[data-md-indicator~="#{$color}"] #{$parent}__subtree {
+                border-left-color: themes.color($color);
+            }
+        }
+    }
+
+    @each $style in $border-styles {
+        &[data-md-indicator~="#{$style}"] #{$parent}__subtree {
+            border-left-style: #{$style};
+        }
+    }
+
+    @each $key, $value in $indicator-widths {
+        &[data-md-indicator~="#{$key}"] {
+            @include indicator-overrides($value);
+
+            #{$parent}__subtree {
+                border-left-width: #{$value};
+            }
+        }
+    }
+
+    &[data-md-checkboxes] {
+        #{$parent}__label:not(:has(.md-icon-button)) {
+            margin-left: $icon-button--small__width + $gap;
+        }
+
+        #{parent}__label {
+            margin-left: $gap;
+        }
+
+        .md-checkbox:not(:has(.md-icon-button)) {
+            margin-left: $icon-button--small__width + $gap;
+        }
+    }
+
+    &[data-md-checkboxes="roots"] {
+        .md-checkbox + #{$parent}__subtree {
+            padding-left: $icon-button--small__width + $icon-button--small__half +
+                $checkbox__width + $gap;
+        }
+    }
+
+    @include indicator-overrides($default-indicator-width);
+
+    &[data-md-checkboxes="leaves"] {
+        #{$parent}__subtree {
+            .md-checkbox {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .md-icon-button {
+        margin-right: $gap;
+    }
+
+    &__label {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        &:not(:has(.md-icon-button)) {
+            margin-left: $icon-button--small__width + $gap;
+        }
     }
 
     &__subtree {
-        border-left: 1px dotted transparent;
+        border-left: $default-indicator-width dotted transparent;
+        margin-left: $icon-button--small__half;
+        padding-left: $icon-button--small__half + $gap;
 
         &:not(&--expanded) {
             @include hidden;
-        }
-    }
-
-    &__label {
-        @include font-styling("body-medium");
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: $gap;
-    }
-
-    .md-checkbox,
-    &__label {
-        &:not(:has(.md-icon-button)) {
-            margin-left: calc($icon-button--small__width + $gap);
-        }
-    }
-
-    .md-checkbox {
-        #{$parent}__label {
-            padding-left: 0;
-            margin-left: calc($icon__font-size / 2 - $gap);
-        }
-
-        &:has(.md-icon-button) #{$parent}__label {
-            margin-left: calc($icon__font-size / 2);
-        }
-
-        input[type="checkbox"] {
-            margin-right: 0;
         }
     }
 }

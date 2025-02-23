@@ -29,6 +29,7 @@
             .attributes {
                 display: flex;
                 flex-flow: row nowrap;
+                align-items: flex-start;
                 gap: 4px;
             }
             .attributes > div {
@@ -189,30 +190,33 @@
             </div>
         </section>
 
-        <section id="tree" class="md-pane" data-md-background="surface">
+        <section id="trees" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
                 <h1 class="md-app-bar__headline">Trees</h1>
             </div>
 
-            <div class="md-tabs" data-md-type="secondary">
+            <div class="md-tabs" data-md-type="secondary" data-md-tab="1">
                 <div class="md-tabs__nav">
                     <button class="md-tabs__button" data-md-tab="1">
                         <span class="md-tabs__label">Static</span>
                     </button>
                     <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__label">With checkboxes</span>
+                        <span class="md-tabs__label">All checkboxes</span>
                     </button>
                     <button class="md-tabs__button" data-md-tab="3">
-                        <span class="md-tabs__label">With leaf checkboxes</span>
+                        <span class="md-tabs__label">Subtree checkboxes</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="4">
+                        <span class="md-tabs__label">Root checkboxes</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="5">
+                        <span class="md-tabs__label">Leaf checkboxes</span>
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="1">
                     <div
                         class="md-tree"
-                        data-md-margin="medium"
-                        data-md-indicator-color="primary"
-                        data-md-indicator-style="dotted"
-                        data-md-indicator-size="small"
+                        data-md-margin="large"
                         data-md-button-style="filled"
                         data-md-expand-on-load>
                         <label class="md-tree__label">Item 1</label>
@@ -242,11 +246,9 @@
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="2">
                     <div
-                        id="example-tree"
+                        id="tree-all-checkboxes"
                         class="md-tree"
-                        data-md-indicator-color="secondary"
-                        data-md-indicator-style="dashed"
-                        data-md-indicator-size="medium"
+                        data-md-indicator="primary"
                         data-md-button-style="tonal"
                         data-md-checkboxes="all"
                         data-md-expand-on-load>
@@ -255,12 +257,31 @@
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="3">
                     <div
-                        id="example-tree-leaves-only"
+                        id="tree-subtree-checkboxes"
                         class="md-tree"
-                        data-md-indicator-color="tertiary"
-                        data-md-indicator-style="solid"
-                        data-md-indicator-size="large"
+                        data-md-indicator="primary large"
                         data-md-button-style="outlined"
+                        data-md-checkboxes="subtrees"
+                        data-md-expand-on-load>
+                        <!-- dynamically generated (see example-tree.js) -->
+                    </div>
+                </div>
+                <div class="md-tabs__page attributes" data-md-tab="4">
+                    <div
+                        id="tree-root-checkboxes"
+                        class="md-tree"
+                        data-md-indicator="secondary dashed medium"
+                        data-md-button-style="outlined"
+                        data-md-checkboxes="roots"
+                        data-md-expand-on-load>
+                        <!-- dynamically generated (see example-tree.js) -->
+                    </div>
+                </div>
+                <div class="md-tabs__page attributes" data-md-tab="5">
+                    <div
+                        id="tree-leaf-checkboxes"
+                        class="md-tree"
+                        data-md-indicator="tertiary double large"
                         data-md-checkboxes="leaves"
                         data-md-expand-on-load>
                         <!-- dynamically generated (see example-tree.js) -->
@@ -823,7 +844,7 @@
             </div>
         </section>
 
-        <!-- TODO: move snackbars to fixed div? -->
+        <!-- TODO: figure out how to make snackbars less wide when fab visible -->
         <section id="snackbars" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
                 <h1 class="md-app-bar__headline">Snackbars</h1>

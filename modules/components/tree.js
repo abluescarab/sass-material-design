@@ -1,6 +1,6 @@
 // TODO: add option to check children when checked
 // TODO: add option to not collapse children with parent
-// TODO: add option to have checkmarks only for subtree elements (no top level, no parents of subtrees)
+// TODO: add option to have checkmarks only for subtrees & subtree elements (no top level)
 import { ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
 /**
@@ -19,7 +19,7 @@ function createButton(buttonType) {
  * Initializes a tree recursively.
  * @param element element to initialize
  * @param buttonType icon button type
- * @param checkboxes whether to include checkboxes
+ * @param where to include checkboxes
  */
 function initializeTree(element, buttonType, checkboxes) {
     if (!element) {
@@ -27,8 +27,11 @@ function initializeTree(element, buttonType, checkboxes) {
     }
     for (const child of element.children) {
         const el = child;
-        if ((checkboxes == "all" || (checkboxes == "leaves" && isLeaf(el))) &&
-            el.classList.contains("md-tree__label")) {
+        if (el.classList.contains("md-tree__label") &&
+            (checkboxes == "all" ||
+                (checkboxes == "roots" && isRoot(el)) ||
+                (checkboxes == "leaves" && isLeaf(el)) ||
+                (checkboxes == "subtrees" && isInSubtree(el)))) {
             const wrapper = document.createElement("div");
             wrapper.classList.add("md-checkbox");
             const input = document.createElement("input");
@@ -45,12 +48,28 @@ function initializeTree(element, buttonType, checkboxes) {
     }
 }
 /**
+ * Checks if the given element is in a subtree.
+ * @param element element to check
+ * @returns whether the given element is in a subtree
+ */
+function isInSubtree(element) {
+    return element.parentElement?.classList.contains("md-tree__subtree");
+}
+/**
  * Checks if the given element is a leaf node in the tree.
  * @param element element to check
  * @returns whether the given element is a leaf node
  */
 function isLeaf(element) {
     return !element.nextElementSibling?.classList.contains("md-tree__subtree");
+}
+/**
+ * Checks if the given element is a root node in the tree.
+ * @param element element to check
+ * @returns whether the given element is a root node
+ */
+function isRoot(element) {
+    return element.parentElement?.classList.contains("md-tree");
 }
 /**
  * Populates a tree recursively from a map.

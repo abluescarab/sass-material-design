@@ -1923,154 +1923,141 @@ code * {
   box-shadow: inset 0 -3px 0 0 rgb(205, 194, 219);
 }
 
-.md-tree {
-  flex: 1;
-}
-.md-tree[data-md-margin=small] .md-tree__subtree {
-  padding-left: -2px;
-}
-.md-tree[data-md-margin=medium] .md-tree__subtree {
-  padding-left: 6px;
-}
-.md-tree[data-md-margin=large] .md-tree__subtree {
-  padding-left: 22px;
-}
-.md-tree[data-md-checkboxes=all] .md-tree__subtree, .md-tree[data-md-checkboxes=leaves] .md-tree__subtree {
-  padding-left: 19px;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-color=primary] .md-tree__subtree {
-  border-left-color: rgb(104, 84, 142);
-}
-[data-md-theme=light] .md-tree[data-md-indicator-color=secondary] .md-tree__subtree {
-  border-left-color: rgb(99, 91, 112);
-}
-[data-md-theme=light] .md-tree[data-md-indicator-color=tertiary] .md-tree__subtree {
-  border-left-color: rgb(126, 82, 93);
-}
-[data-md-theme=light] .md-tree[data-md-indicator-color=on-surface] .md-tree__subtree {
-  border-left-color: rgb(29, 27, 32);
-}
-[data-md-theme=light] .md-tree[data-md-indicator-size=small] .md-tree__subtree {
-  border-left-width: 1px;
-  margin-left: 9.5px;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-size=medium] .md-tree__subtree {
-  border-left-width: 2px;
-  margin-left: 9px;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-size=large] .md-tree__subtree {
-  border-left-width: 3px;
-  margin-left: 8.5px;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=dotted] .md-tree__subtree {
-  border-left-style: dotted;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=dashed] .md-tree__subtree {
-  border-left-style: dashed;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=solid] .md-tree__subtree {
-  border-left-style: solid;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=double] .md-tree__subtree {
-  border-left-style: double;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=groove] .md-tree__subtree {
-  border-left-style: groove;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=ridge] .md-tree__subtree {
-  border-left-style: ridge;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=inset] .md-tree__subtree {
-  border-left-style: inset;
-}
-[data-md-theme=light] .md-tree[data-md-indicator-style=outset] .md-tree__subtree {
-  border-left-style: outset;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-color=primary] .md-tree__subtree {
-  border-left-color: rgb(211, 188, 253);
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-color=secondary] .md-tree__subtree {
-  border-left-color: rgb(205, 194, 219);
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-color=tertiary] .md-tree__subtree {
-  border-left-color: rgb(240, 183, 197);
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-color=on-surface] .md-tree__subtree {
-  border-left-color: rgb(231, 224, 232);
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-size=small] .md-tree__subtree {
-  border-left-width: 1px;
-  margin-left: 9.5px;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-size=medium] .md-tree__subtree {
-  border-left-width: 2px;
-  margin-left: 9px;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-size=large] .md-tree__subtree {
-  border-left-width: 3px;
-  margin-left: 8.5px;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=dotted] .md-tree__subtree {
-  border-left-style: dotted;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=dashed] .md-tree__subtree {
-  border-left-style: dashed;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=solid] .md-tree__subtree {
-  border-left-style: solid;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=double] .md-tree__subtree {
-  border-left-style: double;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=groove] .md-tree__subtree {
-  border-left-style: groove;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=ridge] .md-tree__subtree {
-  border-left-style: ridge;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=inset] .md-tree__subtree {
-  border-left-style: inset;
-}
-[data-md-theme=dark] .md-tree[data-md-indicator-style=outset] .md-tree__subtree {
-  border-left-style: outset;
-}
 .md-tree, .md-tree__subtree {
   display: flex;
   flex-flow: column nowrap;
+  flex: 1;
   gap: 4px;
+}
+[data-md-theme=light] .md-tree[data-md-indicator~=primary] .md-tree__subtree {
+  border-left-color: rgb(104, 84, 142);
+}
+[data-md-theme=light] .md-tree[data-md-indicator~=secondary] .md-tree__subtree {
+  border-left-color: rgb(99, 91, 112);
+}
+[data-md-theme=light] .md-tree[data-md-indicator~=tertiary] .md-tree__subtree {
+  border-left-color: rgb(126, 82, 93);
+}
+[data-md-theme=light] .md-tree[data-md-indicator~=on-surface] .md-tree__subtree {
+  border-left-color: rgb(29, 27, 32);
+}
+[data-md-theme=dark] .md-tree[data-md-indicator~=primary] .md-tree__subtree {
+  border-left-color: rgb(211, 188, 253);
+}
+[data-md-theme=dark] .md-tree[data-md-indicator~=secondary] .md-tree__subtree {
+  border-left-color: rgb(205, 194, 219);
+}
+[data-md-theme=dark] .md-tree[data-md-indicator~=tertiary] .md-tree__subtree {
+  border-left-color: rgb(240, 183, 197);
+}
+[data-md-theme=dark] .md-tree[data-md-indicator~=on-surface] .md-tree__subtree {
+  border-left-color: rgb(231, 224, 232);
+}
+.md-tree[data-md-indicator~=dashed] .md-tree__subtree {
+  border-left-style: dashed;
+}
+.md-tree[data-md-indicator~=dotted] .md-tree__subtree {
+  border-left-style: dotted;
+}
+.md-tree[data-md-indicator~=double] .md-tree__subtree {
+  border-left-style: double;
+}
+.md-tree[data-md-indicator~=groove] .md-tree__subtree {
+  border-left-style: groove;
+}
+.md-tree[data-md-indicator~=inset] .md-tree__subtree {
+  border-left-style: inset;
+}
+.md-tree[data-md-indicator~=outset] .md-tree__subtree {
+  border-left-style: outset;
+}
+.md-tree[data-md-indicator~=ridge] .md-tree__subtree {
+  border-left-style: ridge;
+}
+.md-tree[data-md-indicator~=solid] .md-tree__subtree {
+  border-left-style: solid;
+}
+.md-tree[data-md-indicator~=small] .md-icon-button {
+  margin-left: 0.5px;
+}
+.md-tree[data-md-indicator~=small][data-md-checkboxes] .md-checkbox .md-tree__label {
+  margin-left: 1px;
+}
+.md-tree[data-md-indicator~=small][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 35px;
+}
+.md-tree[data-md-indicator~=small] .md-tree__subtree {
+  border-left-width: 1px;
+}
+.md-tree[data-md-indicator~=medium] .md-icon-button {
+  margin-left: 1px;
+}
+.md-tree[data-md-indicator~=medium][data-md-checkboxes] .md-checkbox .md-tree__label {
+  margin-left: 2px;
+}
+.md-tree[data-md-indicator~=medium][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 36px;
+}
+.md-tree[data-md-indicator~=medium] .md-tree__subtree {
+  border-left-width: 2px;
+}
+.md-tree[data-md-indicator~=large] .md-icon-button {
+  margin-left: 1.5px;
+}
+.md-tree[data-md-indicator~=large][data-md-checkboxes] .md-checkbox .md-tree__label {
+  margin-left: 3px;
+}
+.md-tree[data-md-indicator~=large][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 37px;
+}
+.md-tree[data-md-indicator~=large] .md-tree__subtree {
+  border-left-width: 3px;
+}
+.md-tree[data-md-checkboxes] .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 36px;
+}
+.md-tree[data-md-checkboxes] parent__label {
+  margin-left: 16px;
+}
+.md-tree[data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
+  margin-left: 36px;
+}
+.md-tree[data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree {
+  padding-left: 64px;
+}
+.md-tree .md-icon-button {
+  margin-left: 0.5px;
+}
+.md-tree[data-md-checkboxes] .md-checkbox .md-tree__label {
+  margin-left: 1px;
+}
+.md-tree[data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 35px;
+}
+.md-tree[data-md-checkboxes=leaves] .md-tree__subtree .md-checkbox {
+  margin-left: 0;
+}
+.md-tree .md-icon-button {
+  margin-right: 16px;
+}
+.md-tree__label {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.md-tree__label:not(:has(.md-icon-button)) {
+  margin-left: 36px;
 }
 .md-tree__subtree {
   border-left: 1px dotted transparent;
+  margin-left: 10px;
+  padding-left: 26px;
 }
 .md-tree__subtree:not(.md-tree__subtree--expanded) {
   position: absolute !important;
   inset: 0 auto auto 0;
   top: -9999px !important;
   left: -9999px !important;
-}
-.md-tree__label {
-  font-family: "Roboto";
-  line-height: 20px;
-  font-size: 14px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-}
-.md-tree .md-checkbox:not(:has(.md-icon-button)), .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 28px;
-}
-.md-tree .md-checkbox .md-tree__label {
-  padding-left: 0;
-  margin-left: 4px;
-}
-.md-tree .md-checkbox:has(.md-icon-button) .md-tree__label {
-  margin-left: 12px;
-}
-.md-tree .md-checkbox input[type=checkbox] {
-  margin-right: 0;
 }
 
 /* pages */

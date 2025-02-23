@@ -1,6 +1,6 @@
 // general
-$border-styles: "dotted", "dashed", "solid", "double", "groove", "ridge",
-    "inset", "outset";
+$border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
+    "ridge", "solid";
 
 // icons
 $icon__font-size: 24px;
@@ -9,3 +9,7 @@ $icon__font-size: 24px;
 $icon-button__styles: "filled", "tonal", "outlined";
 $icon-button--small__width: 20px;
 $icon-button--small__half: calc($icon-button--small__width / 2);
+
+// md-checkbox
+$checkbox__width: 18px;
+$checkbox__margin: 16px;
