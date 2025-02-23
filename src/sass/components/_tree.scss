@@ -2,8 +2,6 @@
 @use "../themes";
 @use "icon-button";
 
-// TODO: (maybe) add options for:
-//      dividers between lines
 .md-tree {
     $parent: &;
     $gap: 8px;

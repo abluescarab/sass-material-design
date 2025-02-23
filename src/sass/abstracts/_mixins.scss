@@ -34,21 +34,6 @@
         if($negative-offset, -$offset, $offset) math.floor($offset * 1.5) 0;
 }
 
-// TODO: change to data type?
-@mixin font($type) {
-    &--large {
-        @include font-styling("#{$type}-large");
-    }
-
-    &--medium {
-        @include font-styling("#{$type}-medium");
-    }
-
-    &--small {
-        @include font-styling("#{$type}-small");
-    }
-}
-
 @mixin font-styling(
     $typescale,
     $prominent: false,
