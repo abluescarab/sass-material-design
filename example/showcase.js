@@ -1,5 +1,4 @@
 // TODO: implement up/down arrows on panes
-// TODO: implement toggle for icon buttons
 import {
     initialize,
     getParentWithClass,
@@ -118,6 +117,35 @@ document.getElementById("toggle-theme").addEventListener("click", (e) => {
             : "light_mode";
 });
 
+[].forEach.call(
+    document
+        .getElementById("icon-buttons")
+        .getElementsByClassName("md-icon-button"),
+    (el) => {
+        el.addEventListener("click", (e) => {
+            e.currentTarget.classList.toggle("md-icon-button--selected");
+        });
+    }
+);
+
+document
+    .getElementById("checkbox-1")
+    .addEventListener(
+        "change",
+        (e) =>
+            (document.getElementById("checkbox-2").disabled =
+                !e.currentTarget.checked)
+    );
+
+document
+    .getElementById("checkbox-3")
+    .addEventListener(
+        "change",
+        (e) =>
+            (document.getElementById("checkbox-4").disabled =
+                !e.currentTarget.checked)
+    );
+
 document
     .querySelectorAll("#snackbars .md-pane__content > .md-button")
     .forEach((element) =>
@@ -144,24 +172,6 @@ document.querySelectorAll(".md-snackbar__action").forEach((element) =>
             el.previousElementSibling.innerText.replace("Hide", "Show");
     })
 );
-
-document
-    .getElementById("checkbox-1")
-    .addEventListener(
-        "change",
-        (e) =>
-            (document.getElementById("checkbox-2").disabled =
-                !e.currentTarget.checked)
-    );
-
-document
-    .getElementById("checkbox-3")
-    .addEventListener(
-        "change",
-        (e) =>
-            (document.getElementById("checkbox-4").disabled =
-                !e.currentTarget.checked)
-    );
 
 fab.addEventListener("click", (e) =>
     window.scrollTo({
