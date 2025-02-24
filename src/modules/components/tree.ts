@@ -44,8 +44,8 @@ function initializeTree(
         if (
             el.classList.contains("md-tree__label") &&
             (checkboxes == "all" ||
-                (checkboxes == "roots" && isRoot(el)) ||
                 (checkboxes == "leaves" && isLeaf(el)) ||
+                (checkboxes == "roots" && isRoot(el)) ||
                 (checkboxes == "subtrees" && isInSubtree(el)))
         ) {
             const wrapper = document.createElement("div");
