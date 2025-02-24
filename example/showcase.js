@@ -65,15 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("tree-leaf-checkboxes"), exampleTree);
 
     [].forEach.call(document.getElementsByClassName("attributes"), (el) => {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("flex", "rows", "fill");
+
+        while (el.firstChild) {
+            wrapper.appendChild(el.firstChild);
+        }
+
+        el.appendChild(wrapper);
+
         const attributes = document.createElement("div");
-        const pre = document.createElement("pre");
         const code = document.createElement("code");
         const h2 = document.createElement("h2");
 
         h2.dataset.mdTypescale = "title-medium";
         h2.innerText = "Attributes";
 
-        const element = el.children[0];
+        const element = wrapper.children[0];
         const dataset = Object.keys(element.dataset).sort();
 
         const length = Math.max(
@@ -86,23 +94,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (const data of dataset) {
             const str = `data-${dataToSelector(data)}:`;
-            code.innerHTML += str;
-            code.innerHTML += "&nbsp;".repeat(length + 7 - str.length);
-            const span = document.createElement("span");
-            span.style.fontStyle = "italic";
-            span.innerHTML +=
+            const para = document.createElement("p");
+            para.classList.add("attribute");
+            para.innerHTML += str;
+            para.innerHTML += "&nbsp;".repeat(length + 7 - str.length);
+
+            const italic = document.createElement("span");
+            italic.style.fontStyle = "italic";
+            italic.innerHTML =
                 element.dataset[data] != "" ? element.dataset[data] : "true";
-            code.appendChild(span);
-            code.innerHTML += "<br />";
+
+            para.appendChild(italic);
+            code.appendChild(para);
         }
+
         if (code.innerHTML == "") {
             code.innerHTML = "No attributes.";
         }
 
-        pre.appendChild(code);
         attributes.appendChild(h2);
-        attributes.appendChild(pre);
-        el.insertAdjacentElement("afterbegin", attributes);
+        attributes.appendChild(code);
+        el.appendChild(attributes);
     });
 
     initialize();

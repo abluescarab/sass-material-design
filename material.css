@@ -638,7 +638,7 @@ code * {
 
 .md-button {
   display: flex;
-  flex-direction: row;
+  flex-direction: row nowrap;
   align-items: center;
   justify-content: center;
   height: 40px;

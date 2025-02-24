@@ -11,13 +11,14 @@
 
 .md-button {
     $parent: &;
+    $height: 40px;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: row nowrap;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    line-height: 40px;
+    height: $height;
+    line-height: $height;
     width: max-content;
     padding: 0 24px;
     gap: 8px;

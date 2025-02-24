@@ -28,15 +28,21 @@
             }
             .attributes {
                 display: flex;
-                flex-flow: row nowrap;
-                align-items: flex-start;
-                gap: 4px;
+                flex-flow: column nowrap;
+                align-items: center;
+                gap: 32px;
             }
             .attributes > div:first-child {
-                flex: 1 1 60%;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
             }
-            .attributes > div:nth-child(2) {
-                flex: 1 1 40%;
+            .attributes > div:last-child {
+                padding: 16px;
+            }
+            .attribute {
+                text-indent: -15em;
+                margin-left: 15em;
             }
             .md-checkbox {
                 flex: 1;
@@ -557,7 +563,7 @@
                 <div class="md-app-bar__headline">Primary tabs with icons</div>
             </div>
 
-            <div class="md-pane__content attributes">
+            <div class="attributes">
                 <div class="md-tabs" data-md-type="primary">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
@@ -591,7 +597,7 @@
                 </div>
             </div>
 
-            <div class="md-pane__content attributes">
+            <div class="attributes">
                 <div class="md-tabs" data-md-type="primary" data-md-tab="2">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
@@ -621,7 +627,7 @@
                 </div>
             </div>
 
-            <div class="md-pane__content attributes">
+            <div class="attributes">
                 <div class="md-tabs" data-md-type="secondary">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
@@ -658,7 +664,7 @@
                 </div>
             </div>
 
-            <div class="md-pane__content attributes">
+            <div class="attributes">
                 <div class="md-tabs" data-md-type="secondary" data-md-tab="3">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
