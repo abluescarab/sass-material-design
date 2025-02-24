@@ -1980,6 +1980,9 @@ code * {
 .md-tree[data-md-indicator~=small] .md-icon-button {
   margin-left: 0.5px;
 }
+.md-tree[data-md-indicator~=small][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
+  margin-left: 36.5px;
+}
 .md-tree[data-md-indicator~=small][data-md-checkboxes] .md-checkbox .md-tree__label {
   margin-left: 1px;
 }
@@ -1992,6 +1995,9 @@ code * {
 .md-tree[data-md-indicator~=medium] .md-icon-button {
   margin-left: 1px;
 }
+.md-tree[data-md-indicator~=medium][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
+  margin-left: 37px;
+}
 .md-tree[data-md-indicator~=medium][data-md-checkboxes] .md-checkbox .md-tree__label {
   margin-left: 2px;
 }
@@ -2003,6 +2009,9 @@ code * {
 }
 .md-tree[data-md-indicator~=large] .md-icon-button {
   margin-left: 1.5px;
+}
+.md-tree[data-md-indicator~=large][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
+  margin-left: 37.5px;
 }
 .md-tree[data-md-indicator~=large][data-md-checkboxes] .md-checkbox .md-tree__label {
   margin-left: 3px;
@@ -2027,6 +2036,9 @@ code * {
 }
 .md-tree .md-icon-button {
   margin-left: 0.5px;
+}
+.md-tree[data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
+  margin-left: 36.5px;
 }
 .md-tree[data-md-checkboxes] .md-checkbox .md-tree__label {
   margin-left: 1px;

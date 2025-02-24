@@ -25,8 +25,17 @@
             margin-left: calc($indicator-width / 2);
         }
 
-        &[data-md-checkboxes] .md-checkbox #{$parent}__label {
-            margin-left: $indicator-width;
+        &[data-md-checkboxes] {
+            .md-checkbox {
+                &:not(:has(.md-icon-button)) {
+                    margin-left: $icon-button--small__width + $gap +
+                        calc($indicator-width / 2);
+                }
+
+                #{$parent}__label {
+                    margin-left: $indicator-width;
+                }
+            }
         }
 
         &[data-md-checkboxes="roots"]
