@@ -1926,7 +1926,6 @@ code * {
 .md-tree, .md-tree__subtree {
   display: flex;
   flex-flow: column nowrap;
-  flex: 1;
   gap: 4px;
 }
 [data-md-theme=light] .md-tree[data-md-indicator~=primary] .md-tree__subtree {
