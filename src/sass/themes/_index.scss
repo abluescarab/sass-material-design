@@ -7,55 +7,57 @@ $themes: (
     dark: dark.$theme,
 );
 
-@mixin -themify($theme, $map) {
-    $theme-map: () !global;
-
-    @each $key, $submap in $map {
-        $value: map.get(map.get($themes, $theme), "#{$key}");
-        $theme-map: map.merge(
-            $theme-map,
-            (
-                $key: $value,
-            )
-        ) !global;
-    }
-
-    @content;
-
-    $theme-map: null !global;
-}
-
-// modified from https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+/// Allows access to themes and theme variables.
+/// Modified from https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+/// @param {Boolean} $self [false] whether to apply styles to the current element
+/// @content styles to apply to each theme
 @mixin themify($self: false) {
     @each $theme, $map in $themes {
-        @if $self {
-            &[data-md-theme="#{$theme}"] {
-                @include -themify($theme, $map) {
-                    @content;
-                }
+        $selector: if(
+            $self,
+            "&[data-md-theme='#{$theme}']",
+            "[data-md-theme='#{$theme}'] &"
+        );
+
+        #{$selector} {
+            $theme-map: () !global;
+
+            @each $key, $submap in $map {
+                $value: map.get(map.get($themes, $theme), "#{$key}");
+                $theme-map: map.merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
             }
-        } @else {
-            [data-md-theme="#{$theme}"] & {
-                @include -themify($theme, $map) {
-                    @content;
-                }
-            }
+
+            @content;
+
+            $theme-map: null !global;
         }
     }
 }
 
+/// Gets a color from the current theme.
+/// @param {string} $key color name
+/// @return {color} color from the current theme
 @function color($key) {
     $result: map.get($theme-map, $key);
 
     @return if($result, $result, $key);
 }
 
-@mixin colorify($color, $important: false) {
-    background-color: color($color) if($important, !important, null);
+/// Changes the background and text color based on a theme container color.
+/// @param {string} $container-color color with -container suffix
+/// @param {Boolean} $important [false] whether to set each style to important
+@mixin colorify($container-color, $important: false) {
+    $on-color: if(
+        $container-color == "surface-container",
+        "on-surface",
+        "on-#{$container-color}"
+    );
 
-    @if $color == "surface-container" {
-        color: color("on-surface") if($important, !important, null);
-    } @else {
-        color: color("on-#{$color}") if($important, !important, null);
-    }
+    background-color: color($container-color) if($important, !important, null);
+    color: color($on-color) if($important, !important, null);
 }

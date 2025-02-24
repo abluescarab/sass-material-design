@@ -149,6 +149,9 @@ $sys: (
     ),
 );
 
+/// Gets the value of a property in sys.
+/// @param {strings} $properties sequential properties
+/// @return {any} property value
 @function sys($properties...) {
     @return map.get($sys, $properties...);
 }

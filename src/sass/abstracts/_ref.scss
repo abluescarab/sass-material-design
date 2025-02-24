@@ -11,6 +11,9 @@ $ref: (
     ),
 );
 
+/// Gets the value of a property in ref.
+/// @param {strings} $properties sequential properties
+/// @return {any} property value
 @function ref($properties...) {
     @return map.get($ref, $properties...);
 }

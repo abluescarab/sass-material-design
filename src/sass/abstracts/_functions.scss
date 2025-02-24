@@ -2,6 +2,13 @@
 @use "sass:list";
 @use "sys" as *;
 
+/// Creates a list of numbers.
+/// @param {number} $start first number, inclusive
+/// @param {number} $end last number, inclusive
+/// @param {number} $step difference between each number
+/// @param {String} $prefix [""] prefix to add to each list item
+/// @param {String} $suffix [""] suffix to add to each list item
+/// @return {list} list of numbers from start to end, inclusive
 @function create-list($start, $end, $step, $prefix: "", $suffix: "") {
     $list: null;
     $i: $start;
@@ -21,6 +28,11 @@
     @return $list;
 }
 
+/// Mixes a color with an opacity value from sys.
+/// @param {color} $default default color to mix
+/// @param {color} $mix color to mix with default
+/// @param {string} $state state to mix color for
+/// @return {color} mixed color
 @function mix-color($default, $mix, $state) {
     $state-name: $state;
 
@@ -35,10 +47,9 @@
     );
 }
 
+/// Gets an opacity value subtracted from 100.
+/// @param {number} $percent opacity percentage
+/// @return {number} percent subtracted from 100
 @function opacity($percent) {
     @return 100% - $percent;
-}
-
-@function sp-to-rem($sp) {
-    @return $sp / 16;
 }

@@ -6,6 +6,7 @@
 @use "ref" as *;
 @use "../themes";
 
+/// Adds background data attributes for container colors.
 @mixin container-backgrounds {
     $backgrounds: (
         "primary": "primary-container",
@@ -23,17 +24,25 @@
     }
 }
 
+/// Adds a divider from the Material Design specs.
 @mixin divider {
     border-bottom: 1px solid themes.color("outline-variant");
 }
 
-@mixin elevation($elevation, $negative-offset: false) {
+/// Adds a box shadow to an element to indicate elevation.
+/// @param {number} $elevation elevation level
+@mixin elevation($elevation) {
     $offset: sys("elevation", "level#{$elevation}");
 
-    box-shadow: rgba(themes.color("shadow"), 0.2) 0
-        if($negative-offset, -$offset, $offset) math.floor($offset * 1.5) 0;
+    box-shadow: rgba(themes.color("shadow"), 0.2) 0 $offset
+        math.floor($offset * 1.5) 0;
 }
 
+/// Adds a font style from the sys map.
+/// @param {string} $typescale typescale from sys
+/// @param {Boolean} $prominent [false] whether to use the "prominent" style
+/// @param {Boolean} $mono [false] whether to use a monospace font
+/// @param {map} $overrides [()] properties to override in each font
 @mixin font-styling(
     $typescale,
     $prominent: false,
@@ -75,13 +84,17 @@
     }
 }
 
-@mixin hidden() {
+/// Hides an element.
+@mixin hidden {
     position: absolute !important;
     inset: 0 auto auto 0;
     top: -9999px !important;
     left: -9999px !important;
 }
 
+/// Adds an indicator to the current element.
+/// @param {color} $color indicator color
+/// @param {Boolean} $primary [false] whether indicator has "primary" style
 @mixin indicator($color, $primary: false) {
     $height: sys("state", "focus-indicator", "thickness");
 
@@ -102,35 +115,45 @@
     }
 }
 
-@mixin mix-colors($default, $states) {
-    color: $states;
-    background-color: $default;
+/// Mixes background colors for the hover, focus, and active states.
+/// @param {color} $default-background background color when no state is active
+/// @param {color} $state-color color to apply to all states
+@mixin mix-colors($default-background, $state-color) {
+    color: $state-color;
+    background-color: $default-background;
 
     &:hover {
         background-color: color.mix(
-            $default,
-            $states,
+            $default-background,
+            $state-color,
             opacity(sys("state", "hover", "state-layer-opacity"))
         );
     }
 
     &:focus {
         background-color: color.mix(
-            $default,
-            $states,
+            $default-background,
+            $state-color,
             opacity(sys("state", "focus", "state-layer-opacity"))
         );
     }
 
     &:active {
         background-color: color.mix(
-            $default,
-            $states,
+            $default-background,
+            $state-color,
             opacity(sys("state", "pressed", "state-layer-opacity"))
         );
     }
 }
 
+/// Mixes the background color for an element with the hover, focus, or active states.
+/// @param {color} $background background color when no state is active
+/// @param {color} $mix color to mix with the background when a state is active
+/// @param {Boolean} $set-color whether to set the default text color
+/// @param {Boolean} $set-state-color whether to set the text color for all states
+/// @param {strings} $states [hover, focus, active] states to include
+/// @output
 @mixin mix-states($background, $mix, $set-color, $set-state-color, $states...) {
     @if list.length($states) == 0 {
         $states: "hover", "focus", "active";
@@ -153,28 +176,17 @@
     }
 }
 
-@mixin side-radius($side, $value) {
-    @if $side == "left" {
-        border-top-left-radius: #{$value};
-        border-bottom-left-radius: #{$value};
-    } @else if $side == "right" {
-        border-top-right-radius: #{$value};
-        border-bottom-right-radius: #{$value};
-    } @else if $side == "top" {
-        border-top-left-radius: #{$value};
-        border-top-right-radius: #{$value};
-    } @else if $side == "bottom" {
-        border-bottom-left-radius: #{$value};
-        border-bottom-right-radius: #{$value};
-    }
-}
-
+/// Makes an element square with width, height, and line-height.
+/// @param {any} $size width and height to apply
 @mixin square($size) {
     width: $size;
     height: $size;
     line-height: $size;
 }
 
+/// Adds separate styles when an element is enabled or disabled.
+/// @param {map} $disabled-overrides [()] styles to override for the :disabled pseudo-class
+/// @content styles to apply when the element is not disabled
 @mixin enabled-styling($disabled-overrides: ()) {
     &:disabled {
         @if not map.has-key($disabled-overrides, "background-color") {
