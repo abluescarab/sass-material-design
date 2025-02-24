@@ -21,33 +21,45 @@ function createButton(buttonType) {
 }
 /**
  * Initializes a tree recursively.
- * @param element element to initialize
+ * @param tree tree to initialize
  * @param buttonType icon button type
  * @param where to include checkboxes
  */
-function initializeTree(element, buttonType, checkboxes) {
-    if (!element) {
+function initializeTree(tree, buttonType, checkboxes) {
+    if (!tree) {
         return;
     }
-    for (const child of element.children) {
-        const el = child;
-        if (el.classList.contains("md-tree__label") &&
-            (checkboxes == "all" ||
-                (checkboxes == "leaves" && isLeaf(el)) ||
-                (checkboxes == "roots" && isRoot(el)) ||
-                (checkboxes == "subtrees" && isInSubtree(el)))) {
-            const wrapper = document.createElement("div");
-            wrapper.classList.add("md-checkbox");
-            const input = document.createElement("input");
-            input.type = "checkbox";
-            el.insertAdjacentElement("afterbegin", input);
-            el.insertAdjacentElement("beforebegin", wrapper);
-            wrapper.appendChild(el);
+    for (const child of tree.children) {
+        if (child.classList.contains("md-tree__label")) {
+            const root = isRoot(child);
+            const leaf = isLeaf(child);
+            let node = child;
+            if (checkboxes == "all" ||
+                (checkboxes == "leaves" && leaf) ||
+                (checkboxes == "roots" && root) ||
+                (checkboxes == "subtrees" && isChild(child))) {
+                node = document.createElement("div");
+                node.classList.add("md-checkbox");
+                const input = document.createElement("input");
+                input.type = "checkbox";
+                child.insertAdjacentElement("afterbegin", input);
+                child.insertAdjacentElement("beforebegin", node);
+                node.appendChild(child);
+            }
+            if (root) {
+                node.classList.add("md-tree__root");
+            }
+            if (leaf) {
+                node.classList.add("md-tree__leaf");
+            }
+            else {
+                node.classList.add("md-tree__branch");
+            }
         }
-        if (el.classList.contains("md-tree__subtree")) {
-            const label = el.previousElementSibling;
+        if (child.classList.contains("md-tree__subtree")) {
+            const label = child.previousElementSibling;
             label.insertAdjacentElement("afterbegin", createButton(buttonType));
-            initializeTree(el, buttonType, checkboxes);
+            initializeTree(child, buttonType, checkboxes);
         }
     }
 }
@@ -56,7 +68,7 @@ function initializeTree(element, buttonType, checkboxes) {
  * @param element element to check
  * @returns whether the given element is in a subtree
  */
-function isInSubtree(element) {
+function isChild(element) {
     return element.parentElement?.classList.contains("md-tree__subtree");
 }
 /**

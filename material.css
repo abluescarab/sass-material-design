@@ -1977,88 +1977,58 @@ code * {
 .md-tree[data-md-indicator~=solid] .md-tree__subtree {
   border-left-style: solid;
 }
-.md-tree[data-md-indicator~=small] .md-icon-button {
+.md-tree[data-md-indicator~=small] .md-tree__subtree {
+  margin-left: 10px;
+  padding-left: 25px;
+}
+.md-tree[data-md-indicator~=small][data-md-checkboxes=leaves] .md-tree__leaf {
   margin-left: 0.5px;
 }
-.md-tree[data-md-indicator~=small][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
-  margin-left: 36.5px;
-}
-.md-tree[data-md-indicator~=small][data-md-checkboxes] .md-checkbox .md-tree__label {
-  margin-left: 1px;
-}
-.md-tree[data-md-indicator~=small][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 35px;
+.md-tree[data-md-indicator~=small][data-md-checkboxes=roots] > .md-tree__subtree {
+  padding-left: 55px;
 }
 .md-tree[data-md-indicator~=small] .md-tree__subtree {
   border-left-width: 1px;
 }
-.md-tree[data-md-indicator~=medium] .md-icon-button {
+.md-tree[data-md-indicator~=medium] .md-tree__subtree {
+  margin-left: 10px;
+  padding-left: 24px;
+}
+.md-tree[data-md-indicator~=medium][data-md-checkboxes=leaves] .md-tree__leaf {
   margin-left: 1px;
 }
-.md-tree[data-md-indicator~=medium][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
-  margin-left: 37px;
-}
-.md-tree[data-md-indicator~=medium][data-md-checkboxes] .md-checkbox .md-tree__label {
-  margin-left: 2px;
-}
-.md-tree[data-md-indicator~=medium][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 36px;
+.md-tree[data-md-indicator~=medium][data-md-checkboxes=roots] > .md-tree__subtree {
+  padding-left: 56px;
 }
 .md-tree[data-md-indicator~=medium] .md-tree__subtree {
   border-left-width: 2px;
 }
-.md-tree[data-md-indicator~=large] .md-icon-button {
+.md-tree[data-md-indicator~=large] .md-tree__subtree {
+  margin-left: 10px;
+  padding-left: 23px;
+}
+.md-tree[data-md-indicator~=large][data-md-checkboxes=leaves] .md-tree__leaf {
   margin-left: 1.5px;
 }
-.md-tree[data-md-indicator~=large][data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
-  margin-left: 37.5px;
-}
-.md-tree[data-md-indicator~=large][data-md-checkboxes] .md-checkbox .md-tree__label {
-  margin-left: 3px;
-}
-.md-tree[data-md-indicator~=large][data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 37px;
+.md-tree[data-md-indicator~=large][data-md-checkboxes=roots] > .md-tree__subtree {
+  padding-left: 57px;
 }
 .md-tree[data-md-indicator~=large] .md-tree__subtree {
   border-left-width: 3px;
 }
-.md-tree[data-md-checkboxes] .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 36px;
-}
-.md-tree[data-md-checkboxes] parent__label {
-  margin-left: 16px;
-}
-.md-tree[data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
-  margin-left: 36px;
-}
-.md-tree[data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree {
-  padding-left: 64px;
-}
-.md-tree .md-icon-button {
-  margin-left: 0.5px;
-}
-.md-tree[data-md-checkboxes] .md-checkbox:not(:has(.md-icon-button)) {
-  margin-left: 36.5px;
-}
-.md-tree[data-md-checkboxes] .md-checkbox .md-tree__label {
-  margin-left: 1px;
-}
-.md-tree[data-md-checkboxes=roots] .md-checkbox + .md-tree__subtree > .md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 35px;
-}
-.md-tree[data-md-checkboxes=leaves] .md-tree__subtree .md-checkbox {
-  margin-left: 0;
-}
 .md-tree .md-icon-button {
   margin-right: 16px;
+}
+.md-tree__root:not(.md-tree__branch) {
+  margin-left: 36px;
+}
+.md-tree__leaf {
+  margin-left: 36px;
 }
 .md-tree__label {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-}
-.md-tree__label:not(:has(.md-icon-button)) {
-  margin-left: 36px;
 }
 .md-tree__subtree {
   border-left: 1px dotted transparent;
@@ -2070,6 +2040,19 @@ code * {
   inset: 0 auto auto 0;
   top: -9999px !important;
   left: -9999px !important;
+}
+.md-tree[data-md-checkboxes=leaves] .md-tree__leaf {
+  margin-left: 0;
+}
+.md-tree .md-tree__subtree {
+  margin-left: 10px;
+  padding-left: 25px;
+}
+.md-tree[data-md-checkboxes=leaves] .md-tree__leaf {
+  margin-left: 0.5px;
+}
+.md-tree[data-md-checkboxes=roots] > .md-tree__subtree {
+  padding-left: 55px;
 }
 
 /* pages */

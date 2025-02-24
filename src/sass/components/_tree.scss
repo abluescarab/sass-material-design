@@ -10,6 +10,9 @@
 ///                         width: small, medium, large
 /// @elements       label: tree item
 ///                 subtree: children of a tree item
+///                 root: top level tree item (automatically applied)
+///                 leaf: tree item with no children (automatically applied)
+///                 branch: tree item with children (automatically applied)
 /// ============================================================================
 
 @use "sass:map";
@@ -29,28 +32,24 @@
     $indicator-colors: "primary", "secondary", "tertiary", "on-surface";
 
     @mixin indicator-overrides($indicator-width) {
-        .md-icon-button {
-            margin-left: calc($indicator-width / 2);
+        $indicator-width__half: calc($indicator-width / 2);
+
+        #{$parent}__subtree {
+            margin-left: $icon-button--small__half;
+            padding-left: $icon-button--small__half + $gap - $indicator-width;
         }
 
-        &[data-md-checkboxes] {
-            .md-checkbox {
-                &:not(:has(.md-icon-button)) {
-                    margin-left: $icon-button--small__width + $gap +
-                        calc($indicator-width / 2);
-                }
-
-                #{$parent}__label {
-                    margin-left: $indicator-width;
-                }
+        &[data-md-checkboxes="leaves"] {
+            #{$parent}__leaf {
+                margin-left: $indicator-width__half;
             }
         }
 
-        &[data-md-checkboxes="roots"]
-            .md-checkbox
-            + #{$parent}__subtree
-            > #{$parent}__label:not(:has(.md-icon-button)) {
-            margin-left: $checkbox__width + $gap + $indicator-width;
+        &[data-md-checkboxes="roots"] {
+            & > #{$parent}__subtree {
+                padding-left: $icon-button--small__width + $indicator-width +
+                    $checkbox__width + $checkbox__margin;
+            }
         }
     }
 
@@ -86,49 +85,24 @@
         }
     }
 
-    &[data-md-checkboxes] {
-        #{$parent}__label:not(:has(.md-icon-button)) {
-            margin-left: $icon-button--small__width + $gap;
-        }
-
-        #{parent}__label {
-            margin-left: $gap;
-        }
-
-        .md-checkbox:not(:has(.md-icon-button)) {
-            margin-left: $icon-button--small__width + $gap;
-        }
-    }
-
-    &[data-md-checkboxes="roots"] {
-        .md-checkbox + #{$parent}__subtree {
-            padding-left: $icon-button--small__width + $icon-button--small__half +
-                $checkbox__width + $gap;
-        }
-    }
-
-    @include indicator-overrides($default-indicator-width);
-
-    &[data-md-checkboxes="leaves"] {
-        #{$parent}__subtree {
-            .md-checkbox {
-                margin-left: 0;
-            }
-        }
-    }
-
     .md-icon-button {
         margin-right: $gap;
+    }
+
+    &__root {
+        &:not(#{$parent}__branch) {
+            margin-left: $icon-button--small__width + $gap;
+        }
+    }
+
+    &__leaf {
+        margin-left: $icon-button--small__width + $gap;
     }
 
     &__label {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-
-        &:not(:has(.md-icon-button)) {
-            margin-left: $icon-button--small__width + $gap;
-        }
     }
 
     &__subtree {
@@ -140,4 +114,12 @@
             @include hidden;
         }
     }
+
+    &[data-md-checkboxes="leaves"] {
+        #{$parent}__leaf {
+            margin-left: 0;
+        }
+    }
+
+    @include indicator-overrides($default-indicator-width);
 }
