@@ -1,3 +1,17 @@
+/// ============================================================================
+/// @file           components/_tree.scss
+/// @description    Custom Material Design tree component.
+/// @data           checkboxes: display checkboxes next to tree elements
+///                     options: all, leaves, roots, subtrees
+///                 indicator: subtree depth indicator
+///                     options: (space separated)
+///                         color: primary, secondary, tertiary, on-surface
+///                         style: any border style
+///                         width: small, medium, large
+/// @elements       label: tree item
+///                 subtree: children of a tree item
+/// ============================================================================
+
 @use "sass:map";
 @use "../abstracts" as *;
 @use "../themes";

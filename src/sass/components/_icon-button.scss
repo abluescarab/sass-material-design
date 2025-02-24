@@ -1,3 +1,12 @@
+/// ============================================================================
+/// @file           components/_icon-button.scss
+/// @description    Material Design icon button component.
+/// @data           type: button style
+///                     options: filled, tonal, outlined
+/// @modifiers      selected: fill and change background color
+///                 small: half size button
+/// ============================================================================
+
 @use "../abstracts" as *;
 @use "../themes";
 

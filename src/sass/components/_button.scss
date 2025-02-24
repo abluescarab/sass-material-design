@@ -1,3 +1,11 @@
+/// ============================================================================
+/// @file           components/_button.scss
+/// @description    Material Design button component.
+/// @data           type    button style
+///                     options: elevated, filled, tonal, outlined, text
+/// @elements       icon    icon before text
+/// ============================================================================
+
 @use "../abstracts" as *;
 @use "../themes";
 

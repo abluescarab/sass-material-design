@@ -1,3 +1,15 @@
+/// ============================================================================
+/// @file           components/_tabs.scss
+/// @description    Material Design tab container component.
+/// @data           type: navigation style
+///                     options: primary, secondary
+/// @elements       nav: navigation container
+///                 button: navigation button
+///                 icon: navigation button icon
+///                 label: navigation button label
+///                 page: tab page container
+/// ============================================================================
+
 @use "../abstracts" as *;
 @use "../themes";
 

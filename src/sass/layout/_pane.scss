@@ -1,3 +1,13 @@
+/// ============================================================================
+/// @file           layout/_pane.scss
+/// @description    Material Design pane component.
+/// @data           background: background color
+///                     options: primary, secondary, tertiary, error, surface,
+///                              surface-container
+/// @modifiers      fill: set margins to 0
+/// @elements       content: elements inside the pane
+/// ============================================================================
+
 @use "../abstracts" as *;
 @use "../themes";
 

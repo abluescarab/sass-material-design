@@ -1,3 +1,11 @@
+/// ============================================================================
+/// @file           components/_snackbar.scss
+/// @description    Material Design snackbar component.
+/// @modifiers      long-action: put the action button on its own line
+///                 visible: display the snackbar
+/// @elements       action: action button
+/// ============================================================================
+
 @use "../abstracts" as *;
 @use "../themes";
 
