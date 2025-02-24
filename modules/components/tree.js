@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @file           components/tree.ts
+ * @file           modules/components/tree.ts
  * @description    Implementation file for tree components.
  *******************************************************************************/
 // TODO: add option to check children when checked

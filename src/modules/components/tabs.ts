@@ -1,5 +1,5 @@
 /*******************************************************************************
- * @file           components/tabs.ts
+ * @file           modules/components/tabs.ts
  * @description    Implementation file for tab container components.
  *******************************************************************************/
 
