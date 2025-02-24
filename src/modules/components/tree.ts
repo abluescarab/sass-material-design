@@ -219,6 +219,7 @@ export function initialize(tree: Element): void {
             }
 
             triggerEvent<MaterialToggleEvent>(tree, "toggled", {
+                element: el,
                 state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
             });
         }

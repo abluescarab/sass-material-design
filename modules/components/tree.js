@@ -161,6 +161,7 @@ export function initialize(tree) {
                 toggle(nextTree, expand);
             }
             triggerEvent(tree, "toggled", {
+                element: el,
                 state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
             });
         }

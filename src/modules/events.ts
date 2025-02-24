@@ -33,6 +33,7 @@ export interface MaterialChangeEvent extends MaterialEventBase {
  * An event type for any element that has changed toggle state.
  */
 export interface MaterialToggleEvent extends MaterialEventBase {
+    element: Element;
     state: ToggleState;
 }
 
