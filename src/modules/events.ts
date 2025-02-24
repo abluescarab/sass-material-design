@@ -13,6 +13,8 @@ export enum ToggleState {
     Disabled,
     Checked,
     Unchecked,
+    Selected,
+    Unselected,
 }
 
 /**

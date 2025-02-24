@@ -13,6 +13,8 @@ export var ToggleState;
     ToggleState[ToggleState["Disabled"] = 3] = "Disabled";
     ToggleState[ToggleState["Checked"] = 4] = "Checked";
     ToggleState[ToggleState["Unchecked"] = 5] = "Unchecked";
+    ToggleState[ToggleState["Selected"] = 6] = "Selected";
+    ToggleState[ToggleState["Unselected"] = 7] = "Unselected";
 })(ToggleState || (ToggleState = {}));
 /**
  * Triggers an event on the given element.
