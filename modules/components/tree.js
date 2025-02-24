@@ -140,7 +140,7 @@ function populateTree(tree, map) {
     }
 }
 /**
- * Initializes a given tree.
+ * Initializes a tree.
  * @param tree tree to initialize
  */
 export function initialize(tree) {

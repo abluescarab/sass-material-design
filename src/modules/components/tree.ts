@@ -189,7 +189,7 @@ function populateTree(tree: Element, map: Map<string, unknown>): void {
 }
 
 /**
- * Initializes a given tree.
+ * Initializes a tree.
  * @param tree tree to initialize
  */
 export function initialize(tree: Element): void {
