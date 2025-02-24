@@ -120,6 +120,14 @@
     }
 }
 
+/// Changes the appearance of an element based on the number of children it has.
+/// @param {number} $count number of children
+@mixin has-children($count) {
+    &:has(> :last-child:nth-child(#{$count})) {
+        @content;
+    }
+}
+
 /// Hides an element.
 @mixin hidden($relative: false) {
     position: if($relative, relative, absolute) !important;
@@ -209,6 +217,21 @@
 
             background-color: mix-color($background, $mix, $state);
         }
+    }
+}
+
+/// Adds a border radius to one side of an element.
+/// @param {string} $side side to add to (left, right, top, bottom)
+/// @param {unit} $radius radius amount
+@mixin side-radius($side, $radius) {
+    @if $side == "left" {
+        border-radius: $radius 0 0 $radius;
+    } @else if $side == "top" {
+        border-radius: $radius $radius 0 0;
+    } @else if $side == "right" {
+        border-radius: 0 $radius $radius 0;
+    } @else if $side == "bottom" {
+        border-radius: 0 0 $radius $radius;
     }
 }
 
