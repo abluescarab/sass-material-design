@@ -3,8 +3,6 @@
  * @description    Implementation file for tree components.
  *******************************************************************************/
 // TODO: add option to check children when checked
-// TODO: add option to not collapse children with parent
-// TODO: add option to have checkmarks only for subtrees & subtree elements (no top level)
 import { ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
 /**
@@ -123,7 +121,13 @@ export function initialize(tree) {
         const el = e.target;
         if (el.classList.contains("md-icon-button")) {
             const expand = el.innerText == "add";
-            toggleAll(el.parentElement?.nextElementSibling, expand, false);
+            const nextTree = el.parentElement?.nextElementSibling;
+            if (tree.dataset.mdCascadeCollapse != undefined) {
+                toggleAll(nextTree, expand, false);
+            }
+            else {
+                toggle(nextTree, expand);
+            }
             triggerEvent(tree, "toggled", {
                 state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
             });

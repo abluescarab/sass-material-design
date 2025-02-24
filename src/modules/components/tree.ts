@@ -4,8 +4,6 @@
  *******************************************************************************/
 
 // TODO: add option to check children when checked
-// TODO: add option to not collapse children with parent
-// TODO: add option to have checkmarks only for subtrees & subtree elements (no top level)
 
 import { MaterialToggleEvent, ToggleState, triggerEvent } from "../events.js";
 import { getChildByClassName } from "../utils.js";
@@ -157,8 +155,14 @@ export function initialize(tree: Element): void {
 
         if (el.classList.contains("md-icon-button")) {
             const expand = el.innerText == "add";
+            const nextTree = el.parentElement?.nextElementSibling;
 
-            toggleAll(el.parentElement?.nextElementSibling, expand, false);
+            if (tree.dataset.mdCascadeCollapse != undefined) {
+                toggleAll(nextTree, expand, false);
+            } else {
+                toggle(nextTree, expand);
+            }
+
             triggerEvent<MaterialToggleEvent>(tree, "toggled", {
                 state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
             });
@@ -180,7 +184,10 @@ export function populate(tree: Element, map: Map<string, unknown>): void {
  * @param tree element to toggle
  * @param expand whether to expand or collapse
  */
-export function toggle(tree: Element | null, expand: boolean): void {
+export function toggle(
+    tree: Element | null | undefined,
+    expand: boolean
+): void {
     if (
         !tree ||
         !(tree instanceof HTMLElement) ||
