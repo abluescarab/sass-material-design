@@ -32,8 +32,11 @@
                 align-items: flex-start;
                 gap: 4px;
             }
-            .attributes > div {
-                flex: 1;
+            .attributes > div:first-child {
+                flex: 1 1 60%;
+            }
+            .attributes > div:nth-child(2) {
+                flex: 1 1 40%;
             }
             .md-checkbox {
                 flex: 1;
