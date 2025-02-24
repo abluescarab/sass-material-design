@@ -68,7 +68,7 @@ export function getChildByClassName(
  * @returns closest parent with class
  */
 export function getParentWithClass(
-    element: Element | null,
+    element: Element | EventTarget | null,
     parentClass: string,
     includeChild: boolean = true
 ): HTMLElement | null {

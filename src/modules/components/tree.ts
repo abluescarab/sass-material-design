@@ -3,10 +3,8 @@
  * @description    Implementation file for tree components.
  *******************************************************************************/
 
-// TODO: add option to check children when checked
-
 import { MaterialToggleEvent, ToggleState, triggerEvent } from "../events.js";
-import { getChildByClassName } from "../utils.js";
+import { getChildByClassName, getParentWithClass } from "../utils.js";
 
 /**
  * Creates a button to insert in the tree.
@@ -27,6 +25,33 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
 }
 
 /**
+ * Toggles child checkboxes.
+ * @param element parent element
+ * @param checked whether to check or uncheck children
+ */
+function toggleCheckboxes(element: Element | null, checked: boolean): void {
+    const subtree = element?.nextElementSibling;
+
+    if (
+        !element ||
+        !subtree?.classList.contains("md-tree__subtree") ||
+        !subtree?.firstElementChild?.classList.contains("md-checkbox")
+    ) {
+        return;
+    }
+
+    for (const child of subtree.children) {
+        if (child.classList.contains("md-checkbox")) {
+            child.querySelectorAll("input[type='checkbox']").forEach((c) => {
+                (c as HTMLInputElement).checked = checked;
+            });
+        }
+
+        toggleCheckboxes(child, checked);
+    }
+}
+
+/**
  * Initializes a tree recursively.
  * @param tree tree to initialize
  * @param buttonType icon button type
@@ -35,7 +60,8 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
 function initializeTree(
     tree: Element,
     buttonType: string | undefined,
-    checkboxes: string | undefined
+    checkboxes: string | undefined,
+    cascadeChecked: string | undefined
 ): void {
     if (!tree) {
         return;
@@ -59,6 +85,30 @@ function initializeTree(
                 const input = document.createElement("input");
                 input.type = "checkbox";
 
+                if (
+                    (checkboxes == "all" || checkboxes == "subtrees") &&
+                    cascadeChecked != undefined
+                ) {
+                    input.addEventListener("change", (e) => {
+                        const checked = (e.currentTarget as HTMLInputElement)
+                            .checked;
+
+                        if (
+                            cascadeChecked == "both" ||
+                            (cascadeChecked == "checked" && checked) ||
+                            (cascadeChecked == "unchecked" && !checked)
+                        ) {
+                            toggleCheckboxes(
+                                getParentWithClass(
+                                    e.currentTarget,
+                                    "md-checkbox"
+                                ),
+                                checked
+                            );
+                        }
+                    });
+                }
+
                 child.insertAdjacentElement("afterbegin", input);
                 child.insertAdjacentElement("beforebegin", node);
                 node.appendChild(child);
@@ -79,7 +129,7 @@ function initializeTree(
             const label = child.previousElementSibling as HTMLElement;
 
             label.insertAdjacentElement("afterbegin", createButton(buttonType));
-            initializeTree(child, buttonType, checkboxes);
+            initializeTree(child, buttonType, checkboxes, cascadeChecked);
         }
     }
 }
@@ -147,7 +197,12 @@ export function initialize(tree: Element): void {
         return;
     }
 
-    initializeTree(tree, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes);
+    initializeTree(
+        tree,
+        tree.dataset.mdButtonStyle,
+        tree.dataset.mdCheckboxes,
+        tree.dataset.mdCascadeChecked
+    );
     toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
 
     tree.addEventListener("click", (e) => {
