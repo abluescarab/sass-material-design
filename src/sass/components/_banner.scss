@@ -34,11 +34,8 @@
     }
 
     &__icon {
-        $icon-size: 56px;
+        @include square(56px, true);
 
-        @include square($icon-size);
-
-        font-size: $icon-size;
         user-select: none;
         grid-column: 1;
         grid-row: span 2;

@@ -47,9 +47,7 @@
     }
 
     &__icon {
-        @include square($icon__font-size);
-
-        font-size: $icon__font-size;
+        @include square($icon__font-size, true);
     }
 
     &__label {
@@ -79,11 +77,7 @@
 
     &--branded {
         #{$parent}__icon {
-            $icon-size: 36px;
-
-            @include square($icon-size);
-
-            font-size: $icon-size;
+            @include square(36px, true);
         }
     }
 
@@ -107,11 +101,7 @@
 
         #{$parent}--branded {
             #{$parent}__icon {
-                $icon-size: 48px;
-
-                @include square($icon-size);
-
-                font-size: $icon-size;
+                @include square(48px, true);
             }
         }
     }

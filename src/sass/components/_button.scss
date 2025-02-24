@@ -31,11 +31,7 @@
     }
 
     &__icon {
-        $icon-size: 18px;
-
-        @include square($icon-size);
-
-        font-size: $icon-size;
+        @include square(18px, true);
     }
 
     @include themes.themify {

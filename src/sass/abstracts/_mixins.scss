@@ -43,6 +43,37 @@
         math.floor($offset * 1.5) 0;
 }
 
+/// Adds separate styles when an element is enabled or disabled.
+/// @param {map} $disabled-overrides [()] styles to override for the :disabled pseudo-class
+/// @content styles to apply when the element is not disabled
+@mixin enabled-styling($disabled-overrides: ()) {
+    &:disabled {
+        @if not map.has-key($disabled-overrides, "background-color") {
+            background-color: rgba(
+                themes.color("on-surface"),
+                sys("state", "disabled", "container-opacity")
+            );
+        }
+
+        @if not map.has-key($disabled-overrides, "color") {
+            color: rgba(
+                themes.color("on-surface"),
+                sys("state", "disabled", "label-opacity")
+            );
+        }
+
+        @if $disabled-overrides {
+            @each $property, $value in $disabled-overrides {
+                #{$property}: #{$value};
+            }
+        }
+    }
+
+    &:not(:disabled) {
+        @content;
+    }
+}
+
 /// Adds a font style from the sys map.
 /// @param {string} $typescale typescale from sys
 /// @param {Boolean} $prominent [false] whether to use the "prominent" style
@@ -183,39 +214,12 @@
 
 /// Makes an element square with width, height, and line-height.
 /// @param {any} $size width and height to apply
-@mixin square($size) {
+@mixin square($size, $set-font-size: false) {
     width: $size;
     height: $size;
     line-height: $size;
-}
 
-/// Adds separate styles when an element is enabled or disabled.
-/// @param {map} $disabled-overrides [()] styles to override for the :disabled pseudo-class
-/// @content styles to apply when the element is not disabled
-@mixin enabled-styling($disabled-overrides: ()) {
-    &:disabled {
-        @if not map.has-key($disabled-overrides, "background-color") {
-            background-color: rgba(
-                themes.color("on-surface"),
-                sys("state", "disabled", "container-opacity")
-            );
-        }
-
-        @if not map.has-key($disabled-overrides, "color") {
-            color: rgba(
-                themes.color("on-surface"),
-                sys("state", "disabled", "label-opacity")
-            );
-        }
-
-        @if $disabled-overrides {
-            @each $property, $value in $disabled-overrides {
-                #{$property}: #{$value};
-            }
-        }
-    }
-
-    &:not(:disabled) {
-        @content;
+    @if $set-font-size {
+        font-size: $size;
     }
 }
