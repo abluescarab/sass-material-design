@@ -6,12 +6,6 @@
 .md-tree {
     $parent: &;
     $gap: $checkbox__margin;
-    $margins: (
-        small: 8px,
-        medium: 16px,
-        large: 32px,
-    );
-    $default-margin: map.get($margins, "medium");
     $indicator-widths: (
         small: 1px,
         medium: 2px,

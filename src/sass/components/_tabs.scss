@@ -8,6 +8,18 @@
     flex-direction: column;
     flex: 1;
 
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        height: 48px;
+
+        @include themes.themify {
+            @include divider;
+
+            background-color: themes.color("surface");
+        }
+    }
+
     &__button {
         box-sizing: border-box;
         flex: 1;
@@ -27,18 +39,6 @@
         @include font-styling("title-small");
 
         align-content: center;
-    }
-
-    &__nav {
-        display: flex;
-        flex-direction: row;
-        height: 48px;
-
-        @include themes.themify {
-            @include divider;
-
-            background-color: themes.color("surface");
-        }
     }
 
     &__page {

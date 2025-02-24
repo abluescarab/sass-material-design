@@ -1702,6 +1702,19 @@ code * {
   flex-direction: column;
   flex: 1;
 }
+.md-tabs__nav {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+}
+[data-md-theme=light] .md-tabs__nav {
+  border-bottom: 1px solid rgb(203, 196, 207);
+  background-color: rgb(254, 247, 255);
+}
+[data-md-theme=dark] .md-tabs__nav {
+  border-bottom: 1px solid rgb(73, 69, 78);
+  background-color: rgb(21, 18, 24);
+}
 .md-tabs__button {
   box-sizing: border-box;
   flex: 1;
@@ -1724,19 +1737,6 @@ code * {
   letter-spacing: 0.1px;
   font-weight: 500;
   align-content: center;
-}
-.md-tabs__nav {
-  display: flex;
-  flex-direction: row;
-  height: 48px;
-}
-[data-md-theme=light] .md-tabs__nav {
-  border-bottom: 1px solid rgb(203, 196, 207);
-  background-color: rgb(254, 247, 255);
-}
-[data-md-theme=dark] .md-tabs__nav {
-  border-bottom: 1px solid rgb(73, 69, 78);
-  background-color: rgb(21, 18, 24);
 }
 .md-tabs__page {
   display: block;

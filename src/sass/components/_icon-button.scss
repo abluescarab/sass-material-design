@@ -4,7 +4,7 @@
 .md-icon-button {
     $parent: &;
 
-    @include square(40px);
+    @include square($icon-button__width);
 
     border: 0;
     border-radius: sys("shape", "corner", "full");

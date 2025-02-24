@@ -2,6 +2,8 @@
 @use "../themes";
 
 .md-snackbar {
+    $parent: &;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
@@ -44,8 +46,10 @@
         }
     }
 
-    &--long-action &__action {
-        grid-row: 2;
-        grid-column: span 2;
+    &--long-action {
+        #{$parent}__action {
+            grid-row: 2;
+            grid-column: span 2;
+        }
     }
 }
