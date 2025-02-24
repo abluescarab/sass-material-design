@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * @file           src/material.ts
+ * @description    Main file.
+ *******************************************************************************/
 import * as tabs from "./modules/components/tabs.js";
 import * as tree from "./modules/components/tree.js";
 /**

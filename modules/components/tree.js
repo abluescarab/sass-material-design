@@ -1,3 +1,7 @@
+/*******************************************************************************
+ * @file           components/tree.ts
+ * @description    Implementation file for tree components.
+ *******************************************************************************/
 // TODO: add option to check children when checked
 // TODO: add option to not collapse children with parent
 // TODO: add option to have checkmarks only for subtrees & subtree elements (no top level)
