@@ -121,8 +121,8 @@
 }
 
 /// Hides an element.
-@mixin hidden {
-    position: absolute !important;
+@mixin hidden($relative: false) {
+    position: if($relative, relative, absolute) !important;
     inset: 0 auto auto 0;
     top: -9999px !important;
     left: -9999px !important;
