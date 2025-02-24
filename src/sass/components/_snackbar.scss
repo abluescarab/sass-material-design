@@ -42,10 +42,10 @@
         @include themes.themify {
             color: themes.color("inverse-primary");
         }
+    }
 
-        &--long {
-            grid-row: 2;
-            grid-column: span 2;
-        }
+    &--long-action &__action {
+        grid-row: 2;
+        grid-column: span 2;
     }
 }

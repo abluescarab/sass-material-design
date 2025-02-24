@@ -1692,7 +1692,7 @@ code * {
 [data-md-theme=dark] .md-snackbar__action {
   color: rgb(104, 84, 142);
 }
-.md-snackbar__action--long {
+.md-snackbar--long-action .md-snackbar__action {
   grid-row: 2;
   grid-column: span 2;
 }
