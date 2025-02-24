@@ -1,0 +1,146 @@
+/// ============================================================================
+/// @file           components/_segmented.scss
+/// @description    Material Design segmented button component.
+/// @data           multiselect: allow selecting multiple segments
+///                 require-select: require at least one segment to be selected
+/// @elements       button: button segment
+///                 icon: icon inside segment
+///                 text: text inside segment
+/// ============================================================================
+
+// TODO: add options for icon-only buttons
+
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-segmented {
+    $parent: &;
+    $height: 40px;
+    $padding: 16px;
+
+    display: grid;
+    justify-content: center;
+    background-color: transparent;
+
+    @for $i from 2 through 5 {
+        @include has-children($i) {
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
+
+    &:not(:has(&__icon)) {
+        #{$parent}__button {
+            $button: &;
+
+            &:not(#{$button}--selected) #{$parent}__check {
+                @include hidden(true);
+
+                & + #{$parent}__text {
+                    position: relative;
+                    left: -13px; // ???
+                }
+            }
+        }
+    }
+
+    &__button {
+        $radius: sys("shape", "corner", "full");
+
+        @include font-styling("label-large");
+
+        display: flex;
+        flex-flow: row nowrap;
+        height: $height;
+        line-height: $height;
+        align-items: center;
+        justify-content: center;
+        padding: 0 $padding;
+        background-color: transparent;
+        gap: calc($padding / 2);
+
+        @include themes.themify {
+            $disabled-border: rgba(
+                themes.color("outline"),
+                sys("state", "disabled", "outline-opacity")
+            );
+
+            border: 1px solid themes.color("outline");
+
+            @include enabled-styling(
+                (
+                    background-color: transparent,
+                )
+            ) {
+                @include mix-states(
+                    transparent,
+                    themes.color("on-surface"),
+                    true,
+                    true
+                );
+            }
+
+            &:disabled {
+                border-top-color: $disabled-border;
+                border-bottom-color: $disabled-border;
+                color: rgba(
+                    themes.color("on-surface"),
+                    sys("state", "disabled", "label-opacity")
+                );
+
+                &:first-child {
+                    border-left-color: $disabled-border;
+                }
+
+                &:last-child {
+                    border-right-color: $disabled-border;
+                }
+
+                &:has(+ #{$parent}__button:disabled) {
+                    border-right-color: $disabled-border;
+                }
+            }
+
+            &--selected:not(:disabled) {
+                @include mix-states(
+                    themes.color("secondary-container"),
+                    themes.color("on-secondary-container"),
+                    true,
+                    true
+                );
+            }
+        }
+
+        &:first-child {
+            @include side-radius("left", $radius);
+
+            padding-left: $padding;
+        }
+
+        &:last-child {
+            @include side-radius("right", $radius);
+
+            padding-right: $padding;
+        }
+
+        &:not(:first-child) {
+            border-left: 0;
+        }
+
+        &:not(&--selected) {
+            #{$parent}__check {
+                @include hidden;
+            }
+        }
+
+        &--selected {
+            #{$parent}__icon:not(#{$parent}__check) {
+                @include hidden;
+            }
+        }
+    }
+
+    &__icon,
+    &__check {
+        @include square(18px, true);
+    }
+}
