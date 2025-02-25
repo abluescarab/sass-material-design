@@ -20,17 +20,17 @@ export var MaterialState;
  * A base for all custom Material events.
  */
 export class MaterialEvent extends Event {
-    constructor(type, element) {
+    constructor(type, source) {
         super(`material:${type}`);
-        this.element = element;
+        this.source = source;
     }
 }
 /**
  * An event type for any element that changes value.
  */
 export class MaterialChangeEvent extends MaterialEvent {
-    constructor(element, oldValue, newValue) {
-        super("change", element);
+    constructor(source, oldValue, newValue) {
+        super("change", source);
         this.oldValue = oldValue;
         this.newValue = newValue;
     }
@@ -39,8 +39,8 @@ export class MaterialChangeEvent extends MaterialEvent {
  * An event type for any element that has changed toggle state.
  */
 export class MaterialToggleEvent extends MaterialEvent {
-    constructor(element, state) {
-        super("toggle", element);
+    constructor(source, state) {
+        super("toggle", source);
         this.state = state;
     }
 }

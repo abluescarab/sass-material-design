@@ -21,11 +21,11 @@ export enum MaterialState {
  * A base for all custom Material events.
  */
 export class MaterialEvent extends Event {
-    element: Element | null | undefined;
+    source: Element | null | undefined;
 
-    constructor(type: string, element: Element | null | undefined) {
+    constructor(type: string, source: Element | null | undefined) {
         super(`material:${type}`);
-        this.element = element;
+        this.source = source;
     }
 }
 
@@ -37,11 +37,11 @@ export class MaterialChangeEvent<T> extends MaterialEvent {
     newValue?: T;
 
     constructor(
-        element: Element | null | undefined,
+        source: Element | null | undefined,
         oldValue?: T,
         newValue?: T
     ) {
-        super("change", element);
+        super("change", source);
         this.oldValue = oldValue;
         this.newValue = newValue;
     }
@@ -53,8 +53,8 @@ export class MaterialChangeEvent<T> extends MaterialEvent {
 export class MaterialToggleEvent extends MaterialEvent {
     state: MaterialState;
 
-    constructor(element: Element | null | undefined, state: MaterialState) {
-        super("toggle", element);
+    constructor(source: Element | null | undefined, state: MaterialState) {
+        super("toggle", source);
         this.state = state;
     }
 }
