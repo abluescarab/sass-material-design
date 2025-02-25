@@ -166,7 +166,7 @@ function isRoot(element: Element): boolean | undefined {
  * @param tree tree to populate
  * @param map map to populate from
  */
-function populateTree(tree: Element, map: Map<string, unknown>): void {
+function populateTree(tree: Element | null, map: object): void {
     if (!tree) {
         return;
     }
@@ -231,7 +231,7 @@ export function initialize(tree: Element): void {
  * @param tree tree to populate
  * @param map map to populate from
  */
-export function populate(tree: Element, map: Map<string, unknown>): void {
+export function populate(tree: Element | null, map: object): void {
     populateTree(tree, map);
 }
 
