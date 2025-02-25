@@ -46,9 +46,9 @@ export function cycleData(
 }
 
 /**
- * Gets the first child of an element by its class name.
+ * Gets the first child element with the given class name.
  * @param parent direct parent
- * @param className class to search by
+ * @param className class to search for
  * @returns child as {@link HTMLElement}
  */
 export function getChildByClassName(
@@ -68,23 +68,37 @@ export function getChildByClassName(
  * Gets the closest parent with the given class.
  * @param element child element
  * @param parentClass class to search for
+ * @param forceStopAtClass if not found, stop when reaching this class
  * @param includeChild whether to check if the child has the given class
  * @returns closest parent with class
  */
 export function getParentWithClass(
     element: Element | EventTarget | null,
     parentClass: string,
+    forceStopAtClass: string = "",
     includeChild: boolean = true
 ): HTMLElement | null {
     if (element == null || !(element instanceof HTMLElement)) {
         return null;
     }
 
-    if (includeChild && element.classList.contains(parentClass)) {
-        return element;
+    if (includeChild) {
+        if (element.classList.contains(parentClass)) {
+            return element;
+        }
+
+        if (forceStopAtClass && element.classList.contains(forceStopAtClass)) {
+            console.log("stopping at " + forceStopAtClass);
+            return null;
+        }
     }
 
-    return getParentWithClass(element.parentElement, parentClass, true);
+    return getParentWithClass(
+        element.parentElement,
+        parentClass,
+        forceStopAtClass,
+        true
+    );
 }
 
 /**
