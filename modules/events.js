@@ -5,17 +5,17 @@
 /**
  * The state of any toggleable element.
  */
-export var ToggleState;
-(function (ToggleState) {
-    ToggleState[ToggleState["Expanded"] = 0] = "Expanded";
-    ToggleState[ToggleState["Collapsed"] = 1] = "Collapsed";
-    ToggleState[ToggleState["Enabled"] = 2] = "Enabled";
-    ToggleState[ToggleState["Disabled"] = 3] = "Disabled";
-    ToggleState[ToggleState["Checked"] = 4] = "Checked";
-    ToggleState[ToggleState["Unchecked"] = 5] = "Unchecked";
-    ToggleState[ToggleState["Selected"] = 6] = "Selected";
-    ToggleState[ToggleState["Unselected"] = 7] = "Unselected";
-})(ToggleState || (ToggleState = {}));
+export var MaterialState;
+(function (MaterialState) {
+    MaterialState[MaterialState["Expanded"] = 0] = "Expanded";
+    MaterialState[MaterialState["Collapsed"] = 1] = "Collapsed";
+    MaterialState[MaterialState["Enabled"] = 2] = "Enabled";
+    MaterialState[MaterialState["Disabled"] = 3] = "Disabled";
+    MaterialState[MaterialState["Checked"] = 4] = "Checked";
+    MaterialState[MaterialState["Unchecked"] = 5] = "Unchecked";
+    MaterialState[MaterialState["Selected"] = 6] = "Selected";
+    MaterialState[MaterialState["Unselected"] = 7] = "Unselected";
+})(MaterialState || (MaterialState = {}));
 /**
  * Triggers an event on the given element.
  * @param target element that dispatches the event

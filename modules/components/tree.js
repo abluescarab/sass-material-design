@@ -2,7 +2,7 @@
  * @file           modules/components/tree.ts
  * @description    Implementation file for tree components.
  *******************************************************************************/
-import { ToggleState, triggerEvent } from "../events.js";
+import { MaterialState, triggerEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass, prefix, stringToSelector, } from "../utils.js";
 /**
  * Creates a button to insert in the tree.
@@ -84,18 +84,6 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes, cascadeChecked
                 node.classList.add("md-checkbox");
                 const input = document.createElement("input");
                 input.type = "checkbox";
-                if ((checkboxes == "all" || checkboxes == "subtrees") &&
-                    cascadeChecked != undefined) {
-                    input.addEventListener("change", (e) => {
-                        const checked = e.currentTarget
-                            .checked;
-                        if (cascadeChecked == "both" ||
-                            (cascadeChecked == "checked" && checked) ||
-                            (cascadeChecked == "unchecked" && !checked)) {
-                            toggleCheckboxes(getParentWithClass(e.currentTarget, "md-checkbox"), checked);
-                        }
-                    });
-                }
                 child.insertAdjacentElement("afterbegin", input);
                 child.insertAdjacentElement("beforebegin", node);
                 node.appendChild(child);
@@ -131,10 +119,15 @@ export function initialize(tree, itemPrefix = null) {
     if (!(tree instanceof HTMLElement)) {
         return;
     }
-    initializeTree(tree, itemPrefix ?? tree?.id, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes, tree.dataset.mdCascadeChecked);
+    const checkboxes = tree.dataset.mdCheckboxes;
+    const cascadeChecked = tree.dataset.mdCascadeChecked;
+    initializeTree(tree, itemPrefix ?? tree?.id, tree.dataset.mdButtonStyle, checkboxes, cascadeChecked);
     toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
     tree.addEventListener("click", (e) => {
         const el = e.target;
+        if (el.classList.contains("md-tree__label")) {
+            return;
+        }
         if (el.classList.contains("md-icon-button")) {
             const expand = el.innerText == "add";
             const nextTree = el.parentElement?.nextElementSibling;
@@ -146,7 +139,24 @@ export function initialize(tree, itemPrefix = null) {
             }
             triggerEvent(tree, "toggled", {
                 element: el,
-                state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
+                state: expand
+                    ? MaterialState.Expanded
+                    : MaterialState.Collapsed,
+            });
+        }
+        else if (getParentWithClass(el, "md-checkbox", "md-tree")) {
+            const checked = e.currentTarget.checked;
+            if ((checkboxes == "all" || checkboxes == "subtrees") &&
+                (cascadeChecked == "both" ||
+                    (cascadeChecked == "checked" && checked) ||
+                    (cascadeChecked == "unchecked" && !checked))) {
+                toggleCheckboxes(getParentWithClass(e.currentTarget, "md-checkbox"), checked);
+            }
+            triggerEvent(tree, "toggled", {
+                element: el,
+                state: checked
+                    ? MaterialState.Checked
+                    : MaterialState.Unchecked,
             });
         }
     });

@@ -6,7 +6,7 @@
 /**
  * The state of any toggleable element.
  */
-export enum ToggleState {
+export enum MaterialState {
     Expanded,
     Collapsed,
     Enabled,
@@ -36,7 +36,7 @@ export interface MaterialChangeEvent extends MaterialEventBase {
  */
 export interface MaterialToggleEvent extends MaterialEventBase {
     element: Element;
-    state: ToggleState;
+    state: MaterialState;
 }
 
 /**

@@ -3,7 +3,7 @@
  * @description    Implementation file for tree components.
  *******************************************************************************/
 
-import { MaterialToggleEvent, ToggleState, triggerEvent } from "../events.js";
+import { MaterialToggleEvent, MaterialState, triggerEvent } from "../events.js";
 import {
     getChildByClassName,
     getParentWithClass,
@@ -118,30 +118,6 @@ function initializeTree(
                 const input = document.createElement("input");
                 input.type = "checkbox";
 
-                if (
-                    (checkboxes == "all" || checkboxes == "subtrees") &&
-                    cascadeChecked != undefined
-                ) {
-                    input.addEventListener("change", (e) => {
-                        const checked = (e.currentTarget as HTMLInputElement)
-                            .checked;
-
-                        if (
-                            cascadeChecked == "both" ||
-                            (cascadeChecked == "checked" && checked) ||
-                            (cascadeChecked == "unchecked" && !checked)
-                        ) {
-                            toggleCheckboxes(
-                                getParentWithClass(
-                                    e.currentTarget,
-                                    "md-checkbox"
-                                ),
-                                checked
-                            );
-                        }
-                    });
-                }
-
                 child.insertAdjacentElement("afterbegin", input);
                 child.insertAdjacentElement("beforebegin", node);
                 node.appendChild(child);
@@ -196,17 +172,24 @@ export function initialize(
         return;
     }
 
+    const checkboxes = tree.dataset.mdCheckboxes;
+    const cascadeChecked = tree.dataset.mdCascadeChecked;
+
     initializeTree(
         tree,
         itemPrefix ?? tree?.id,
         tree.dataset.mdButtonStyle,
-        tree.dataset.mdCheckboxes,
-        tree.dataset.mdCascadeChecked
+        checkboxes,
+        cascadeChecked
     );
     toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
 
     tree.addEventListener("click", (e) => {
         const el = e.target as HTMLElement;
+
+        if (el.classList.contains("md-tree__label")) {
+            return;
+        }
 
         if (el.classList.contains("md-icon-button")) {
             const expand = el.innerText == "add";
@@ -220,7 +203,30 @@ export function initialize(
 
             triggerEvent<MaterialToggleEvent>(tree, "toggled", {
                 element: el,
-                state: expand ? ToggleState.Expanded : ToggleState.Collapsed,
+                state: expand
+                    ? MaterialState.Expanded
+                    : MaterialState.Collapsed,
+            });
+        } else if (getParentWithClass(el, "md-checkbox", "md-tree")) {
+            const checked = (e.currentTarget as HTMLInputElement).checked;
+
+            if (
+                (checkboxes == "all" || checkboxes == "subtrees") &&
+                (cascadeChecked == "both" ||
+                    (cascadeChecked == "checked" && checked) ||
+                    (cascadeChecked == "unchecked" && !checked))
+            ) {
+                toggleCheckboxes(
+                    getParentWithClass(e.currentTarget, "md-checkbox"),
+                    checked
+                );
+            }
+
+            triggerEvent<MaterialToggleEvent>(tree, "toggled", {
+                element: el,
+                state: checked
+                    ? MaterialState.Checked
+                    : MaterialState.Unchecked,
             });
         }
     });
@@ -248,7 +254,6 @@ function populateTree(tree: Element | null, map: object): void {
             subtree.classList.add("md-tree__subtree");
 
             populateTree(subtree, value);
-
             tree.appendChild(subtree);
         }
     }
