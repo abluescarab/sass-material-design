@@ -8,7 +8,11 @@
  * @param str string to modify
  * @returns capitalized string
  */
-export function capitalize(str: string): string {
+export function capitalize(str: string | null): string {
+    if (!str) {
+        return "";
+    }
+
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 

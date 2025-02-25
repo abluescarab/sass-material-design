@@ -8,6 +8,9 @@
  * @returns capitalized string
  */
 export function capitalize(str) {
+    if (!str) {
+        return "";
+    }
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 /**
