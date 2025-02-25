@@ -1,5 +1,5 @@
 // TODO: implement up/down arrows on panes
-import { initialize, getParentWithClass, cycleData, capitalize, cycleThemes, getChildByClassName, } from "../material.js";
+import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentWithClass, initialize, stringToSelector, } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
@@ -48,9 +48,6 @@ function replaceFabButtonText(button, replacement) {
     node.nodeValue =
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
 }
-function dataToSelector(dataName) {
-    return dataName.replaceAll(/([A-Z])/g, "-$1").toLowerCase();
-}
 document.addEventListener("DOMContentLoaded", () => {
     populate(document.getElementById("tree-all-checkboxes"), exampleTree);
     populate(document.getElementById("tree-subtree-checkboxes"), exampleTree);
@@ -70,13 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         h2.innerText = "Attributes";
         const element = wrapper.children[0];
         const dataset = Object.keys(element.dataset).sort();
-        const length = Math.max(...dataset.map((d) => dataToSelector(d).length));
+        const length = Math.max(...dataset.map((d) => stringToSelector(d).length));
         if (element.hasAttribute("disabled") ||
             element.className.includes("--disabled")) {
             code.innerHTML += "disabled<br />";
         }
         for (const data of dataset) {
-            const str = `data-${dataToSelector(data)}:`;
+            const str = `data-${stringToSelector(data)}:`;
             const para = document.createElement("p");
             para.classList.add("attribute");
             para.innerHTML += str;

@@ -1,11 +1,12 @@
 // TODO: implement up/down arrows on panes
 import {
-    initialize,
-    getParentWithClass,
-    cycleData,
     capitalize,
+    cycleData,
     cycleThemes,
     getChildByClassName,
+    getParentWithClass,
+    initialize,
+    stringToSelector,
 } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 
@@ -50,7 +51,10 @@ const exampleTree = Object.freeze({
  * @param {*} button button to replace text inside
  * @param {*} replacement text to replace with
  */
-function replaceFabButtonText(button: EventTarget | null, replacement: string) {
+function replaceFabButtonText(
+    button: EventTarget | null,
+    replacement: string
+): void {
     if (!button) {
         return;
     }
@@ -58,10 +62,6 @@ function replaceFabButtonText(button: EventTarget | null, replacement: string) {
     const node = (button as Element).childNodes[2];
     node.nodeValue =
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
-}
-
-function dataToSelector(dataName: string) {
-    return dataName.replaceAll(/([A-Z])/g, "-$1").toLowerCase();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const dataset = Object.keys(element.dataset).sort();
 
             const length = Math.max(
-                ...dataset.map((d) => dataToSelector(d).length)
+                ...dataset.map((d) => stringToSelector(d).length)
             );
 
             if (
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             for (const data of dataset) {
-                const str = `data-${dataToSelector(data)}:`;
+                const str = `data-${stringToSelector(data)}:`;
                 const para = document.createElement("p");
                 para.classList.add("attribute");
                 para.innerHTML += str;

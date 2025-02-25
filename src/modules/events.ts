@@ -49,6 +49,6 @@ export function triggerEvent<T extends MaterialEventBase>(
     target: Element | EventTarget,
     name: string,
     args: T
-) {
+): void {
     target.dispatchEvent(new CustomEvent(name, { detail: args }));
 }

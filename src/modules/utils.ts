@@ -86,3 +86,49 @@ export function getParentWithClass(
 
     return getParentWithClass(element.parentElement, parentClass, true);
 }
+
+/**
+ * Adds a prefix to a string.
+ * @param prefix string to prepend
+ * @param str original string
+ * @returns string with prefix added
+ */
+export function prefix(prefix: string, str: string): string {
+    return `${prefix}${str}`;
+}
+
+/**
+ * Converts a string to a selector in the form "element-selector".
+ * @param str string to convert
+ * @returns string with whitespace and non-word characters replaced
+ */
+export function stringToSelector(str: string): string {
+    const debug =
+        str == "Fire Keepers' Dwelling" || str == "Shulva, Sanctum City";
+
+    if (debug) {
+        console.log(`before: ${str}`);
+    }
+
+    str = str
+        .replaceAll(/([a-z])([A-Z])/g, "$1-$2")
+        .replaceAll(/[^\w\s]/g, "")
+        .replaceAll(/\s/g, "-")
+        .toLowerCase();
+
+    if (debug) {
+        console.log(`after:  ${str}`);
+    }
+
+    return str;
+}
+
+/**
+ * Adds a suffix to a string.
+ * @param suffix string to append
+ * @param str original string
+ * @returns string with suffix added
+ */
+export function suffix(suffix: string, str: string): string {
+    return `${str}${suffix}`;
+}
