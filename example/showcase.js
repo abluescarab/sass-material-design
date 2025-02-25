@@ -37,8 +37,8 @@ const exampleTree = Object.freeze({
 });
 /**
  * Replaces the text inside any button that controls the FAB display.
- * @param {*} button button to replace text inside
- * @param {*} replacement text to replace with
+ * @param button button to replace text inside
+ * @param replacement text to replace with
  */
 function replaceFabButtonText(button, replacement) {
     if (!button) {
