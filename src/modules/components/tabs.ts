@@ -31,7 +31,7 @@ function changeTab(
 
     tabs.dataset.mdTab = newTab;
 
-    triggerEvent<MaterialChangeEvent>(tabs, "tabchanged", {
+    triggerEvent<MaterialChangeEvent>(tabs, "change", {
         oldValue: oldTab,
         newValue: newTab,
     });

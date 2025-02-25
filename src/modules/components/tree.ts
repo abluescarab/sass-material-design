@@ -201,7 +201,7 @@ export function initialize(
                 toggle(nextTree, expand);
             }
 
-            triggerEvent<MaterialToggleEvent>(tree, "toggled", {
+            triggerEvent<MaterialToggleEvent>(tree, "toggle", {
                 element: el,
                 state: expand
                     ? MaterialState.Expanded
@@ -222,7 +222,7 @@ export function initialize(
                 );
             }
 
-            triggerEvent<MaterialToggleEvent>(tree, "toggled", {
+            triggerEvent<MaterialToggleEvent>(tree, "toggle", {
                 element: el,
                 state: checked
                     ? MaterialState.Checked

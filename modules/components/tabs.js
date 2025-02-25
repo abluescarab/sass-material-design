@@ -21,7 +21,7 @@ function changeTab(tabs, oldTab, newTab) {
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
     tabs.dataset.mdTab = newTab;
-    triggerEvent(tabs, "tabchanged", {
+    triggerEvent(tabs, "change", {
         oldValue: oldTab,
         newValue: newTab,
     });

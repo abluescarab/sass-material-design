@@ -137,7 +137,7 @@ export function initialize(tree, itemPrefix = null) {
             else {
                 toggle(nextTree, expand);
             }
-            triggerEvent(tree, "toggled", {
+            triggerEvent(tree, "toggle", {
                 element: el,
                 state: expand
                     ? MaterialState.Expanded
@@ -152,7 +152,7 @@ export function initialize(tree, itemPrefix = null) {
                     (cascadeChecked == "unchecked" && !checked))) {
                 toggleCheckboxes(getParentWithClass(e.currentTarget, "md-checkbox"), checked);
             }
-            triggerEvent(tree, "toggled", {
+            triggerEvent(tree, "toggle", {
                 element: el,
                 state: checked
                     ? MaterialState.Checked
