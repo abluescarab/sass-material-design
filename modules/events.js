@@ -23,5 +23,5 @@ export var MaterialState;
  * @param args arguments of any type derived from {@link MaterialEventBase}
  */
 export function triggerEvent(target, name, args) {
-    target.dispatchEvent(new CustomEvent(name, { detail: args }));
+    target.dispatchEvent(new CustomEvent(`material:${name}`, { detail: args }));
 }
