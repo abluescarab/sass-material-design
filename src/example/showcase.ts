@@ -65,10 +65,17 @@ function replaceFabButtonText(
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    populate(document.getElementById("tree-all-checkboxes"), exampleTree);
-    populate(document.getElementById("tree-subtree-checkboxes"), exampleTree);
-    populate(document.getElementById("tree-root-checkboxes"), exampleTree);
-    populate(document.getElementById("tree-leaf-checkboxes"), exampleTree);
+    const trees = [
+        "tree-all-checkboxes",
+        "tree-subtree-checkboxes",
+        "tree-root-checkboxes",
+        "tree-leaf-checkboxes",
+    ];
+
+    for (const tree of trees) {
+        const element = document.getElementById(tree);
+        populate(element, exampleTree);
+    }
 
     [].forEach.call(
         document.getElementsByClassName("attributes"),
