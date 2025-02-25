@@ -100,9 +100,11 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes, cascadeChecked
                 child.insertAdjacentElement("beforebegin", node);
                 node.appendChild(child);
             }
-            const id = prefix(`${itemPrefix ? itemPrefix : "tree"}__`, stringToSelector(child.innerText));
-            if (!document.getElementById(id)) {
-                node.id = id;
+            if (!node.id) {
+                const id = prefix(`${itemPrefix ? itemPrefix : "tree"}__`, stringToSelector(child.innerText));
+                if (!document.getElementById(id)) {
+                    node.id = id;
+                }
             }
             if (root) {
                 node.classList.add("md-tree__root");

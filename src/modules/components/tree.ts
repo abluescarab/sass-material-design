@@ -147,13 +147,15 @@ function initializeTree(
                 node.appendChild(child);
             }
 
-            const id = prefix(
-                `${itemPrefix ? itemPrefix : "tree"}__`,
-                stringToSelector((child as HTMLElement).innerText)
-            );
+            if (!node.id) {
+                const id = prefix(
+                    `${itemPrefix ? itemPrefix : "tree"}__`,
+                    stringToSelector((child as HTMLElement).innerText)
+                );
 
-            if (!document.getElementById(id)) {
-                node.id = id;
+                if (!document.getElementById(id)) {
+                    node.id = id;
+                }
             }
 
             if (root) {
