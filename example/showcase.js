@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         attributes.appendChild(h2);
         attributes.appendChild(code);
-        el.appendChild(attributes);
+        el.insertAdjacentElement("afterbegin", attributes);
     });
     initialize();
 });

@@ -30,15 +30,14 @@
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
-                gap: 32px;
-            }
-            .attributes > div:first-child {
-                align-items: center;
-                justify-content: center;
-                width: 100%;
+                gap: 16px;
             }
             .attributes > div:last-child {
-                padding: 16px;
+                align-items: center;
+                width: 100%;
+            }
+            .attributes > div:last-child:not(:has(.md-tree)) {
+                justify-content: center;
             }
             .attribute {
                 text-indent: -15em;
