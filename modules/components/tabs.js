@@ -54,7 +54,7 @@ export function initialize(tabs) {
         // otherwise ensure tabs are --selected
         changeTab(tabs, tabs.dataset.mdTab, tabs.dataset.mdTab);
     }
-    tabs.addEventListener("click", (e) => {
+    getChildByClassName(tabs, "md-tabs__nav")?.addEventListener("click", (e) => {
         const button = getParentWithClass(e.target, "md-tabs__button");
         // ensure button is direct child of current tab container
         if (button != null && button.parentElement?.parentElement == tabs) {

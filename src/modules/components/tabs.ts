@@ -71,15 +71,18 @@ export function initialize(tabs: Element): void {
         changeTab(tabs, tabs.dataset.mdTab, tabs.dataset.mdTab);
     }
 
-    tabs.addEventListener("click", (e) => {
-        const button = getParentWithClass(
-            e.target as Element,
-            "md-tabs__button"
-        );
+    getChildByClassName(tabs, "md-tabs__nav")?.addEventListener(
+        "click",
+        (e) => {
+            const button = getParentWithClass(
+                e.target as Element,
+                "md-tabs__button"
+            );
 
-        // ensure button is direct child of current tab container
-        if (button != null && button.parentElement?.parentElement == tabs) {
-            changeTab(tabs, tabs.dataset.mdTab, button.dataset.mdTab);
+            // ensure button is direct child of current tab container
+            if (button != null && button.parentElement?.parentElement == tabs) {
+                changeTab(tabs, tabs.dataset.mdTab, button.dataset.mdTab);
+            }
         }
-    });
+    );
 }
