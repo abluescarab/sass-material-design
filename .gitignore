@@ -2,6 +2,12 @@
 .vscode/
 *.code-workspace
 
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
 # Logs
 logs
 *.log

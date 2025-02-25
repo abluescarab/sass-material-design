@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const tree of trees) {
         const element = document.getElementById(tree);
         populate(element, exampleTree);
+        element?.addEventListener("toggle", (e) => {
+            // const ev = e as MaterialToggleEvent;
+            // console.log(e.target);
+            // console.log(e.currentTarget);
+        });
     }
     [].forEach.call(document.getElementsByClassName("attributes"), (el) => {
         const wrapper = document.createElement("div");
