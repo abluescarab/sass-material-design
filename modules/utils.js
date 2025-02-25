@@ -77,19 +77,11 @@ export function prefix(prefix, str) {
  * @returns string with whitespace and non-word characters replaced
  */
 export function stringToSelector(str) {
-    const debug = str == "Fire Keepers' Dwelling" || str == "Shulva, Sanctum City";
-    if (debug) {
-        console.log(`before: ${str}`);
-    }
-    str = str
-        .replaceAll(/([a-z])([A-Z])/g, "$1-$2")
-        .replaceAll(/[^\w\s]/g, "")
-        .replaceAll(/\s/g, "-")
+    return str
+        .replaceAll(/([a-z])([A-Z])/g, "$1-$2") // uppercase after lowercase
+        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
+        .replaceAll(/\s/g, "-") // whitespace
         .toLowerCase();
-    if (debug) {
-        console.log(`after:  ${str}`);
-    }
-    return str;
 }
 /**
  * Adds a suffix to a string.
