@@ -52,7 +52,7 @@ export function cycleData(
  * @returns child as {@link HTMLElement}
  */
 export function getChildByClassName(
-    parent: Element | null,
+    parent: Element | EventTarget | null,
     className: string
 ): HTMLElement | null {
     if (!parent) {
