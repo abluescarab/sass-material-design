@@ -84,11 +84,12 @@ export function prefix(prefix, str) {
  * @returns string with whitespace and non-word characters replaced
  */
 export function stringToSelector(str) {
-    return str
-        .replaceAll(/([a-z])([A-Z])/g, "$1-$2") // uppercase after lowercase
-        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
-        .replaceAll(/\s/g, "-") // whitespace
-        .toLowerCase();
+    return (str
+        // non-whitespace, non-word characters
+        .replaceAll(/[^\w\s]/g, "")
+        // whitespace or uppercase after lowercase
+        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2")
+        .toLowerCase());
 }
 /**
  * Adds a suffix to a string.
