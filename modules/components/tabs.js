@@ -2,7 +2,7 @@
  * @file           modules/components/tabs.ts
  * @description    Implementation file for tab container components.
  *******************************************************************************/
-import { triggerEvent } from "../events.js";
+import { MaterialChangeEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 /**
  * Changes the current tab on the given tab container.
@@ -21,10 +21,7 @@ function changeTab(tabs, oldTab, newTab) {
     newButton?.classList.add("md-tabs__button--selected");
     newContent?.classList.add("md-tabs__page--selected");
     tabs.dataset.mdTab = newTab;
-    triggerEvent(tabs, "change", {
-        oldValue: oldTab,
-        newValue: newTab,
-    });
+    tabs.dispatchEvent(new MaterialChangeEvent(newButton, oldTab, newTab));
 }
 /**
  * Gets a tab by name.

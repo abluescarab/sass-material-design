@@ -17,11 +17,30 @@ export var MaterialState;
     MaterialState[MaterialState["Unselected"] = 7] = "Unselected";
 })(MaterialState || (MaterialState = {}));
 /**
- * Triggers an event on the given element.
- * @param target element that dispatches the event
- * @param name name of the event
- * @param args arguments of any type derived from {@link MaterialEventBase}
+ * A base for all custom Material events.
  */
-export function triggerEvent(target, name, args) {
-    target.dispatchEvent(new CustomEvent(`material:${name}`, { detail: args }));
+export class MaterialEvent extends Event {
+    constructor(type, element) {
+        super(`material:${type}`);
+        this.element = element;
+    }
+}
+/**
+ * An event type for any element that changes value.
+ */
+export class MaterialChangeEvent extends MaterialEvent {
+    constructor(element, oldValue, newValue) {
+        super("change", element);
+        this.oldValue = oldValue;
+        this.newValue = newValue;
+    }
+}
+/**
+ * An event type for any element that has changed toggle state.
+ */
+export class MaterialToggleEvent extends MaterialEvent {
+    constructor(element, state) {
+        super("toggle", element);
+        this.state = state;
+    }
 }

@@ -3,7 +3,7 @@
  * @description    Implementation file for tree components.
  *******************************************************************************/
 
-import { MaterialToggleEvent, MaterialState, triggerEvent } from "../events.js";
+import { MaterialToggleEvent, MaterialState } from "../events.js";
 import {
     getChildByClassName,
     getParentWithClass,
@@ -201,12 +201,12 @@ export function initialize(
                 toggle(nextTree, expand);
             }
 
-            triggerEvent<MaterialToggleEvent>(tree, "toggle", {
-                element: el,
-                state: expand
-                    ? MaterialState.Expanded
-                    : MaterialState.Collapsed,
-            });
+            tree.dispatchEvent(
+                new MaterialToggleEvent(
+                    el,
+                    expand ? MaterialState.Expanded : MaterialState.Collapsed
+                )
+            );
         } else if (getParentWithClass(el, "md-checkbox", "md-tree")) {
             const checked = (e.currentTarget as HTMLInputElement).checked;
 
@@ -222,12 +222,12 @@ export function initialize(
                 );
             }
 
-            triggerEvent<MaterialToggleEvent>(tree, "toggle", {
-                element: el,
-                state: checked
-                    ? MaterialState.Checked
-                    : MaterialState.Unchecked,
-            });
+            tree.dispatchEvent(
+                new MaterialToggleEvent(
+                    el,
+                    checked ? MaterialState.Checked : MaterialState.Unchecked
+                )
+            );
         }
     });
 }

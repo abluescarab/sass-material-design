@@ -18,37 +18,43 @@ export enum MaterialState {
 }
 
 /**
- * An empty base for all custom Material events.
+ * A base for all custom Material events.
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MaterialEventBase {}
+export class MaterialEvent extends Event {
+    element: Element | null | undefined;
+
+    constructor(type: string, element: Element | null | undefined) {
+        super(`material:${type}`);
+        this.element = element;
+    }
+}
 
 /**
  * An event type for any element that changes value.
  */
-export interface MaterialChangeEvent extends MaterialEventBase {
-    oldValue?: unknown;
-    newValue?: unknown;
+export class MaterialChangeEvent<T> extends MaterialEvent {
+    oldValue?: T;
+    newValue?: T;
+
+    constructor(
+        element: Element | null | undefined,
+        oldValue?: T,
+        newValue?: T
+    ) {
+        super("change", element);
+        this.oldValue = oldValue;
+        this.newValue = newValue;
+    }
 }
 
 /**
  * An event type for any element that has changed toggle state.
  */
-export interface MaterialToggleEvent extends MaterialEventBase {
-    element: Element;
+export class MaterialToggleEvent extends MaterialEvent {
     state: MaterialState;
-}
 
-/**
- * Triggers an event on the given element.
- * @param target element that dispatches the event
- * @param name name of the event
- * @param args arguments of any type derived from {@link MaterialEventBase}
- */
-export function triggerEvent<T extends MaterialEventBase>(
-    target: Element | EventTarget,
-    name: string,
-    args: T
-): void {
-    target.dispatchEvent(new CustomEvent(`material:${name}`, { detail: args }));
+    constructor(element: Element | null | undefined, state: MaterialState) {
+        super("toggle", element);
+        this.state = state;
+    }
 }

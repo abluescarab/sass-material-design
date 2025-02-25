@@ -3,7 +3,7 @@
  * @description    Implementation file for tab container components.
  *******************************************************************************/
 
-import { MaterialChangeEvent, triggerEvent } from "../events.js";
+import { MaterialChangeEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 
 /**
@@ -30,11 +30,7 @@ function changeTab(
     newContent?.classList.add("md-tabs__page--selected");
 
     tabs.dataset.mdTab = newTab;
-
-    triggerEvent<MaterialChangeEvent>(tabs, "change", {
-        oldValue: oldTab,
-        newValue: newTab,
-    });
+    tabs.dispatchEvent(new MaterialChangeEvent(newButton, oldTab, newTab));
 }
 
 /**

@@ -2,7 +2,7 @@
  * @file           modules/components/tree.ts
  * @description    Implementation file for tree components.
  *******************************************************************************/
-import { MaterialState, triggerEvent } from "../events.js";
+import { MaterialToggleEvent, MaterialState } from "../events.js";
 import { getChildByClassName, getParentWithClass, prefix, stringToSelector, } from "../utils.js";
 /**
  * Creates a button to insert in the tree.
@@ -137,12 +137,7 @@ export function initialize(tree, itemPrefix = null) {
             else {
                 toggle(nextTree, expand);
             }
-            triggerEvent(tree, "toggle", {
-                element: el,
-                state: expand
-                    ? MaterialState.Expanded
-                    : MaterialState.Collapsed,
-            });
+            tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed));
         }
         else if (getParentWithClass(el, "md-checkbox", "md-tree")) {
             const checked = e.currentTarget.checked;
@@ -152,12 +147,7 @@ export function initialize(tree, itemPrefix = null) {
                     (cascadeChecked == "unchecked" && !checked))) {
                 toggleCheckboxes(getParentWithClass(e.currentTarget, "md-checkbox"), checked);
             }
-            triggerEvent(tree, "toggle", {
-                element: el,
-                state: checked
-                    ? MaterialState.Checked
-                    : MaterialState.Unchecked,
-            });
+            tree.dispatchEvent(new MaterialToggleEvent(el, checked ? MaterialState.Checked : MaterialState.Unchecked));
         }
     });
 }
