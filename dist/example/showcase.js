@@ -5,6 +5,7 @@ const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
 const themeFab = document.getElementById("toggle-theme");
 const themeIcon = getChildByClassName(themeFab, "md-fab__icon");
+const fabVisibilityButton = document.getElementById("fab-visibility");
 const exampleTree = Object.freeze({
     "Item 1": {
         "Item 2": {
@@ -37,6 +38,17 @@ const exampleTree = Object.freeze({
         },
     },
 });
+function changeThemeButtonIcon(theme) {
+    if (!themeIcon || !theme) {
+        return;
+    }
+    themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
+}
+function changeFabVisibilityButton() {
+    (fabVisibilityButton?.childNodes[1]).innerText =
+        container?.style.display == "none" ? "visibility" : "visibility_off";
+    replaceFabButtonText(fabVisibilityButton, container?.style.display == "none" ? "Show" : "Hide");
+}
 /**
  * Replaces the text inside any button that controls the FAB display.
  * @param button button to replace text inside
@@ -50,14 +62,6 @@ function replaceFabButtonText(button, replacement) {
     node.nodeValue =
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
 }
-function changeThemeButtonIcon(theme) {
-    if (!themeIcon || !theme) {
-        return;
-    }
-    themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
-    console.log("setting storage");
-    window.sessionStorage.setItem("theme", theme ?? "");
-}
 document.addEventListener("DOMContentLoaded", () => {
     const trees = [
         "tree-all-checkboxes",
@@ -68,6 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const theme = sessionStorage.getItem("theme");
     setTheme(document.body, theme ?? "light");
     changeThemeButtonIcon(theme);
+    if (container) {
+        container.style.display = sessionStorage.getItem("fab-hidden")
+            ? "none"
+            : "flex";
+    }
+    changeFabVisibilityButton();
     for (const tree of trees) {
         const element = document.getElementById(tree);
         populate(element, exampleTree);
@@ -198,13 +208,17 @@ document.getElementById("fab-tb")?.addEventListener("click", (e) => {
 document.getElementById("fab-orientation")?.addEventListener("click", (e) => {
     replaceFabButtonText(e.currentTarget, container?.classList.toggle("md-fixed--reverse") ? "Reverse" : "Forward");
 });
-document.getElementById("fab-visibility")?.addEventListener("click", (e) => {
+fabVisibilityButton?.addEventListener("click", (e) => {
     if (!container || !(e.currentTarget instanceof Element)) {
         return;
     }
-    container.style.display =
-        container.style.display == "none" ? "flex" : "none";
-    e.currentTarget.childNodes[1].innerText =
-        container.style.display == "none" ? "visibility" : "visibility_off";
-    replaceFabButtonText(e.currentTarget, fab?.style.display == "none" ? "Show" : "Hide");
+    const wasHidden = container.style.display == "none";
+    container.style.display = wasHidden ? "flex" : "none";
+    changeFabVisibilityButton();
+    if (wasHidden) {
+        sessionStorage.removeItem("fab-hidden");
+    }
+    else {
+        sessionStorage.setItem("fab-hidden", (container.style.display != "none").toString());
+    }
 });
