@@ -4,7 +4,8 @@
 /// ============================================================================
 
 // overrides
-$assets: "assets" !default;
+/// Asset location from the top level Sass file.
+$assets: "./assets" !default;
 
 // general
 $border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
