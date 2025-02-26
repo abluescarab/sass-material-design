@@ -199,6 +199,9 @@ code * {
 }
 
 .md-symbol {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-family: "Material Symbols Outlined", sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -436,9 +439,6 @@ code * {
   border: 0;
   font-size: 24px;
   border-radius: 9999px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 [data-md-theme=light] .md-app-bar__icon {
   color: rgb(29, 27, 32);
@@ -621,9 +621,6 @@ code * {
   height: 56px;
   line-height: 56px;
   font-size: 56px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   grid-column: 1;
   grid-row: span 2;
 }
