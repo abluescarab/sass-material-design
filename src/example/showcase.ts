@@ -6,12 +6,15 @@ import {
     getChildByClassName,
     getParentWithClass,
     initialize,
+    setTheme,
     stringToSelector,
 } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
+const themeFab = document.getElementById("toggle-theme");
+const themeIcon = getChildByClassName(themeFab, "md-fab__icon");
 
 const exampleTree = Object.freeze({
     "Item 1": {
@@ -64,6 +67,16 @@ function replaceFabButtonText(
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
 }
 
+function changeThemeButtonIcon(theme: string | null) {
+    if (!themeIcon || !theme) {
+        return;
+    }
+
+    themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
+    console.log("setting storage");
+    window.sessionStorage.setItem("theme", theme ?? "");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const trees = [
         "tree-all-checkboxes",
@@ -71,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "tree-root-checkboxes",
         "tree-leaf-checkboxes",
     ];
+
+    const theme = sessionStorage.getItem("theme");
+    setTheme(document.body, theme ?? "light");
+    changeThemeButtonIcon(theme);
 
     for (const tree of trees) {
         const element = document.getElementById(tree);
@@ -150,17 +167,6 @@ document
         )
     );
 
-document.getElementById("toggle-theme")?.addEventListener("click", (e) => {
-    const icon = getChildByClassName(e.currentTarget, "md-fab__icon");
-
-    if (icon) {
-        icon.innerText =
-            cycleThemes(document.body, "light", "dark") == "light"
-                ? "dark_mode"
-                : "light_mode";
-    }
-});
-
 [].forEach.call(
     document
         .getElementById("icon-buttons")
@@ -215,6 +221,12 @@ document.querySelectorAll(".md-snackbar__action").forEach((element) =>
         }
     })
 );
+
+themeFab?.addEventListener("click", () => {
+    const theme = cycleThemes(document.body, "light", "dark");
+    changeThemeButtonIcon(theme);
+    sessionStorage.setItem("theme", theme ?? "light");
+});
 
 fab?.addEventListener("click", () =>
     window.scrollTo({
