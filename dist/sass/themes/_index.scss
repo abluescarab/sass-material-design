@@ -10,7 +10,7 @@
 $themes: (
     light: light.$theme,
     dark: dark.$theme,
-);
+) !default;
 
 /// Allows access to themes and theme variables.
 /// Modified from https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
