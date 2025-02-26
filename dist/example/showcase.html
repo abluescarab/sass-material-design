@@ -110,26 +110,48 @@
             </div>
         </section>
 
-        <section id="fonts" class="md-pane" data-md-background="surface">
+        <!-- TODO: figure out how to make snackbars less wide when fab visible -->
+        <section id="snackbars" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
-                <span class="md-app-bar__headline">Fonts</span>
+                <h1 class="md-app-bar__headline">Snackbars</h1>
             </div>
-            <div class="md-pane__content">
-                <div data-md-typescale="display-large">Display large</div>
-                <div data-md-typescale="display-medium">Display medium</div>
-                <div data-md-typescale="display-small">Display small</div>
-                <div data-md-typescale="headline-large">Headline large</div>
-                <div data-md-typescale="headline-medium">Headline medium</div>
-                <div data-md-typescale="headline-small">Headline small</div>
-                <div data-md-typescale="title-large">Title large</div>
-                <div data-md-typescale="title-medium">Title medium</div>
-                <div data-md-typescale="title-small">Title small</div>
-                <div data-md-typescale="body-large">Body large</div>
-                <div data-md-typescale="body-medium">Body medium</div>
-                <div data-md-typescale="body-small">Body small</div>
-                <div data-md-typescale="label-large">Label large</div>
-                <div data-md-typescale="label-medium">Label medium</div>
-                <div data-md-typescale="label-small">Label small</div>
+
+            <div class="md-pane__content flex rows">
+                <button class="md-button" data-md-type="tonal">
+                    Show snackbar without action
+                </button>
+                <div class="md-snackbar">Lorem ipsum dolor sit amet.</div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show snackbar with action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet.
+                    <button class="md-action">Close</button>
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar without action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar with action
+                </button>
+                <div class="md-snackbar">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <button class="md-action">Close</button>
+                </div>
+
+                <button class="md-button" data-md-type="tonal">
+                    Show long snackbar with long action
+                </button>
+                <div class="md-snackbar md-snackbar--long-action">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    <button class="md-action">Close</button>
+                </div>
             </div>
         </section>
 
@@ -974,48 +996,26 @@
             </div>
         </section>
 
-        <!-- TODO: figure out how to make snackbars less wide when fab visible -->
-        <section id="snackbars" class="md-pane" data-md-background="surface">
+        <section id="fonts" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
-                <h1 class="md-app-bar__headline">Snackbars</h1>
+                <span class="md-app-bar__headline">Fonts</span>
             </div>
-
-            <div class="md-pane__content flex rows">
-                <button class="md-button" data-md-type="tonal">
-                    Show snackbar without action
-                </button>
-                <div class="md-snackbar">Lorem ipsum dolor sit amet.</div>
-
-                <button class="md-button" data-md-type="tonal">
-                    Show snackbar with action
-                </button>
-                <div class="md-snackbar">
-                    Lorem ipsum dolor sit amet.
-                    <button class="md-action">Close</button>
-                </div>
-
-                <button class="md-button" data-md-type="tonal">
-                    Show long snackbar without action
-                </button>
-                <div class="md-snackbar">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </div>
-
-                <button class="md-button" data-md-type="tonal">
-                    Show long snackbar with action
-                </button>
-                <div class="md-snackbar">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    <button class="md-action">Close</button>
-                </div>
-
-                <button class="md-button" data-md-type="tonal">
-                    Show long snackbar with long action
-                </button>
-                <div class="md-snackbar md-snackbar--long-action">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    <button class="md-action">Close</button>
-                </div>
+            <div class="md-pane__content">
+                <div data-md-typescale="display-large">Display large</div>
+                <div data-md-typescale="display-medium">Display medium</div>
+                <div data-md-typescale="display-small">Display small</div>
+                <div data-md-typescale="headline-large">Headline large</div>
+                <div data-md-typescale="headline-medium">Headline medium</div>
+                <div data-md-typescale="headline-small">Headline small</div>
+                <div data-md-typescale="title-large">Title large</div>
+                <div data-md-typescale="title-medium">Title medium</div>
+                <div data-md-typescale="title-small">Title small</div>
+                <div data-md-typescale="body-large">Body large</div>
+                <div data-md-typescale="body-medium">Body medium</div>
+                <div data-md-typescale="body-small">Body small</div>
+                <div data-md-typescale="label-large">Label large</div>
+                <div data-md-typescale="label-medium">Label medium</div>
+                <div data-md-typescale="label-small">Label small</div>
             </div>
         </section>
 
