@@ -38,16 +38,57 @@ const exampleTree = Object.freeze({
         },
     },
 });
+function changeFabVisibilityButton() {
+    (fabVisibilityButton?.childNodes[1]).innerText =
+        container?.style.display == "none" ? "visibility" : "visibility_off";
+    replaceFabButtonText(fabVisibilityButton, container?.style.display == "none" ? "Show" : "Hide");
+}
 function changeThemeButtonIcon(theme) {
     if (!themeIcon || !theme) {
         return;
     }
     themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
 }
-function changeFabVisibilityButton() {
-    (fabVisibilityButton?.childNodes[1]).innerText =
-        container?.style.display == "none" ? "visibility" : "visibility_off";
-    replaceFabButtonText(fabVisibilityButton, container?.style.display == "none" ? "Show" : "Hide");
+function createAttributes(el) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("flex", "rows", "fill");
+    while (el.firstChild) {
+        wrapper.appendChild(el.firstChild);
+    }
+    el.appendChild(wrapper);
+    const attributes = document.createElement("div");
+    const code = document.createElement("code");
+    const h2 = document.createElement("h2");
+    h2.dataset.mdTypescale = "title-medium";
+    h2.innerText = "Attributes";
+    const element = wrapper.children[0];
+    const dataset = Object.keys(element.dataset).sort();
+    const length = Math.max(...dataset.map((d) => stringToSelector(d).length));
+    if (element.hasAttribute("disabled") ||
+        element.className.includes("--disabled")) {
+        code.innerHTML += "disabled<br />";
+    }
+    for (const data of dataset) {
+        const str = `data-${stringToSelector(data)}:`;
+        const para = document.createElement("p");
+        para.classList.add("attribute");
+        para.innerHTML += str;
+        para.innerHTML += "&nbsp;".repeat(length + 7 - str.length);
+        const italic = document.createElement("span");
+        italic.style.fontStyle = "italic";
+        italic.innerHTML =
+            element.dataset[data] != undefined && element.dataset[data] != ""
+                ? element.dataset[data]
+                : "true";
+        para.appendChild(italic);
+        code.appendChild(para);
+    }
+    if (code.innerHTML == "") {
+        code.innerHTML = "No attributes.";
+    }
+    attributes.appendChild(h2);
+    attributes.appendChild(code);
+    el.insertAdjacentElement("afterbegin", attributes);
 }
 /**
  * Replaces the text inside any button that controls the FAB display.
@@ -82,48 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const element = document.getElementById(tree);
         populate(element, exampleTree);
     }
-    [].forEach.call(document.getElementsByClassName("attributes"), (el) => {
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("flex", "rows", "fill");
-        while (el.firstChild) {
-            wrapper.appendChild(el.firstChild);
-        }
-        el.appendChild(wrapper);
-        const attributes = document.createElement("div");
-        const code = document.createElement("code");
-        const h2 = document.createElement("h2");
-        h2.dataset.mdTypescale = "title-medium";
-        h2.innerText = "Attributes";
-        const element = wrapper.children[0];
-        const dataset = Object.keys(element.dataset).sort();
-        const length = Math.max(...dataset.map((d) => stringToSelector(d).length));
-        if (element.hasAttribute("disabled") ||
-            element.className.includes("--disabled")) {
-            code.innerHTML += "disabled<br />";
-        }
-        for (const data of dataset) {
-            const str = `data-${stringToSelector(data)}:`;
-            const para = document.createElement("p");
-            para.classList.add("attribute");
-            para.innerHTML += str;
-            para.innerHTML += "&nbsp;".repeat(length + 7 - str.length);
-            const italic = document.createElement("span");
-            italic.style.fontStyle = "italic";
-            italic.innerHTML =
-                element.dataset[data] != undefined &&
-                    element.dataset[data] != ""
-                    ? element.dataset[data]
-                    : "true";
-            para.appendChild(italic);
-            code.appendChild(para);
-        }
-        if (code.innerHTML == "") {
-            code.innerHTML = "No attributes.";
-        }
-        attributes.appendChild(h2);
-        attributes.appendChild(code);
-        el.insertAdjacentElement("afterbegin", attributes);
-    });
+    [].forEach.call(document.getElementsByClassName("attributes"), (el) => createAttributes(el));
     initialize();
 });
 document
@@ -135,16 +135,6 @@ document
     el.addEventListener("click", (e) => {
         e.currentTarget.classList.toggle("md-icon-button--selected");
     });
-});
-document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
-    const disabled = !e.currentTarget.checked;
-    document.getElementById("checkbox-2").disabled =
-        disabled;
-});
-document.getElementById("checkbox-3")?.addEventListener("change", (e) => {
-    const disabled = !e.currentTarget.checked;
-    document.getElementById("checkbox-4").disabled =
-        disabled;
 });
 document
     .querySelectorAll("#snackbars .md-pane__content > .md-button")
@@ -167,6 +157,16 @@ document.querySelectorAll(".md-snackbar .md-action").forEach((element) => elemen
         prev.innerText = prev.innerText.replace("Hide", "Show");
     }
 }));
+document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
+    const disabled = !e.currentTarget.checked;
+    document.getElementById("checkbox-2").disabled =
+        disabled;
+});
+document.getElementById("checkbox-3")?.addEventListener("change", (e) => {
+    const disabled = !e.currentTarget.checked;
+    document.getElementById("checkbox-4").disabled =
+        disabled;
+});
 themeFab?.addEventListener("click", () => {
     const theme = cycleThemes(document.body, "light", "dark");
     changeThemeButtonIcon(theme);
@@ -177,6 +177,8 @@ fab?.addEventListener("click", () => window.scrollTo({
     left: 0,
     behavior: "smooth",
 }));
+// -----------------------------------------------------------------------------
+// FAB events
 document.getElementById("fab-color")?.addEventListener("click", (e) => {
     const color = cycleData(fab, "color", "", "primary", "secondary", "tertiary");
     replaceFabButtonText(e.currentTarget, color == "" ? "Surface" : capitalize(color));

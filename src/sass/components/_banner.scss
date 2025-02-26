@@ -36,7 +36,6 @@
     &__icon {
         @include square(56px, true);
 
-        user-select: none;
         grid-column: 1;
         grid-row: span 2;
     }

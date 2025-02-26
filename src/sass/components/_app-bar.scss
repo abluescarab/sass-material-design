@@ -37,7 +37,6 @@
         border: 0;
         font-size: calc($button-size / 2);
         border-radius: sys("shape", "corner", "full");
-        user-select: none;
 
         @include themes.themify {
             color: themes.color("on-surface");
