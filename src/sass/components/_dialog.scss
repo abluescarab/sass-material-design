@@ -1,0 +1,114 @@
+/// ============================================================================
+/// @file           components/_dialog.scss
+/// @description    Material Design dialog component.
+/// @modifiers      visible: display the dialog
+/// @elements       wrapper: wrapper around the entire dialog
+///                 header: header with icon and headline
+///                 icon: icon above headline at top of dialog
+///                 headline: headline or title of dialog
+///                 content: text, buttons, lists, etc. inside the dialog
+///                 divider: optional divider between dialog sections
+///                 actions: container for bottom action buttons
+/// ============================================================================
+
+@use "../abstracts" as *;
+@use "../themes";
+@use "button";
+
+.md-dialog {
+    $parent: &;
+    $padding: 24px;
+
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+
+    @include themes.themify {
+        background-color: rgba(themes.color("scrim"), 0.32);
+    }
+
+    &:not(&--visible) {
+        @include hidden;
+    }
+
+    &__wrapper {
+        min-width: 280px;
+        max-width: 560px;
+        margin: calc($padding * 2);
+        padding: $padding;
+        border-radius: sys("shape", "corner", "extra-large");
+
+        @include themes.themify {
+            @include elevation(3);
+
+            background-color: themes.color("surface-container-high");
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        padding-bottom: 16px;
+    }
+
+    &__icon {
+        @include square(24px, true);
+
+        padding-bottom: 16px;
+
+        @include themes.themify {
+            color: themes.color("secondary");
+        }
+    }
+
+    &__headline {
+        width: 100%;
+
+        @include font-styling("headline-small");
+
+        @include themes.themify {
+            color: themes.color("on-surface");
+        }
+    }
+
+    &:has(&__icon) &__headline {
+        text-align: center;
+    }
+
+    &__content {
+        padding-bottom: $padding;
+
+        @include font-styling("body-medium");
+
+        @include themes.themify {
+            color: themes.color("on-surface-variant");
+        }
+
+        &:has(+ #{$parent}__divider) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        margin: 16px 0;
+        border: 0;
+
+        @include themes.themify {
+            background-color: themes.color("outline");
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

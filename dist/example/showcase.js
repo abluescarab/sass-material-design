@@ -157,6 +157,14 @@ document.querySelectorAll(".md-snackbar .md-action").forEach((element) => elemen
         prev.innerText = prev.innerText.replace("Hide", "Show");
     }
 }));
+document
+    .querySelectorAll("#dialogs .md-pane__content > .md-button")
+    .forEach((element) => element.addEventListener("click", (e) => {
+    e.currentTarget.nextElementSibling?.classList.toggle("md-dialog--visible");
+}));
+document.querySelectorAll(".md-dialog .md-button").forEach((el) => el.addEventListener("click", (e) => {
+    getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
+}));
 document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
     const disabled = !e.currentTarget.checked;
     document.getElementById("checkbox-2").disabled =

@@ -225,6 +225,24 @@ document.querySelectorAll(".md-snackbar .md-action").forEach((element) =>
     })
 );
 
+document
+    .querySelectorAll("#dialogs .md-pane__content > .md-button")
+    .forEach((element) =>
+        element.addEventListener("click", (e) => {
+            (
+                e.currentTarget as HTMLElement
+            ).nextElementSibling?.classList.toggle("md-dialog--visible");
+        })
+    );
+
+document.querySelectorAll(".md-dialog .md-button").forEach((el) =>
+    el.addEventListener("click", (e) => {
+        getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove(
+            "md-dialog--visible"
+        );
+    })
+);
+
 document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
     const disabled = !(e.currentTarget as HTMLInputElement).checked;
     (document.getElementById("checkbox-2") as HTMLInputElement).disabled =
