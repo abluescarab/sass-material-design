@@ -209,7 +209,7 @@ document
         })
     );
 
-document.querySelectorAll(".md-snackbar__action").forEach((element) =>
+document.querySelectorAll(".md-snackbar .md-action").forEach((element) =>
     element.addEventListener("click", (e) => {
         const el = (e.currentTarget as Element).parentElement;
         const prev = el?.previousElementSibling as HTMLElement;

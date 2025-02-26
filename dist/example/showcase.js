@@ -149,7 +149,7 @@ document
         el.innerText = el.innerText.replace("Hide", "Show");
     }
 }));
-document.querySelectorAll(".md-snackbar__action").forEach((element) => element.addEventListener("click", (e) => {
+document.querySelectorAll(".md-snackbar .md-action").forEach((element) => element.addEventListener("click", (e) => {
     const el = e.currentTarget.parentElement;
     const prev = el?.previousElementSibling;
     el?.classList.remove("md-snackbar--visible");

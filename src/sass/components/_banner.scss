@@ -55,15 +55,4 @@
         grid-column: 2;
         grid-row: 2;
     }
-
-    &__action {
-        @include font-styling("label-large");
-
-        background-color: transparent;
-        border: 0;
-
-        @include themes.themify {
-            color: themes.color("primary");
-        }
-    }
 }

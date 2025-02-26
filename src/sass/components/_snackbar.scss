@@ -38,16 +38,11 @@
         @include hidden;
     }
 
-    &__action {
+    .md-action {
         grid-row: 1;
         grid-column: 2;
         justify-self: end;
-        width: max-content;
-        height: max-content;
-        background-color: transparent;
         margin-right: 0;
-        box-sizing: border-box;
-        border: 0;
 
         @include themes.themify {
             color: themes.color("inverse-primary");
@@ -55,7 +50,7 @@
     }
 
     &--long-action {
-        #{$parent}__action {
+        .md-action {
             grid-row: 2;
             grid-column: span 2;
         }

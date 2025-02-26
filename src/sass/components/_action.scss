@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-action {
+    @include font-styling("label-large");
+
+    background-color: transparent;
+    border: 0;
+    width: max-content;
+    height: max-content;
+
+    @include themes.themify {
+        color: themes.color("primary");
+    }
+}
