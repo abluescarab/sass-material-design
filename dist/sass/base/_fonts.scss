@@ -3,13 +3,15 @@
 /// @description    Font face declarations.
 /// ============================================================================
 
+@use "../abstracts" as *;
+
 /* Roboto */
 @font-face {
     font-family: Roboto;
     font-style: normal;
     font-weight: 100 900;
     font-stretch: 0% 200%;
-    src: url("assets/fonts/roboto.ttf") format("truetype");
+    src: url("#{$assets}/fonts/roboto.ttf") format("truetype");
 }
 
 @font-face {
@@ -17,7 +19,7 @@
     font-style: italic;
     font-weight: 100 900;
     font-stretch: 0% 200%;
-    src: url("assets/fonts/roboto-italic.ttf") format("truetype");
+    src: url("#{$assets}/fonts/roboto-italic.ttf") format("truetype");
 }
 
 @font-face {
@@ -25,7 +27,7 @@
     font-style: normal;
     font-weight: 100 900;
     font-stretch: 0% 200%;
-    src: url("assets/fonts/roboto-mono.ttf") format("truetype");
+    src: url("#{$assets}/fonts/roboto-mono.ttf") format("truetype");
 }
 
 @font-face {
@@ -33,7 +35,7 @@
     font-style: italic;
     font-weight: 100 900;
     font-stretch: 0% 200%;
-    src: url("assets/fonts/roboto-mono-italic.ttf") format("truetype");
+    src: url("#{$assets}/fonts/roboto-mono-italic.ttf") format("truetype");
 }
 
 /* Material Symbols */
@@ -41,19 +43,20 @@
     font-family: "Material Symbols Outlined";
     font-style: normal;
     font-weight: 400;
-    src: url("assets/fonts/material-symbols-outlined.ttf") format("truetype");
+    src: url("#{$assets}/fonts/material-symbols-outlined.ttf")
+        format("truetype");
 }
 
 @font-face {
     font-family: "Material Symbols Round";
     font-style: normal;
     font-weight: 400;
-    src: url("assets/fonts/material-symbols-round.ttf") format("truetype");
+    src: url("#{$assets}/fonts/material-symbols-round.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Material Symbols Sharp";
     font-style: normal;
     font-weight: 400;
-    src: url("assets/fonts/material-symbols-sharp.ttf") format("truetype");
+    src: url("#{$assets}/fonts/material-symbols-sharp.ttf") format("truetype");
 }

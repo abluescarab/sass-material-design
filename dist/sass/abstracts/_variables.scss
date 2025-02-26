@@ -3,6 +3,9 @@
 /// @description    Project wide variable declarations.
 /// ============================================================================
 
+// overrides
+$assets: "assets" !default;
+
 // general
 $border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
     "ridge", "solid";
