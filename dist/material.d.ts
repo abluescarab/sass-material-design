@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           src/material.ts
- * @description    Main file.
+ * @file            src/material.ts
+ * @description     Main file.
  *******************************************************************************/
 /**
  * Initializes dynamically generated Material Design elements.

@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           modules/themer.ts
- * @description    Helper file with theming functions.
+ * @file            modules/themer.ts
+ * @description     Helper file with theming functions.
  *******************************************************************************/
 /**
  * Cycles an element between the given themes.

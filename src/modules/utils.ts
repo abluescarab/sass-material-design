@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           modules/utils.ts
- * @description    Helper file with utility functions.
+ * @file            modules/utils.ts
+ * @description     Helper file with utility functions.
  *******************************************************************************/
 
 /**

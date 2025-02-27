@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           modules/events.ts
- * @description    Helper file with custom event types.
+ * @file            modules/events.ts
+ * @description     Helper file with custom event types.
  *******************************************************************************/
 /**
  * The state of any toggleable element.

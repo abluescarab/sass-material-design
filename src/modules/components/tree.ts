@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           modules/components/tree.ts
- * @description    Implementation file for tree components.
+ * @file            modules/components/tree.ts
+ * @description     Implementation file for tree components.
  *******************************************************************************/
 
 import { MaterialToggleEvent, MaterialState } from "../events.js";

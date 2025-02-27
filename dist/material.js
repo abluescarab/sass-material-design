@@ -1,6 +1,6 @@
 /*******************************************************************************
- * @file           src/material.ts
- * @description    Main file.
+ * @file            src/material.ts
+ * @description     Main file.
  *******************************************************************************/
 import * as segmented from "./modules/components/segmented.js";
 import * as tabs from "./modules/components/tabs.js";
