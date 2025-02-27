@@ -139,6 +139,34 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
 }
 
 /**
+ * Checks if a tree has any expanded nodes.
+ * @param tree parent tree
+ * @returns whether any children are expanded
+ */
+export function hasExpanded(
+    tree: Element | EventTarget | null
+): boolean | null {
+    if (!(tree instanceof Element)) {
+        return null;
+    }
+
+    return tree.querySelector(".md-tree__subtree--expanded") != null;
+}
+
+/**
+ * Checks if a tree has any checked nodes.
+ * @param tree parent tree
+ * @returns whether any children are checked
+ */
+export function hasChecked(tree: Element | EventTarget | null): boolean | null {
+    if (!(tree instanceof Element)) {
+        return null;
+    }
+
+    return tree.querySelector(".md-checkbox input:checked") != null;
+}
+
+/**
  * Initializes a tree recursively.
  * @param tree tree to initialize
  * @param buttonType icon button type
