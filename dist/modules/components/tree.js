@@ -101,24 +101,38 @@ function treeClicked(tree, target) {
 /**
  * Checks if a tree has any expanded nodes.
  * @param tree parent tree
+ * @param includeChildren whether to deep search for expanded nodes
  * @returns whether any children are expanded
  */
-export function hasExpanded(tree) {
+export function hasExpanded(tree, includeChildren = true) {
     if (!(tree instanceof Element)) {
         return null;
     }
-    return tree.querySelector(".md-tree__subtree--expanded") != null;
+    let selector = ".md-tree__subtree--expanded";
+    if (!includeChildren) {
+        selector = `:scope > ${selector}`;
+    }
+    return tree.querySelector(selector) != null;
 }
 /**
  * Checks if a tree has any checked nodes.
  * @param tree parent tree
+ * @param includeChildren whether to deep search for checked boxes
  * @returns whether any children are checked
  */
-export function hasChecked(tree) {
-    if (!(tree instanceof Element)) {
+export function hasChecked(tree, includeChildren = true) {
+    if (!(tree instanceof HTMLElement)) {
         return null;
     }
-    return tree.querySelector(".md-checkbox input:checked") != null;
+    if (tree.dataset.mdCheckboxes == "subtrees" ||
+        tree.dataset.mdCheckboxes == "leaves") {
+        return false;
+    }
+    let selector = ".md-checkbox input:checked";
+    if (!includeChildren) {
+        selector = `:scope > ${selector}`;
+    }
+    return tree.querySelector(selector) != null;
 }
 /**
  * Initializes a tree recursively.

@@ -5,15 +5,17 @@
 /**
  * Checks if a tree has any expanded nodes.
  * @param tree parent tree
+ * @param includeChildren whether to deep search for expanded nodes
  * @returns whether any children are expanded
  */
-export declare function hasExpanded(tree: Element | EventTarget | null): boolean | null;
+export declare function hasExpanded(tree: Element | EventTarget | null, includeChildren?: boolean): boolean | null;
 /**
  * Checks if a tree has any checked nodes.
  * @param tree parent tree
+ * @param includeChildren whether to deep search for checked boxes
  * @returns whether any children are checked
  */
-export declare function hasChecked(tree: Element | EventTarget | null): boolean | null;
+export declare function hasChecked(tree: Element | EventTarget | null, includeChildren?: boolean): boolean | null;
 /**
  * Initializes a tree.
  * @param tree tree to initialize
