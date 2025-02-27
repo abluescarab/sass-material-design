@@ -3,7 +3,8 @@
 /// @description    Custom Material Design tree component.
 /// @data           cascade-checked: check or uncheck children with parent
 ///                     options: checked, unchecked, both
-///                 cascade-collapse: collapse children with parent
+///                 cascade-toggled: expand or collapse children with parent
+///                     options: expanded, collapsed
 ///                 checkboxes: display checkboxes next to tree elements
 ///                     options: all, leaves, roots, subtrees
 ///                 indicator: subtree depth indicator

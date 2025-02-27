@@ -19,6 +19,7 @@ export declare function hasChecked(tree: Element | EventTarget | null, includeCh
 /**
  * Initializes a tree.
  * @param tree tree to initialize
+ * @param itemPrefix prefix for each dynamically generated item ID
  */
 export declare function initialize(tree: Element, itemPrefix?: string | null): void;
 /**
@@ -37,6 +38,6 @@ export declare function toggle(tree: Element | null | undefined, expand: boolean
  * Expands or collapses all elements in a tree.
  * @param tree element to toggle
  * @param expand whether to expand or collapse
- * @param cascadeExpand whether to cascade expansion to children
+ * @param cascadeToggled whether to expand or collapse children with parent
  */
-export declare function toggleAll(tree: Element | null | undefined, expand: boolean, cascadeExpand: boolean): void;
+export declare function toggleAll(tree: Element | null | undefined, expand: boolean, cascadeToggled: string | undefined): void;
