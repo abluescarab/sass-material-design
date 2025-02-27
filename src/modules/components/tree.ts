@@ -84,6 +84,61 @@ function isRoot(element: Element): boolean | undefined {
 }
 
 /**
+ * Handles the click event on a tree.
+ * @param tree parent tree
+ * @param target clicked checkbox
+ */
+function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
+    if (!target) {
+        return;
+    }
+
+    const el = target as HTMLElement;
+
+    if (el.classList.contains("md-tree__label")) {
+        return;
+    }
+
+    if (el.classList.contains("md-icon-button")) {
+        const expand = el.innerText == "add";
+        const nextTree = el.parentElement?.nextElementSibling;
+
+        if (tree.dataset.mdCascadeCollapse != undefined) {
+            toggleAll(nextTree, expand, false);
+        } else {
+            toggle(nextTree, expand);
+        }
+
+        tree.dispatchEvent(
+            new MaterialToggleEvent(
+                el,
+                expand ? MaterialState.Expanded : MaterialState.Collapsed
+            )
+        );
+    } else if (el instanceof HTMLInputElement) {
+        const checked = el.checked;
+        const cascadeChecked = tree.dataset.mdCascadeChecked;
+        const checkboxes = tree.dataset.mdCheckboxes;
+
+        if (
+            (checkboxes == "all" || checkboxes == "subtrees") &&
+            (cascadeChecked == "both" ||
+                (cascadeChecked == "checked" && checked) ||
+                (cascadeChecked == "unchecked" && !checked))
+        ) {
+            toggleCheckboxes(getParentWithClass(el, "md-checkbox"), checked);
+        }
+
+        tree.dispatchEvent(
+            new MaterialToggleEvent(
+                el,
+                checked ? MaterialState.Checked : MaterialState.Unchecked
+            )
+        );
+    }
+}
+
+/**
  * Initializes a tree recursively.
  * @param tree tree to initialize
  * @param buttonType icon button type
@@ -93,8 +148,7 @@ function initializeTree(
     tree: Element,
     itemPrefix: string | null,
     buttonType: string | undefined,
-    checkboxes: string | undefined,
-    cascadeChecked: string | undefined
+    checkboxes: string | undefined
 ): void {
     if (!tree) {
         return;
@@ -149,13 +203,7 @@ function initializeTree(
             const label = child.previousElementSibling as HTMLElement;
 
             label.insertAdjacentElement("afterbegin", createButton(buttonType));
-            initializeTree(
-                child,
-                itemPrefix,
-                buttonType,
-                checkboxes,
-                cascadeChecked
-            );
+            initializeTree(child, itemPrefix, buttonType, checkboxes);
         }
     }
 }
@@ -172,64 +220,15 @@ export function initialize(
         return;
     }
 
-    const checkboxes = tree.dataset.mdCheckboxes;
-    const cascadeChecked = tree.dataset.mdCascadeChecked;
-
     initializeTree(
         tree,
         itemPrefix ?? tree?.id,
         tree.dataset.mdButtonStyle,
-        checkboxes,
-        cascadeChecked
+        tree.dataset.mdCheckboxes
     );
     toggleAll(tree, tree.dataset.mdExpandOnLoad != undefined, true);
 
-    tree.addEventListener("click", (e) => {
-        const el = e.target as HTMLElement;
-
-        if (el.classList.contains("md-tree__label")) {
-            return;
-        }
-
-        if (el.classList.contains("md-icon-button")) {
-            const expand = el.innerText == "add";
-            const nextTree = el.parentElement?.nextElementSibling;
-
-            if (tree.dataset.mdCascadeCollapse != undefined) {
-                toggleAll(nextTree, expand, false);
-            } else {
-                toggle(nextTree, expand);
-            }
-
-            tree.dispatchEvent(
-                new MaterialToggleEvent(
-                    el,
-                    expand ? MaterialState.Expanded : MaterialState.Collapsed
-                )
-            );
-        } else if (getParentWithClass(el, "md-checkbox", "md-tree")) {
-            const checked = (e.currentTarget as HTMLInputElement).checked;
-
-            if (
-                (checkboxes == "all" || checkboxes == "subtrees") &&
-                (cascadeChecked == "both" ||
-                    (cascadeChecked == "checked" && checked) ||
-                    (cascadeChecked == "unchecked" && !checked))
-            ) {
-                toggleCheckboxes(
-                    getParentWithClass(e.currentTarget, "md-checkbox"),
-                    checked
-                );
-            }
-
-            tree.dispatchEvent(
-                new MaterialToggleEvent(
-                    el,
-                    checked ? MaterialState.Checked : MaterialState.Unchecked
-                )
-            );
-        }
-    });
+    tree.addEventListener("click", (e) => treeClicked(tree, e.target));
 }
 
 /**
