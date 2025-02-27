@@ -63,7 +63,6 @@ export function getParentWithClass(element, parentClass, forceStopAtClass = "", 
             return element;
         }
         if (forceStopAtClass && element.classList.contains(forceStopAtClass)) {
-            console.log("stopping at " + forceStopAtClass);
             return null;
         }
     }

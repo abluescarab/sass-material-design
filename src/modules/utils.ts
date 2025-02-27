@@ -88,7 +88,6 @@ export function getParentWithClass(
         }
 
         if (forceStopAtClass && element.classList.contains(forceStopAtClass)) {
-            console.log("stopping at " + forceStopAtClass);
             return null;
         }
     }
