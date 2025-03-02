@@ -9,42 +9,139 @@
 @use "../themes";
 
 .md-checkbox {
-    // TODO: allow checkbox on right side with flex-direction: row-reverse
-    &,
-    label {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
+    $parent: &;
+    $border-size: 2px;
+
+    @mixin state($disabled, $selected) {
+        #{$parent}__box {
+            // default to enabled and not selected
+            $opacity: if(
+                $disabled,
+                sys("state", "disabled", "label-opacity"),
+                1
+            );
+
+            @include themes.themify {
+                $background: transparent;
+                $outline: themes.color("on-surface-variant");
+                $color: themes.color("on-primary");
+
+                @if $selected {
+                    $background: themes.color("primary");
+
+                    @if $disabled {
+                        $background: themes.color("on-surface");
+                        $color: themes.color("surface");
+                    }
+                } @else if $disabled {
+                    $outline: themes.color("on-surface");
+                }
+
+                background-color: rgba(
+                    $background,
+                    if(not $selected, 0, $opacity)
+                );
+                border-color: rgba($outline, if($selected, 0, $opacity));
+
+                &::after {
+                    color: $color;
+                }
+            }
+        }
     }
 
     @include themes.themify {
         color: themes.color("on-surface");
     }
 
-    // restrict to only checkboxes
+    label {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
     input[type="checkbox"] {
-        @include square($checkbox__width);
+        opacity: 0 !important;
+        width: 0;
+        height: 0;
+    }
 
-        @include themes.themify {
-            accent-color: themes.color("primary");
+    &__text {
+        flex: 1;
+        order: 2;
+        margin-left: $checkbox__margin;
+    }
 
-            &:disabled {
-                accent-color: rgba(
-                    themes.color("on-surface"),
-                    sys("state", "disabled", "label-opacity")
-                );
+    &__box {
+        @include square($checkbox__width - $border-size * 2);
+
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        border: $border-size solid transparent;
+
+        &::after {
+            @include square($checkbox__width);
+
+            position: relative;
+            left: -$border-size;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Material Symbols Outlined", sans-serif;
+            font-size: $checkbox__width;
+        }
+    }
+
+    // enabled and checked or unchecked
+    &:not(:has(input:disabled)) {
+        @each $state in hover, focus, active {
+            label:#{$state} #{$parent}__box {
+                @include themes.themify {
+                    border-color: themes.color("on-surface");
+                }
             }
         }
     }
 
-    // restrict to only labels
-    label {
-        &:not(:has(input)) {
-            padding-left: $checkbox__margin;
+    // enabled or disabled and checked
+    &:has(input:checked) {
+        #{$parent}__box {
+            &::after {
+                content: "check";
+            }
+        }
+    }
+
+    // enabled and unchecked
+    &:not(:has(input:disabled, input:checked)) {
+        @include state(false, false);
+    }
+
+    // disabled and unchecked
+    &:has(input:disabled):not(:has(input:checked)) {
+        @include state(true, false);
+    }
+
+    // enabled and checked
+    &:not(:has(input:disabled)):has(input:checked) {
+        @include state(false, true);
+    }
+
+    // disabled and checked
+    &:has(input:disabled:checked) {
+        @include state(true, true);
+    }
+
+    &--right {
+        #{$parent}__text {
+            order: 1;
+            margin-left: 0;
+            margin-right: $checkbox__margin;
         }
 
-        input[type="checkbox"] {
-            margin-right: $checkbox__margin;
+        #{$parent}__box {
+            order: 2;
         }
     }
 }

@@ -757,50 +757,124 @@
             <div class="md-tabs" data-md-type="secondary">
                 <div class="md-tabs__nav">
                     <button class="md-tabs__button" data-md-tab="1">
-                        <span class="md-tabs__label">Checkbox</span>
+                        <span class="md-tabs__label">Normal</span>
                     </button>
                     <button class="md-tabs__button" data-md-tab="2">
-                        <span class="md-tabs__label"
-                            >Checkbox inside label</span
-                        >
+                        <span class="md-tabs__label">Right side</span>
                     </button>
                 </div>
-                <div class="md-tabs__page flex rows" data-md-tab="1">
+                <div class="md-tabs__page flex cols" data-md-tab="1">
                     <div class="md-checkbox">
-                        <input
-                            type="checkbox"
-                            id="checkbox-1"
-                            name="checkbox-1" />
-                        <label for="checkbox-1">Checkbox</label>
-                    </div>
-                    <div class="md-checkbox">
-                        <input
-                            type="checkbox"
-                            class="md-checkbox__box"
-                            id="checkbox-2"
-                            name="checkbox-2"
-                            disabled />
-                        <label for="checkbox-2">Toggled checkbox</label>
-                    </div>
-                </div>
-                <div class="md-tabs__page flex rows" data-md-tab="2">
-                    <div class="md-checkbox">
-                        <label
-                            ><input
+                        <label>
+                            <input
                                 type="checkbox"
+                                id="checkbox-1"
+                                name="checkbox-1" />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Enabled and unchecked</span
+                            >
+                        </label>
+                    </div>
+                    <div class="md-checkbox">
+                        <label>
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
+                                id="checkbox-2"
+                                name="checkbox-2"
+                                disabled />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Disabled and unchecked</span
+                            >
+                        </label>
+                    </div>
+                    <div class="md-checkbox">
+                        <label>
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
                                 id="checkbox-3"
-                                name="checkbox-3" />Checkbox inside label</label
-                        >
+                                name="checkbox-3"
+                                checked />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Enabled and checked</span
+                            >
+                        </label>
                     </div>
                     <div class="md-checkbox">
-                        <label
-                            ><input
+                        <label>
+                            <input
                                 type="checkbox"
+                                class="md-checkbox__box"
                                 id="checkbox-4"
                                 name="checkbox-4"
+                                checked
                                 disabled />
-                            Toggled checkbox inside label</label
-                        >
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Disabled and checked</span
+                            >
+                        </label>
+                    </div>
+                </div>
+                <div class="md-tabs__page flex cols" data-md-tab="2">
+                    <div class="md-checkbox md-checkbox--right">
+                        <label>
+                            <input
+                                type="checkbox"
+                                id="checkbox-5"
+                                name="checkbox-5" />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Enabled and unchecked</span
+                            >
+                        </label>
+                    </div>
+                    <div class="md-checkbox md-checkbox--right">
+                        <label>
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
+                                id="checkbox-6"
+                                name="checkbox-6"
+                                disabled />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Disabled and unchecked</span
+                            >
+                        </label>
+                    </div>
+                    <div class="md-checkbox md-checkbox--right">
+                        <label>
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
+                                id="checkbox-7"
+                                name="checkbox-7"
+                                checked />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Enabled and checked</span
+                            >
+                        </label>
+                    </div>
+                    <div class="md-checkbox md-checkbox--right">
+                        <label>
+                            <input
+                                type="checkbox"
+                                class="md-checkbox__box"
+                                id="checkbox-8"
+                                name="checkbox-8"
+                                checked
+                                disabled />
+                            <span class="md-checkbox__box"></span>
+                            <span class="md-checkbox__text"
+                                >Disabled and checked</span
+                            >
+                        </label>
                     </div>
                 </div>
             </div>
