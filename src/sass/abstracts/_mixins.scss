@@ -160,34 +160,20 @@
 }
 
 /// Mixes background colors for the hover, focus, and active states.
-/// @param {color} $default-background background color when no state is active
+/// @param {color} $default-color color when no state is active
 /// @param {color} $state-color color to apply to all states
-@mixin mix-colors($default-background, $state-color) {
+@mixin mix-colors($default-color, $state-color) {
     color: $state-color;
-    background-color: $default-background;
+    background-color: $default-color;
 
-    &:hover {
-        background-color: color.mix(
-            $default-background,
-            $state-color,
-            opacity(sys("state", "hover", "state-layer-opacity"))
-        );
-    }
-
-    &:focus {
-        background-color: color.mix(
-            $default-background,
-            $state-color,
-            opacity(sys("state", "focus", "state-layer-opacity"))
-        );
-    }
-
-    &:active {
-        background-color: color.mix(
-            $default-background,
-            $state-color,
-            opacity(sys("state", "pressed", "state-layer-opacity"))
-        );
+    @each $state in hover, focus, active {
+        &#{$state} {
+            background-color: color.mix(
+                $default-color,
+                $state-color,
+                opacity(sys("state", $state, "state-layer-opacity"))
+            );
+        }
     }
 }
 
