@@ -70,7 +70,13 @@ function changeThemeButtonIcon(theme: string | null) {
 
 function createAttributes(el: Element) {
     const wrapper = document.createElement("div");
-    wrapper.classList.add("flex", "rows", "fill");
+    wrapper.classList.add("flex", "fill");
+
+    if (el.classList.contains("cols")) {
+        wrapper.classList.add("cols");
+    } else {
+        wrapper.classList.add("rows");
+    }
 
     while (el.firstChild) {
         wrapper.appendChild(el.firstChild);
