@@ -1,0 +1,235 @@
+/// ============================================================================
+/// @file           components/_switch.scss
+/// @description    Material Design switch component.
+/// @data           icons: include icons in the handle
+///                     options: selected, both
+/// @modifiers      left: put switches on the left side of the text
+/// @elements       text: text in the label
+///                 track: background area of the switch control
+///                 handle: circle inside the switch control
+/// ============================================================================
+
+@use "sass:color";
+@use "../abstracts" as *;
+@use "../themes";
+
+.md-switch {
+    $parent: &;
+    $height: 32px;
+    $border-size: 2px;
+    $gap: 16px;
+
+    @mixin state($disabled, $selected) {
+        #{$parent}__track {
+            // default to enabled and not selected
+            $opacity: if(
+                $disabled,
+                sys("state", "disabled", "container-opacity"),
+                1
+            );
+
+            @include themes.themify {
+                $background: themes.color("surface-container-highest");
+                $outline: themes.color("outline");
+
+                @if $selected {
+                    $background: themes.color("primary");
+                } @else if $disabled {
+                    $background: themes.color("on-surface");
+                    $outline: $background;
+                }
+
+                background-color: rgba($background, $opacity);
+                border-color: rgba($outline, if($selected, 0, $opacity));
+            }
+        }
+
+        #{$parent}__handle {
+            // default to enabled and not selected
+            $opacity: if(
+                $disabled,
+                sys("state", "disabled", "label-opacity"),
+                1
+            );
+
+            @include themes.themify {
+                $background: themes.color("outline");
+                $color: themes.color("surface-container-highest");
+
+                @if $selected {
+                    $background: themes.color("on-primary");
+                    $color: themes.color("on-primary-container");
+
+                    @if $disabled {
+                        $background: themes.color("surface");
+                        $color: themes.color("on-surface");
+                    }
+                } @else if $disabled {
+                    $background: themes.color("on-surface");
+                }
+
+                background-color: rgba($background, if($selected, 1, $opacity));
+
+                &::after {
+                    color: rgba($color, $opacity);
+                }
+            }
+        }
+    }
+
+    @include themes.themify {
+        color: themes.color("on-surface");
+    }
+
+    // TODO: allow switch on right side with flex-direction: row-reverse
+    label {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    input[type="checkbox"] {
+        opacity: 0 !important;
+        width: 0;
+        height: 0;
+    }
+
+    &__text {
+        order: 1;
+        margin-right: $gap;
+    }
+
+    &__track {
+        display: flex;
+        align-items: center;
+        width: calc(52px - $border-size * 2);
+        height: calc($height - $border-size * 2);
+        order: 2;
+        border-radius: sys("shape", "corner", "full");
+        border: $border-size solid transparent;
+    }
+
+    &__handle {
+        $size: 16px;
+
+        @include square($size);
+
+        margin: 6px;
+        border-radius: sys("shape", "corner", "full");
+
+        &::after {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Material Symbols Outlined", sans-serif;
+            font-size: calc($size + $symbol__padding-double);
+        }
+    }
+
+    // enabled and checked or unchecked
+    &:not(:has(input:disabled)) {
+        @each $state in hover, focus, active {
+            label:#{$state} {
+                @include themes.themify {
+                    $state-color: themes.color("on-surface");
+                    $default: mix-color(
+                        themes.color("on-surface-variant"),
+                        $state-color,
+                        $state
+                    );
+
+                    #{$parent}__track {
+                        border-color: $default;
+                    }
+
+                    #{$parent}__handle {
+                        background-color: $default;
+                    }
+
+                    &:has(input:checked) {
+                        #{$parent}__handle {
+                            background-color: mix-color(
+                                themes.color("primary-container"),
+                                $state-color,
+                                $state
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        // pressed
+        &:active {
+            #{$parent}__handle {
+                @include square(28px);
+
+                margin: 0;
+            }
+        }
+    }
+
+    // enabled or disabled and checked
+    &:has(input:checked) {
+        #{$parent}__track {
+            justify-content: flex-end;
+        }
+    }
+
+    // enabled and unchecked
+    &:not(:has(input:disabled, input:checked)) {
+        @include state(false, false);
+    }
+
+    // disabled and unchecked
+    &:has(input:disabled):not(:has(input:checked)) {
+        @include state(true, false);
+    }
+
+    // enabled and checked
+    &:not(:has(input:disabled)):has(input:checked) {
+        @include state(false, true);
+    }
+
+    // disabled and checked
+    &:has(input:disabled:checked) {
+        @include state(true, true);
+    }
+
+    // has icons
+    &[data-md-icons="both"],
+    &:has(input:checked) {
+        #{$parent}__handle {
+            @include square(24px);
+
+            margin: 2px;
+        }
+    }
+
+    &[data-md-icons="selected"],
+    &[data-md-icons="both"] {
+        :has(input:checked) {
+            #{$parent}__handle::after {
+                content: "check";
+            }
+        }
+    }
+
+    &[data-md-icons="both"]:not(:has(input:checked)) {
+        #{$parent}__handle::after {
+            content: "close";
+        }
+    }
+
+    &--left {
+        #{$parent}__text {
+            order: 2;
+            margin-right: 0;
+            margin-left: 16px;
+        }
+
+        #{$parent}__track {
+            order: 1;
+        }
+    }
+}
