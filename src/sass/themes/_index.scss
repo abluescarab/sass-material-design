@@ -4,6 +4,7 @@
 /// ============================================================================
 
 @use "sass:map";
+@use "sass:string";
 @use "light";
 @use "dark";
 
@@ -57,11 +58,13 @@ $themes: (
 /// @param {string} $container-color color with -container suffix
 /// @param {Boolean} $important [false] whether to set each style to important
 @mixin colorify($container-color, $important: false) {
-    $on-color: if(
-        $container-color == "surface-container",
-        "on-surface",
-        "on-#{$container-color}"
-    );
+    $on-color: "on-#{$container-color}";
+
+    @if string.index($container-color, "surface-container") {
+        $on-color: "on-surface";
+    } @else if $container-color == "inverse-surface" {
+        $on-color: "inverse-on-surface";
+    }
 
     background-color: color($container-color) if($important, !important, null);
     color: color($on-color) if($important, !important, null);
