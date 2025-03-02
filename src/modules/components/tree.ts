@@ -293,7 +293,7 @@ export function initialize(
     initializeTree(
         tree,
         itemPrefix ?? tree?.id,
-        tree.dataset.mdButtonStyle,
+        tree.dataset.mdButtonType,
         tree.dataset.mdCheckboxes
     );
 

@@ -202,7 +202,7 @@ export function initialize(tree, itemPrefix = null) {
     if (!(tree instanceof HTMLElement)) {
         return;
     }
-    initializeTree(tree, itemPrefix ?? tree?.id, tree.dataset.mdButtonStyle, tree.dataset.mdCheckboxes);
+    initializeTree(tree, itemPrefix ?? tree?.id, tree.dataset.mdButtonType, tree.dataset.mdCheckboxes);
     const loadExpanded = tree.dataset.mdExpandOnLoad != undefined;
     toggleAll(tree, loadExpanded, loadExpanded ? "expanded" : "");
     tree.addEventListener("click", (e) => treeClicked(tree, e.target));

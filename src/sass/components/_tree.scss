@@ -1,7 +1,9 @@
 /// ============================================================================
 /// @file           components/_tree.scss
 /// @description    Custom Material Design tree component.
-/// @data           cascade-checked: check or uncheck children with parent
+/// @data           button-type: button style
+///                     options: filled, tonal, outlined
+///                 cascade-checked: check or uncheck children with parent
 ///                     options: checked, unchecked, both
 ///                 cascade-toggled: expand or collapse children with parent
 ///                     options: expanded, collapsed
