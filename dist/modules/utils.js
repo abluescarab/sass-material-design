@@ -1,7 +1,7 @@
 /*******************************************************************************
  * @file            modules/utils.ts
  * @description     Helper file with utility functions.
- *******************************************************************************/
+ ******************************************************************************/
 /**
  * Capitalizes the first letter of a string.
  * @param str string to modify

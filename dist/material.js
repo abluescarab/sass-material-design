@@ -1,13 +1,13 @@
 /*******************************************************************************
  * @file            src/material.ts
  * @description     Main file.
- *******************************************************************************/
+ ******************************************************************************/
 import * as segmented from "./modules/components/segmented.js";
 import * as tabs from "./modules/components/tabs.js";
 import * as tree from "./modules/components/tree.js";
 /**
- * Initializes dynamically generated Material Design elements.
- * Call this when the document loads.
+ * Initializes dynamically generated Material Design elements. Call this when
+ * the document loads. Alternatively, initialize each element yourself.
  */
 export function initialize() {
     document.querySelectorAll(".md-tabs").forEach((e) => {

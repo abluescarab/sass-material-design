@@ -1,7 +1,7 @@
 /*******************************************************************************
  * @file            modules/components/tree.ts
  * @description     Implementation file for tree components.
- *******************************************************************************/
+ ******************************************************************************/
 /**
  * Checks if a tree has any expanded nodes.
  * @param tree parent tree

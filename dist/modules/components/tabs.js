@@ -1,7 +1,7 @@
 /*******************************************************************************
  * @file            modules/components/tabs.ts
  * @description     Implementation file for tab container components.
- *******************************************************************************/
+ ******************************************************************************/
 import { MaterialChangeEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 /**
