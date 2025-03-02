@@ -34,9 +34,9 @@ code * {
     font-family: "Material Symbols Outlined", sans-serif;
     font-weight: normal;
     font-style: normal;
-    font-size: $icon__font-size; /* Preferred icon size */
+    font-size: $symbol__font-size; /* Preferred icon size + padding */
     display: inline-block;
-    line-height: 1;
+    line-height: $symbol__font-size;
     text-transform: none;
     letter-spacing: normal;
     word-wrap: normal;
