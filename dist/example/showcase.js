@@ -171,16 +171,8 @@ document
 document.querySelectorAll(".md-dialog .md-button").forEach((el) => el.addEventListener("click", (e) => {
     getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
 }));
-document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
-    const disabled = !e.currentTarget.checked;
-    document.getElementById("checkbox-2").disabled =
-        disabled;
-});
-document.getElementById("checkbox-3")?.addEventListener("change", (e) => {
-    const disabled = !e.currentTarget.checked;
-    document.getElementById("checkbox-4").disabled =
-        disabled;
-});
+// -----------------------------------------------------------------------------
+// FAB events
 themeFab?.addEventListener("click", () => {
     const theme = cycleThemes(document.body, "light", "dark");
     changeThemeButtonIcon(theme);
@@ -191,8 +183,6 @@ fab?.addEventListener("click", () => window.scrollTo({
     left: 0,
     behavior: "smooth",
 }));
-// -----------------------------------------------------------------------------
-// FAB events
 document.getElementById("fab-color")?.addEventListener("click", (e) => {
     const color = cycleData(fab, "color", "", "primary", "secondary", "tertiary");
     replaceFabButtonText(e.currentTarget, color == "" ? "Surface" : capitalize(color));

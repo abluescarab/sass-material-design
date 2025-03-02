@@ -249,18 +249,8 @@ document.querySelectorAll(".md-dialog .md-button").forEach((el) =>
     })
 );
 
-document.getElementById("checkbox-1")?.addEventListener("change", (e) => {
-    const disabled = !(e.currentTarget as HTMLInputElement).checked;
-    (document.getElementById("checkbox-2") as HTMLInputElement).disabled =
-        disabled;
-});
-
-document.getElementById("checkbox-3")?.addEventListener("change", (e) => {
-    const disabled = !(e.currentTarget as HTMLInputElement).checked;
-    (document.getElementById("checkbox-4") as HTMLInputElement).disabled =
-        disabled;
-});
-
+// -----------------------------------------------------------------------------
+// FAB events
 themeFab?.addEventListener("click", () => {
     const theme = cycleThemes(document.body, "light", "dark");
     changeThemeButtonIcon(theme);
@@ -275,8 +265,6 @@ fab?.addEventListener("click", () =>
     })
 );
 
-// -----------------------------------------------------------------------------
-// FAB events
 document.getElementById("fab-color")?.addEventListener("click", (e) => {
     const color = cycleData(
         fab,
