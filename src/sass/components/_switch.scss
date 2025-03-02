@@ -81,7 +81,6 @@
         color: themes.color("on-surface");
     }
 
-    // TODO: allow switch on right side with flex-direction: row-reverse
     label {
         display: flex;
         flex-flow: row nowrap;
@@ -95,6 +94,7 @@
     }
 
     &__text {
+        flex: 1;
         order: 1;
         margin-right: $gap;
     }

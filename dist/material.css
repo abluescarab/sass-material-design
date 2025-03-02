@@ -1995,6 +1995,7 @@ code * {
   height: 0;
 }
 .md-switch__text {
+  flex: 1;
   order: 1;
   margin-right: 16px;
 }
