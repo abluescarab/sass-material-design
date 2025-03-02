@@ -137,6 +137,7 @@ export function initialize(parent: Element): void {
     });
 
     parent.addEventListener("mouseleave", () => {
+        queue.clear();
         hide(tooltip);
     });
 }

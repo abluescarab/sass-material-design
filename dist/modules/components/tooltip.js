@@ -107,6 +107,7 @@ export function initialize(parent) {
         show(parent, tooltip);
     });
     parent.addEventListener("mouseleave", () => {
+        queue.clear();
         hide(tooltip);
     });
 }
