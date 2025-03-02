@@ -1,13 +1,72 @@
 /// ============================================================================
 /// @file           components/_tooltip.scss
-/// @description
-/// @data
-/// @modifiers
-/// @elements
+/// @description    Material Design tooltip component.
+/// @modifiers      rich: display as rich tooltip with headline and actions
+///                 visible: display the tooltip
+/// @elements       headline: headline or title of tooltip
+///                 text: text inside tooltip
+///                 actions: container for bottom action buttons
 /// ============================================================================
 
 @use "../abstracts" as *;
 @use "../themes";
 
 .md-tooltip {
+    $parent: &;
+    $padding: 8px;
+
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 225px;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: calc($padding / 2) $padding;
+    border-radius: sys("shape", "corner", "extra-small");
+
+    @include font-styling("body-small");
+
+    @include themes.themify {
+        @include themes.colorify("inverse-surface");
+    }
+
+    &:not(&--visible) {
+        @include hidden;
+    }
+
+    &--rich {
+        max-width: 310px;
+        padding: 12px 16px;
+        border-radius: sys("shape", "corner", "medium");
+
+        &:has(#{$parent}__actions) {
+            margin-bottom: 8px;
+        }
+
+        @include themes.themify {
+            @include elevation(2);
+
+            background-color: themes.color("surface-container");
+            color: themes.color("on-surface-variant");
+        }
+    }
+
+    &__headline {
+        @include font-styling("title-small");
+
+        margin-bottom: 4px;
+    }
+
+    &__text {
+        @include font-styling("body-medium");
+    }
+
+    &__actions {
+        margin-top: 12px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 48px;
+        padding: 8px 4px;
+    }
 }
