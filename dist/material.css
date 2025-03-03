@@ -296,7 +296,7 @@ code * {
   background-color: rgb(33, 31, 36);
   color: rgb(231, 224, 232);
 }
-.md-body:has(.md-dialog--full.md-dialog--visible) {
+.md-body:has(.md-dialog--visible) {
   overflow: hidden;
 }
 

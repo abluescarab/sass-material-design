@@ -17,7 +17,7 @@
     }
 
     /* stylelint-disable-next-line selector-class-pattern */
-    &:has(.md-dialog--full.md-dialog--visible) {
+    &:has(.md-dialog--visible) {
         overflow: hidden;
     }
 }
