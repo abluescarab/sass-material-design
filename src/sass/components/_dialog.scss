@@ -109,7 +109,7 @@
                 padding-bottom: $small-padding;
 
                 #{$parent}__icon {
-                    padding-bottom: $small-padding;
+                    margin-bottom: $small-padding;
 
                     @include themes.themify {
                         color: themes.color("secondary");

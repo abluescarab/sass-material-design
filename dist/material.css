@@ -1253,7 +1253,7 @@ code * {
   padding-bottom: 16px;
 }
 .md-dialog:not(.md-dialog--full) > .md-dialog__wrapper > .md-dialog__header .md-dialog__icon {
-  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 [data-md-theme=light] .md-dialog:not(.md-dialog--full) > .md-dialog__wrapper > .md-dialog__header .md-dialog__icon {
   color: rgb(99, 91, 112);
