@@ -3,7 +3,9 @@
  * @description     Main file.
  ******************************************************************************/
 
+import * as checkbox from "./modules/components/checkbox.js";
 import * as segmented from "./modules/components/segmented.js";
+import * as switchComponent from "./modules/components/switch.js";
 import * as tabs from "./modules/components/tabs.js";
 import * as tooltip from "./modules/components/tooltip.js";
 import * as tree from "./modules/components/tree.js";
@@ -13,21 +15,18 @@ import * as tree from "./modules/components/tree.js";
  * the document loads or initialize each element yourself.
  */
 export function initialize(): void {
-    document.querySelectorAll(".md-segmented").forEach((e) => {
-        segmented.initialize(e);
-    });
+    const elements = {
+        ".md-checkbox": checkbox.initialize,
+        ".md-segmented": segmented.initialize,
+        ".md-switch": switchComponent.initialize,
+        ".md-tabs": tabs.initialize,
+        ".md-tree": tree.initialize,
+        "[data-md-tooltip]": tooltip.initialize,
+    };
 
-    document.querySelectorAll(".md-tabs").forEach((e) => {
-        tabs.initialize(e);
-    });
-
-    document.querySelectorAll("[data-md-tooltip]").forEach((e) => {
-        tooltip.initialize(e);
-    });
-
-    document.querySelectorAll(".md-tree").forEach((e) => {
-        tree.initialize(e);
-    });
+    for (const [selector, initializer] of Object.entries(elements)) {
+        document.querySelectorAll(selector).forEach((e) => initializer(e));
+    }
 
     console.info("Material design loaded.");
 }

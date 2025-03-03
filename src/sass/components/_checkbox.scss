@@ -1,6 +1,9 @@
 /// ============================================================================
 /// @file           components/_checkbox.scss
 /// @description    Material Design checkbox component.
+/// @data           checked: check the box by default
+///                 disabled: disable the box by default
+///                 indeterminate: allow an indeterminate state
 /// @modifiers      right: place checkboxes on right side of text
 /// @elements       box: checkbox container
 ///                 text: label text
@@ -9,7 +12,7 @@
 @use "../abstracts" as *;
 @use "../themes";
 
-// TODO: focus indicator not visible on focus
+// TODO: focus indicator not visible
 // TODO: circular state indicators?
 .md-checkbox {
     $parent: &;

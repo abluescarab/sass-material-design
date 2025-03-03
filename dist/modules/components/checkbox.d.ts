@@ -2,14 +2,15 @@
  * @file            components/checkbox.ts
  * @description     Implementation file for checkbox components.
  ******************************************************************************/
+import { SwitchOptions } from "./switch.js";
 /**
- * Stores checkbox options for new checkboxes, usually created with the
- * {@link create()} function.
+ * Stores options for new checkboxes, usually created with the {@link create()}
+ * function.
  */
-interface CheckboxOptions {
-    text?: string;
-    checked?: boolean;
-    disabled?: boolean;
+export interface CheckboxOptions extends SwitchOptions {
+    /**
+     * Whether the component should be in an indeterminate state.
+     */
     indeterminate?: boolean;
 }
 /**
@@ -18,4 +19,8 @@ interface CheckboxOptions {
  * @returns new checkbox
  */
 export declare function create(options?: CheckboxOptions): HTMLElement;
-export {};
+/**
+ * Initializes a checkbox.
+ * @param checkbox checkbox to initialize
+ */
+export declare function initialize(checkbox: Element): void;
