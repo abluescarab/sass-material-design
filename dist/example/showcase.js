@@ -169,9 +169,21 @@ document
     .forEach((element) => element.addEventListener("click", (e) => {
     e.currentTarget.nextElementSibling?.classList.toggle("md-dialog--visible");
 }));
-document.querySelectorAll(".md-dialog .md-button").forEach((el) => el.addEventListener("click", (e) => {
+document.querySelectorAll(".md-dialog .close-button").forEach((el) => el.addEventListener("click", (e) => {
     getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
 }));
+document.getElementById("show-nested-dialog")?.addEventListener("click", () => {
+    document
+        .getElementById("nested-dialog")
+        ?.classList.add("md-dialog--visible");
+});
+document
+    .getElementById("show-nested-long-dialog")
+    ?.addEventListener("click", () => {
+    document
+        .getElementById("nested-long-dialog")
+        ?.classList.add("md-dialog--visible");
+});
 // -----------------------------------------------------------------------------
 // FAB events
 themeFab?.addEventListener("click", () => {

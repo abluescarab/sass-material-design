@@ -92,7 +92,7 @@
             background-color: rgba(themes.color("scrim"), 0.32);
         }
 
-        #{$parent}__wrapper {
+        & > #{$parent}__wrapper {
             margin: calc($large-padding * 2);
             min-width: 280px;
             max-width: 560px;
@@ -102,57 +102,58 @@
 
                 background-color: themes.color("surface-container-high");
             }
-        }
 
-        #{$parent}__header {
-            flex-flow: column nowrap;
-            padding-bottom: $small-padding;
-        }
+            & > #{$parent}__header {
+                flex-flow: column nowrap;
+                padding-bottom: $small-padding;
 
-        #{$parent}__icon {
-            padding-bottom: $small-padding;
+                #{$parent}__icon {
+                    padding-bottom: $small-padding;
 
-            @include themes.themify {
-                color: themes.color("secondary");
+                    @include themes.themify {
+                        color: themes.color("secondary");
+                    }
+
+                    & + #{$parent}__headline {
+                        text-align: center;
+                    }
+                }
             }
-        }
-
-        &:has(#{$parent}__icon) #{$parent}__headline {
-            text-align: center;
         }
     }
 
     &--full {
-        &,
-        #{$parent}__header {
-            @include themes.themify {
-                background-color: themes.color("surface");
-            }
+        @include themes.themify {
+            background-color: themes.color("surface");
         }
 
-        #{$parent}__wrapper {
+        & > #{$parent}__wrapper {
             padding-top: 0;
             max-width: 560px;
             height: 100%;
-        }
 
-        #{$parent}__header {
-            position: sticky;
-            top: 0;
-            flex-flow: row nowrap;
-            padding-top: $large-padding;
-            height: 56px;
-            gap: $small-padding;
-        }
+            & > #{$parent}__header {
+                position: sticky;
+                top: 0;
+                flex-flow: row nowrap;
+                padding-top: $large-padding;
+                height: 56px;
+                gap: $small-padding;
 
-        #{$parent}__icon {
-            @include themes.themify {
-                color: themes.color("on-surface");
+                @include themes.themify {
+                    background-color: themes.color("surface");
+                }
+
+                #{$parent}__icon {
+                    @include themes.themify {
+                        color: themes.color("on-surface");
+                    }
+                }
             }
-        }
 
-        #{$parent}__content {
-            padding: $small-padding $large-padding;
+            & > #{$parent}__content {
+                padding: $small-padding $large-padding;
+            }
         }
     }
 }

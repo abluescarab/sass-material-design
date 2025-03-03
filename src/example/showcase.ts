@@ -252,6 +252,20 @@ document.querySelectorAll(".md-dialog .close-button").forEach((el) =>
     })
 );
 
+document.getElementById("show-nested-dialog")?.addEventListener("click", () => {
+    document
+        .getElementById("nested-dialog")
+        ?.classList.add("md-dialog--visible");
+});
+
+document
+    .getElementById("show-nested-long-dialog")
+    ?.addEventListener("click", () => {
+        document
+            .getElementById("nested-long-dialog")
+            ?.classList.add("md-dialog--visible");
+    });
+
 // -----------------------------------------------------------------------------
 // FAB events
 themeFab?.addEventListener("click", () => {
