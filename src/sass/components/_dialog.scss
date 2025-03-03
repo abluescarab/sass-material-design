@@ -1,7 +1,8 @@
 /// ============================================================================
 /// @file           components/_dialog.scss
 /// @description    Material Design dialog component.
-/// @modifiers      visible: display the dialog
+/// @modifiers      full: fullscreen dialog
+///                 visible: display the dialog
 /// @elements       wrapper: wrapper around the entire dialog
 ///                 header: header with icon and headline
 ///                 icon: icon above headline at top of dialog
@@ -13,7 +14,6 @@
 
 @use "../abstracts" as *;
 @use "../themes";
-@use "button";
 
 .md-dialog {
     $parent: &;
@@ -22,49 +22,27 @@
 
     z-index: 1;
     display: flex;
-    flex-flow: column nowrap;
     align-items: center;
-    justify-content: center;
+    flex-flow: column nowrap;
     position: fixed;
     inset: 0;
-
-    @include themes.themify {
-        background-color: rgba(themes.color("scrim"), 0.32);
-    }
 
     &:not(&--visible) {
         @include hidden;
     }
 
     &__wrapper {
-        min-width: 280px;
-        max-width: 560px;
-        margin: calc($large-padding * 2);
         padding: $large-padding;
         border-radius: sys("shape", "corner", "extra-large");
-
-        @include themes.themify {
-            @include elevation(3);
-
-            background-color: themes.color("surface-container-high");
-        }
     }
 
     &__header {
         display: flex;
-        flex-flow: column nowrap;
         align-items: center;
-        padding-bottom: $small-padding;
     }
 
     &__icon {
         @include square(24px, true);
-
-        padding-bottom: $small-padding;
-
-        @include themes.themify {
-            color: themes.color("secondary");
-        }
     }
 
     &__headline {
@@ -75,10 +53,6 @@
         @include themes.themify {
             color: themes.color("on-surface");
         }
-    }
-
-    &:has(&__icon) &__headline {
-        text-align: center;
     }
 
     &__content {
@@ -109,5 +83,70 @@
         gap: 8px;
         align-items: center;
         justify-content: flex-end;
+    }
+
+    &:not(&--full) {
+        justify-content: center;
+
+        @include themes.themify {
+            background-color: rgba(themes.color("scrim"), 0.32);
+        }
+
+        #{$parent}__wrapper {
+            margin: calc($large-padding * 2);
+            min-width: 280px;
+            max-width: 560px;
+
+            @include themes.themify {
+                @include elevation(3);
+
+                background-color: themes.color("surface-container-high");
+            }
+        }
+
+        #{$parent}__header {
+            flex-flow: column nowrap;
+            padding-bottom: $small-padding;
+        }
+
+        #{$parent}__icon {
+            padding-bottom: $small-padding;
+
+            @include themes.themify {
+                color: themes.color("secondary");
+            }
+        }
+
+        &:has(#{$parent}__icon) #{$parent}__headline {
+            text-align: center;
+        }
+    }
+
+    &--full {
+        @include themes.themify {
+            background-color: themes.color("surface-container-high");
+        }
+
+        #{$parent}__wrapper {
+            padding-bottom: 0;
+            max-width: 560px;
+            height: 100%;
+        }
+
+        #{$parent}__header {
+            flex-flow: row nowrap;
+            height: 56px;
+            gap: $small-padding;
+        }
+
+        #{$parent}__icon {
+            @include themes.themify {
+                color: themes.color("on-surface");
+            }
+        }
+
+        #{$parent}__content {
+            margin: $small-padding $large-padding;
+        }
     }
 }

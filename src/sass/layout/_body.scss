@@ -15,4 +15,9 @@
         @include themes.colorify("surface-container");
         @include container-backgrounds;
     }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &:has(.md-dialog--full.md-dialog--visible) {
+        overflow: hidden;
+    }
 }
