@@ -1227,7 +1227,7 @@ code * {
   justify-content: flex-end;
 }
 .md-dialog:not(.md-dialog--full) {
-  justify-content: center;
+  justify-content: safe center;
 }
 [data-md-theme=light] .md-dialog:not(.md-dialog--full) {
   background-color: rgba(0, 0, 0, 0.32);

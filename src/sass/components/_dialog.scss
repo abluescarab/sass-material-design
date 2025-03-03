@@ -87,7 +87,7 @@
     }
 
     &:not(&--full) {
-        justify-content: center;
+        justify-content: safe center;
 
         @include themes.themify {
             background-color: rgba(themes.color("scrim"), 0.32);
