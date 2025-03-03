@@ -1165,6 +1165,8 @@ code * {
   left: -9999px !important;
 }
 .md-dialog__wrapper {
+  height: -moz-max-content;
+  height: max-content;
   display: flex;
   flex-flow: column nowrap;
   padding: 24px;
