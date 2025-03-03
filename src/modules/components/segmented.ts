@@ -36,17 +36,17 @@ function selectSegment(
 
 /**
  * Initializes a segmented button.
- * @param element segmented button
+ * @param segmentedButton segmented button
  */
-export function initialize(element: Element): void {
+export function initialize(segmentedButton: Element): void {
     if (
-        !(element instanceof HTMLElement) ||
-        !element.classList.contains("md-segmented")
+        !(segmentedButton instanceof HTMLElement) ||
+        !segmentedButton.classList.contains("md-segmented")
     ) {
         return;
     }
 
-    for (const child of element.children) {
+    for (const child of segmentedButton.children) {
         const check = document.createElement("span");
         check.classList.add("md-segmented__check", "md-symbol");
         check.innerText = "check";
@@ -54,13 +54,13 @@ export function initialize(element: Element): void {
         child.insertAdjacentElement("afterbegin", check);
     }
 
-    element.addEventListener("click", (e) => {
-        const button = getParentWithClass(e.target, "md-segmented__button");
+    segmentedButton.addEventListener("click", (e) => {
+        const parent = getParentWithClass(e.target, "md-segmented__button");
 
         selectSegment(
-            button,
-            element.dataset.mdRequireSelect != undefined,
-            element.dataset.mdMultiselect != undefined
+            parent,
+            segmentedButton.dataset.mdRequireSelect != undefined,
+            segmentedButton.dataset.mdMultiselect != undefined
         );
     });
 }

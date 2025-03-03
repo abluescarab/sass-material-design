@@ -2,6 +2,11 @@
  * @file            components/checkbox.ts
  * @description     Implementation file for checkbox components.
  ******************************************************************************/
+/**
+ * Creates a new checkbox.
+ * @param options options map
+ * @returns new checkbox
+ */
 export function create(options) {
     const div = document.createElement("div");
     div.classList.add("md-checkbox");

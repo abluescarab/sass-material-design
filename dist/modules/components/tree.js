@@ -2,9 +2,9 @@
  * @file            modules/components/tree.ts
  * @description     Implementation file for tree components.
  ******************************************************************************/
+import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../events.js";
 import { getChildByClassName, getParentWithClass, prefix, stringToSelector, suffix, } from "../utils.js";
-import { create as createCheckbox } from "./checkbox.js";
 /**
  * Creates a button to insert in the tree.
  * @param buttonType icon button type

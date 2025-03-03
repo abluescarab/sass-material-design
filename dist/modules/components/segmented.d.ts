@@ -5,6 +5,6 @@
  ******************************************************************************/
 /**
  * Initializes a segmented button.
- * @param element segmented button
+ * @param segmentedButton segmented button
  */
-export declare function initialize(element: Element): void;
+export declare function initialize(segmentedButton: Element): void;

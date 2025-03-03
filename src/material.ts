@@ -10,7 +10,7 @@ import * as tree from "./modules/components/tree.js";
 
 /**
  * Initializes dynamically generated Material Design elements. Call this when
- * the document loads. Alternatively, initialize each element yourself.
+ * the document loads or initialize each element yourself.
  */
 export function initialize(): void {
     document.querySelectorAll(".md-segmented").forEach((e) => {

@@ -3,6 +3,10 @@
  * @description     Implementation file for checkbox components.
  ******************************************************************************/
 
+/**
+ * Stores checkbox options for new checkboxes, usually created with the
+ * {@link create()} function.
+ */
 interface CheckboxOptions {
     text?: string;
     checked?: boolean;
@@ -10,6 +14,11 @@ interface CheckboxOptions {
     indeterminate?: boolean;
 }
 
+/**
+ * Creates a new checkbox.
+ * @param options options map
+ * @returns new checkbox
+ */
 export function create(options?: CheckboxOptions): HTMLElement {
     const div = document.createElement("div");
     div.classList.add("md-checkbox");
