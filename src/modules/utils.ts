@@ -106,7 +106,7 @@ export function getParentWithClass(
  * @param str original string
  * @returns string with prefix added
  */
-export function prefix(prefix: string, str: string): string {
+export function prefix(str: string, prefix: string): string {
     return `${prefix}${str}`;
 }
 
@@ -132,6 +132,6 @@ export function stringToSelector(str: string): string {
  * @param str original string
  * @returns string with suffix added
  */
-export function suffix(suffix: string, str: string): string {
+export function suffix(str: string, suffix: string): string {
     return `${str}${suffix}`;
 }

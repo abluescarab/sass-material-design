@@ -3,7 +3,8 @@
  * @description     Implementation file for tree components.
  ******************************************************************************/
 import { MaterialToggleEvent, MaterialState } from "../events.js";
-import { getChildByClassName, getParentWithClass, prefix, stringToSelector, } from "../utils.js";
+import { getChildByClassName, getParentWithClass, prefix, stringToSelector, suffix, } from "../utils.js";
+import { create as createCheckbox } from "./checkbox.js";
 /**
  * Creates a button to insert in the tree.
  * @param buttonType icon button type
@@ -35,18 +36,30 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
                 (checkboxes == "leaves" && leaf) ||
                 (checkboxes == "roots" && root) ||
                 (checkboxes == "subtrees" && isChild(child))) {
-                node = document.createElement("div");
-                node.classList.add("md-checkbox");
-                const input = document.createElement("input");
-                input.type = "checkbox";
-                child.insertAdjacentElement("afterbegin", input);
-                child.insertAdjacentElement("beforebegin", node);
-                node.appendChild(child);
+                node = createCheckbox({
+                    text: child.innerText,
+                });
+                const button = getChildByClassName(child, "md-icon-button");
+                if (button) {
+                    node.insertAdjacentElement("afterbegin", button);
+                }
+                const label = node.getElementsByTagName("label")[0];
+                label.classList.add("md-tree__label");
+                child.insertAdjacentElement("afterend", node);
+                child.remove();
             }
             if (!node.id) {
-                const id = prefix(`${itemPrefix ? itemPrefix : "tree"}__`, stringToSelector(child.innerText));
+                const id = prefix(stringToSelector(child.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
                 if (!document.getElementById(id)) {
-                    node.id = id;
+                    const checkbox = node.getElementsByTagName("input")[0];
+                    if (checkbox) {
+                        checkbox.id = id;
+                        checkbox.name = id;
+                        node.id = suffix(id, "-container");
+                    }
+                    else {
+                        node.id = id;
+                    }
                 }
             }
             if (root) {

@@ -38,7 +38,7 @@ export declare function getParentWithClass(element: Element | EventTarget | null
  * @param str original string
  * @returns string with prefix added
  */
-export declare function prefix(prefix: string, str: string): string;
+export declare function prefix(str: string, prefix: string): string;
 /**
  * Converts a string to a selector in the form "element-selector".
  * @param str string to convert
@@ -51,4 +51,4 @@ export declare function stringToSelector(str: string): string;
  * @param str original string
  * @returns string with suffix added
  */
-export declare function suffix(suffix: string, str: string): string;
+export declare function suffix(str: string, suffix: string): string;

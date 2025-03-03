@@ -74,7 +74,7 @@ export function getParentWithClass(element, parentClass, forceStopAtClass = "", 
  * @param str original string
  * @returns string with prefix added
  */
-export function prefix(prefix, str) {
+export function prefix(str, prefix) {
     return `${prefix}${str}`;
 }
 /**
@@ -96,6 +96,6 @@ export function stringToSelector(str) {
  * @param str original string
  * @returns string with suffix added
  */
-export function suffix(suffix, str) {
+export function suffix(str, suffix) {
     return `${str}${suffix}`;
 }

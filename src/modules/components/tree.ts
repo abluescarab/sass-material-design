@@ -9,7 +9,9 @@ import {
     getParentWithClass,
     prefix,
     stringToSelector,
+    suffix,
 } from "../utils.js";
+import { create as createCheckbox } from "./checkbox.js";
 
 /**
  * Creates a button to insert in the tree.
@@ -57,25 +59,39 @@ function initializeTree(
                 (checkboxes == "roots" && root) ||
                 (checkboxes == "subtrees" && isChild(child))
             ) {
-                node = document.createElement("div");
-                node.classList.add("md-checkbox");
+                node = createCheckbox({
+                    text: (child as HTMLElement).innerText,
+                });
 
-                const input = document.createElement("input");
-                input.type = "checkbox";
+                const button = getChildByClassName(child, "md-icon-button");
 
-                child.insertAdjacentElement("afterbegin", input);
-                child.insertAdjacentElement("beforebegin", node);
-                node.appendChild(child);
+                if (button) {
+                    node.insertAdjacentElement("afterbegin", button);
+                }
+
+                const label = node.getElementsByTagName("label")[0];
+                label.classList.add("md-tree__label");
+
+                child.insertAdjacentElement("afterend", node);
+                child.remove();
             }
 
             if (!node.id) {
                 const id = prefix(
-                    `${itemPrefix ? itemPrefix : "tree"}__`,
-                    stringToSelector((child as HTMLElement).innerText)
+                    stringToSelector((child as HTMLElement).innerText),
+                    `${itemPrefix ? itemPrefix : "tree"}__`
                 );
 
                 if (!document.getElementById(id)) {
-                    node.id = id;
+                    const checkbox = node.getElementsByTagName("input")[0];
+
+                    if (checkbox) {
+                        checkbox.id = id;
+                        checkbox.name = id;
+                        node.id = suffix(id, "-container");
+                    } else {
+                        node.id = id;
+                    }
                 }
             }
 
