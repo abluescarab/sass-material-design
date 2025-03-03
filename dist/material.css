@@ -10,6 +10,10 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
+hr {
+  border: 0;
+}
+
 input, input + label {
   cursor: pointer;
 }
@@ -1152,6 +1156,7 @@ code * {
   flex-flow: column nowrap;
   position: fixed;
   inset: 0;
+  overflow-y: auto;
 }
 .md-dialog:not(.md-dialog--visible) {
   position: absolute !important;
@@ -1160,6 +1165,8 @@ code * {
   left: -9999px !important;
 }
 .md-dialog__wrapper {
+  display: flex;
+  flex-flow: column nowrap;
   padding: 24px;
   border-radius: 28px;
 }
@@ -1189,7 +1196,7 @@ code * {
 }
 .md-dialog__content {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   gap: 16px;
   font-family: "Roboto";
   line-height: 20px;
@@ -1203,15 +1210,11 @@ code * {
 [data-md-theme=dark] .md-dialog__content {
   color: rgb(203, 196, 207);
 }
-.md-dialog__divider {
-  height: 1px;
-  border: 0;
-}
 [data-md-theme=light] .md-dialog__divider {
-  background-color: rgb(122, 117, 127);
+  border-bottom: 1px solid rgb(122, 117, 127);
 }
 [data-md-theme=dark] .md-dialog__divider {
-  background-color: rgb(148, 143, 153);
+  border-bottom: 1px solid rgb(148, 143, 153);
 }
 .md-dialog__actions {
   display: flex;
@@ -1259,19 +1262,24 @@ code * {
 .md-dialog:not(.md-dialog--full):has(.md-dialog__icon) .md-dialog__headline {
   text-align: center;
 }
-[data-md-theme=light] .md-dialog--full {
-  background-color: rgb(237, 230, 238);
+[data-md-theme=light] .md-dialog--full,
+[data-md-theme=light] .md-dialog--full .md-dialog__header {
+  background-color: rgb(254, 247, 255);
 }
-[data-md-theme=dark] .md-dialog--full {
-  background-color: rgb(44, 41, 47);
+[data-md-theme=dark] .md-dialog--full,
+[data-md-theme=dark] .md-dialog--full .md-dialog__header {
+  background-color: rgb(21, 18, 24);
 }
 .md-dialog--full .md-dialog__wrapper {
-  padding-bottom: 0;
+  padding-top: 0;
   max-width: 560px;
   height: 100%;
 }
 .md-dialog--full .md-dialog__header {
+  position: sticky;
+  top: 0;
   flex-flow: row nowrap;
+  padding-top: 24px;
   height: 56px;
   gap: 16px;
 }
@@ -1282,7 +1290,7 @@ code * {
   color: rgb(231, 224, 232);
 }
 .md-dialog--full .md-dialog__content {
-  margin: 16px 24px;
+  padding: 16px 24px;
 }
 
 .md-fab {

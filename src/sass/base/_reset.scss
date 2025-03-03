@@ -13,6 +13,10 @@ button:not(:disabled) {
     cursor: pointer;
 }
 
+hr {
+    border: 0;
+}
+
 input {
     &,
     & + label {

@@ -139,6 +139,11 @@ document
     });
 });
 document
+    .getElementById("close-fullscreen-dialog")
+    ?.addEventListener("click", (e) => {
+    getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
+});
+document
     .querySelectorAll("#snackbars .md-pane__content > .md-button")
     .forEach((element) => element.addEventListener("click", (e) => {
     const el = e.currentTarget;

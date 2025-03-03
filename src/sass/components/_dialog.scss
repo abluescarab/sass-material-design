@@ -26,12 +26,15 @@
     flex-flow: column nowrap;
     position: fixed;
     inset: 0;
+    overflow-y: auto;
 
     &:not(&--visible) {
         @include hidden;
     }
 
     &__wrapper {
+        display: flex;
+        flex-flow: column nowrap;
         padding: $large-padding;
         border-radius: sys("shape", "corner", "extra-large");
     }
@@ -57,7 +60,7 @@
 
     &__content {
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: column nowrap;
         gap: $small-padding;
 
         @include font-styling("body-medium");
@@ -68,11 +71,8 @@
     }
 
     &__divider {
-        height: 1px;
-        border: 0;
-
         @include themes.themify {
-            background-color: themes.color("outline");
+            border-bottom: 1px solid themes.color("outline");
         }
     }
 
@@ -123,18 +123,24 @@
     }
 
     &--full {
-        @include themes.themify {
-            background-color: themes.color("surface-container-high");
+        &,
+        #{$parent}__header {
+            @include themes.themify {
+                background-color: themes.color("surface");
+            }
         }
 
         #{$parent}__wrapper {
-            padding-bottom: 0;
+            padding-top: 0;
             max-width: 560px;
             height: 100%;
         }
 
         #{$parent}__header {
+            position: sticky;
+            top: 0;
             flex-flow: row nowrap;
+            padding-top: $large-padding;
             height: 56px;
             gap: $small-padding;
         }
@@ -146,7 +152,7 @@
         }
 
         #{$parent}__content {
-            margin: $small-padding $large-padding;
+            padding: $small-padding $large-padding;
         }
     }
 }
