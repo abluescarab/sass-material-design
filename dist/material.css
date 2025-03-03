@@ -1272,14 +1272,20 @@ code * {
 }
 .md-dialog--full > .md-dialog__wrapper {
   padding-top: 0;
-  max-width: 560px;
+  max-width: 512px;
+  width: 100%;
   height: 100%;
+}
+@media screen and (max-width: 560px) {
+  .md-dialog--full > .md-dialog__wrapper {
+    padding: 0;
+  }
 }
 .md-dialog--full > .md-dialog__wrapper > .md-dialog__header {
   position: sticky;
   top: 0;
   flex-flow: row nowrap;
-  padding-top: 24px;
+  padding: 8px 24px 0 8px;
   height: 56px;
   gap: 16px;
 }
