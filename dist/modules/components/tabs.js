@@ -5,25 +5,6 @@
 import { MaterialChangeEvent } from "../events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 /**
- * Changes the current tab on the given tab container.
- * @param tabs tab container
- * @param oldTab name of old tab
- * @param newTab name of new tab
- */
-function changeTab(tabs, oldTab, newTab) {
-    if (!(tabs instanceof HTMLElement)) {
-        return;
-    }
-    const [oldButton, oldContent] = getTab(tabs, oldTab);
-    const [newButton, newContent] = getTab(tabs, newTab);
-    oldButton?.classList.remove("md-tabs__button--selected");
-    oldContent?.classList.remove("md-tabs__page--selected");
-    newButton?.classList.add("md-tabs__button--selected");
-    newContent?.classList.add("md-tabs__page--selected");
-    tabs.dataset.mdTab = newTab;
-    tabs.dispatchEvent(new MaterialChangeEvent(newButton, oldTab, newTab));
-}
-/**
  * Gets a tab by name.
  * @param tabs tab container
  * @param name tab name
@@ -36,6 +17,25 @@ function getTab(tabs, name) {
     ];
 }
 /**
+ * Changes the current tab on the given tab container.
+ * @param tabs tab container
+ * @param tab name of new tab
+ */
+export function changeTab(tabs, tab) {
+    if (!(tabs instanceof HTMLElement)) {
+        return;
+    }
+    const oldTab = tabs.dataset.mdTab;
+    const [oldButton, oldContent] = getTab(tabs, oldTab);
+    const [newButton, newContent] = getTab(tabs, tab);
+    oldButton?.classList.remove("md-tabs__button--selected");
+    oldContent?.classList.remove("md-tabs__page--selected");
+    newButton?.classList.add("md-tabs__button--selected");
+    newContent?.classList.add("md-tabs__page--selected");
+    tabs.dataset.mdTab = tab;
+    tabs.dispatchEvent(new MaterialChangeEvent(newButton, oldTab, tab));
+}
+/**
  * Initializes a tab container.
  * @param tabs tab container
  */
@@ -44,18 +44,14 @@ export function initialize(tabs) {
         return;
     }
     // set default tab if not given
-    if (tabs.dataset.mdTab == undefined) {
-        changeTab(tabs, "", getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab);
-    }
-    else {
-        // otherwise ensure tabs are --selected
-        changeTab(tabs, tabs.dataset.mdTab, tabs.dataset.mdTab);
-    }
+    changeTab(tabs, tabs.dataset.mdTab == undefined
+        ? getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
+        : tabs.dataset.mdTab);
     getChildByClassName(tabs, "md-tabs__nav")?.addEventListener("click", (e) => {
         const button = getParentWithClass(e.target, "md-tabs__button");
         // ensure button is direct child of current tab container
         if (button != null && button.parentElement?.parentElement == tabs) {
-            changeTab(tabs, tabs.dataset.mdTab, button.dataset.mdTab);
+            changeTab(tabs, button.dataset.mdTab);
         }
     });
 }
