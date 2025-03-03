@@ -15,6 +15,7 @@
 
     @include square($icon-button__width);
 
+    flex: none;
     border: 0;
     border-radius: sys("shape", "corner", "full");
     font-size: $icon__font-size;

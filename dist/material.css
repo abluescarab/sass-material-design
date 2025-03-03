@@ -1501,6 +1501,7 @@ code * {
   width: 40px;
   height: 40px;
   line-height: 40px;
+  flex: none;
   border: 0;
   border-radius: 9999px;
   font-size: 24px;
