@@ -1007,6 +1007,10 @@ code * {
   background-color: rgba(21, 18, 24, 0.38);
 }
 
+.md-checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+}
 [data-md-theme=light] .md-checkbox {
   color: rgb(29, 27, 32);
 }
@@ -1022,11 +1026,6 @@ code * {
   opacity: 0 !important;
   width: 0;
   height: 0;
-}
-.md-checkbox__text {
-  flex: 1;
-  order: 2;
-  margin-left: 16px;
 }
 .md-checkbox__box {
   width: 14px;
@@ -1049,6 +1048,11 @@ code * {
   font-family: "Material Symbols Outlined", sans-serif;
   font-size: 18px;
 }
+.md-checkbox__text {
+  flex: 1;
+  order: 2;
+  margin-left: 16px;
+}
 [data-md-theme=light] .md-checkbox:not(:has(input:disabled)) label:hover .md-checkbox__box {
   border-color: rgb(29, 27, 32);
 }
@@ -1067,8 +1071,11 @@ code * {
 [data-md-theme=dark] .md-checkbox:not(:has(input:disabled)) label:active .md-checkbox__box {
   border-color: rgb(231, 224, 232);
 }
-.md-checkbox:has(input:checked) .md-checkbox__box::after {
+.md-checkbox:has(input:checked):not(:has(input:indeterminate)) .md-checkbox__box::after {
   content: "check";
+}
+.md-checkbox:has(input:checked):has(input:indeterminate) .md-checkbox__box::after {
+  content: "check_indeterminate_small";
 }
 [data-md-theme=light] .md-checkbox:not(:has(input:disabled, input:checked)) .md-checkbox__box {
   background-color: rgba(0, 0, 0, 0);

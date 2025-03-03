@@ -1,13 +1,16 @@
 /// ============================================================================
 /// @file           components/_checkbox.scss
 /// @description    Material Design checkbox component.
-///                 Note: Due to rendering limitations in most modern browsers,
-///                 there are no modifiers or subelement classes.
+/// @modifiers      right: place checkboxes on right side of text
+/// @elements       box: checkbox container
+///                 text: label text
 /// ============================================================================
 
 @use "../abstracts" as *;
 @use "../themes";
 
+// TODO: focus indicator not visible on focus
+// TODO: circular state indicators?
 .md-checkbox {
     $parent: &;
     $border-size: 2px;
@@ -50,6 +53,9 @@
         }
     }
 
+    display: flex;
+    flex-flow: row nowrap;
+
     @include themes.themify {
         color: themes.color("on-surface");
     }
@@ -64,12 +70,6 @@
         opacity: 0 !important;
         width: 0;
         height: 0;
-    }
-
-    &__text {
-        flex: 1;
-        order: 2;
-        margin-left: $checkbox__margin;
     }
 
     &__box {
@@ -93,6 +93,12 @@
         }
     }
 
+    &__text {
+        flex: 1;
+        order: 2;
+        margin-left: $checkbox__margin;
+    }
+
     // enabled and checked or unchecked
     &:not(:has(input:disabled)) {
         @each $state in hover, focus, active {
@@ -106,9 +112,15 @@
 
     // enabled or disabled and checked
     &:has(input:checked) {
-        #{$parent}__box {
-            &::after {
+        &:not(:has(input:indeterminate)) {
+            #{$parent}__box::after {
                 content: "check";
+            }
+        }
+
+        &:has(input:indeterminate) {
+            #{$parent}__box::after {
+                content: "check_indeterminate_small";
             }
         }
     }
