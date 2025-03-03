@@ -135,3 +135,31 @@ export function stringToSelector(str: string): string {
 export function suffix(str: string, suffix: string): string {
     return `${str}${suffix}`;
 }
+
+/**
+ * Wraps an element in the specified tag.
+ * @param element element to wrap
+ * @param tag tag to wrap with
+ * @param childrenOnly whether to wrap only the element's children
+ * @returns wrapper element
+ */
+export function wrap(
+    element: Element,
+    tag: string,
+    childrenOnly: boolean = false
+): HTMLElement {
+    const wrapper = document.createElement(tag);
+
+    if (childrenOnly) {
+        while (element.firstChild) {
+            wrapper.appendChild(element.firstChild);
+        }
+
+        element.appendChild(wrapper);
+    } else {
+        element.insertAdjacentElement("beforebegin", wrapper);
+        wrapper.appendChild(element);
+    }
+
+    return wrapper;
+}

@@ -52,3 +52,11 @@ export declare function stringToSelector(str: string): string;
  * @returns string with suffix added
  */
 export declare function suffix(str: string, suffix: string): string;
+/**
+ * Wraps an element in the specified tag.
+ * @param element element to wrap
+ * @param tag tag to wrap with
+ * @param childrenOnly whether to wrap only the element's children
+ * @returns wrapper element
+ */
+export declare function wrap(element: Element, tag: string, childrenOnly?: boolean): HTMLElement;

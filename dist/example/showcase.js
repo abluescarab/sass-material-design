@@ -1,5 +1,5 @@
 // TODO: implement up/down arrows on panes
-import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentWithClass, initialize, setTheme, stringToSelector, } from "../material.js";
+import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentWithClass, initialize, setTheme, stringToSelector, wrap, } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
@@ -50,7 +50,7 @@ function changeThemeButtonIcon(theme) {
     themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
 }
 function createAttributes(el) {
-    const wrapper = document.createElement("div");
+    const wrapper = wrap(el, "div", true);
     wrapper.classList.add("flex", "fill");
     if (el.classList.contains("cols")) {
         wrapper.classList.add("cols");
@@ -58,10 +58,6 @@ function createAttributes(el) {
     else {
         wrapper.classList.add("rows");
     }
-    while (el.firstChild) {
-        wrapper.appendChild(el.firstChild);
-    }
-    el.appendChild(wrapper);
     const attributes = document.createElement("div");
     const code = document.createElement("code");
     const h2 = document.createElement("h2");

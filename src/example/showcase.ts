@@ -8,6 +8,7 @@ import {
     initialize,
     setTheme,
     stringToSelector,
+    wrap,
 } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 
@@ -69,7 +70,7 @@ function changeThemeButtonIcon(theme: string | null) {
 }
 
 function createAttributes(el: Element) {
-    const wrapper = document.createElement("div");
+    const wrapper = wrap(el, "div", true);
     wrapper.classList.add("flex", "fill");
 
     if (el.classList.contains("cols")) {
@@ -77,12 +78,6 @@ function createAttributes(el: Element) {
     } else {
         wrapper.classList.add("rows");
     }
-
-    while (el.firstChild) {
-        wrapper.appendChild(el.firstChild);
-    }
-
-    el.appendChild(wrapper);
 
     const attributes = document.createElement("div");
     const code = document.createElement("code");
