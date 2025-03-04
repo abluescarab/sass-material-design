@@ -160,7 +160,7 @@ function treeClicked(tree, target) {
         const checked = el.checked;
         const cascadeChecked = tree.dataset.mdCascadeChecked;
         const checkboxes = tree.dataset.mdCheckboxes;
-        const elements = [el];
+        const elements = [];
         if ((checkboxes == "all" || checkboxes == "subtrees") &&
             (cascadeChecked == "both" ||
                 (cascadeChecked == "checked" && checked) ||

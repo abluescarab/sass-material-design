@@ -234,7 +234,7 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
         const checked = el.checked;
         const cascadeChecked = tree.dataset.mdCascadeChecked;
         const checkboxes = tree.dataset.mdCheckboxes;
-        const elements: Element[] = [el];
+        const elements: Element[] = [];
 
         if (
             (checkboxes == "all" || checkboxes == "subtrees") &&
