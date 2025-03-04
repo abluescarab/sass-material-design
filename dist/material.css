@@ -508,7 +508,7 @@ code * {
 [data-md-theme=dark] .md-app-bar__trailing .md-app-bar__icon {
   color: rgb(203, 196, 207);
 }
-.md-app-bar[data-md-type=center] {
+.md-app-bar[data-md-type=center] .md-app-bar__headline {
   text-align: center;
 }
 .md-app-bar[data-md-type=medium], .md-app-bar[data-md-type=large] {
