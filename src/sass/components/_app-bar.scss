@@ -35,7 +35,7 @@
 
         grid-row: 1;
         border: 0;
-        font-size: calc($button-size / 2);
+        font-size: $icon__font-size;
         border-radius: sys("shape", "corner", "full");
 
         @include themes.themify {
