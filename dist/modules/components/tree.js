@@ -39,10 +39,6 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
                 node = createCheckbox({
                     text: child.innerText,
                 });
-                const button = getChildByClassName(child, "md-icon-button");
-                if (button) {
-                    node.insertAdjacentElement("afterbegin", button);
-                }
                 const label = node.getElementsByTagName("label")[0];
                 label.classList.add("md-tree__label");
                 child.insertAdjacentElement("afterend", node);

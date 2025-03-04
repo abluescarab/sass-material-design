@@ -64,12 +64,6 @@ function initializeTree(
                     text: (child as HTMLElement).innerText,
                 });
 
-                const button = getChildByClassName(child, "md-icon-button");
-
-                if (button) {
-                    node.insertAdjacentElement("afterbegin", button);
-                }
-
                 const label = node.getElementsByTagName("label")[0];
                 label.classList.add("md-tree__label");
 
