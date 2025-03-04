@@ -9,4 +9,5 @@
 export declare function initialize(): void;
 export * from "./modules/events.js";
 export * from "./modules/themer.js";
+export * from "./modules/types.js";
 export * from "./modules/utils.js";
