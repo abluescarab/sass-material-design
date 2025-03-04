@@ -47,7 +47,7 @@
     }
 
     &__icon {
-        @include square(24px, true);
+        @include square($icon__font-size, true);
     }
 
     &__headline {
