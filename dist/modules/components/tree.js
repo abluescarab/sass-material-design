@@ -27,7 +27,8 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
     if (!tree) {
         return;
     }
-    for (const child of tree.children) {
+    for (const element of tree.children) {
+        const child = element;
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
@@ -44,18 +45,14 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
                 child.insertAdjacentElement("afterend", node);
                 child.remove();
             }
-            if (!node.id) {
-                const id = prefix(stringToSelector(child.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
-                if (!document.getElementById(id)) {
-                    const checkbox = node.getElementsByTagName("input")[0];
-                    if (checkbox) {
-                        checkbox.id = id;
-                        checkbox.name = id;
-                        node.id = suffix(id, "-container");
-                    }
-                    else {
-                        node.id = id;
-                    }
+            const id = prefix(stringToSelector(child.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
+            if (!node.id && !document.getElementById(id)) {
+                const checkbox = node.getElementsByTagName("input")[0];
+                node.id = id;
+                if (checkbox) {
+                    const checkboxId = suffix(id, "__input");
+                    checkbox.id = checkboxId;
+                    checkbox.name = checkboxId;
                 }
             }
             if (root) {
@@ -68,9 +65,12 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
                 node.classList.add("md-tree__branch");
             }
         }
-        if (child.classList.contains("md-tree__subtree")) {
+        else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling;
-            label.insertAdjacentElement("afterbegin", createButton(buttonType));
+            const button = createButton(buttonType);
+            const id = prefix(stringToSelector(label.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
+            button.id = suffix(id, "__button");
+            label.insertAdjacentElement("afterbegin", button);
             initializeTree(child, itemPrefix, buttonType, checkboxes);
         }
     }

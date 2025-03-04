@@ -48,7 +48,9 @@ function initializeTree(
         return;
     }
 
-    for (const child of tree.children) {
+    for (const element of tree.children) {
+        const child = element as HTMLElement;
+
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
@@ -61,7 +63,7 @@ function initializeTree(
                 (checkboxes == "subtrees" && isChild(child))
             ) {
                 node = createCheckbox({
-                    text: (child as HTMLElement).innerText,
+                    text: child.innerText,
                 });
 
                 const label = node.getElementsByTagName("label")[0];
@@ -71,22 +73,21 @@ function initializeTree(
                 child.remove();
             }
 
-            if (!node.id) {
-                const id = prefix(
-                    stringToSelector((child as HTMLElement).innerText),
-                    `${itemPrefix ? itemPrefix : "tree"}__`
-                );
+            const id = prefix(
+                stringToSelector(child.innerText),
+                `${itemPrefix ? itemPrefix : "tree"}__`
+            );
 
-                if (!document.getElementById(id)) {
-                    const checkbox = node.getElementsByTagName("input")[0];
+            if (!node.id && !document.getElementById(id)) {
+                const checkbox = node.getElementsByTagName("input")[0];
 
-                    if (checkbox) {
-                        checkbox.id = id;
-                        checkbox.name = id;
-                        node.id = suffix(id, "-container");
-                    } else {
-                        node.id = id;
-                    }
+                node.id = id;
+
+                if (checkbox) {
+                    const checkboxId = suffix(id, "__input");
+
+                    checkbox.id = checkboxId;
+                    checkbox.name = checkboxId;
                 }
             }
 
@@ -99,12 +100,17 @@ function initializeTree(
             } else {
                 node.classList.add("md-tree__branch");
             }
-        }
-
-        if (child.classList.contains("md-tree__subtree")) {
+        } else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling as HTMLElement;
+            const button = createButton(buttonType);
+            const id = prefix(
+                stringToSelector(label.innerText),
+                `${itemPrefix ? itemPrefix : "tree"}__`
+            );
 
-            label.insertAdjacentElement("afterbegin", createButton(buttonType));
+            button.id = suffix(id, "__button");
+
+            label.insertAdjacentElement("afterbegin", button);
             initializeTree(child, itemPrefix, buttonType, checkboxes);
         }
     }
