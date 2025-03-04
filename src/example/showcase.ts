@@ -244,8 +244,8 @@ document
         })
     );
 
-document.querySelectorAll(".md-dialog .close-button").forEach((el) =>
-    el.addEventListener("click", (e) => {
+document.querySelectorAll(".md-dialog .close-button").forEach((element) =>
+    element.addEventListener("click", (e) => {
         getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove(
             "md-dialog--visible"
         );

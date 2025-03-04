@@ -181,8 +181,10 @@ function toggleCheckboxes(element: Element | null, checked: boolean): void {
         return;
     }
 
-    for (const checkbox of subtree.querySelectorAll("input[type='checkbox'")) {
-        (checkbox as HTMLInputElement).checked = checked;
+    for (const checkbox of subtree.querySelectorAll<HTMLInputElement>(
+        "input[type='checkbox'"
+    )) {
+        checkbox.checked = checked;
     }
 }
 
