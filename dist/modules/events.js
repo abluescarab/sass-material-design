@@ -78,11 +78,11 @@ export class MaterialToggleEvent extends MaterialEvent {
      * Creates a new MaterialToggleEvent.
      * @param source element which triggered the event (not the dispatcher)
      * @param state toggle state of type {@link MaterialState}
-     * @param whether the state change cascaded to children
+     * @param elements other toggled elements
      */
-    constructor(source, state, cascade) {
+    constructor(source, state, elements) {
         super("toggle", source);
         this.state = state;
-        this.cascade = cascade;
+        this.elements = elements;
     }
 }

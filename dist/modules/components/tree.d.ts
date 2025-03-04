@@ -40,5 +40,6 @@ export declare function toggle(tree: Nullable<Element>, expand: boolean): void;
  * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
+ * @returns list of toggled elements
  */
-export declare function toggleAll(tree: Nullable<Element>, expand: boolean, cascadeToggled: string | undefined): void;
+export declare function toggleAll(tree: Nullable<Element>, expand: boolean, cascadeToggled: string | undefined): Element[];

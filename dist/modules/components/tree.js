@@ -125,15 +125,19 @@ function populateTree(tree, map) {
  * Toggles child checkboxes.
  * @param checkbox checkbox input
  * @param checked whether to check or uncheck children
+ * @returns list of toggled elements
  */
 function toggleCheckboxes(checkbox, checked) {
+    const elements = [];
     const subtree = getParentWithClass(checkbox, "md-checkbox")?.nextElementSibling;
     if (!subtree?.classList.contains("md-tree__subtree")) {
-        return;
+        return elements;
     }
     for (const checkbox of subtree.querySelectorAll("input[type='checkbox'")) {
         checkbox.checked = checked;
+        elements.push(checkbox);
     }
+    return elements;
 }
 /**
  * Handles the click event on a tree.
@@ -150,23 +154,20 @@ function treeClicked(tree, target) {
     }
     if (el.classList.contains("md-icon-button")) {
         const expand = el.innerText == "add";
-        toggleAll(el.parentElement?.nextElementSibling, expand, tree.dataset.mdCascadeToggled);
-        tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed, (expand && tree.dataset.mdCascadeToggled == "expanded") ||
-            (!expand && tree.dataset.mdCascadeToggled == "collapsed")));
+        tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed, toggleAll(el.parentElement?.nextElementSibling, expand, tree.dataset.mdCascadeToggled)));
     }
     else if (el instanceof HTMLInputElement) {
         const checked = el.checked;
         const cascadeChecked = tree.dataset.mdCascadeChecked;
         const checkboxes = tree.dataset.mdCheckboxes;
-        let cascaded = false;
+        const elements = [el];
         if ((checkboxes == "all" || checkboxes == "subtrees") &&
             (cascadeChecked == "both" ||
                 (cascadeChecked == "checked" && checked) ||
                 (cascadeChecked == "unchecked" && !checked))) {
-            toggleCheckboxes(el, checked);
-            cascaded = true;
+            elements.push(...toggleCheckboxes(el, checked));
         }
-        tree.dispatchEvent(new MaterialToggleEvent(el, checked ? MaterialState.Checked : MaterialState.Unchecked, cascaded));
+        tree.dispatchEvent(new MaterialToggleEvent(el, checked ? MaterialState.Checked : MaterialState.Unchecked, elements));
     }
 }
 /**
@@ -249,18 +250,23 @@ export function toggle(tree, expand) {
  * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
+ * @returns list of toggled elements
  */
 export function toggleAll(tree, expand, cascadeToggled) {
+    const elements = [];
     if (!tree || !(tree instanceof HTMLElement)) {
-        return;
+        return elements;
     }
     if (tree.classList.contains("md-tree__subtree")) {
         toggle(tree, expand);
+        elements.push(tree);
     }
     if ((cascadeToggled == "expanded" && expand) ||
         (cascadeToggled == "collapsed" && !expand)) {
         for (const subtree of tree.getElementsByClassName("md-tree__subtree")) {
             toggle(subtree, expand);
+            elements.push(subtree);
         }
     }
+    return elements;
 }

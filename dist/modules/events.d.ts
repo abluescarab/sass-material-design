@@ -44,6 +44,9 @@ export declare enum MaterialState {
  * A base for all custom Material events.
  */
 export declare class MaterialEvent extends Event {
+    /**
+     * Element which triggered the event (not the dispatcher).
+     */
     readonly source: Nullable<Element>;
     /**
      * Creates a new MaterialEvent.
@@ -56,7 +59,13 @@ export declare class MaterialEvent extends Event {
  * An event type for any element that changes value.
  */
 export declare class MaterialChangeEvent<T> extends MaterialEvent {
+    /**
+     * Value before change.
+     */
     readonly oldValue?: T;
+    /**
+     * Value after change.
+     */
     readonly newValue?: T;
     /**
      * Creates a new MaterialChangeEvent.
@@ -70,13 +79,19 @@ export declare class MaterialChangeEvent<T> extends MaterialEvent {
  * An event type for any element that has changed toggle state.
  */
 export declare class MaterialToggleEvent extends MaterialEvent {
+    /**
+     * Toggle state of type {@link MaterialState}.
+     */
     readonly state: MaterialState;
-    readonly cascade: boolean;
+    /**
+     * Other affected elements, usually children of the toggled element.
+     */
+    readonly elements: Element[];
     /**
      * Creates a new MaterialToggleEvent.
      * @param source element which triggered the event (not the dispatcher)
      * @param state toggle state of type {@link MaterialState}
-     * @param whether the state change cascaded to children
+     * @param elements other toggled elements
      */
-    constructor(source: Nullable<Element>, state: MaterialState, cascade: boolean);
+    constructor(source: Nullable<Element>, state: MaterialState, elements: Element[]);
 }
