@@ -16,7 +16,6 @@
         @include container-backgrounds;
     }
 
-    /* stylelint-disable-next-line selector-class-pattern */
     &:has(.md-dialog--visible) {
         overflow: hidden;
     }

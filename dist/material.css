@@ -238,7 +238,6 @@ code * {
 .md-body {
   display: flex;
   flex-direction: column;
-  /* stylelint-disable-next-line selector-class-pattern */
 }
 .md-body[data-md-theme=light] {
   background-color: rgb(242, 236, 244);
