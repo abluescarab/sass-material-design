@@ -127,11 +127,11 @@ function populateTree(tree, map) {
 }
 /**
  * Toggles child checkboxes.
- * @param element parent element
+ * @param checkbox checkbox input
  * @param checked whether to check or uncheck children
  */
-function toggleCheckboxes(element, checked) {
-    const subtree = element?.nextElementSibling;
+function toggleCheckboxes(checkbox, checked) {
+    const subtree = getParentWithClass(checkbox, "md-checkbox")?.nextElementSibling;
     if (!subtree?.classList.contains("md-tree__subtree")) {
         return;
     }
@@ -155,19 +155,22 @@ function treeClicked(tree, target) {
     if (el.classList.contains("md-icon-button")) {
         const expand = el.innerText == "add";
         toggleAll(el.parentElement?.nextElementSibling, expand, tree.dataset.mdCascadeToggled);
-        tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed));
+        tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed, (expand && tree.dataset.mdCascadeToggled == "expanded") ||
+            (!expand && tree.dataset.mdCascadeToggled == "collapsed")));
     }
     else if (el instanceof HTMLInputElement) {
         const checked = el.checked;
         const cascadeChecked = tree.dataset.mdCascadeChecked;
         const checkboxes = tree.dataset.mdCheckboxes;
+        let cascaded = false;
         if ((checkboxes == "all" || checkboxes == "subtrees") &&
             (cascadeChecked == "both" ||
                 (cascadeChecked == "checked" && checked) ||
                 (cascadeChecked == "unchecked" && !checked))) {
-            toggleCheckboxes(getParentWithClass(el, "md-checkbox"), checked);
+            toggleCheckboxes(el, checked);
+            cascaded = true;
         }
-        tree.dispatchEvent(new MaterialToggleEvent(el, checked ? MaterialState.Checked : MaterialState.Unchecked));
+        tree.dispatchEvent(new MaterialToggleEvent(el, checked ? MaterialState.Checked : MaterialState.Unchecked, cascaded));
     }
 }
 /**
@@ -230,7 +233,7 @@ export function populate(tree, map) {
 }
 /**
  * Expands or collapses a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  */
 export function toggle(tree, expand) {
@@ -247,7 +250,7 @@ export function toggle(tree, expand) {
 }
 /**
  * Expands or collapses all elements in a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
  */

@@ -6,6 +6,7 @@ import {
     getChildByClassName,
     getParentWithClass,
     initialize,
+    MaterialToggleEvent,
     setTheme,
     stringToSelector,
     wrap,

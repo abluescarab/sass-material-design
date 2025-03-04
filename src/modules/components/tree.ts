@@ -171,11 +171,14 @@ function populateTree(tree: Element | null, map: object): void {
 
 /**
  * Toggles child checkboxes.
- * @param element parent element
+ * @param checkbox checkbox input
  * @param checked whether to check or uncheck children
  */
-function toggleCheckboxes(element: Element | null, checked: boolean): void {
-    const subtree = element?.nextElementSibling;
+function toggleCheckboxes(checkbox: Element | null, checked: boolean): void {
+    const subtree = getParentWithClass(
+        checkbox,
+        "md-checkbox"
+    )?.nextElementSibling;
 
     if (!subtree?.classList.contains("md-tree__subtree")) {
         return;
@@ -216,13 +219,16 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
         tree.dispatchEvent(
             new MaterialToggleEvent(
                 el,
-                expand ? MaterialState.Expanded : MaterialState.Collapsed
+                expand ? MaterialState.Expanded : MaterialState.Collapsed,
+                (expand && tree.dataset.mdCascadeToggled == "expanded") ||
+                    (!expand && tree.dataset.mdCascadeToggled == "collapsed")
             )
         );
     } else if (el instanceof HTMLInputElement) {
         const checked = el.checked;
         const cascadeChecked = tree.dataset.mdCascadeChecked;
         const checkboxes = tree.dataset.mdCheckboxes;
+        let cascaded = false;
 
         if (
             (checkboxes == "all" || checkboxes == "subtrees") &&
@@ -230,13 +236,15 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
                 (cascadeChecked == "checked" && checked) ||
                 (cascadeChecked == "unchecked" && !checked))
         ) {
-            toggleCheckboxes(getParentWithClass(el, "md-checkbox"), checked);
+            toggleCheckboxes(el, checked);
+            cascaded = true;
         }
 
         tree.dispatchEvent(
             new MaterialToggleEvent(
                 el,
-                checked ? MaterialState.Checked : MaterialState.Unchecked
+                checked ? MaterialState.Checked : MaterialState.Unchecked,
+                cascaded
             )
         );
     }
@@ -333,7 +341,7 @@ export function populate(tree: Element | null, map: object): void {
 
 /**
  * Expands or collapses a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  */
 export function toggle(
@@ -360,7 +368,7 @@ export function toggle(
 
 /**
  * Expands or collapses all elements in a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
  */

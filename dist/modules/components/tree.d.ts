@@ -30,13 +30,13 @@ export declare function initialize(tree: Element, itemPrefix?: string | null): v
 export declare function populate(tree: Element | null, map: object): void;
 /**
  * Expands or collapses a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  */
 export declare function toggle(tree: Element | null | undefined, expand: boolean): void;
 /**
  * Expands or collapses all elements in a tree.
- * @param tree element to toggle
+ * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
  */
