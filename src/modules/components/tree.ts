@@ -5,6 +5,7 @@
 
 import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../events.js";
+import { Nullable } from "../types.js";
 import {
     getChildByClassName,
     getParentWithClass,
@@ -344,10 +345,7 @@ export function populate(tree: Element | null, map: object): void {
  * @param tree tree to toggle
  * @param expand whether to expand or collapse
  */
-export function toggle(
-    tree: Element | null | undefined,
-    expand: boolean
-): void {
+export function toggle(tree: Nullable<Element>, expand: boolean): void {
     if (!tree || !tree.classList.contains("md-tree__subtree")) {
         return;
     }
@@ -373,7 +371,7 @@ export function toggle(
  * @param cascadeToggled whether to expand or collapse children with parent
  */
 export function toggleAll(
-    tree: Element | null | undefined,
+    tree: Nullable<Element>,
     expand: boolean,
     cascadeToggled: string | undefined
 ): void {

@@ -3,6 +3,8 @@
  * @description     Helper file with custom event types.
  ******************************************************************************/
 
+import { Nullable } from "./types.js";
+
 /**
  * The state of any toggleable element.
  */
@@ -45,14 +47,14 @@ export enum MaterialState {
  * A base for all custom Material events.
  */
 export class MaterialEvent extends Event {
-    readonly source: Element | null | undefined;
+    readonly source: Nullable<Element>;
 
     /**
      * Creates a new MaterialEvent.
      * @param type event name
      * @param source element which triggered the event (not the dispatcher)
      */
-    constructor(type: string, source: Element | null | undefined) {
+    constructor(type: string, source: Nullable<Element>) {
         super(`material:${type}`);
         this.source = source;
     }
@@ -71,11 +73,7 @@ export class MaterialChangeEvent<T> extends MaterialEvent {
      * @param oldValue value before change
      * @param newValue value after change
      */
-    constructor(
-        source: Element | null | undefined,
-        oldValue?: T,
-        newValue?: T
-    ) {
+    constructor(source: Nullable<Element>, oldValue?: T, newValue?: T) {
         super("change", source);
         this.oldValue = oldValue;
         this.newValue = newValue;
@@ -96,7 +94,7 @@ export class MaterialToggleEvent extends MaterialEvent {
      * @param whether the state change cascaded to children
      */
     constructor(
-        source: Element | null | undefined,
+        source: Nullable<Element>,
         state: MaterialState,
         cascade: boolean
     ) {

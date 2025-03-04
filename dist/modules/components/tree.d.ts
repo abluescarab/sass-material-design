@@ -2,6 +2,7 @@
  * @file            modules/components/tree.ts
  * @description     Implementation file for tree components.
  ******************************************************************************/
+import { Nullable } from "../types.js";
 /**
  * Checks if a tree has any expanded nodes.
  * @param tree parent tree
@@ -33,11 +34,11 @@ export declare function populate(tree: Element | null, map: object): void;
  * @param tree tree to toggle
  * @param expand whether to expand or collapse
  */
-export declare function toggle(tree: Element | null | undefined, expand: boolean): void;
+export declare function toggle(tree: Nullable<Element>, expand: boolean): void;
 /**
  * Expands or collapses all elements in a tree.
  * @param tree tree to toggle
  * @param expand whether to expand or collapse
  * @param cascadeToggled whether to expand or collapse children with parent
  */
-export declare function toggleAll(tree: Element | null | undefined, expand: boolean, cascadeToggled: string | undefined): void;
+export declare function toggleAll(tree: Nullable<Element>, expand: boolean, cascadeToggled: string | undefined): void;
