@@ -47,8 +47,10 @@
     }
 
     &__icon {
-        font-family: "Material Symbols Outlined", sans-serif;
-        font-size: $icon__font-size;
+        @extend %md-icon;
+
+        width: auto;
+        height: auto;
     }
 
     &__label {

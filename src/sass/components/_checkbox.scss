@@ -84,15 +84,11 @@
         border: $border-size solid transparent;
 
         &::after {
-            @include square($checkbox__width);
+            @extend %md-icon;
+            @include square($checkbox__width, true);
 
             position: relative;
             left: -$border-size;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Material Symbols Outlined", sans-serif;
-            font-size: $checkbox__width;
         }
     }
 

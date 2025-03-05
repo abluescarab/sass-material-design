@@ -118,10 +118,8 @@
         border-radius: sys("shape", "corner", "full");
 
         &::after {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Material Symbols Outlined", sans-serif;
+            @extend %md-icon;
+
             font-size: calc($size + $symbol__padding-double);
         }
     }

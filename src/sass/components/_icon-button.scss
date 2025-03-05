@@ -13,18 +13,14 @@
 .md-icon-button {
     $parent: &;
 
-    @include square($icon-button__width);
+    @extend %md-icon;
+    @include square(40px);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex: none;
-    border: 0;
-    border-radius: sys("shape", "corner", "full");
-    font-family: "Material Symbols Outlined", sans-serif;
-    font-size: $icon__font-size;
-    user-select: none;
-    background-color: transparent;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 
     @include themes.themify {
         @include enabled-styling(

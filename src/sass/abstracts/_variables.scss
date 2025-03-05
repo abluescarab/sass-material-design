@@ -11,16 +11,14 @@ $assets: "./assets" !default;
 $border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
     "ridge", "solid";
 
-// icons
-$icon__font-size: 24px;
-$symbol__padding: 2px; // 2dp padding added to Material Symbols by Google
+// symbols
+$symbol__padding: 2px; // padding added to Material Symbols by Google
 $symbol__padding-double: calc($symbol__padding * 2);
-$symbol__font-size: $icon__font-size + $symbol__padding-double;
+$symbol__font-size: 24px + $symbol__padding-double;
 
 // md-icon-button
 $icon-button__styles: "filled", "tonal", "outlined";
-$icon-button__width: 40px;
-$icon-button--small__width: calc($icon-button__width / 2);
+$icon-button--small__width: 20px;
 $icon-button--small__half: calc($icon-button--small__width / 2);
 
 // md-checkbox

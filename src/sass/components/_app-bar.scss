@@ -31,14 +31,14 @@
     }
 
     &__icon {
+        @extend %md-icon;
+        @include square($button-size);
+
         grid-row: 1;
 
         @include themes.themify {
-            @include icon(
-                $button-size,
-                $icon__font-size,
-                themes.color("on-surface")
-            );
+            color: themes.color("on-surface");
+
             @include mix-states(
                 transparent,
                 themes.color("on-surface"),

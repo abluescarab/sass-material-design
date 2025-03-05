@@ -136,29 +136,6 @@
     left: -9999px !important;
 }
 
-/// Styles a Material Symbol icon.
-/// @param {any} $size width and height of the icon
-/// @param {any} $font-size font size of the icon
-/// @param {color} $tint color of the icon
-@mixin icon($size, $font-size: $size, $tint: null) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @include square($size);
-
-    border: 0;
-    border-radius: sys("shape", "corner", "full");
-    background-color: transparent;
-    font-family: "Material Symbols Outlined", sans-serif;
-    font-size: $font-size;
-    user-select: none;
-
-    @if $tint {
-        color: $tint;
-    }
-}
-
 /// Adds an indicator to the current element.
 /// @param {color} $color indicator color
 /// @param {Boolean} $primary [false] whether indicator has "primary" style

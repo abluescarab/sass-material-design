@@ -13,6 +13,11 @@
     border: 0;
     width: max-content;
     height: max-content;
+    user-select: none;
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 
     @include themes.themify {
         color: themes.color("primary");

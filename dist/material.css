@@ -26,6 +26,23 @@ pre code {
   white-space: pre-line;
 }
 
+.md-tabs__icon, .md-switch__handle::after, .md-segmented__icon, .md-segmented__check, .md-icon-button, .md-fab__icon, .md-dialog__icon, .md-checkbox__box::after, .md-button__icon, .md-banner__icon, .md-app-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 /* Roboto */
 @font-face {
   font-family: Roboto;
@@ -410,6 +427,12 @@ code * {
   width: max-content;
   height: -moz-max-content;
   height: max-content;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.md-action:not(:disabled) {
+  cursor: pointer;
 }
 [data-md-theme=light] .md-action {
   color: rgb(104, 84, 142);
@@ -436,23 +459,12 @@ code * {
   color: rgb(231, 224, 232);
 }
 .md-app-bar__icon {
-  grid-row: 1;
-}
-[data-md-theme=light] .md-app-bar__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 48px;
   height: 48px;
   line-height: 48px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  grid-row: 1;
+}
+[data-md-theme=light] .md-app-bar__icon {
   color: rgb(29, 27, 32);
   background-color: transparent;
 }
@@ -469,20 +481,6 @@ code * {
   background-color: rgba(29, 27, 32, 0.1);
 }
 [data-md-theme=dark] .md-app-bar__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   color: rgb(231, 224, 232);
   background-color: transparent;
 }
@@ -643,20 +641,10 @@ code * {
   left: -9999px !important;
 }
 .md-banner__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 56px;
   height: 56px;
   line-height: 56px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 56px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   grid-column: 1;
   grid-row: span 2;
 }
@@ -687,30 +675,26 @@ code * {
   gap: 8px;
   border: 0;
   border-radius: 9999px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   font-family: "Roboto";
   line-height: 20px;
   font-size: 14px;
   letter-spacing: 0.1px;
   font-weight: 500;
 }
+.md-button:not(:disabled) {
+  cursor: pointer;
+}
 .md-button:has(.md-button__icon) {
   padding-left: 16px;
 }
 .md-button__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 18px;
   height: 18px;
   line-height: 18px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 18px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 [data-md-theme=light] .md-button[data-md-type=elevated]:disabled {
   background-color: rgba(29, 27, 32, 0.12);
@@ -1086,13 +1070,9 @@ code * {
   width: 18px;
   height: 18px;
   line-height: 18px;
+  font-size: 18px;
   position: relative;
   left: -2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 18px;
 }
 .md-checkbox__text {
   order: 2;
@@ -1213,22 +1193,6 @@ code * {
 .md-dialog__header {
   display: flex;
   align-items: center;
-}
-.md-dialog__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 .md-dialog__headline {
   width: 100%;
@@ -1410,22 +1374,6 @@ code * {
 [data-md-theme=dark] .md-fab:focus, [data-md-theme=dark] .md-fab:active {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
 }
-.md-fab__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
 .md-fab__label {
   font-family: "Roboto";
   line-height: 20px;
@@ -1480,20 +1428,9 @@ code * {
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 .md-fab--branded .md-fab__icon, .md-fab[data-md-size=large] .md-fab__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 36px;
   height: 36px;
   line-height: 36px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 36px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 .md-fab:not([data-md-size=extended]) .md-fab__label {
   position: absolute !important;
@@ -1514,20 +1451,9 @@ code * {
   border-radius: 28px;
 }
 .md-fab[data-md-size=large] .md-fab--branded .md-fab__icon, .md-fab[data-md-size=large] .md-fab[data-md-size=large] .md-fab__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 48px;
   height: 48px;
   line-height: 48px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 48px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 .md-fab[data-md-size=extended] {
   min-width: 80px;
@@ -1635,18 +1561,10 @@ code * {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex: none;
-  border: 0;
-  border-radius: 9999px;
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  background-color: transparent;
+}
+.md-icon-button:not(:disabled) {
+  cursor: pointer;
 }
 [data-md-theme=light] .md-icon-button:disabled {
   color: rgba(29, 27, 32, 0.38);
@@ -2161,20 +2079,10 @@ code * {
   left: -9999px !important;
 }
 .md-segmented__icon, .md-segmented__check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 18px;
   height: 18px;
   line-height: 18px;
-  border: 0;
-  border-radius: 9999px;
-  background-color: transparent;
-  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 18px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 
 .md-snackbar {
@@ -2267,10 +2175,6 @@ code * {
   border-radius: 9999px;
 }
 .md-switch__handle::after {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 20px;
 }
 [data-md-theme=light] .md-switch:not(:has(input:disabled)) label:hover .md-switch__track {
@@ -2471,8 +2375,8 @@ code * {
   color: rgb(203, 196, 207);
 }
 .md-tabs__icon {
-  font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
+  width: auto;
+  height: auto;
 }
 .md-tabs__label {
   font-family: "Roboto";

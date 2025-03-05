@@ -24,15 +24,21 @@
     gap: 8px;
     border: 0;
     border-radius: sys("shape", "corner", "full");
+    user-select: none;
 
     @include font-styling("label-large");
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 
     &:has(&__icon) {
         padding-left: 16px;
     }
 
     &__icon {
-        @include icon(18px);
+        @extend %md-icon;
+        @include square(18px, true);
     }
 
     @include themes.themify {
