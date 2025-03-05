@@ -34,7 +34,7 @@
     }
 
     &__icon {
-        @include square(56px, true);
+        @include icon(56px);
 
         grid-column: 1;
         grid-row: span 2;

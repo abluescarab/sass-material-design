@@ -31,16 +31,14 @@
     }
 
     &__icon {
-        @include square($button-size);
-
         grid-row: 1;
-        border: 0;
-        font-size: $icon__font-size;
-        border-radius: sys("shape", "corner", "full");
 
         @include themes.themify {
-            color: themes.color("on-surface");
-
+            @include icon(
+                $button-size,
+                $icon__font-size,
+                themes.color("on-surface")
+            );
             @include mix-states(
                 transparent,
                 themes.color("on-surface"),

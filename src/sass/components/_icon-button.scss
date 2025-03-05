@@ -15,10 +15,15 @@
 
     @include square($icon-button__width);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: none;
     border: 0;
     border-radius: sys("shape", "corner", "full");
+    font-family: "Material Symbols Outlined", sans-serif;
     font-size: $icon__font-size;
+    user-select: none;
     background-color: transparent;
 
     @include themes.themify {

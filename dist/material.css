@@ -439,15 +439,23 @@ code * {
   color: rgb(231, 224, 232);
 }
 .md-app-bar__icon {
+  grid-row: 1;
+}
+[data-md-theme=light] .md-app-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
   line-height: 48px;
-  grid-row: 1;
   border: 0;
-  font-size: 24px;
   border-radius: 9999px;
-}
-[data-md-theme=light] .md-app-bar__icon {
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   color: rgb(29, 27, 32);
   background-color: transparent;
 }
@@ -464,6 +472,20 @@ code * {
   background-color: rgba(29, 27, 32, 0.1);
 }
 [data-md-theme=dark] .md-app-bar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
+  font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   color: rgb(231, 224, 232);
   background-color: transparent;
 }
@@ -624,10 +646,20 @@ code * {
   left: -9999px !important;
 }
 .md-banner__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 56px;
   height: 56px;
   line-height: 56px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 56px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   grid-column: 1;
   grid-row: span 2;
 }
@@ -668,10 +700,20 @@ code * {
   padding-left: 16px;
 }
 .md-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 18px;
   height: 18px;
   line-height: 18px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 [data-md-theme=light] .md-button[data-md-type=elevated]:disabled {
   background-color: rgba(29, 27, 32, 0.12);
@@ -1176,10 +1218,20 @@ code * {
   align-items: center;
 }
 .md-dialog__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
   line-height: 24px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .md-dialog__headline {
   width: 100%;
@@ -1362,10 +1414,20 @@ code * {
   box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
 }
 .md-fab__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
   line-height: 24px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .md-fab__label {
   font-family: "Roboto";
@@ -1421,10 +1483,20 @@ code * {
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }
 .md-fab--branded .md-fab__icon, .md-fab[data-md-size=large] .md-fab__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 36px;
   height: 36px;
   line-height: 36px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 36px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .md-fab:not([data-md-size=extended]) .md-fab__label {
   position: absolute !important;
@@ -1445,10 +1517,20 @@ code * {
   border-radius: 28px;
 }
 .md-fab[data-md-size=large] .md-fab--branded .md-fab__icon, .md-fab[data-md-size=large] .md-fab[data-md-size=large] .md-fab__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
   line-height: 48px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 48px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .md-fab[data-md-size=extended] {
   min-width: 80px;
@@ -1556,10 +1638,17 @@ code * {
   width: 40px;
   height: 40px;
   line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: none;
   border: 0;
   border-radius: 9999px;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 24px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   background-color: transparent;
 }
 [data-md-theme=light] .md-icon-button:disabled {
@@ -2127,10 +2216,20 @@ code * {
   left: -9999px !important;
 }
 .md-segmented__icon, .md-segmented__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 18px;
   height: 18px;
   line-height: 18px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 [data-md-theme=light] .md-switch {
@@ -2375,6 +2474,7 @@ code * {
   color: rgb(203, 196, 207);
 }
 .md-tabs__icon {
+  font-family: "Material Symbols Outlined", sans-serif;
   font-size: 24px;
 }
 .md-tabs__label {

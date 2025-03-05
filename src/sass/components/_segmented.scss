@@ -141,6 +141,6 @@
 
     &__icon,
     &__check {
-        @include square(18px, true);
+        @include icon(18px);
     }
 }

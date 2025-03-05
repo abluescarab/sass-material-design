@@ -49,8 +49,9 @@
         </style>
     </head>
     <body class="md-body" data-md-theme="light">
+        <!-- TODO: ensure all elements are styled correctly when in a span -->
         <div class="md-banner md-banner--visible">
-            <span class="md-banner__icon md-symbol">sentiment_satisfied</span>
+            <span class="md-banner__icon">sentiment_satisfied</span>
             <span class="md-banner__text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </span>
@@ -67,44 +68,40 @@
 
             <div class="md-pane__content flex rows">
                 <button id="fab-color" class="md-button" data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">palette</span>
+                    <span class="md-button__icon">palette</span>
                     Primary
                 </button>
                 <button id="fab-size" class="md-button" data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">
-                        aspect_ratio
-                    </span>
+                    <span class="md-button__icon"> aspect_ratio </span>
                     Extended
                 </button>
                 <button
                     id="fab-elevation"
                     class="md-button"
                     data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">height</span>
+                    <span class="md-button__icon">height</span>
                     High
                 </button>
                 <button id="fab-lr" class="md-button" data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">swap_horiz</span>
+                    <span class="md-button__icon">swap_horiz</span>
                     Right
                 </button>
                 <button id="fab-tb" class="md-button" data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">swap_vert</span>
+                    <span class="md-button__icon">swap_vert</span>
                     Bottom
                 </button>
                 <button
                     id="fab-orientation"
                     class="md-button"
                     data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">sync</span>
+                    <span class="md-button__icon">sync</span>
                     Forward
                 </button>
                 <button
                     id="fab-visibility"
                     class="md-button"
                     data-md-type="tonal">
-                    <span class="md-button__icon md-symbol">
-                        visibility_off
-                    </span>
+                    <span class="md-button__icon"> visibility_off </span>
                     Hide
                 </button>
             </div>
@@ -194,9 +191,7 @@
                 <div id="dialog-2" class="md-dialog">
                     <div class="md-dialog__wrapper">
                         <div class="md-dialog__header">
-                            <span class="md-dialog__icon md-symbol"
-                                >history_edu</span
-                            >
+                            <span class="md-dialog__icon">history_edu</span>
                             <h2 class="md-dialog__headline">Lorem ipsum?</h2>
                         </div>
                         <div class="md-dialog__content">
@@ -240,7 +235,7 @@
                     <div class="md-dialog__wrapper">
                         <div class="md-dialog__header">
                             <button
-                                class="md-icon-button md-symbol"
+                                class="md-icon-button"
                                 id="close-fullscreen-dialog">
                                 close
                             </button>
@@ -320,8 +315,7 @@
                                 <div id="nested-long-dialog" class="md-dialog">
                                     <div class="md-dialog__wrapper">
                                         <div class="md-dialog__header">
-                                            <span
-                                                class="md-dialog__icon md-symbol"
+                                            <span class="md-dialog__icon"
                                                 >history_edu</span
                                             >
                                             <h2 class="md-dialog__headline">
@@ -379,12 +373,10 @@
             class="md-pane"
             data-md-background="surface">
             <div class="md-app-bar" data-md-type="center">
-                <button class="md-app-bar__icon md-symbol">arrow_back</button>
+                <button class="md-app-bar__icon">arrow_back</button>
                 <h1 class="md-app-bar__headline">Center App Bar</h1>
                 <div class="md-app-bar__trailing">
-                    <button class="md-app-bar__icon md-symbol">
-                        more_vert
-                    </button>
+                    <button class="md-app-bar__icon">more_vert</button>
                 </div>
             </div>
         </section>
@@ -394,13 +386,11 @@
             class="md-pane"
             data-md-background="surface">
             <div class="md-app-bar">
-                <button class="md-app-bar__icon md-symbol">arrow_back</button>
+                <button class="md-app-bar__icon">arrow_back</button>
                 <h1 class="md-app-bar__headline">Small App Bar</h1>
                 <div class="md-app-bar__trailing">
-                    <button class="md-app-bar__icon md-symbol">search</button>
-                    <button class="md-app-bar__icon md-symbol">
-                        more_vert
-                    </button>
+                    <button class="md-app-bar__icon">search</button>
+                    <button class="md-app-bar__icon">more_vert</button>
                 </div>
             </div>
         </section>
@@ -410,13 +400,11 @@
             class="md-pane"
             data-md-background="surface">
             <div class="md-app-bar" data-md-type="medium">
-                <button class="md-app-bar__icon md-symbol">arrow_back</button>
+                <button class="md-app-bar__icon">arrow_back</button>
                 <h1 class="md-app-bar__headline">Medium App Bar</h1>
                 <div class="md-app-bar__trailing">
-                    <button class="md-app-bar__icon md-symbol">search</button>
-                    <button class="md-app-bar__icon md-symbol">
-                        more_vert
-                    </button>
+                    <button class="md-app-bar__icon">search</button>
+                    <button class="md-app-bar__icon">more_vert</button>
                 </div>
             </div>
         </section>
@@ -426,13 +414,11 @@
             class="md-pane"
             data-md-background="surface">
             <div class="md-app-bar" data-md-type="large">
-                <button class="md-app-bar__icon md-symbol">arrow_back</button>
+                <button class="md-app-bar__icon">arrow_back</button>
                 <h1 class="md-app-bar__headline">Large App Bar</h1>
                 <div class="md-app-bar__trailing">
-                    <button class="md-app-bar__icon md-symbol">search</button>
-                    <button class="md-app-bar__icon md-symbol">
-                        more_vert
-                    </button>
+                    <button class="md-app-bar__icon">search</button>
+                    <button class="md-app-bar__icon">more_vert</button>
                 </div>
             </div>
         </section>
@@ -590,12 +576,12 @@
                 <div class="md-tabs__page attributes" data-md-tab="1">
                     <button class="md-button">Button</button>
                     <button class="md-button">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Button
                     </button>
                     <button class="md-button" disabled>Button</button>
                     <button class="md-button" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Button
                     </button>
                 </div>
@@ -604,14 +590,14 @@
                         Elevated
                     </button>
                     <button class="md-button" data-md-type="elevated">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Elevated
                     </button>
                     <button class="md-button" data-md-type="elevated" disabled>
                         Elevated
                     </button>
                     <button class="md-button" data-md-type="elevated" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Elevated
                     </button>
                 </div>
@@ -620,14 +606,14 @@
                         Filled
                     </button>
                     <button class="md-button" data-md-type="filled">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Filled
                     </button>
                     <button class="md-button" data-md-type="filled" disabled>
                         Filled
                     </button>
                     <button class="md-button" data-md-type="filled" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Filled
                     </button>
                 </div>
@@ -637,14 +623,14 @@
                         Tonal
                     </button>
                     <button class="md-button" data-md-type="tonal">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Tonal
                     </button>
                     <button class="md-button" data-md-type="tonal" disabled>
                         Tonal
                     </button>
                     <button class="md-button" data-md-type="tonal" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Tonal
                     </button>
                 </div>
@@ -654,28 +640,28 @@
                         Outlined
                     </button>
                     <button class="md-button" data-md-type="outlined">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Outlined
                     </button>
                     <button class="md-button" data-md-type="outlined" disabled>
                         Outlined
                     </button>
                     <button class="md-button" data-md-type="outlined" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Outlined
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="6">
                     <button class="md-button" data-md-type="text">Text</button>
                     <button class="md-button" data-md-type="text">
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Text
                     </button>
                     <button class="md-button" data-md-type="text" disabled>
                         Text
                     </button>
                     <button class="md-button" data-md-type="text" disabled>
-                        <span class="md-button__icon md-symbol">add</span>
+                        <span class="md-button__icon">add</span>
                         Text
                     </button>
                 </div>
@@ -703,87 +689,78 @@
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="1">
-                    <button class="md-icon-button md-symbol">favorite</button>
-                    <button
-                        class="md-icon-button md-icon-button--selected md-symbol">
+                    <button class="md-icon-button">favorite</button>
+                    <button class="md-icon-button md-icon-button--selected">
                         favorite
                     </button>
-                    <button class="md-icon-button md-symbol" disabled>
-                        favorite
-                    </button>
+                    <button class="md-icon-button" disabled>favorite</button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         disabled>
                         favorite
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="2">
+                    <button class="md-icon-button" data-md-type="filled">
+                        favorite
+                    </button>
                     <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="filled">
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
-                        data-md-type="filled">
-                        favorite
-                    </button>
-                    <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button"
                         data-md-type="filled"
                         disabled>
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="filled"
                         disabled>
                         favorite
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="3">
+                    <button class="md-icon-button" data-md-type="tonal">
+                        favorite
+                    </button>
                     <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="tonal">
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
-                        data-md-type="tonal">
-                        favorite
-                    </button>
-                    <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button"
                         data-md-type="tonal"
                         disabled>
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="tonal"
                         disabled>
                         favorite
                     </button>
                 </div>
                 <div class="md-tabs__page attributes" data-md-tab="4">
+                    <button class="md-icon-button" data-md-type="outlined">
+                        favorite
+                    </button>
                     <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="outlined">
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
-                        data-md-type="outlined">
-                        favorite
-                    </button>
-                    <button
-                        class="md-icon-button md-symbol"
+                        class="md-icon-button"
                         data-md-type="outlined"
                         disabled>
                         favorite
                     </button>
                     <button
-                        class="md-icon-button md-icon-button--selected md-symbol"
+                        class="md-icon-button md-icon-button--selected"
                         data-md-type="outlined"
                         disabled>
                         favorite
@@ -819,9 +796,7 @@
                     <div class="md-segmented">
                         <button
                             class="md-segmented__button md-segmented__button--selected">
-                            <span class="md-segmented__icon md-symbol"
-                                >star</span
-                            >
+                            <span class="md-segmented__icon">star</span>
                             <span class="md-segmented__text">Button</span>
                         </button>
                         <button class="md-segmented__button">
@@ -842,9 +817,7 @@
                     <div class="md-segmented" data-md-require-select>
                         <button
                             class="md-segmented__button md-segmented__button--selected">
-                            <span class="md-segmented__icon md-symbol"
-                                >star</span
-                            >
+                            <span class="md-segmented__icon">star</span>
                             <span class="md-segmented__text">Button</span>
                         </button>
                         <button class="md-segmented__button">
@@ -862,9 +835,7 @@
                     <div class="md-segmented" data-md-multiselect>
                         <button
                             class="md-segmented__button md-segmented__button--selected">
-                            <span class="md-segmented__icon md-symbol"
-                                >star</span
-                            >
+                            <span class="md-segmented__icon">star</span>
                             <span class="md-segmented__text">Button</span>
                         </button>
                         <button class="md-segmented__button">
@@ -1040,7 +1011,7 @@
         <section id="tooltips" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
                 <button
-                    class="md-app-bar__icon md-symbol"
+                    class="md-app-bar__icon"
                     data-md-tooltip="app-bar-leading-tooltip">
                     tooltip_2
                 </button>
@@ -1050,7 +1021,7 @@
                 <h1 class="md-app-bar__headline">Tooltips</h1>
                 <div class="md-app-bar__trailing">
                     <button
-                        class="md-app-bar__icon md-symbol"
+                        class="md-app-bar__icon"
                         data-md-tooltip="app-bar-trailing-tooltip">
                         tooltip_2
                     </button>
@@ -1125,19 +1096,15 @@
                 <div class="md-tabs" data-md-type="primary">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
-                            <span class="md-tabs__icon md-symbol">home</span>
+                            <span class="md-tabs__icon">home</span>
                             <span class="md-tabs__label">Tab 1</span>
                         </button>
                         <button class="md-tabs__button" data-md-tab="2">
-                            <span class="md-tabs__icon md-symbol">
-                                shopping_bag
-                            </span>
+                            <span class="md-tabs__icon"> shopping_bag </span>
                             <span class="md-tabs__label">Tab 2</span>
                         </button>
                         <button class="md-tabs__button" data-md-tab="3">
-                            <span class="md-tabs__icon md-symbol">
-                                local_shipping
-                            </span>
+                            <span class="md-tabs__icon"> local_shipping </span>
                             <span class="md-tabs__label">Tab 3</span>
                         </button>
                     </div>
@@ -1189,19 +1156,15 @@
                 <div class="md-tabs" data-md-type="secondary">
                     <div class="md-tabs__nav">
                         <button class="md-tabs__button" data-md-tab="1">
-                            <span class="md-tabs__icon md-symbol">home</span>
+                            <span class="md-tabs__icon">home</span>
                             <span class="md-tabs__label">Tab 1</span>
                         </button>
                         <button class="md-tabs__button" data-md-tab="2">
-                            <span class="md-tabs__icon md-symbol">
-                                shopping_bag
-                            </span>
+                            <span class="md-tabs__icon"> shopping_bag </span>
                             <span class="md-tabs__label">Tab 2</span>
                         </button>
                         <button class="md-tabs__button" data-md-tab="3">
-                            <span class="md-tabs__icon md-symbol">
-                                local_shipping
-                            </span>
+                            <span class="md-tabs__icon"> local_shipping </span>
                             <span class="md-tabs__label">Tab 3</span>
                         </button>
                     </div>
@@ -1413,14 +1376,14 @@
                 class="md-fab md-fab--low"
                 data-md-size="small"
                 data-md-color="secondary">
-                <span class="md-fab__icon md-symbol">dark_mode</span>
+                <span class="md-fab__icon">dark_mode</span>
             </button>
             <button
                 id="fab"
                 class="md-fab"
                 data-md-size="extended"
                 data-md-color="primary">
-                <span class="md-fab__icon md-symbol">arrow_upward</span>
+                <span class="md-fab__icon">arrow_upward</span>
                 <span class="md-fab__label">Top</span>
             </button>
         </div>
