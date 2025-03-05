@@ -6,7 +6,6 @@ import {
     getChildByClassName,
     getParentWithClass,
     initialize,
-    MaterialToggleEvent,
     setTheme,
     stringToSelector,
     wrap,
@@ -71,6 +70,10 @@ function changeThemeButtonIcon(theme: string | null) {
 }
 
 function createAttributes(el: Element) {
+    if (!el.children.length) {
+        return;
+    }
+
     const wrapper = wrap(el, "div", true);
     wrapper.classList.add("flex", "fill");
 
