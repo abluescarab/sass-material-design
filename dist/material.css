@@ -1988,58 +1988,6 @@ code * {
   background-color: #d5ced6;
 }
 
-.md-snackbar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
-  border-radius: 4px;
-  box-sizing: border-box;
-  align-items: center;
-  padding: 16px;
-  margin: 16px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-family: "Roboto";
-  line-height: 20px;
-  font-size: 14px;
-  letter-spacing: 0.25px;
-  font-weight: 400;
-}
-[data-md-theme=light] .md-snackbar {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
-  background-color: rgb(50, 47, 53);
-  color: rgb(245, 239, 247);
-}
-[data-md-theme=dark] .md-snackbar {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
-  background-color: rgb(231, 224, 232);
-  color: rgb(50, 47, 53);
-}
-.md-snackbar:not(.md-snackbar--visible) {
-  position: absolute !important;
-  inset: 0 auto auto 0;
-  top: -9999px !important;
-  left: -9999px !important;
-}
-.md-snackbar .md-action {
-  grid-row: 1;
-  grid-column: 2;
-  justify-self: end;
-  margin-right: 0;
-}
-[data-md-theme=light] .md-snackbar .md-action {
-  color: rgb(211, 188, 253);
-}
-[data-md-theme=dark] .md-snackbar .md-action {
-  color: rgb(104, 84, 142);
-}
-.md-snackbar--long-action .md-action {
-  grid-row: 2;
-  grid-column: span 2;
-}
-
 .md-segmented {
   display: grid;
   justify-content: center;
@@ -2227,6 +2175,58 @@ code * {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+
+.md-snackbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 16px;
+  margin: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  font-weight: 400;
+}
+[data-md-theme=light] .md-snackbar {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
+  background-color: rgb(50, 47, 53);
+  color: rgb(245, 239, 247);
+}
+[data-md-theme=dark] .md-snackbar {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 9px 0;
+  background-color: rgb(231, 224, 232);
+  color: rgb(50, 47, 53);
+}
+.md-snackbar:not(.md-snackbar--visible) {
+  position: absolute !important;
+  inset: 0 auto auto 0;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+.md-snackbar .md-action {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+  margin-right: 0;
+}
+[data-md-theme=light] .md-snackbar .md-action {
+  color: rgb(211, 188, 253);
+}
+[data-md-theme=dark] .md-snackbar .md-action {
+  color: rgb(104, 84, 142);
+}
+.md-snackbar--long-action .md-action {
+  grid-row: 2;
+  grid-column: span 2;
 }
 
 [data-md-theme=light] .md-switch {
