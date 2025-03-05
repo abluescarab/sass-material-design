@@ -414,11 +414,146 @@
             class="md-pane"
             data-md-background="surface">
             <div class="md-app-bar" data-md-type="large">
-                <button class="md-app-bar__icon">arrow_back</button>
+                <span class="md-app-bar__icon">arrow_back</span>
                 <h1 class="md-app-bar__headline">Large App Bar</h1>
                 <div class="md-app-bar__trailing">
                     <button class="md-app-bar__icon">search</button>
                     <button class="md-app-bar__icon">more_vert</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="menus" class="md-pane" data-md-background="surface">
+            <div class="md-app-bar">
+                <button class="md-app-bar__icon" data-md-menu="menu-example">
+                    more_horiz
+                </button>
+                <h1 class="md-app-bar__headline">Menus</h1>
+                <div class="md-app-bar__trailing">
+                    <button
+                        class="md-app-bar__icon"
+                        data-md-menu="menu-example">
+                        more_vert
+                    </button>
+                </div>
+            </div>
+
+            <div class="md-tabs" data-md-type="secondary">
+                <div class="md-tabs__nav">
+                    <button class="md-tabs__button" data-md-tab="1">
+                        <span class="md-tabs__label">Buttons</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="2">
+                        <span class="md-tabs__label">Spans</span>
+                    </button>
+                    <button class="md-tabs__button" data-md-tab="3">
+                        <span class="md-tabs__label">Anchors</span>
+                    </button>
+                </div>
+                <div class="md-tabs__page attributes flex rows" data-md-tab="1">
+                    <button
+                        class="md-button"
+                        data-md-type="tonal"
+                        data-md-menu="menu-example">
+                        Open menu
+                    </button>
+                    <button
+                        class="md-icon-button"
+                        data-md-type="filled"
+                        data-md-menu="menu-example">
+                        menu
+                    </button>
+                    <button class="md-action" data-md-menu="menu-example">
+                        Open menu
+                    </button>
+                </div>
+                <div class="md-tabs__page attributes flex rows" data-md-tab="2">
+                    <span
+                        class="md-button"
+                        data-md-type="tonal"
+                        data-md-menu="menu-example">
+                        Open menu
+                    </span>
+                    <span
+                        class="md-icon-button"
+                        data-md-type="filled"
+                        data-md-menu="menu-example">
+                        menu
+                    </span>
+                    <span class="md-action" data-md-menu="menu-example">
+                        Open menu
+                    </span>
+                </div>
+                <div class="md-tabs__page attributes flex rows" data-md-tab="3">
+                    <a
+                        class="md-button"
+                        data-md-type="tonal"
+                        data-md-menu="menu-example">
+                        Open menu
+                    </a>
+                    <a
+                        class="md-icon-button"
+                        data-md-type="filled"
+                        data-md-menu="menu-example">
+                        menu
+                    </a>
+                    <a class="md-action" data-md-menu="menu-example">
+                        Open menu
+                    </a>
+                </div>
+            </div>
+
+            <div class="md-menu" id="menu-example">
+                <div class="md-menu__section">
+                    <div class="md-menu__item">
+                        <span class="md-menu__icon md-symbol">visibility</span>
+                        <span class="md-menu__label">Item 1</span>
+                    </div>
+                    <div class="md-menu__item">
+                        <span class="md-menu__label">Item 2</span>
+                    </div>
+                    <div class="md-menu__item">
+                        <span class="md-menu__icon md-symbol">edit</span>
+                        <span class="md-menu__label">Item 3</span>
+                        <span class="md-menu__icon md-symbol">check</span>
+                    </div>
+                </div>
+                <div class="md-menu__section">
+                    <div class="md-menu__item">
+                        <span class="md-menu__label">Item 4</span>
+                        <span class="md-menu__icon md-symbol">check</span>
+                    </div>
+                    <div class="md-menu__item">
+                        <span class="md-menu__label">Item 5</span>
+                    </div>
+                    <div class="md-menu__submenu">
+                        <div class="md-menu__item">
+                            <span class="md-menu__label">Item 1</span>
+                        </div>
+                        <div class="md-menu__item">
+                            <span class="md-menu__label">Item 2</span>
+                        </div>
+                        <div class="md-menu__item">
+                            <span class="md-menu__label">Item 3</span>
+                        </div>
+                        <div class="md-menu__item">
+                            <span class="md-menu__label">Item 4</span>
+                        </div>
+                        <div class="md-menu__submenu">
+                            <div class="md-menu__item">
+                                <span class="md-menu__label">Item 1</span>
+                            </div>
+                            <div class="md-menu__item">
+                                <span class="md-menu__label">Item 2</span>
+                            </div>
+                            <div class="md-menu__item">
+                                <span class="md-menu__label">Item 3</span>
+                            </div>
+                            <div class="md-menu__item">
+                                <span class="md-menu__label">Item 4</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

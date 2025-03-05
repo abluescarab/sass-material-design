@@ -3,6 +3,7 @@
  * @description     Main file.
  ******************************************************************************/
 import { initialize as checkboxInitialize } from "./modules/components/checkbox.js";
+import { initialize as menuInitialize } from "./modules/components/menu.js";
 import { initialize as segmentedInitialize } from "./modules/components/segmented.js";
 import { initialize as switchComponentInitialize } from "./modules/components/switch.js";
 import { initialize as tabsInitialize } from "./modules/components/tabs.js";
@@ -13,8 +14,10 @@ import { initialize as treeInitialize } from "./modules/components/tree.js";
  * the document loads or initialize each element yourself.
  */
 export function initialize() {
+    // TODO: ensure each element is only initialized once
     const elements = {
         ".md-checkbox": checkboxInitialize,
+        ".md-menu": menuInitialize,
         ".md-segmented": segmentedInitialize,
         ".md-switch": switchComponentInitialize,
         ".md-tabs": tabsInitialize,

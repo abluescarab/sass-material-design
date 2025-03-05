@@ -26,7 +26,7 @@ pre code {
   white-space: pre-line;
 }
 
-.md-tabs__icon, .md-switch__handle::after, .md-segmented__icon, .md-segmented__check, .md-icon-button, .md-fab__icon, .md-dialog__icon, .md-checkbox__box::after, .md-button__icon, .md-banner__icon, .md-app-bar__icon {
+.md-tabs__icon, .md-switch__handle::after, .md-segmented__icon, .md-segmented__check, .md-menu__icon, .md-icon-button, .md-fab__icon, .md-dialog__icon, .md-checkbox__box::after, .md-button__icon, .md-banner__icon, .md-app-bar__icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1906,6 +1906,73 @@ code * {
   background-color: #d5ced6;
 }
 
+.md-menu, .md-menu__submenu {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  min-width: 112px;
+  max-width: 280px;
+  padding: 8px 0;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+[data-md-theme=light] .md-menu, [data-md-theme=light] .md-menu__submenu {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 4px 0;
+  background-color: rgb(242, 236, 244);
+}
+[data-md-theme=dark] .md-menu, [data-md-theme=dark] .md-menu__submenu {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 4px 0;
+  background-color: rgb(33, 31, 36);
+}
+.md-menu:not(.md-menu--visible), .md-menu__submenu:not(.md-menu--visible) {
+  position: absolute !important;
+  inset: 0 auto auto 0;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+.md-menu__section:not(:first-child) {
+  padding-top: 8px;
+}
+.md-menu__section:not(:last-child) {
+  padding-bottom: 8px;
+}
+[data-md-theme=light] .md-menu__section:not(:last-child) {
+  border-bottom: 1px solid rgb(203, 196, 207);
+}
+[data-md-theme=dark] .md-menu__section:not(:last-child) {
+  border-bottom: 1px solid rgb(73, 69, 78);
+}
+.md-menu__section:not(:has(.md-menu__icon:first-child)) .md-menu__label {
+  grid-column: 1/3;
+}
+.md-menu__item {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
+  height: 48px;
+  gap: 12px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+.md-menu__item:not(:has(.md-menu__icon:last-child)) .md-menu__label {
+  grid-column-end: 4;
+}
+.md-menu__label {
+  font-family: "Roboto";
+  line-height: 20px;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  grid-column: 2;
+}
+[data-md-theme=light] .md-menu__icon {
+  color: rgb(73, 69, 78);
+}
+[data-md-theme=dark] .md-menu__icon {
+  color: rgb(203, 196, 207);
+}
 .md-segmented {
   display: grid;
   justify-content: center;
