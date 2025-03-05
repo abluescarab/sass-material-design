@@ -3,7 +3,7 @@
  * @description     Implementation file for tree components.
  ******************************************************************************/
 import { create as createCheckbox } from "./checkbox.js";
-import { MaterialToggleEvent, MaterialState } from "../events.js";
+import { MaterialToggleEvent, MaterialState } from "../types/events.js";
 import { getChildByClassName, getParentWithClass, prefix, stringToSelector, suffix, } from "../utils.js";
 /**
  * Creates a button to insert in the tree.

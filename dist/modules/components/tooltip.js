@@ -2,7 +2,7 @@
  * @file            components/tooltip.ts
  * @description     Implementation file for Material Design tooltips.
  ******************************************************************************/
-import TimedQueue from "../timed-queue.js";
+import TimedQueue from "../types/timed-queue.js";
 import { getParentWithClass } from "../utils.js";
 const queue = new TimedQueue();
 /**
@@ -89,6 +89,7 @@ export function show(parent, tooltip, immediate = false) {
  * @param tooltipHideDelay delay before hiding the tooltip in milliseconds
  */
 export function initialize(parent) {
+    // TODO: change to initializing tooltip directly instead of parent?
     if (!(parent instanceof HTMLElement) || !parent.dataset.mdTooltip) {
         return;
     }

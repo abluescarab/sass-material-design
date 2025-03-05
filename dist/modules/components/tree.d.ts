@@ -2,7 +2,7 @@
  * @file            modules/components/tree.ts
  * @description     Implementation file for tree components.
  ******************************************************************************/
-import { Nullable } from "../types.js";
+import { Nullable } from "../types/index.js";
 /**
  * Checks if a tree has any expanded nodes.
  * @param tree parent tree

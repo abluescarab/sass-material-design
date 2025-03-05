@@ -3,7 +3,7 @@
  * @description     Implementation file for tab container components.
  ******************************************************************************/
 
-import { MaterialChangeEvent } from "../events.js";
+import { MaterialChangeEvent } from "../types/events.js";
 import { getChildByClassName, getParentWithClass } from "../utils.js";
 
 /**

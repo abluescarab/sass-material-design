@@ -7,7 +7,7 @@
  * the document loads or initialize each element yourself.
  */
 export declare function initialize(): void;
-export * from "./modules/events.js";
+export * from "./modules/types/events.js";
 export * from "./modules/themer.js";
-export * from "./modules/types.js";
+export * from "./modules/types/index.js";
 export * from "./modules/utils.js";

@@ -26,7 +26,7 @@ export function initialize() {
     }
     console.info("Material design loaded.");
 }
-export * from "./modules/events.js";
+export * from "./modules/types/events.js";
 export * from "./modules/themer.js";
-export * from "./modules/types.js";
+export * from "./modules/types/index.js";
 export * from "./modules/utils.js";

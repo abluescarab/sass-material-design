@@ -4,8 +4,8 @@
  ******************************************************************************/
 
 import { create as createCheckbox } from "./checkbox.js";
-import { MaterialToggleEvent, MaterialState } from "../events.js";
-import { Nullable } from "../types.js";
+import { MaterialToggleEvent, MaterialState } from "../types/events.js";
+import { Nullable } from "../types/index.js";
 import {
     getChildByClassName,
     getParentWithClass,
