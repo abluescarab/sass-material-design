@@ -17,17 +17,10 @@ hr {
     border: 0;
 }
 
-input {
+input:not(:disabled) {
     &,
     & + label {
         cursor: pointer;
-    }
-
-    &:disabled {
-        &,
-        & + label {
-            cursor: default;
-        }
     }
 }
 

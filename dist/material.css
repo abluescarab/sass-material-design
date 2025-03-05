@@ -14,11 +14,8 @@ hr {
   border: 0;
 }
 
-input, input + label {
+input:not(:disabled), input:not(:disabled) + label {
   cursor: pointer;
-}
-input:disabled, input:disabled + label {
-  cursor: default;
 }
 
 label:has(input:not(:disabled), button:not(:disabled)) {
