@@ -7,9 +7,6 @@
 /// Asset location from the top level Sass file.
 $assets: "./assets" !default;
 
-$border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
-    "ridge", "solid";
-
 // icons
 $icon__size: 24px;
 
@@ -19,7 +16,6 @@ $symbol__padding-double: calc($symbol__padding * 2);
 $symbol__font-size: $icon__size + $symbol__padding-double;
 
 // md-icon-button
-$icon-button__styles: "filled", "tonal", "outlined";
 $icon-button--small__width: 20px;
 $icon-button--small__half: calc($icon-button--small__width / 2);
 

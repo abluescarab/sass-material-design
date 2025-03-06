@@ -37,6 +37,8 @@
     );
     $default-indicator-width: map.get($indicator-widths, "small");
     $indicator-colors: "primary", "secondary", "tertiary", "on-surface";
+    $border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
+        "ridge", "solid";
 
     @mixin indicator-overrides($indicator-width) {
         $indicator-width__half: calc($indicator-width / 2);
