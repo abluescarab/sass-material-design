@@ -1,10 +1,10 @@
-/*******************************************************************************
+/**
  * @file            components/switch.ts
  * @description     Implementation file for switch components.
- ******************************************************************************/
+ */
 /**
  * Creates a new switch.
- * @param options options map
+ * @param options - options map
  * @returns new switch
  */
 export function create(options) {
@@ -38,7 +38,7 @@ export function create(options) {
 }
 /**
  * Initializes a switch.
- * @param switchElement switch to initialize
+ * @param switchElement - switch to initialize
  */
 export function initialize(switchElement) {
     if (!(switchElement instanceof HTMLElement) ||

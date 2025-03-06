@@ -1,14 +1,14 @@
-/*******************************************************************************
+/**
  * @file            modules/components/segmented.ts
  * @description     Implementation file for Material Design segmented button
  *                  components.
- ******************************************************************************/
+ */
 import { getParentByClassName } from "../utils.js";
 /**
  * Selects or deselects a segment.
- * @param segment clicked segment
- * @param requireSelect whether a segment must be selected
- * @param allowMulti whether multiple segments can be selected
+ * @param segment - clicked segment
+ * @param requireSelect - whether a segment must be selected
+ * @param allowMulti - whether multiple segments can be selected
  */
 function selectSegment(segment, requireSelect, allowMulti) {
     const selectedClass = "md-segmented__button--selected";
@@ -24,7 +24,7 @@ function selectSegment(segment, requireSelect, allowMulti) {
 }
 /**
  * Initializes a segmented button.
- * @param segmentedButton segmented button
+ * @param segmentedButton - button to initialize
  */
 export function initialize(segmentedButton) {
     if (!(segmentedButton instanceof HTMLElement) ||

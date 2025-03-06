@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            modules/events.ts
  * @description     Helper file with custom event types.
- ******************************************************************************/
+ */
 /**
  * The state of any toggleable element.
  */
@@ -46,8 +46,8 @@ export var MaterialState;
 export class MaterialEvent extends Event {
     /**
      * Creates a new MaterialEvent.
-     * @param type event name
-     * @param source element which triggered the event (not the dispatcher)
+     * @param type - event name
+     * @param source - element which triggered the event (not the dispatcher)
      */
     constructor(type, source) {
         super(`material:${type}`);
@@ -56,13 +56,14 @@ export class MaterialEvent extends Event {
 }
 /**
  * An event type for any element that changes value.
+ * @template T
  */
 export class MaterialChangeEvent extends MaterialEvent {
     /**
      * Creates a new MaterialChangeEvent.
-     * @param source element which triggered the event (not the dispatcher)
-     * @param oldValue value before change
-     * @param newValue value after change
+     * @param source - element which triggered the event (not the dispatcher)
+     * @param oldValue - value before change
+     * @param newValue - value after change
      */
     constructor(source, oldValue, newValue) {
         super("change", source);
@@ -76,9 +77,9 @@ export class MaterialChangeEvent extends MaterialEvent {
 export class MaterialToggleEvent extends MaterialEvent {
     /**
      * Creates a new MaterialToggleEvent.
-     * @param source element which triggered the event (not the dispatcher)
-     * @param state toggle state of type {@link MaterialState}
-     * @param elements other toggled elements
+     * @param source - element which triggered the event (not the dispatcher)
+     * @param state - toggle state of type {@link MaterialState}
+     * @param elements - other toggled elements
      */
     constructor(source, state, elements) {
         super("toggle", source);

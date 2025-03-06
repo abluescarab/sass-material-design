@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            src/material.ts
  * @description     Main file.
- ******************************************************************************/
+ */
 import { initialize as checkboxInitialize } from "./modules/components/checkbox.js";
 import { initialize as segmentedInitialize } from "./modules/components/segmented.js";
 import { initialize as switchComponentInitialize } from "./modules/components/switch.js";

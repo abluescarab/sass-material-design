@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            components/menu.ts
  * @description     Implementation file for Material Design menu components.
- ******************************************************************************/
+ */
 
 import { getParentByClassName } from "../utils";
 
@@ -12,7 +12,7 @@ const visible = new Map<Element, Element>();
 
 /**
  * Initializes a menu's event listeners and maximum height.
- * @param menu menu to initialize
+ * @param menu - menu to initialize
  */
 function initializeMenu(menu: HTMLElement): void {
     const menuRect = menu.getBoundingClientRect();
@@ -44,8 +44,8 @@ function initializeMenu(menu: HTMLElement): void {
 
 /**
  * Hides a menu.
- * @param menu menu to hide
- * @param force whether to ignore the hover state of the menu
+ * @param menu - menu to hide
+ * @param force - whether to ignore the hover state of the menu
  */
 export function hide(menu: Element, force: boolean = false): void {
     if (!(menu instanceof HTMLElement)) {
@@ -62,7 +62,7 @@ export function hide(menu: Element, force: boolean = false): void {
 
 /**
  * Hides all visible menus.
- * @param force whether to ignore the hover state of menus
+ * @param force - whether to ignore the hover state of menus
  */
 export function hideAll(force: boolean = false): void {
     if (visible.size == 0) {
@@ -78,8 +78,8 @@ export function hideAll(force: boolean = false): void {
 
 /**
  * Moves a menu based on its parent's location.
- * @param parent parent menu
- * @param menu menu to move
+ * @param parent - parent menu
+ * @param menu - menu to move
  */
 export function move(parent: Element | undefined, menu: Element): void {
     if (!parent || !(menu instanceof HTMLElement)) {
@@ -136,8 +136,8 @@ export function move(parent: Element | undefined, menu: Element): void {
 
 /**
  * Shows a menu.
- * @param parent element that controls the menu
- * @param menu menu to show
+ * @param parent - element that controls the menu
+ * @param menu - menu to show
  */
 export function show(parent: Element, menu: Element): void {
     move(parent, menu);
@@ -147,7 +147,7 @@ export function show(parent: Element, menu: Element): void {
 
 /**
  * Initializes a menu.
- * @param menu menu to initialize
+ * @param menu - menu to initialize
  */
 export function initialize(menu: Element): void {
     if (!(menu instanceof HTMLElement) || !menu.classList.contains("md-menu")) {

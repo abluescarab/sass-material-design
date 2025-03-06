@@ -1,10 +1,10 @@
-/*******************************************************************************
+/**
  * @file            components/checkbox.ts
  * @description     Implementation file for checkbox components.
- ******************************************************************************/
+ */
 /**
  * Creates a new checkbox.
- * @param options options map
+ * @param options - options map
  * @returns new checkbox
  */
 export function create(options) {
@@ -36,7 +36,7 @@ export function create(options) {
 }
 /**
  * Initializes a checkbox.
- * @param checkbox checkbox to initialize
+ * @param checkbox - checkbox to initialize
  */
 export function initialize(checkbox) {
     if (!(checkbox instanceof HTMLElement) ||

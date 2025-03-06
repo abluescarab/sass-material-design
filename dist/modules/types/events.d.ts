@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            modules/events.ts
  * @description     Helper file with custom event types.
- ******************************************************************************/
+ */
 import { Nullable } from "./index.js";
 /**
  * The state of any toggleable element.
@@ -50,13 +50,14 @@ export declare class MaterialEvent extends Event {
     readonly source: Nullable<Element>;
     /**
      * Creates a new MaterialEvent.
-     * @param type event name
-     * @param source element which triggered the event (not the dispatcher)
+     * @param type - event name
+     * @param source - element which triggered the event (not the dispatcher)
      */
     constructor(type: string, source: Nullable<Element>);
 }
 /**
  * An event type for any element that changes value.
+ * @template T
  */
 export declare class MaterialChangeEvent<T> extends MaterialEvent {
     /**
@@ -69,9 +70,9 @@ export declare class MaterialChangeEvent<T> extends MaterialEvent {
     readonly newValue?: T;
     /**
      * Creates a new MaterialChangeEvent.
-     * @param source element which triggered the event (not the dispatcher)
-     * @param oldValue value before change
-     * @param newValue value after change
+     * @param source - element which triggered the event (not the dispatcher)
+     * @param oldValue - value before change
+     * @param newValue - value after change
      */
     constructor(source: Nullable<Element>, oldValue?: T, newValue?: T);
 }
@@ -89,9 +90,9 @@ export declare class MaterialToggleEvent extends MaterialEvent {
     readonly elements: Element[];
     /**
      * Creates a new MaterialToggleEvent.
-     * @param source element which triggered the event (not the dispatcher)
-     * @param state toggle state of type {@link MaterialState}
-     * @param elements other toggled elements
+     * @param source - element which triggered the event (not the dispatcher)
+     * @param state - toggle state of type {@link MaterialState}
+     * @param elements - other toggled elements
      */
     constructor(source: Nullable<Element>, state: MaterialState, elements: Element[]);
 }

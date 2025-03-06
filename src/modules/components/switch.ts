@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            components/switch.ts
  * @description     Implementation file for switch components.
- ******************************************************************************/
+ */
 
 /**
  * Stores options for new switches, usually created with the {@link create()}
@@ -32,7 +32,7 @@ export interface SwitchOptions {
 
 /**
  * Creates a new switch.
- * @param options options map
+ * @param options - options map
  * @returns new switch
  */
 export function create(options?: SwitchOptions): HTMLElement {
@@ -77,7 +77,7 @@ export function create(options?: SwitchOptions): HTMLElement {
 
 /**
  * Initializes a switch.
- * @param switchElement switch to initialize
+ * @param switchElement - switch to initialize
  */
 export function initialize(switchElement: Element): void {
     if (

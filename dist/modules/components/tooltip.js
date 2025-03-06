@@ -1,15 +1,15 @@
-/*******************************************************************************
+/**
  * @file            components/tooltip.ts
  * @description     Implementation file for Material Design tooltips.
- ******************************************************************************/
+ */
 import TimedQueue from "../types/timed-queue.js";
 import { getParentByClassName } from "../utils.js";
 const queue = new TimedQueue();
 /**
  * Calculates the location of a tooltip based on its parent.
- * @param parent element that controls the tooltip
- * @param tooltip tooltip to move
- * @param inAppBar whether the parent is inside an app bar
+ * @param parent - element that controls the tooltip
+ * @param tooltip - tooltip to move
+ * @param inAppBar - whether the parent is inside an app bar
  */
 function calculateLocation(parent, tooltip, inAppBar) {
     const parentRect = parent.getBoundingClientRect();
@@ -46,8 +46,8 @@ function calculateLocation(parent, tooltip, inAppBar) {
 }
 /**
  * Hides the given tooltip.
- * @param tooltip tooltip to hide
- * @param tooltipHideDelay delay before hiding in milliseconds
+ * @param tooltip - tooltip to hide
+ * @param immediate - whether to skip delay
  */
 export function hide(tooltip, immediate = false) {
     if (!(tooltip instanceof HTMLElement)) {
@@ -65,9 +65,9 @@ export function hide(tooltip, immediate = false) {
 }
 /**
  * Hides all visible tooltips and shows the given tooltip.
- * @param parent element that controls the tooltip
- * @param tooltip tooltip to show
- * @param tooltipShowDelay delay before showing in milliseconds
+ * @param parent - element that controls the tooltip
+ * @param tooltip - tooltip to show
+ * @param immediate - whether to skip delay
  */
 export function show(parent, tooltip, immediate = false) {
     if (!(tooltip instanceof HTMLElement)) {
@@ -84,9 +84,7 @@ export function show(parent, tooltip, immediate = false) {
 }
 /**
  * Initializes a tooltip.
- * @param parent element that controls the tooltip
- * @param tooltipShowDelay delay before showing the tooltip in milliseconds
- * @param tooltipHideDelay delay before hiding the tooltip in milliseconds
+ * @param parent - element that controls the tooltip
  */
 export function initialize(parent) {
     // TODO: change to initializing tooltip directly instead of parent?

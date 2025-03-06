@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            components/checkbox.ts
  * @description     Implementation file for checkbox components.
- ******************************************************************************/
+ */
 
 import { SwitchOptions } from "./switch.js";
 
@@ -18,7 +18,7 @@ export interface CheckboxOptions extends SwitchOptions {
 
 /**
  * Creates a new checkbox.
- * @param options options map
+ * @param options - options map
  * @returns new checkbox
  */
 export function create(options?: CheckboxOptions): HTMLElement {
@@ -60,7 +60,7 @@ export function create(options?: CheckboxOptions): HTMLElement {
 
 /**
  * Initializes a checkbox.
- * @param checkbox checkbox to initialize
+ * @param checkbox - checkbox to initialize
  */
 export function initialize(checkbox: Element): void {
     if (

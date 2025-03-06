@@ -1,14 +1,14 @@
-/*******************************************************************************
+/**
  * @file            components/menu.ts
  * @description     Implementation file for Material Design menu components.
- ******************************************************************************/
+ */
 import { getParentByClassName } from "../utils";
 // import { Nullable } from "../types/index.js";
 // key: menu, value: opening element
 const visible = new Map();
 /**
  * Initializes a menu's event listeners and maximum height.
- * @param menu menu to initialize
+ * @param menu - menu to initialize
  */
 function initializeMenu(menu) {
     const menuRect = menu.getBoundingClientRect();
@@ -30,8 +30,8 @@ function initializeMenu(menu) {
 }
 /**
  * Hides a menu.
- * @param menu menu to hide
- * @param force whether to ignore the hover state of the menu
+ * @param menu - menu to hide
+ * @param force - whether to ignore the hover state of the menu
  */
 export function hide(menu, force = false) {
     if (!(menu instanceof HTMLElement)) {
@@ -46,7 +46,7 @@ export function hide(menu, force = false) {
 }
 /**
  * Hides all visible menus.
- * @param force whether to ignore the hover state of menus
+ * @param force - whether to ignore the hover state of menus
  */
 export function hideAll(force = false) {
     if (visible.size == 0) {
@@ -59,8 +59,8 @@ export function hideAll(force = false) {
 }
 /**
  * Moves a menu based on its parent's location.
- * @param parent parent menu
- * @param menu menu to move
+ * @param parent - parent menu
+ * @param menu - menu to move
  */
 export function move(parent, menu) {
     if (!parent || !(menu instanceof HTMLElement)) {
@@ -109,8 +109,8 @@ export function move(parent, menu) {
 }
 /**
  * Shows a menu.
- * @param parent element that controls the menu
- * @param menu menu to show
+ * @param parent - element that controls the menu
+ * @param menu - menu to show
  */
 export function show(parent, menu) {
     move(parent, menu);
@@ -119,7 +119,7 @@ export function show(parent, menu) {
 }
 /**
  * Initializes a menu.
- * @param menu menu to initialize
+ * @param menu - menu to initialize
  */
 export function initialize(menu) {
     if (!(menu instanceof HTMLElement) || !menu.classList.contains("md-menu")) {

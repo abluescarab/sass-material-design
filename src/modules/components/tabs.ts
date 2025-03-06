@@ -1,15 +1,15 @@
-/*******************************************************************************
+/**
  * @file            modules/components/tabs.ts
  * @description     Implementation file for tab container components.
- ******************************************************************************/
+ */
 
 import { MaterialChangeEvent } from "../types/events.js";
 import { getChildByClassName, getParentByClassName } from "../utils.js";
 
 /**
  * Gets a tab by name.
- * @param tabs tab container
- * @param name tab name
+ * @param tabs - tab container
+ * @param name - tab ID used for `data-md-tab`
  * @returns tab button and page
  */
 function getTab(tabs: Element, name: string | undefined): (Element | null)[] {
@@ -21,8 +21,8 @@ function getTab(tabs: Element, name: string | undefined): (Element | null)[] {
 
 /**
  * Changes the current tab on the given tab container.
- * @param tabs tab container
- * @param tab name of new tab
+ * @param tabs - tab container
+ * @param tab - name of new tab
  */
 export function changeTab(tabs: Element, tab: string | undefined): void {
     if (!(tabs instanceof HTMLElement)) {
@@ -44,7 +44,7 @@ export function changeTab(tabs: Element, tab: string | undefined): void {
 
 /**
  * Initializes a tab container.
- * @param tabs tab container
+ * @param tabs - tab container
  */
 export function initialize(tabs: Element): void {
     if (!(tabs instanceof HTMLElement)) {

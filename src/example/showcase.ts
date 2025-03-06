@@ -1,3 +1,8 @@
+/**
+ * @file            example/showcase.ts
+ * @description     Implements functionality for the showcase.
+ */
+
 // TODO: implement up/down arrows on panes
 import {
     capitalize,
@@ -51,7 +56,10 @@ const exampleTree = Object.freeze({
     },
 });
 
-function changeFabVisibilityButton() {
+/**
+ * Changes the icon and text in the button that controls FAB visibility.
+ */
+function changeFabVisibilityButton(): void {
     (fabVisibilityButton?.childNodes[1] as HTMLElement).innerText =
         container?.style.display == "none" ? "visibility" : "visibility_off";
 
@@ -61,7 +69,11 @@ function changeFabVisibilityButton() {
     );
 }
 
-function changeThemeButtonIcon(theme: string | null) {
+/**
+ * Changes the icon on the button that controls the page theme.
+ * @param theme - light or dark
+ */
+function changeThemeButtonIcon(theme: string | null): void {
     if (!themeIcon || !theme) {
         return;
     }
@@ -69,7 +81,11 @@ function changeThemeButtonIcon(theme: string | null) {
     themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
 }
 
-function createAttributes(el: Element) {
+/**
+ * Creates the attributes display.
+ * @param el - element to display attributes for
+ */
+function createAttributes(el: Element): void {
     if (!el.children.length) {
         return;
     }
@@ -131,8 +147,8 @@ function createAttributes(el: Element) {
 
 /**
  * Replaces the text inside any button that controls the FAB display.
- * @param button button to replace text inside
- * @param replacement text to replace with
+ * @param button - button to replace text inside
+ * @param replacement - text to replace with
  */
 function replaceFabButtonText(
     button: EventTarget | null,

@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            src/material.ts
  * @description     Main file.
- ******************************************************************************/
+ */
 /**
  * Initializes dynamically generated Material Design elements. Call this when
  * the document loads.

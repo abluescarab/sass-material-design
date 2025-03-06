@@ -1,7 +1,7 @@
-/*******************************************************************************
+/**
  * @file            modules/components/tree.ts
  * @description     Implementation file for tree components.
- ******************************************************************************/
+ */
 
 import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../types/events.js";
@@ -16,7 +16,7 @@ import {
 
 /**
  * Creates a button to insert in the tree.
- * @param buttonType icon button type
+ * @param buttonType - icon button type
  * @returns new button
  */
 function createButton(buttonType: string | undefined): HTMLButtonElement {
@@ -34,9 +34,10 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
 
 /**
  * Initializes a tree recursively.
- * @param tree tree to initialize
- * @param buttonType icon button type
- * @param where to include checkboxes
+ * @param tree - tree to initialize
+ * @param itemPrefix - prefix for item IDs
+ * @param buttonType - icon button type
+ * @param checkboxes - where to include checkboxes
  */
 function initializeTree(
     tree: Element,
@@ -118,7 +119,7 @@ function initializeTree(
 
 /**
  * Checks if the given element is in a subtree.
- * @param element element to check
+ * @param element - element to check
  * @returns whether the given element is in a subtree
  */
 function isChild(element: Element): boolean | undefined {
@@ -127,7 +128,7 @@ function isChild(element: Element): boolean | undefined {
 
 /**
  * Checks if the given element is a leaf node in the tree.
- * @param element element to check
+ * @param element - element to check
  * @returns whether the given element is a leaf node
  */
 function isLeaf(element: Element): boolean {
@@ -136,7 +137,7 @@ function isLeaf(element: Element): boolean {
 
 /**
  * Checks if the given element is a root node in the tree.
- * @param element element to check
+ * @param element - element to check
  * @returns whether the given element is a root node
  */
 function isRoot(element: Element): boolean | undefined {
@@ -145,8 +146,8 @@ function isRoot(element: Element): boolean | undefined {
 
 /**
  * Populates a tree recursively from a map.
- * @param tree tree to populate
- * @param map map to populate from
+ * @param tree - tree to populate
+ * @param map - map to populate from
  */
 function populateTree(tree: Element | null, map: object): void {
     if (!tree) {
@@ -172,8 +173,8 @@ function populateTree(tree: Element | null, map: object): void {
 
 /**
  * Toggles child checkboxes.
- * @param checkbox checkbox input
- * @param checked whether to check or uncheck children
+ * @param checkbox - checkbox input
+ * @param checked - whether to check or uncheck children
  * @returns list of toggled elements
  */
 function toggleCheckboxes(
@@ -202,8 +203,8 @@ function toggleCheckboxes(
 
 /**
  * Handles the click event on a tree.
- * @param tree parent tree
- * @param target clicked checkbox
+ * @param tree - parent tree
+ * @param target - clicked checkbox
  */
 function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
     if (!target) {
@@ -257,8 +258,8 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
 
 /**
  * Checks if a tree has any expanded nodes.
- * @param tree parent tree
- * @param includeChildren whether to deep search for expanded nodes
+ * @param tree - parent tree
+ * @param includeChildren - whether to deep search for expanded nodes
  * @returns whether any children are expanded
  */
 export function hasExpanded(
@@ -280,8 +281,8 @@ export function hasExpanded(
 
 /**
  * Checks if a tree has any checked nodes.
- * @param tree parent tree
- * @param includeChildren whether to deep search for checked boxes
+ * @param tree - parent tree
+ * @param includeChildren - whether to deep search for checked boxes
  * @returns whether any children are checked
  */
 export function hasChecked(
@@ -310,8 +311,8 @@ export function hasChecked(
 
 /**
  * Initializes a tree.
- * @param tree tree to initialize
- * @param itemPrefix prefix for each dynamically generated item ID
+ * @param tree - tree to initialize
+ * @param itemPrefix - prefix for each dynamically generated item ID
  */
 export function initialize(
     tree: Element,
@@ -337,8 +338,8 @@ export function initialize(
 
 /**
  * Populates a tree from a map.
- * @param tree tree to populate
- * @param map map to populate from
+ * @param tree - tree to populate
+ * @param map - map to populate from
  */
 export function populate(tree: Element | null, map: object): void {
     populateTree(tree, map);
@@ -346,8 +347,8 @@ export function populate(tree: Element | null, map: object): void {
 
 /**
  * Expands or collapses a tree.
- * @param tree tree to toggle
- * @param expand whether to expand or collapse
+ * @param tree - tree to toggle
+ * @param expand - whether to expand or collapse
  */
 export function toggle(tree: Nullable<Element>, expand: boolean): void {
     if (!tree || !tree.classList.contains("md-tree__subtree")) {
@@ -370,9 +371,9 @@ export function toggle(tree: Nullable<Element>, expand: boolean): void {
 
 /**
  * Expands or collapses all elements in a tree.
- * @param tree tree to toggle
- * @param expand whether to expand or collapse
- * @param cascadeToggled whether to expand or collapse children with parent
+ * @param tree - tree to toggle
+ * @param expand - whether to expand or collapse
+ * @param cascadeToggled - whether to expand or collapse children with parent
  * @returns list of toggled elements
  */
 export function toggleAll(
