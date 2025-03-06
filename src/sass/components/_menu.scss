@@ -13,11 +13,14 @@
 // TODO: state styles
 .md-menu {
     $parent: &;
+    $item-height: 48px;
+    $padding: 8px;
 
     position: fixed;
     min-width: 112px;
     max-width: 280px;
-    padding: 8px 0;
+    min-height: $item-height;
+    padding: $padding 0;
     border-radius: sys("shape", "corner", "extra-small");
     user-select: none;
     overflow-y: auto;
@@ -35,11 +38,11 @@
 
     &__section {
         &:not(:first-child) {
-            padding-top: 8px;
+            padding-top: $padding;
         }
 
         &:not(:last-child) {
-            padding-bottom: 8px;
+            padding-bottom: $padding;
 
             @include themes.themify {
                 border-bottom: 1px solid themes.color("outline-variant");
@@ -55,7 +58,7 @@
         display: grid;
         grid-template-columns: $icon__size 1fr $icon__size;
         align-items: center;
-        height: 48px;
+        height: $item-height;
         gap: 12px;
         padding: 0 12px;
         cursor: pointer;
