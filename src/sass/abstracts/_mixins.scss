@@ -130,10 +130,10 @@
 
 /// Hides an element.
 @mixin hidden($relative: false) {
+    $offset: -99999px;
+
     position: if($relative, relative, absolute) !important;
-    inset: 0 auto auto 0;
-    top: -9999px !important;
-    left: -9999px !important;
+    inset: $offset auto auto $offset !important;
 }
 
 /// Adds an indicator to the current element.
