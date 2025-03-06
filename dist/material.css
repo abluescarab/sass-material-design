@@ -1902,8 +1902,6 @@ code * {
 
 .md-menu, .md-menu__submenu {
   position: fixed;
-  top: 25%;
-  left: 25%;
   min-width: 112px;
   max-width: 280px;
   padding: 8px 0;
@@ -1911,6 +1909,8 @@ code * {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  overflow-y: auto;
+  z-index: 1;
 }
 [data-md-theme=light] .md-menu, [data-md-theme=light] .md-menu__submenu {
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 4px 0;
@@ -1941,7 +1941,7 @@ code * {
 }
 .md-menu__item {
   display: grid;
-  grid-template-columns: max-content 1fr max-content;
+  grid-template-columns: 24px 1fr 24px;
   align-items: center;
   height: 48px;
   gap: 12px;
@@ -1958,6 +1958,7 @@ code * {
   letter-spacing: 0.1px;
   font-weight: 500;
   grid-column: 2;
+  white-space: nowrap;
 }
 [data-md-theme=light] .md-menu__icon {
   color: rgb(73, 69, 78);

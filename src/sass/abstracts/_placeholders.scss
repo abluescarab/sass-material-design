@@ -5,20 +5,19 @@
 
 @use "./mixins" as *;
 @use "./sys" as *;
+@use "./variables" as *;
 
 %md-icon {
-    $default-size: 24px;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
-    @include square($default-size);
+    @include square($icon__size);
 
     border: 0;
     border-radius: sys("shape", "corner", "full");
     background-color: transparent;
     font-family: "Material Symbols Outlined", sans-serif;
-    font-size: $default-size;
+    font-size: $icon__size;
     user-select: none;
 }

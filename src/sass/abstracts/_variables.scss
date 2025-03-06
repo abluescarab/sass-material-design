@@ -7,14 +7,16 @@
 /// Asset location from the top level Sass file.
 $assets: "./assets" !default;
 
-// general
 $border-styles: "dashed", "dotted", "double", "groove", "inset", "outset",
     "ridge", "solid";
+
+// icons
+$icon__size: 24px;
 
 // symbols
 $symbol__padding: 2px; // padding added to Material Symbols by Google
 $symbol__padding-double: calc($symbol__padding * 2);
-$symbol__font-size: 24px + $symbol__padding-double;
+$symbol__font-size: $icon__size + $symbol__padding-double;
 
 // md-icon-button
 $icon-button__styles: "filled", "tonal", "outlined";
