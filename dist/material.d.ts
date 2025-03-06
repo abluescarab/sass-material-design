@@ -4,7 +4,7 @@
  ******************************************************************************/
 /**
  * Initializes dynamically generated Material Design elements. Call this when
- * the document loads or initialize each element yourself.
+ * the document loads.
  */
 export declare function initialize(): void;
 export * from "./modules/types/events.js";
