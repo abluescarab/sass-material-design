@@ -4,7 +4,7 @@
  ******************************************************************************/
 import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../types/events.js";
-import { getChildByClassName, getParentWithClass, prefix, stringToSelector, suffix, } from "../utils.js";
+import { getChildByClassName, getParentByClassName, prefix, stringToSelector, suffix, } from "../utils.js";
 /**
  * Creates a button to insert in the tree.
  * @param buttonType icon button type
@@ -129,7 +129,7 @@ function populateTree(tree, map) {
  */
 function toggleCheckboxes(checkbox, checked) {
     const elements = [];
-    const subtree = getParentWithClass(checkbox, "md-checkbox")?.nextElementSibling;
+    const subtree = getParentByClassName(checkbox, "md-checkbox")?.nextElementSibling;
     if (!subtree?.classList.contains("md-tree__subtree")) {
         return elements;
     }

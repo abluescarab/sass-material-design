@@ -3,7 +3,7 @@
  * @description     Implementation file for Material Design tooltips.
  ******************************************************************************/
 import TimedQueue from "../types/timed-queue.js";
-import { getParentWithClass } from "../utils.js";
+import { getParentByClassName } from "../utils.js";
 const queue = new TimedQueue();
 /**
  * Calculates the location of a tooltip based on its parent.
@@ -73,7 +73,7 @@ export function show(parent, tooltip, immediate = false) {
     if (!(tooltip instanceof HTMLElement)) {
         return;
     }
-    const parentInAppBar = getParentWithClass(parent, "md-app-bar") != null;
+    const parentInAppBar = getParentByClassName(parent, "md-app-bar") != null;
     calculateLocation(parent, tooltip, parentInAppBar);
     queue.clear((item) => item.data.classList.remove("md-tooltip--visible"));
     queue.push({

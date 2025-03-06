@@ -28,10 +28,10 @@ export declare function getChildByClassName(parent: Element | EventTarget | null
  * @param element child element
  * @param parentClass class to search for
  * @param forceStopAtClass if not found, stop when reaching this class
- * @param includeChild whether to check if the child has the given class
+ * @param includeSelf whether to check if the current element has the class
  * @returns closest parent with class
  */
-export declare function getParentWithClass(element: Element | EventTarget | null, parentClass: string, forceStopAtClass?: string, includeChild?: boolean): HTMLElement | null;
+export declare function getParentByClassName(element: Element | EventTarget | null, parentClass: string, forceStopAtClass?: string, includeSelf?: boolean): HTMLElement | null;
 /**
  * Adds a prefix to a string.
  * @param prefix string to prepend

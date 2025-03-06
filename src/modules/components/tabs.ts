@@ -4,7 +4,7 @@
  ******************************************************************************/
 
 import { MaterialChangeEvent } from "../types/events.js";
-import { getChildByClassName, getParentWithClass } from "../utils.js";
+import { getChildByClassName, getParentByClassName } from "../utils.js";
 
 /**
  * Gets a tab by name.
@@ -62,7 +62,7 @@ export function initialize(tabs: Element): void {
     getChildByClassName(tabs, "md-tabs__nav")?.addEventListener(
         "click",
         (e) => {
-            const button = getParentWithClass(
+            const button = getParentByClassName(
                 e.target as Element,
                 "md-tabs__button"
             );

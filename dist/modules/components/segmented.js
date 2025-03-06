@@ -3,7 +3,7 @@
  * @description     Implementation file for Material Design segmented button
  *                  components.
  ******************************************************************************/
-import { getParentWithClass } from "../utils.js";
+import { getParentByClassName } from "../utils.js";
 /**
  * Selects or deselects a segment.
  * @param segment clicked segment
@@ -38,7 +38,7 @@ export function initialize(segmentedButton) {
         child.insertAdjacentElement("afterbegin", check);
     }
     segmentedButton.addEventListener("click", (e) => {
-        const parent = getParentWithClass(e.target, "md-segmented__button");
+        const parent = getParentByClassName(e.target, "md-segmented__button");
         selectSegment(parent, segmentedButton.dataset.mdRequireSelect != undefined, segmentedButton.dataset.mdMultiselect != undefined);
     });
 }

@@ -8,7 +8,7 @@ import { MaterialToggleEvent, MaterialState } from "../types/events.js";
 import { Nullable } from "../types/index.js";
 import {
     getChildByClassName,
-    getParentWithClass,
+    getParentByClassName,
     prefix,
     stringToSelector,
     suffix,
@@ -181,7 +181,7 @@ function toggleCheckboxes(
     checked: boolean
 ): Element[] {
     const elements: Element[] = [];
-    const subtree = getParentWithClass(
+    const subtree = getParentByClassName(
         checkbox,
         "md-checkbox"
     )?.nextElementSibling;

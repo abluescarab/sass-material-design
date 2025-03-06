@@ -1,5 +1,5 @@
 // TODO: implement up/down arrows on panes
-import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentWithClass, initialize, setTheme, stringToSelector, wrap, } from "../material.js";
+import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentByClassName, initialize, setTheme, stringToSelector, wrap, } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 document
     .getElementById("close-banner")
-    ?.addEventListener("click", (e) => getParentWithClass(e.currentTarget, "md-banner")?.classList.remove("md-banner--visible"));
+    ?.addEventListener("click", (e) => getParentByClassName(e.currentTarget, "md-banner")?.classList.remove("md-banner--visible"));
 [].forEach.call(document
     .getElementById("icon-buttons")
     ?.getElementsByClassName("md-icon-button"), (el) => {
@@ -144,7 +144,7 @@ document
 document
     .getElementById("close-fullscreen-dialog")
     ?.addEventListener("click", (e) => {
-    getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
+    getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
 });
 document
     .querySelectorAll("#snackbars .md-pane__content > .md-button")
@@ -173,7 +173,7 @@ document
     e.currentTarget.nextElementSibling?.classList.toggle("md-dialog--visible");
 }));
 document.querySelectorAll(".md-dialog .close-button").forEach((element) => element.addEventListener("click", (e) => {
-    getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
+    getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove("md-dialog--visible");
 }));
 document.getElementById("show-nested-dialog")?.addEventListener("click", () => {
     document

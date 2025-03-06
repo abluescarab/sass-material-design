@@ -51,14 +51,14 @@ export function getChildByClassName(parent, className) {
  * @param element child element
  * @param parentClass class to search for
  * @param forceStopAtClass if not found, stop when reaching this class
- * @param includeChild whether to check if the child has the given class
+ * @param includeSelf whether to check if the current element has the class
  * @returns closest parent with class
  */
-export function getParentWithClass(element, parentClass, forceStopAtClass = "", includeChild = true) {
+export function getParentByClassName(element, parentClass, forceStopAtClass = "", includeSelf = true) {
     if (element == null || !(element instanceof HTMLElement)) {
         return null;
     }
-    if (includeChild) {
+    if (includeSelf) {
         if (element.classList.contains(parentClass)) {
             return element;
         }
@@ -66,7 +66,7 @@ export function getParentWithClass(element, parentClass, forceStopAtClass = "", 
             return null;
         }
     }
-    return getParentWithClass(element.parentElement, parentClass, forceStopAtClass, true);
+    return getParentByClassName(element.parentElement, parentClass, forceStopAtClass, true);
 }
 /**
  * Adds a prefix to a string.

@@ -4,7 +4,7 @@
  *                  components.
  ******************************************************************************/
 
-import { getParentWithClass } from "../utils.js";
+import { getParentByClassName } from "../utils.js";
 
 /**
  * Selects or deselects a segment.
@@ -55,7 +55,7 @@ export function initialize(segmentedButton: Element): void {
     }
 
     segmentedButton.addEventListener("click", (e) => {
-        const parent = getParentWithClass(e.target, "md-segmented__button");
+        const parent = getParentByClassName(e.target, "md-segmented__button");
 
         selectSegment(
             parent,

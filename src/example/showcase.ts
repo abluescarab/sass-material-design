@@ -4,7 +4,7 @@ import {
     cycleData,
     cycleThemes,
     getChildByClassName,
-    getParentWithClass,
+    getParentByClassName,
     initialize,
     setTheme,
     stringToSelector,
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document
     .getElementById("close-banner")
     ?.addEventListener("click", (e) =>
-        getParentWithClass(e.currentTarget, "md-banner")?.classList.remove(
+        getParentByClassName(e.currentTarget, "md-banner")?.classList.remove(
             "md-banner--visible"
         )
     );
@@ -203,7 +203,7 @@ document
 document
     .getElementById("close-fullscreen-dialog")
     ?.addEventListener("click", (e) => {
-        getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove(
+        getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove(
             "md-dialog--visible"
         );
     });
@@ -250,7 +250,7 @@ document
 
 document.querySelectorAll(".md-dialog .close-button").forEach((element) =>
     element.addEventListener("click", (e) => {
-        getParentWithClass(e.currentTarget, "md-dialog")?.classList.remove(
+        getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove(
             "md-dialog--visible"
         );
     })

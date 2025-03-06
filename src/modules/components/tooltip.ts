@@ -4,7 +4,7 @@
  ******************************************************************************/
 
 import TimedQueue from "../types/timed-queue.js";
-import { getParentWithClass } from "../utils.js";
+import { getParentByClassName } from "../utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();
 
@@ -94,7 +94,7 @@ export function show(
         return;
     }
 
-    const parentInAppBar = getParentWithClass(parent, "md-app-bar") != null;
+    const parentInAppBar = getParentByClassName(parent, "md-app-bar") != null;
 
     calculateLocation(parent, tooltip, parentInAppBar);
     queue.clear((item) => item.data.classList.remove("md-tooltip--visible"));

@@ -3,7 +3,7 @@
  * @description     Implementation file for tab container components.
  ******************************************************************************/
 import { MaterialChangeEvent } from "../types/events.js";
-import { getChildByClassName, getParentWithClass } from "../utils.js";
+import { getChildByClassName, getParentByClassName } from "../utils.js";
 /**
  * Gets a tab by name.
  * @param tabs tab container
@@ -48,7 +48,7 @@ export function initialize(tabs) {
         ? getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
         : tabs.dataset.mdTab);
     getChildByClassName(tabs, "md-tabs__nav")?.addEventListener("click", (e) => {
-        const button = getParentWithClass(e.target, "md-tabs__button");
+        const button = getParentByClassName(e.target, "md-tabs__button");
         // ensure button is direct child of current tab container
         if (button != null && button.parentElement?.parentElement == tabs) {
             changeTab(tabs, button.dataset.mdTab);
