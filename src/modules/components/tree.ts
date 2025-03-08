@@ -174,7 +174,7 @@ function toggleCheckboxes(
     }
 
     for (const checkbox of subtree.querySelectorAll<HTMLInputElement>(
-        "input[type='checkbox'"
+        `input[type='checkbox']${checked ? ":not(:checked)" : ":checked"}`
     )) {
         checkbox.checked = checked;
         elements.push(checkbox);
@@ -377,7 +377,11 @@ export function toggleAll(
         (cascadeToggled == "expanded" && expand) ||
         (cascadeToggled == "collapsed" && !expand)
     ) {
-        elements.push(...tree.getElementsByClassName("md-tree__subtree"));
+        elements.push(
+            ...tree.getElementsByClassName(
+                `md-tree__subtree${expand ? "" : "--expanded"}`
+            )
+        );
     }
 
     for (const toggled of elements) {

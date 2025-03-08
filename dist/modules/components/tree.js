@@ -126,7 +126,7 @@ function toggleCheckboxes(checkbox, checked) {
     if (!subtree?.classList.contains("md-tree__subtree")) {
         return elements;
     }
-    for (const checkbox of subtree.querySelectorAll("input[type='checkbox'")) {
+    for (const checkbox of subtree.querySelectorAll(`input[type='checkbox']${checked ? ":not(:checked)" : ":checked"}`)) {
         checkbox.checked = checked;
         elements.push(checkbox);
     }
@@ -255,7 +255,7 @@ export function toggleAll(tree, expand, cascadeToggled) {
     }
     if ((cascadeToggled == "expanded" && expand) ||
         (cascadeToggled == "collapsed" && !expand)) {
-        elements.push(...tree.getElementsByClassName("md-tree__subtree"));
+        elements.push(...tree.getElementsByClassName(`md-tree__subtree${expand ? "" : "--expanded"}`));
     }
     for (const toggled of elements) {
         toggle(toggled, expand);
