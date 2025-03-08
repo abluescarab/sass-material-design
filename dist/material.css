@@ -1247,7 +1247,7 @@ code * {
 }
 .md-dialog:not(.md-dialog--full) > .md-dialog__wrapper {
   margin: 48px;
-  min-width: 280px;
+  min-width: 232px;
   max-width: 560px;
 }
 [data-md-theme=light] .md-dialog:not(.md-dialog--full) > .md-dialog__wrapper {

@@ -20,6 +20,7 @@
     $large-padding: 24px;
     $small-padding: 16px;
     $width: 560px;
+    $margin: 48px;
 
     z-index: 1;
     display: flex;
@@ -95,8 +96,8 @@
         }
 
         & > #{$parent}__wrapper {
-            margin: calc($large-padding * 2);
-            min-width: 280px;
+            margin: $margin;
+            min-width: calc(280px - $margin);
             max-width: $width;
 
             @include themes.themify {
@@ -131,7 +132,7 @@
 
         & > #{$parent}__wrapper {
             padding-top: 0;
-            max-width: calc($width - $large-padding * 2);
+            max-width: calc($width - $margin);
             width: 100%;
             height: 100%;
 
