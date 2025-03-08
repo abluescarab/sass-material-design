@@ -30,6 +30,7 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
     }
     for (const element of tree.children) {
         const child = element;
+        const fullPrefix = `${itemPrefix ? itemPrefix : "tree"}__`;
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
@@ -46,7 +47,7 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
                 child.insertAdjacentElement("afterend", node);
                 child.remove();
             }
-            const id = prefix(stringToSelector(child.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
+            const id = prefix(stringToSelector(child.innerText), fullPrefix);
             if (!node.id && !document.getElementById(id)) {
                 const checkbox = node.getElementsByTagName("input")[0];
                 node.id = id;
@@ -69,10 +70,10 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
         else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling;
             const button = createButton(buttonType);
-            const id = prefix(stringToSelector(label.innerText), `${itemPrefix ? itemPrefix : "tree"}__`);
+            const id = prefix(stringToSelector(label.innerText), fullPrefix);
             button.id = suffix(id, "__button");
             label.insertAdjacentElement("afterbegin", button);
-            initializeTree(child, itemPrefix, buttonType, checkboxes);
+            initializeTree(child, id, buttonType, checkboxes);
         }
     }
 }
