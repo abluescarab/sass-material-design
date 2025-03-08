@@ -56,6 +56,7 @@ function initializeTree(
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
+            const id = prefix(stringToSelector(child.innerText), fullPrefix);
             let node = child;
 
             if (
@@ -66,6 +67,7 @@ function initializeTree(
             ) {
                 node = createCheckbox({
                     text: child.innerText,
+                    id: suffix(id, "__input"),
                 });
 
                 const label = node.getElementsByTagName("label")[0];
@@ -75,36 +77,24 @@ function initializeTree(
                 child.remove();
             }
 
-            const id = prefix(stringToSelector(child.innerText), fullPrefix);
-
-            if (!node.id && !document.getElementById(id)) {
-                const checkbox = node.getElementsByTagName("input")[0];
-
-                node.id = id;
-
-                if (checkbox) {
-                    const checkboxId = suffix(id, "__input");
-
-                    checkbox.id = checkboxId;
-                    checkbox.name = checkboxId;
-                }
+            if (!node.id) {
+                node.id = suffix(id, "__controller");
             }
 
             if (root) {
                 node.classList.add("md-tree__root");
             }
 
-            if (leaf) {
-                node.classList.add("md-tree__leaf");
-            } else {
-                node.classList.add("md-tree__branch");
-            }
+            node.classList.add(leaf ? "md-tree__leaf" : "md-tree__branch");
         } else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling as HTMLElement;
             const button = createButton(buttonType);
             const id = prefix(stringToSelector(label.innerText), fullPrefix);
 
-            button.id = suffix(id, "__button");
+            if (!child.id) {
+                child.id = id;
+                button.id = suffix(id, "__button");
+            }
 
             label.insertAdjacentElement("afterbegin", button);
             initializeTree(child, id, buttonType, checkboxes);
