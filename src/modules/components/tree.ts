@@ -70,9 +70,6 @@ function initializeTree(
                     id: suffix(id, "__input"),
                 });
 
-                const label = node.getElementsByTagName("label")[0];
-                label.classList.add("md-tree__label");
-
                 child.insertAdjacentElement("afterend", node);
                 child.remove();
             }

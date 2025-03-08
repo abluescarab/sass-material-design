@@ -3,26 +3,59 @@
  * @description     Implementation file for checkbox components.
  */
 
-import { SwitchOptions } from "./switch.js";
-
 /**
- * Stores options for new checkboxes, usually created with the {@link create()}
- * function.
+ * Represents the options given to a styled checkbox in the
+ * {@link createStyledCheckbox()} function.
  */
-export interface CheckboxOptions extends SwitchOptions {
+export interface MaterialStyledCheckboxOptions {
     /**
-     * Whether the component should be in an indeterminate state.
+     * Whether the checkbox should be toggled on.
+     */
+    checked?: boolean;
+    /**
+     * Whether the checkbox should be disabled.
+     */
+    disabled?: boolean;
+    /**
+     * The ID and name to assign to the checkbox.
+     */
+    id?: string;
+    /**
+     * Whether the checkbox should be in an indeterminate state.
      */
     indeterminate?: boolean;
+    /**
+     * A label element to overwrite with the contents of the checkbox.
+     */
+    labelElement?: HTMLElement;
+    /**
+     * Whether to return only the label or include the wrapper.
+     */
+    onlyLabel?: boolean;
+    /**
+     * The text inside the label.
+     */
+    text?: string;
 }
 
 /**
- * Creates a new checkbox.
+ * Creates a checkbox that shows the given display element. Unless creating a
+ * new component, use the `create()` functions for either the
+ * {@link create() checkbox} or [switch](./switch.ts).
+ * @param className - wrapper class name
+ * @param displayElement - element to display instead of the default checkbox
  * @param options - options map
- * @returns new checkbox
+ * @returns label or wrapper element depending on value of {@link MaterialStyledCheckboxOptions.onlyLabel}
  */
-export function create(options?: CheckboxOptions): HTMLElement {
-    const label = document.createElement("label");
+export function createStyledCheckbox(
+    className: string,
+    displayElement: HTMLElement,
+    options?: MaterialStyledCheckboxOptions
+): HTMLElement {
+    const label =
+        options?.labelElement instanceof HTMLLabelElement
+            ? options.labelElement
+            : document.createElement("label");
 
     const input = document.createElement("input");
     input.type = "checkbox";
@@ -35,15 +68,16 @@ export function create(options?: CheckboxOptions): HTMLElement {
         input.name = options.id;
     }
 
-    const box = document.createElement("span");
-    box.classList.add("md-checkbox__box");
-
     const text = document.createElement("span");
-    text.classList.add("md-checkbox__text");
-    text.innerText = options?.text ?? "";
+    text.classList.add(`${className}__text`);
+    text.innerText = options?.text ?? options?.labelElement?.innerText ?? "";
+
+    if (options?.labelElement) {
+        options.labelElement.innerHTML = "";
+    }
 
     label.appendChild(input);
-    label.appendChild(box);
+    label.appendChild(displayElement);
     label.appendChild(text);
 
     if (options?.onlyLabel) {
@@ -51,11 +85,22 @@ export function create(options?: CheckboxOptions): HTMLElement {
     }
 
     const div = document.createElement("div");
-    div.classList.add("md-checkbox");
-
+    div.classList.add(className);
     div.appendChild(label);
 
     return div;
+}
+
+/**
+ * Creates a new checkbox.
+ * @param options - options map
+ * @returns new checkbox
+ */
+export function create(options?: MaterialStyledCheckboxOptions): HTMLElement {
+    const box = document.createElement("span");
+    box.classList.add("md-checkbox__box");
+
+    return createStyledCheckbox("md-checkbox", box, options);
 }
 
 /**
@@ -65,20 +110,22 @@ export function create(options?: CheckboxOptions): HTMLElement {
 export function initialize(checkbox: Element): void {
     if (
         !(checkbox instanceof HTMLElement) ||
-        !checkbox.classList.contains("md-checkbox") ||
-        checkbox.getElementsByTagName("label").length
+        !checkbox.classList.contains("md-checkbox")
     ) {
         return;
     }
 
     const label = create({
-        text: checkbox.innerText,
         checked: checkbox.dataset.mdChecked != undefined,
         disabled: checkbox.dataset.mdDisabled != undefined,
         indeterminate: checkbox.dataset.mdIndeterminate != undefined,
+        labelElement: checkbox.getElementsByTagName("label")[0],
         onlyLabel: true,
+        text: checkbox.innerText,
     });
 
-    checkbox.innerHTML = "";
-    checkbox.appendChild(label);
+    if (checkbox.children.length == 0) {
+        checkbox.innerText = "";
+        checkbox.appendChild(label);
+    }
 }
