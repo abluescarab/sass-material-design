@@ -147,7 +147,7 @@ export function initialize(menu) {
         const arrow = parent?.querySelector(".md-menu__icon:last-child") ??
             document.createElement("span");
         arrow.classList.add("md-menu__icon", "md-symbol");
-        arrow.innerText = "arrow_right";
+        arrow.textContent = "arrow_right";
         // TODO: if menu is on right side, move arrow to left?
         if (!arrow.parentElement) {
             parent?.insertAdjacentElement("beforeend", arrow);

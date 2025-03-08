@@ -27,7 +27,7 @@ function createButton(buttonType: string | undefined): HTMLButtonElement {
         "md-symbol"
     );
     button.dataset.mdType = buttonType;
-    button.innerText = "add";
+    button.textContent = "add";
 
     return button;
 }
@@ -56,7 +56,7 @@ function initializeTree(
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
-            const id = prefix(stringToSelector(child.innerText), fullPrefix);
+            const id = prefix(stringToSelector(child.textContent), fullPrefix);
             let node = child;
 
             if (
@@ -66,7 +66,7 @@ function initializeTree(
                 (checkboxes == "subtrees" && isChild(child))
             ) {
                 node = createCheckbox({
-                    text: child.innerText,
+                    text: child.textContent ?? id,
                     id: suffix(id, "__input"),
                 });
 
@@ -86,7 +86,7 @@ function initializeTree(
         } else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling as HTMLElement;
             const button = createButton(buttonType);
-            const id = prefix(stringToSelector(label.innerText), fullPrefix);
+            const id = prefix(stringToSelector(label.textContent), fullPrefix);
 
             if (!child.id) {
                 child.id = id;
@@ -139,7 +139,7 @@ function populateTree(tree: Element | null, map: object): void {
     for (const [key, value] of Object.entries(map)) {
         const label = document.createElement("label");
         label.classList.add("md-tree__label");
-        label.innerText = key;
+        label.textContent = key;
 
         tree.appendChild(label);
 
@@ -200,7 +200,7 @@ function treeClicked(tree: HTMLElement, target: EventTarget | null): void {
     }
 
     if (el.classList.contains("md-icon-button")) {
-        const expand = el.innerText == "add";
+        const expand = el.textContent == "add";
 
         tree.dispatchEvent(
             new MaterialToggleEvent(
@@ -346,7 +346,7 @@ export function toggle(tree: Nullable<Element>, expand: boolean): void {
         return;
     }
 
-    button.innerText = expand ? "remove" : "add";
+    button.textContent = expand ? "remove" : "add";
     tree.classList.toggle("md-tree__subtree--expanded", expand);
     button.classList.toggle("md-icon-button--selected", expand);
 }

@@ -14,7 +14,7 @@ function createButton(buttonType) {
     const button = document.createElement("button");
     button.classList.add("md-icon-button", "md-icon-button--small", "md-symbol");
     button.dataset.mdType = buttonType;
-    button.innerText = "add";
+    button.textContent = "add";
     return button;
 }
 /**
@@ -34,14 +34,14 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
         if (child.classList.contains("md-tree__label")) {
             const root = isRoot(child);
             const leaf = isLeaf(child);
-            const id = prefix(stringToSelector(child.innerText), fullPrefix);
+            const id = prefix(stringToSelector(child.textContent), fullPrefix);
             let node = child;
             if (checkboxes == "all" ||
                 (checkboxes == "leaves" && leaf) ||
                 (checkboxes == "roots" && root) ||
                 (checkboxes == "subtrees" && isChild(child))) {
                 node = createCheckbox({
-                    text: child.innerText,
+                    text: child.textContent ?? id,
                     id: suffix(id, "__input"),
                 });
                 child.insertAdjacentElement("afterend", node);
@@ -58,7 +58,7 @@ function initializeTree(tree, itemPrefix, buttonType, checkboxes) {
         else if (child.classList.contains("md-tree__subtree")) {
             const label = child.previousElementSibling;
             const button = createButton(buttonType);
-            const id = prefix(stringToSelector(label.innerText), fullPrefix);
+            const id = prefix(stringToSelector(label.textContent), fullPrefix);
             if (!child.id) {
                 child.id = id;
                 button.id = suffix(id, "__button");
@@ -104,7 +104,7 @@ function populateTree(tree, map) {
     for (const [key, value] of Object.entries(map)) {
         const label = document.createElement("label");
         label.classList.add("md-tree__label");
-        label.innerText = key;
+        label.textContent = key;
         tree.appendChild(label);
         if (Object.keys(value).length > 0) {
             const subtree = document.createElement("div");
@@ -146,7 +146,7 @@ function treeClicked(tree, target) {
         return;
     }
     if (el.classList.contains("md-icon-button")) {
-        const expand = el.innerText == "add";
+        const expand = el.textContent == "add";
         tree.dispatchEvent(new MaterialToggleEvent(el, expand ? MaterialState.Expanded : MaterialState.Collapsed, toggleAll(el.parentElement?.nextElementSibling, expand, tree.dataset.mdCascadeToggled)));
     }
     else if (el instanceof HTMLInputElement) {
@@ -234,7 +234,7 @@ export function toggle(tree, expand) {
     if (!button) {
         return;
     }
-    button.innerText = expand ? "remove" : "add";
+    button.textContent = expand ? "remove" : "add";
     tree.classList.toggle("md-tree__subtree--expanded", expand);
     button.classList.toggle("md-icon-button--selected", expand);
 }

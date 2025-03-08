@@ -83,6 +83,9 @@ export function prefix(str, prefix) {
  * @returns string with whitespace and non-word characters replaced
  */
 export function stringToSelector(str) {
+    if (!str) {
+        return "";
+    }
     return (str
         // non-whitespace, non-word characters
         .replaceAll(/[^\w\s]/g, "")

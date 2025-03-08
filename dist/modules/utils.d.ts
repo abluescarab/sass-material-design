@@ -44,7 +44,7 @@ export declare function prefix(str: string, prefix: string): string;
  * @param str - string to convert
  * @returns string with whitespace and non-word characters replaced
  */
-export declare function stringToSelector(str: string): string;
+export declare function stringToSelector(str: string | null): string;
 /**
  * Adds a suffix to a string.
  * @param str - original string

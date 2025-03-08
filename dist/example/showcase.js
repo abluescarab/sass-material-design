@@ -46,7 +46,7 @@ const exampleTree = Object.freeze({
  * Changes the icon and text in the button that controls FAB visibility.
  */
 function changeFabVisibilityButton() {
-    (fabVisibilityButton?.childNodes[1]).innerText =
+    (fabVisibilityButton?.childNodes[1]).textContent =
         container?.style.display == "none" ? "visibility" : "visibility_off";
     replaceFabButtonText(fabVisibilityButton, container?.style.display == "none" ? "Show" : "Hide");
 }
@@ -58,7 +58,7 @@ function changeThemeButtonIcon(theme) {
     if (!themeIcon || !theme) {
         return;
     }
-    themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
+    themeIcon.textContent = theme == "light" ? "dark_mode" : "light_mode";
 }
 /**
  * Creates the attributes display.
@@ -80,7 +80,7 @@ function createAttributes(el) {
     const code = document.createElement("code");
     const h2 = document.createElement("h2");
     h2.dataset.mdTypescale = "title-medium";
-    h2.innerText = "Attributes";
+    h2.textContent = "Attributes";
     const element = wrapper.children[0];
     const dataset = Object.keys(element.dataset).sort();
     const length = Math.max(...dataset.map((d) => stringToSelector(d).length));

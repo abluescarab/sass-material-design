@@ -70,7 +70,8 @@ export function createStyledCheckbox(
 
     const text = document.createElement("span");
     text.classList.add(`${className}__text`);
-    text.innerText = options?.text ?? options?.labelElement?.innerText ?? "";
+    text.textContent =
+        options?.text ?? options?.labelElement?.textContent ?? "";
 
     if (options?.labelElement) {
         options.labelElement.innerHTML = "";
@@ -121,11 +122,10 @@ export function initialize(checkbox: Element): void {
         indeterminate: checkbox.dataset.mdIndeterminate != undefined,
         labelElement: checkbox.getElementsByTagName("label")[0],
         onlyLabel: true,
-        text: checkbox.innerText,
     });
 
     if (checkbox.children.length == 0) {
-        checkbox.innerText = "";
+        checkbox.textContent = "";
         checkbox.appendChild(label);
     }
 }

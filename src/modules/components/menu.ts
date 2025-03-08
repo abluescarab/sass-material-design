@@ -180,7 +180,7 @@ export function initialize(menu: Element): void {
             document.createElement("span");
 
         arrow.classList.add("md-menu__icon", "md-symbol");
-        arrow.innerText = "arrow_right";
+        arrow.textContent = "arrow_right";
 
         // TODO: if menu is on right side, move arrow to left?
         if (!arrow.parentElement) {

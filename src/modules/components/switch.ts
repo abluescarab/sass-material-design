@@ -42,11 +42,10 @@ export function initialize(switchElement: Element): void {
         disabled: switchElement.dataset.mdDisabled != undefined,
         labelElement: switchElement.getElementsByTagName("label")[0],
         onlyLabel: true,
-        text: switchElement.innerText,
     });
 
     if (switchElement.children.length == 0) {
-        switchElement.innerText = "";
+        switchElement.textContent = "";
         switchElement.appendChild(label);
     }
 }

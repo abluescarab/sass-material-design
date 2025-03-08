@@ -60,7 +60,7 @@ const exampleTree = Object.freeze({
  * Changes the icon and text in the button that controls FAB visibility.
  */
 function changeFabVisibilityButton(): void {
-    (fabVisibilityButton?.childNodes[1] as HTMLElement).innerText =
+    (fabVisibilityButton?.childNodes[1] as HTMLElement).textContent =
         container?.style.display == "none" ? "visibility" : "visibility_off";
 
     replaceFabButtonText(
@@ -78,7 +78,7 @@ function changeThemeButtonIcon(theme: string | null): void {
         return;
     }
 
-    themeIcon.innerText = theme == "light" ? "dark_mode" : "light_mode";
+    themeIcon.textContent = theme == "light" ? "dark_mode" : "light_mode";
 }
 
 /**
@@ -104,7 +104,7 @@ function createAttributes(el: Element): void {
     const h2 = document.createElement("h2");
 
     h2.dataset.mdTypescale = "title-medium";
-    h2.innerText = "Attributes";
+    h2.textContent = "Attributes";
 
     const element = wrapper.children[0] as HTMLElement;
     const dataset = Object.keys(element.dataset).sort();

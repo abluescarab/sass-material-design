@@ -49,7 +49,7 @@ export function initialize(segmentedButton: Element): void {
     for (const child of segmentedButton.children) {
         const check = document.createElement("span");
         check.classList.add("md-segmented__check", "md-symbol");
-        check.innerText = "check";
+        check.textContent = "check";
 
         child.insertAdjacentElement("afterbegin", check);
     }

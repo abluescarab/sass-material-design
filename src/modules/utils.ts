@@ -115,7 +115,11 @@ export function prefix(str: string, prefix: string): string {
  * @param str - string to convert
  * @returns string with whitespace and non-word characters replaced
  */
-export function stringToSelector(str: string): string {
+export function stringToSelector(str: string | null): string {
+    if (!str) {
+        return "";
+    }
+
     return (
         str
             // non-whitespace, non-word characters
