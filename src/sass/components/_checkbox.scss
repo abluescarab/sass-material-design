@@ -78,6 +78,8 @@
     &__box {
         @include square($checkbox__width - $border-size * 2);
 
+        flex-grow: 0;
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         border-radius: 2px;
