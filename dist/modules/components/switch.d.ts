@@ -8,14 +8,6 @@
  */
 export interface SwitchOptions {
     /**
-     * The ID and name to assign to the component.
-     */
-    id?: string;
-    /**
-     * The text inside the label.
-     */
-    text?: string;
-    /**
      * Whether the component should be toggled on.
      */
     checked?: boolean;
@@ -24,9 +16,17 @@ export interface SwitchOptions {
      */
     disabled?: boolean;
     /**
+     * The ID and name to assign to the component.
+     */
+    id?: string;
+    /**
      * Whether to return only the label or include the wrapper.
      */
     onlyLabel?: boolean;
+    /**
+     * The text inside the label.
+     */
+    text?: string;
 }
 /**
  * Creates a new switch.
