@@ -373,7 +373,6 @@ export function toggleAll(
     }
 
     if (tree.classList.contains("md-tree__subtree")) {
-        toggle(tree, expand);
         elements.push(tree);
     }
 
@@ -381,10 +380,11 @@ export function toggleAll(
         (cascadeToggled == "expanded" && expand) ||
         (cascadeToggled == "collapsed" && !expand)
     ) {
-        for (const subtree of tree.getElementsByClassName("md-tree__subtree")) {
-            toggle(subtree, expand);
-            elements.push(subtree);
-        }
+        elements.push(...tree.getElementsByClassName("md-tree__subtree"));
+    }
+
+    for (const toggled of elements) {
+        toggle(toggled, expand);
     }
 
     return elements;
