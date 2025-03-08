@@ -2,8 +2,7 @@
  * @file            components/menu.ts
  * @description     Implementation file for Material Design menu components.
  */
-import { getParentByClassName } from "../utils";
-// import { Nullable } from "../types/index.js";
+import { getParentByClassName } from "../utils.js";
 // key: menu, value: opening element
 const visible = new Map();
 /**
