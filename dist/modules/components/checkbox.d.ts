@@ -2,6 +2,7 @@
  * @file            components/checkbox.ts
  * @description     Implementation file for checkbox components.
  */
+import { Nullable } from "../types/index.js";
 /**
  * Represents the options given to a styled checkbox in the
  * {@link createStyledCheckbox()} function.
@@ -34,7 +35,7 @@ export interface MaterialStyledCheckboxOptions {
     /**
      * The text inside the label.
      */
-    text?: string;
+    text?: Nullable<string>;
 }
 /**
  * Creates a checkbox that shows the given display element. Unless creating a

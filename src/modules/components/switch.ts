@@ -40,8 +40,8 @@ export function initialize(switchElement: Element): void {
     const label = create({
         checked: switchElement.dataset.mdChecked != undefined,
         disabled: switchElement.dataset.mdDisabled != undefined,
-        labelElement: switchElement.getElementsByTagName("label")[0],
         onlyLabel: true,
+        text: switchElement.textContent,
     });
 
     if (switchElement.children.length == 0) {

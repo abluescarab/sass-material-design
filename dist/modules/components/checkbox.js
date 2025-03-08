@@ -65,8 +65,8 @@ export function initialize(checkbox) {
         checked: checkbox.dataset.mdChecked != undefined,
         disabled: checkbox.dataset.mdDisabled != undefined,
         indeterminate: checkbox.dataset.mdIndeterminate != undefined,
-        labelElement: checkbox.getElementsByTagName("label")[0],
         onlyLabel: true,
+        text: checkbox.textContent,
     });
     if (checkbox.children.length == 0) {
         checkbox.textContent = "";
