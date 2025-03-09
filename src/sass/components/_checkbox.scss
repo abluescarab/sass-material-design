@@ -58,6 +58,7 @@
 
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
 
     @include themes.themify {
         color: themes.color("on-surface");

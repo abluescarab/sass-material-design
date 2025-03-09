@@ -1038,6 +1038,7 @@ code * {
 .md-checkbox {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
 }
 [data-md-theme=light] .md-checkbox {
   color: rgb(29, 27, 32);
