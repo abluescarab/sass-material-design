@@ -47,10 +47,9 @@ export function initialize(tabs) {
     changeTab(tabs, tabs.dataset.mdTab == undefined
         ? getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
         : tabs.dataset.mdTab);
-    getChildByClassName(tabs, "md-tabs__nav")?.addEventListener("click", (e) => {
+    tabs.querySelector(":scope > .md-tabs__nav")?.addEventListener("click", (e) => {
         const button = getParentByClassName(e.target, "md-tabs__button");
-        // ensure button is direct child of current tab container
-        if (button != null && button.parentElement?.parentElement == tabs) {
+        if (button) {
             changeTab(tabs, button.dataset.mdTab);
         }
     });

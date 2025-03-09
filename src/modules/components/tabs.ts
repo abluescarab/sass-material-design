@@ -59,7 +59,7 @@ export function initialize(tabs: Element): void {
             : tabs.dataset.mdTab
     );
 
-    getChildByClassName(tabs, "md-tabs__nav")?.addEventListener(
+    tabs.querySelector(":scope > .md-tabs__nav")?.addEventListener(
         "click",
         (e) => {
             const button = getParentByClassName(
@@ -67,8 +67,7 @@ export function initialize(tabs: Element): void {
                 "md-tabs__button"
             );
 
-            // ensure button is direct child of current tab container
-            if (button != null && button.parentElement?.parentElement == tabs) {
+            if (button) {
                 changeTab(tabs, button.dataset.mdTab);
             }
         }
