@@ -1104,24 +1104,19 @@
 
         <section id="tooltips" class="md-pane" data-md-background="surface">
             <div class="md-app-bar">
-                <button
-                    class="md-app-bar__icon"
-                    data-md-tooltip="app-bar-leading-tooltip">
+                <button class="md-app-bar__icon" data-md-tooltip="main-tooltip">
                     tooltip_2
                 </button>
-                <div id="app-bar-leading-tooltip" class="md-tooltip">
-                    This is a tooltip.
-                </div>
                 <h1 class="md-app-bar__headline">Tooltips</h1>
                 <div class="md-app-bar__trailing">
                     <button
                         class="md-app-bar__icon"
-                        data-md-tooltip="app-bar-trailing-tooltip">
+                        data-md-tooltip="main-tooltip">
                         tooltip_2
                     </button>
-                    <div id="app-bar-trailing-tooltip" class="md-tooltip">
-                        This is a tooltip.
-                    </div>
+                </div>
+                <div id="main-tooltip" class="md-tooltip">
+                    This is a tooltip.
                 </div>
             </div>
 
@@ -1129,12 +1124,9 @@
                 <button
                     class="md-button"
                     data-md-type="filled"
-                    data-md-tooltip="plain-button-tooltip">
+                    data-md-tooltip="main-tooltip">
                     Plain
                 </button>
-                <div class="md-tooltip" id="plain-button-tooltip">
-                    This is a tooltip.
-                </div>
                 <button
                     class="md-button"
                     data-md-type="filled"
