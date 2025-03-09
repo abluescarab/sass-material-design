@@ -24,7 +24,7 @@ export function initialize(): void {
         ".md-switch": switchComponentInitialize,
         ".md-tabs": tabsInitialize,
         ".md-tree": treeInitialize,
-        "[data-md-tooltip]": tooltipInitialize,
+        ".md-tooltip": tooltipInitialize,
     };
 
     for (const [selector, initializer] of Object.entries(elements)) {

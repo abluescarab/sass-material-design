@@ -17,6 +17,6 @@ export declare function hide(tooltip: Element, immediate?: boolean): void;
 export declare function show(parent: Element, tooltip: Element, immediate?: boolean): void;
 /**
  * Initializes a tooltip.
- * @param parent - element that controls the tooltip
+ * @param tooltip - tooltip to initialize
  */
-export declare function initialize(parent: Element): void;
+export declare function initialize(tooltip: Element): void;

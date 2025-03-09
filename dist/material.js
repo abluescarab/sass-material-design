@@ -22,7 +22,7 @@ export function initialize() {
         ".md-switch": switchComponentInitialize,
         ".md-tabs": tabsInitialize,
         ".md-tree": treeInitialize,
-        "[data-md-tooltip]": tooltipInitialize,
+        ".md-tooltip": tooltipInitialize,
     };
     for (const [selector, initializer] of Object.entries(elements)) {
         document.querySelectorAll(selector).forEach((e) => initializer(e));

@@ -108,17 +108,22 @@ export function show(
 
 /**
  * Initializes a tooltip.
- * @param parent - element that controls the tooltip
+ * @param tooltip - tooltip to initialize
  */
-export function initialize(parent: Element): void {
-    // TODO: change to initializing tooltip directly instead of parent?
-    if (!(parent instanceof HTMLElement) || !parent.dataset.mdTooltip) {
+export function initialize(tooltip: Element): void {
+    if (
+        !(tooltip instanceof HTMLElement) ||
+        !tooltip.classList.contains("md-tooltip")
+    ) {
         return;
     }
 
-    const tooltip = document.getElementById(parent.dataset.mdTooltip);
+    const parents = document.querySelectorAll(
+        `[data-md-tooltip='${tooltip.id}']`
+    );
 
-    if (!tooltip) {
+    // if tooltip is not bound to anything, skip initializing
+    if (parents.length == 0) {
         return;
     }
 
@@ -131,12 +136,14 @@ export function initialize(parent: Element): void {
         hide(tooltip);
     });
 
-    parent.addEventListener("mouseenter", () => {
-        show(parent, tooltip);
-    });
+    parents.forEach((parent) => {
+        parent.addEventListener("mouseenter", () => {
+            show(parent, tooltip);
+        });
 
-    parent.addEventListener("mouseleave", () => {
-        queue.clear();
-        hide(tooltip);
+        parent.addEventListener("mouseleave", () => {
+            queue.clear();
+            hide(tooltip);
+        });
     });
 }
