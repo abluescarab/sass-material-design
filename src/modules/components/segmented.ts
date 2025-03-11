@@ -13,7 +13,7 @@ import { getParentByClassName } from "../utils.js";
  * @param allowMulti - whether multiple segments can be selected
  */
 function selectSegment(
-    segment: Element | null,
+    segment: Element,
     requireSelect: boolean,
     allowMulti: boolean
 ): void {
@@ -38,11 +38,8 @@ function selectSegment(
  * Initializes a segmented button.
  * @param segmentedButton - button to initialize
  */
-export function initialize(segmentedButton: Element): void {
-    if (
-        !(segmentedButton instanceof HTMLElement) ||
-        !segmentedButton.classList.contains("md-segmented")
-    ) {
+export function initialize(segmentedButton: HTMLElement): void {
+    if (!segmentedButton.classList.contains("md-segmented")) {
         return;
     }
 
@@ -55,7 +52,15 @@ export function initialize(segmentedButton: Element): void {
     }
 
     segmentedButton.addEventListener("click", (e) => {
+        if (!(e.target instanceof Element)) {
+            return;
+        }
+
         const parent = getParentByClassName(e.target, "md-segmented__button");
+
+        if (!parent) {
+            return;
+        }
 
         selectSegment(
             parent,

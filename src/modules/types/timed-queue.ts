@@ -11,7 +11,7 @@
 export type TimedQueueItem<T> = {
     callback: (item: TimedQueueItem<T>) => void;
     data: T;
-    delay: number | undefined;
+    delay: number;
 };
 
 /**

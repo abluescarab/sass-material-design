@@ -24,11 +24,7 @@ function getTab(tabs: Element, name: string | undefined): (Element | null)[] {
  * @param tabs - tab container
  * @param tab - name of new tab
  */
-export function changeTab(tabs: Element, tab: string | undefined): void {
-    if (!(tabs instanceof HTMLElement)) {
-        return;
-    }
-
+export function changeTab(tabs: HTMLElement, tab: string | undefined): void {
     const oldTab = tabs.dataset.mdTab;
     const [oldButton, oldContent] = getTab(tabs, oldTab);
     const [newButton, newContent] = getTab(tabs, tab);
@@ -46,18 +42,13 @@ export function changeTab(tabs: Element, tab: string | undefined): void {
  * Initializes a tab container.
  * @param tabs - tab container
  */
-export function initialize(tabs: Element): void {
-    if (!(tabs instanceof HTMLElement)) {
-        return;
-    }
+export function initialize(tabs: HTMLElement): void {
+    const tabElement = getChildByClassName(tabs, "md-tabs__page");
 
     // set default tab if not given
-    changeTab(
-        tabs,
-        tabs.dataset.mdTab == undefined
-            ? getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
-            : tabs.dataset.mdTab
-    );
+    if (tabElement instanceof HTMLElement) {
+        changeTab(tabs, tabs.dataset.mdTab ?? tabElement.dataset.mdTab);
+    }
 
     tabs.querySelector(":scope > .md-tabs__nav")?.addEventListener(
         "click",
@@ -67,9 +58,11 @@ export function initialize(tabs: Element): void {
                 "md-tabs__button"
             );
 
-            if (button) {
-                changeTab(tabs, button.dataset.mdTab);
+            if (!(button instanceof HTMLElement)) {
+                return;
             }
+
+            changeTab(tabs, button.dataset.mdTab);
         }
     );
 }

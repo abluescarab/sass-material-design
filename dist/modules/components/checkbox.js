@@ -57,8 +57,7 @@ export function create(options) {
  * @param checkbox - checkbox to initialize
  */
 export function initialize(checkbox) {
-    if (!(checkbox instanceof HTMLElement) ||
-        !checkbox.classList.contains("md-checkbox")) {
+    if (!checkbox.classList.contains("md-checkbox")) {
         return;
     }
     const label = create({
@@ -66,7 +65,7 @@ export function initialize(checkbox) {
         disabled: checkbox.dataset.mdDisabled != undefined,
         indeterminate: checkbox.dataset.mdIndeterminate != undefined,
         onlyLabel: true,
-        text: checkbox.textContent,
+        text: checkbox.textContent ?? "",
     });
     if (checkbox.children.length == 0) {
         checkbox.textContent = "";

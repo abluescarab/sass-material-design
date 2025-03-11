@@ -8,9 +8,6 @@
  * @returns capitalized string
  */
 export function capitalize(str) {
-    if (!str) {
-        return "";
-    }
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 /**
@@ -21,9 +18,6 @@ export function capitalize(str) {
  * @returns new data value
  */
 export function cycleData(element, data, ...values) {
-    if (!element || !(element instanceof HTMLElement)) {
-        return null;
-    }
     const dataName = `md${capitalize(data)}`;
     const dataValue = element.dataset[dataName];
     let index = 0;
@@ -41,9 +35,6 @@ export function cycleData(element, data, ...values) {
  * @returns child as {@link HTMLElement}
  */
 export function getChildByClassName(parent, className) {
-    if (!parent) {
-        return null;
-    }
     return parent.getElementsByClassName(className)[0];
 }
 /**
@@ -55,9 +46,6 @@ export function getChildByClassName(parent, className) {
  * @returns closest parent with class
  */
 export function getParentByClassName(element, parentClass, forceStopAtClass = "", includeSelf = true) {
-    if (element == null || !(element instanceof HTMLElement)) {
-        return null;
-    }
     if (includeSelf) {
         if (element.classList.contains(parentClass)) {
             return element;
@@ -66,16 +54,18 @@ export function getParentByClassName(element, parentClass, forceStopAtClass = ""
             return null;
         }
     }
+    if (!element.parentElement) {
+        return null;
+    }
     return getParentByClassName(element.parentElement, parentClass, forceStopAtClass, true);
 }
 /**
- * Adds a prefix to a string.
- * @param str - original string
- * @param prefix - string to prepend
- * @returns string with prefix added
+ * Joins a series of strings in order.
+ * @param strings - strings to join
+ * @returns joined strings
  */
-export function prefix(str, prefix) {
-    return `${prefix}${str}`;
+export function join(...strings) {
+    return strings.join("");
 }
 /**
  * Converts a string to a selector in the form "element-selector".
@@ -83,24 +73,14 @@ export function prefix(str, prefix) {
  * @returns string with whitespace and non-word characters replaced
  */
 export function stringToSelector(str) {
+    // shortcut if string is empty
     if (!str) {
-        return "";
+        return str;
     }
-    return (str
-        // non-whitespace, non-word characters
-        .replaceAll(/[^\w\s]/g, "")
-        // whitespace or uppercase after lowercase
-        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2")
-        .toLowerCase());
-}
-/**
- * Adds a suffix to a string.
- * @param str - original string
- * @param suffix - string to append
- * @returns string with suffix added
- */
-export function suffix(str, suffix) {
-    return `${str}${suffix}`;
+    return str
+        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
+        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2") // whitespace or uppercase after lowercase
+        .toLowerCase();
 }
 /**
  * Wraps an element in the specified tag.

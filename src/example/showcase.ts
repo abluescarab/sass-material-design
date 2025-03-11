@@ -20,7 +20,6 @@ import { populate } from "../modules/components/tree.js";
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
 const themeFab = document.getElementById("toggle-theme");
-const themeIcon = getChildByClassName(themeFab, "md-fab__icon");
 const fabVisibilityButton = document.getElementById("fab-visibility");
 
 const exampleTree = Object.freeze({
@@ -60,7 +59,11 @@ const exampleTree = Object.freeze({
  * Changes the icon and text in the button that controls FAB visibility.
  */
 function changeFabVisibilityButton(): void {
-    (fabVisibilityButton?.childNodes[1] as HTMLElement).textContent =
+    if (!fabVisibilityButton) {
+        return;
+    }
+
+    fabVisibilityButton.childNodes[1].textContent =
         container?.style.display == "none" ? "visibility" : "visibility_off";
 
     replaceFabButtonText(
@@ -73,12 +76,13 @@ function changeFabVisibilityButton(): void {
  * Changes the icon on the button that controls the page theme.
  * @param theme - light or dark
  */
-function changeThemeButtonIcon(theme: string | null): void {
-    if (!themeIcon || !theme) {
+function changeThemeButtonIcon(theme: string): void {
+    if (!(themeFab instanceof Element)) {
         return;
     }
 
-    themeIcon.textContent = theme == "light" ? "dark_mode" : "light_mode";
+    getChildByClassName(themeFab, "md-fab__icon").textContent =
+        theme == "light" ? "dark_mode" : "light_mode";
 }
 
 /**
@@ -150,15 +154,8 @@ function createAttributes(el: Element): void {
  * @param button - button to replace text inside
  * @param replacement - text to replace with
  */
-function replaceFabButtonText(
-    button: EventTarget | null,
-    replacement: string
-): void {
-    if (!button) {
-        return;
-    }
-
-    const node = (button as Element).childNodes[2];
+function replaceFabButtonText(button: Element, replacement: string): void {
+    const node = button.childNodes[2];
     node.nodeValue =
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
 }
@@ -171,8 +168,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "tree-leaf-checkboxes",
     ];
 
-    const theme = sessionStorage.getItem("theme");
-    setTheme(document.body, theme ?? "light");
+    const theme = sessionStorage.getItem("theme") ?? "light";
+    setTheme(document.body, theme);
     changeThemeButtonIcon(theme);
 
     if (container) {
@@ -185,7 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (const tree of trees) {
         const element = document.getElementById(tree);
-        populate(element, exampleTree);
+
+        if (element) {
+            populate(element, exampleTree);
+        }
     }
 
     [].forEach.call(document.getElementsByClassName("attributes"), (el) =>
@@ -195,13 +195,15 @@ document.addEventListener("DOMContentLoaded", () => {
     initialize();
 });
 
-document
-    .getElementById("close-banner")
-    ?.addEventListener("click", (e) =>
-        getParentByClassName(e.currentTarget, "md-banner")?.classList.remove(
-            "md-banner--visible"
-        )
+document.getElementById("close-banner")?.addEventListener("click", (e) => {
+    if (!(e.currentTarget instanceof Element)) {
+        return;
+    }
+
+    getParentByClassName(e.currentTarget, "md-banner")?.classList.remove(
+        "md-banner--visible"
     );
+});
 
 [].forEach.call(
     document
@@ -209,9 +211,11 @@ document
         ?.getElementsByClassName("md-icon-button"),
     (el: Element) => {
         el.addEventListener("click", (e) => {
-            (e.currentTarget as HTMLElement).classList.toggle(
-                "md-icon-button--selected"
-            );
+            if (!(e.currentTarget instanceof Element)) {
+                return;
+            }
+
+            e.currentTarget.classList.toggle("md-icon-button--selected");
         });
     }
 );
@@ -219,6 +223,10 @@ document
 document
     .getElementById("close-fullscreen-dialog")
     ?.addEventListener("click", (e) => {
+        if (!(e.currentTarget instanceof Element)) {
+            return;
+        }
+
         getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove(
             "md-dialog--visible"
         );
@@ -228,7 +236,11 @@ document
     .querySelectorAll("#snackbars .md-pane__content > .md-button")
     .forEach((element) =>
         element.addEventListener("click", (e) => {
-            const el = e.currentTarget as HTMLElement;
+            if (!(e.currentTarget instanceof HTMLElement)) {
+                return;
+            }
+
+            const el = e.currentTarget;
             const snackbar = el?.nextElementSibling;
 
             snackbar?.classList.toggle("md-snackbar--visible");
@@ -243,14 +255,20 @@ document
 
 document.querySelectorAll(".md-snackbar .md-action").forEach((element) =>
     element.addEventListener("click", (e) => {
-        const el = (e.currentTarget as Element).parentElement;
-        const prev = el?.previousElementSibling as HTMLElement;
+        if (!(e.currentTarget instanceof Element)) {
+            return;
+        }
+
+        const el = e.currentTarget.parentElement;
+        const prev = el?.previousElementSibling;
 
         el?.classList.remove("md-snackbar--visible");
 
-        if (prev) {
-            prev.innerText = prev.innerText.replace("Hide", "Show");
+        if (!(prev instanceof HTMLElement)) {
+            return;
         }
+
+        prev.innerText = prev.innerText.replace("Hide", "Show");
     })
 );
 
@@ -258,14 +276,22 @@ document
     .querySelectorAll("#dialogs .md-pane__content > .md-button")
     .forEach((element) =>
         element.addEventListener("click", (e) => {
-            (
-                e.currentTarget as HTMLElement
-            ).nextElementSibling?.classList.toggle("md-dialog--visible");
+            if (!(e.currentTarget instanceof Element)) {
+                return;
+            }
+
+            e.currentTarget.nextElementSibling?.classList.toggle(
+                "md-dialog--visible"
+            );
         })
     );
 
 document.querySelectorAll(".md-dialog .close-button").forEach((element) =>
     element.addEventListener("click", (e) => {
+        if (!(e.currentTarget instanceof HTMLElement)) {
+            return;
+        }
+
         getParentByClassName(e.currentTarget, "md-dialog")?.classList.remove(
             "md-dialog--visible"
         );
@@ -303,6 +329,13 @@ fab?.addEventListener("click", () =>
 );
 
 document.getElementById("fab-color")?.addEventListener("click", (e) => {
+    if (
+        !(fab instanceof HTMLElement) ||
+        !(e.currentTarget instanceof Element)
+    ) {
+        return;
+    }
+
     const color = cycleData(
         fab,
         "color",
@@ -318,7 +351,13 @@ document.getElementById("fab-color")?.addEventListener("click", (e) => {
 });
 
 document.getElementById("fab-size")?.addEventListener("click", (e) => {
-    const size = cycleData(fab, "size", "", "small", "large", "extended");
+    if (!(e.currentTarget instanceof Element)) {
+        return;
+    }
+
+    const size = fab
+        ? cycleData(fab, "size", "", "small", "large", "extended")
+        : "";
     replaceFabButtonText(
         e.currentTarget,
         size == "" ? "Medium" : capitalize(size)
@@ -326,6 +365,10 @@ document.getElementById("fab-size")?.addEventListener("click", (e) => {
 });
 
 document.getElementById("fab-elevation")?.addEventListener("click", (e) => {
+    if (!(e.currentTarget instanceof Element)) {
+        return;
+    }
+
     fab?.classList.toggle("md-fab--low");
     replaceFabButtonText(
         e.currentTarget,
@@ -334,7 +377,7 @@ document.getElementById("fab-elevation")?.addEventListener("click", (e) => {
 });
 
 document.getElementById("fab-lr")?.addEventListener("click", (e) => {
-    if (!container) {
+    if (!container || !(e.currentTarget instanceof Element)) {
         return;
     }
 
@@ -344,7 +387,7 @@ document.getElementById("fab-lr")?.addEventListener("click", (e) => {
 });
 
 document.getElementById("fab-tb")?.addEventListener("click", (e) => {
-    if (!container) {
+    if (!container || !(e.currentTarget instanceof Element)) {
         return;
     }
 
@@ -354,14 +397,18 @@ document.getElementById("fab-tb")?.addEventListener("click", (e) => {
 });
 
 document.getElementById("fab-orientation")?.addEventListener("click", (e) => {
+    if (!(e.currentTarget instanceof Element)) {
+        return;
+    }
+
     replaceFabButtonText(
         e.currentTarget,
         container?.classList.toggle("md-fixed--reverse") ? "Reverse" : "Forward"
     );
 });
 
-fabVisibilityButton?.addEventListener("click", (e) => {
-    if (!container || !(e.currentTarget instanceof Element)) {
+fabVisibilityButton?.addEventListener("click", () => {
+    if (!container) {
         return;
     }
 

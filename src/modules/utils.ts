@@ -8,11 +8,7 @@
  * @param str - string to modify
  * @returns capitalized string
  */
-export function capitalize(str: string | null): string {
-    if (!str) {
-        return "";
-    }
-
+export function capitalize(str: string): string {
     return str.charAt(0).toLocaleUpperCase() + str.slice(1);
 }
 
@@ -24,14 +20,10 @@ export function capitalize(str: string | null): string {
  * @returns new data value
  */
 export function cycleData(
-    element: Element | null,
+    element: HTMLElement,
     data: string,
     ...values: string[]
-): string | null {
-    if (!element || !(element instanceof HTMLElement)) {
-        return null;
-    }
-
+): string {
     const dataName = `md${capitalize(data)}`;
     const dataValue = element.dataset[dataName];
     let index = 0;
@@ -52,16 +44,10 @@ export function cycleData(
  * @returns child as {@link HTMLElement}
  */
 export function getChildByClassName(
-    parent: Element | EventTarget | null,
+    parent: Element,
     className: string
-): HTMLElement | null {
-    if (!parent) {
-        return null;
-    }
-
-    return (parent as HTMLElement).getElementsByClassName(
-        className
-    )[0] as HTMLElement;
+): Element {
+    return parent.getElementsByClassName(className)[0];
 }
 
 /**
@@ -73,15 +59,11 @@ export function getChildByClassName(
  * @returns closest parent with class
  */
 export function getParentByClassName(
-    element: Element | EventTarget | null,
+    element: Element,
     parentClass: string,
     forceStopAtClass: string = "",
     includeSelf: boolean = true
-): HTMLElement | null {
-    if (element == null || !(element instanceof HTMLElement)) {
-        return null;
-    }
-
+): Element | null {
     if (includeSelf) {
         if (element.classList.contains(parentClass)) {
             return element;
@@ -90,6 +72,10 @@ export function getParentByClassName(
         if (forceStopAtClass && element.classList.contains(forceStopAtClass)) {
             return null;
         }
+    }
+
+    if (!element.parentElement) {
+        return null;
     }
 
     return getParentByClassName(
@@ -101,13 +87,12 @@ export function getParentByClassName(
 }
 
 /**
- * Adds a prefix to a string.
- * @param str - original string
- * @param prefix - string to prepend
- * @returns string with prefix added
+ * Joins a series of strings in order.
+ * @param strings - strings to join
+ * @returns joined strings
  */
-export function prefix(str: string, prefix: string): string {
-    return `${prefix}${str}`;
+export function join(...strings: string[]): string {
+    return strings.join("");
 }
 
 /**
@@ -115,29 +100,16 @@ export function prefix(str: string, prefix: string): string {
  * @param str - string to convert
  * @returns string with whitespace and non-word characters replaced
  */
-export function stringToSelector(str: string | null): string {
+export function stringToSelector(str: string): string {
+    // shortcut if string is empty
     if (!str) {
-        return "";
+        return str;
     }
 
-    return (
-        str
-            // non-whitespace, non-word characters
-            .replaceAll(/[^\w\s]/g, "")
-            // whitespace or uppercase after lowercase
-            .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2")
-            .toLowerCase()
-    );
-}
-
-/**
- * Adds a suffix to a string.
- * @param str - original string
- * @param suffix - string to append
- * @returns string with suffix added
- */
-export function suffix(str: string, suffix: string): string {
-    return `${str}${suffix}`;
+    return str
+        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
+        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2") // whitespace or uppercase after lowercase
+        .toLowerCase();
 }
 
 /**

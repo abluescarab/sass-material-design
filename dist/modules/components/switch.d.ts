@@ -13,4 +13,4 @@ export declare function create(options?: MaterialStyledCheckboxOptions): HTMLEle
  * Initializes a switch.
  * @param switchElement - switch to initialize
  */
-export declare function initialize(switchElement: Element): void;
+export declare function initialize(switchElement: HTMLElement): void;

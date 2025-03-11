@@ -50,9 +50,6 @@ function calculateLocation(parent, tooltip, inAppBar) {
  * @param immediate - whether to skip delay
  */
 export function hide(tooltip, immediate = false) {
-    if (!(tooltip instanceof HTMLElement)) {
-        return;
-    }
     queue.push({
         callback: (item) => {
             if (item.data.dataset.mdHovered == undefined) {
@@ -70,9 +67,6 @@ export function hide(tooltip, immediate = false) {
  * @param immediate - whether to skip delay
  */
 export function show(parent, tooltip, immediate = false) {
-    if (!(tooltip instanceof HTMLElement)) {
-        return;
-    }
     const parentInAppBar = getParentByClassName(parent, "md-app-bar") != null;
     calculateLocation(parent, tooltip, parentInAppBar);
     queue.clear((item) => item.data.classList.remove("md-tooltip--visible"));
@@ -87,8 +81,7 @@ export function show(parent, tooltip, immediate = false) {
  * @param tooltip - tooltip to initialize
  */
 export function initialize(tooltip) {
-    if (!(tooltip instanceof HTMLElement) ||
-        !tooltip.classList.contains("md-tooltip")) {
+    if (!tooltip.classList.contains("md-tooltip")) {
         return;
     }
     const parents = document.querySelectorAll(`[data-md-tooltip='${tooltip.id}']`);

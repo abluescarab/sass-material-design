@@ -11,10 +11,7 @@ import { cycleData } from "./utils.js";
  * @param themes - theme names
  * @returns new theme
  */
-export function cycleThemes(
-    element: Element,
-    ...themes: string[]
-): string | null {
+export function cycleThemes(element: HTMLElement, ...themes: string[]): string {
     return cycleData(element, "theme", ...themes);
 }
 
@@ -24,6 +21,6 @@ export function cycleThemes(
  * @param theme - theme to change to
  * @returns new theme
  */
-export function setTheme(element: Element, theme: string = ""): string | null {
+export function setTheme(element: HTMLElement, theme: string = ""): string {
     return cycleThemes(element, theme);
 }

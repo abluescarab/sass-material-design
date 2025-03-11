@@ -6,7 +6,7 @@
 import { getParentByClassName } from "../utils.js";
 
 // key: menu, value: opening element
-const visible = new Map<Element, Element>();
+const visible = new Map<HTMLElement, Element>();
 
 /**
  * Initializes a menu's event listeners and maximum height.
@@ -25,7 +25,11 @@ function initializeMenu(menu: HTMLElement): void {
         hide(menu);
     });
 
-    menu.addEventListener("mouseover", (e) => {
+    menu.addEventListener("mouseover", (e: MouseEvent) => {
+        if (!(e.target instanceof Element)) {
+            return;
+        }
+
         // TODO: check if submenu parent and show submenu if yes
         const item = getParentByClassName(
             e.target,
@@ -33,6 +37,18 @@ function initializeMenu(menu: HTMLElement): void {
             "md-menu",
             true
         );
+
+        const submenu = item?.nextElementSibling;
+
+        if (
+            !item ||
+            !(submenu instanceof HTMLElement) ||
+            !submenu?.classList.contains("md-menu__submenu")
+        ) {
+            return;
+        }
+
+        show(item, submenu);
     });
 
     menu.addEventListener("mouseout", (e) => {
@@ -45,11 +61,7 @@ function initializeMenu(menu: HTMLElement): void {
  * @param menu - menu to hide
  * @param force - whether to ignore the hover state of the menu
  */
-export function hide(menu: Element, force: boolean = false): void {
-    if (!(menu instanceof HTMLElement)) {
-        return;
-    }
-
+export function hide(menu: HTMLElement, force: boolean = false): void {
     setTimeout(() => {
         if (force || menu.dataset.mdHovered == undefined) {
             menu.classList.remove("md-menu--visible");
@@ -79,11 +91,7 @@ export function hideAll(force: boolean = false): void {
  * @param parent - parent menu
  * @param menu - menu to move
  */
-export function move(parent: Element | undefined, menu: Element): void {
-    if (!parent || !(menu instanceof HTMLElement)) {
-        return;
-    }
-
+export function move(parent: Element, menu: HTMLElement): void {
     const menuRect = menu.getBoundingClientRect();
     const parentRect = parent?.getBoundingClientRect();
     const parentMenuRect = parent?.parentElement?.getBoundingClientRect();
@@ -137,7 +145,7 @@ export function move(parent: Element | undefined, menu: Element): void {
  * @param parent - element that controls the menu
  * @param menu - menu to show
  */
-export function show(parent: Element, menu: Element): void {
+export function show(parent: Element, menu: HTMLElement): void {
     move(parent, menu);
     menu.classList.add("md-menu--visible");
     visible.set(menu, parent);
@@ -147,8 +155,8 @@ export function show(parent: Element, menu: Element): void {
  * Initializes a menu.
  * @param menu - menu to initialize
  */
-export function initialize(menu: Element): void {
-    if (!(menu instanceof HTMLElement) || !menu.classList.contains("md-menu")) {
+export function initialize(menu: HTMLElement): void {
+    if (!menu.classList.contains("md-menu")) {
         return;
     }
 
@@ -172,21 +180,22 @@ export function initialize(menu: Element): void {
     initializeMenu(menu);
 
     // TODO: finish implementing menu
-    menu.querySelectorAll(".md-menu__submenu").forEach((el) => {
-        const submenu = el as HTMLElement;
-        const parent = submenu.previousElementSibling;
-        const arrow: HTMLElement =
-            parent?.querySelector(".md-menu__icon:last-child") ??
-            document.createElement("span");
+    menu.querySelectorAll<HTMLElement>(".md-menu__submenu").forEach(
+        (submenu) => {
+            const parent = submenu.previousElementSibling;
+            const arrow: HTMLElement =
+                parent?.querySelector(".md-menu__icon:last-child") ??
+                document.createElement("span");
 
-        arrow.classList.add("md-menu__icon", "md-symbol");
-        arrow.textContent = "arrow_right";
+            arrow.classList.add("md-menu__icon", "md-symbol");
+            arrow.textContent = "arrow_right";
 
-        // TODO: if menu is on right side, move arrow to left?
-        if (!arrow.parentElement) {
-            parent?.insertAdjacentElement("beforeend", arrow);
+            // TODO: if menu is on right side, move arrow to left?
+            if (!arrow.parentElement) {
+                parent?.insertAdjacentElement("beforeend", arrow);
+            }
+
+            initializeMenu(submenu);
         }
-
-        initializeMenu(submenu);
-    });
+    );
 }

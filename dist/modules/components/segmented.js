@@ -27,8 +27,7 @@ function selectSegment(segment, requireSelect, allowMulti) {
  * @param segmentedButton - button to initialize
  */
 export function initialize(segmentedButton) {
-    if (!(segmentedButton instanceof HTMLElement) ||
-        !segmentedButton.classList.contains("md-segmented")) {
+    if (!segmentedButton.classList.contains("md-segmented")) {
         return;
     }
     for (const child of segmentedButton.children) {
@@ -38,7 +37,13 @@ export function initialize(segmentedButton) {
         child.insertAdjacentElement("afterbegin", check);
     }
     segmentedButton.addEventListener("click", (e) => {
+        if (!(e.target instanceof Element)) {
+            return;
+        }
         const parent = getParentByClassName(e.target, "md-segmented__button");
+        if (!parent) {
+            return;
+        }
         selectSegment(parent, segmentedButton.dataset.mdRequireSelect != undefined, segmentedButton.dataset.mdMultiselect != undefined);
     });
 }

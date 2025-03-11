@@ -7,4 +7,4 @@
  * Initializes a segmented button.
  * @param segmentedButton - button to initialize
  */
-export declare function initialize(segmentedButton: Element): void;
+export declare function initialize(segmentedButton: HTMLElement): void;

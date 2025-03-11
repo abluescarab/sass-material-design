@@ -29,11 +29,8 @@ export function create(options?: MaterialStyledCheckboxOptions): HTMLElement {
  * Initializes a switch.
  * @param switchElement - switch to initialize
  */
-export function initialize(switchElement: Element): void {
-    if (
-        !(switchElement instanceof HTMLElement) ||
-        !switchElement.classList.contains("md-switch")
-    ) {
+export function initialize(switchElement: HTMLElement): void {
+    if (!switchElement.classList.contains("md-switch")) {
         return;
     }
 
@@ -41,7 +38,7 @@ export function initialize(switchElement: Element): void {
         checked: switchElement.dataset.mdChecked != undefined,
         disabled: switchElement.dataset.mdDisabled != undefined,
         onlyLabel: true,
-        text: switchElement.textContent,
+        text: switchElement.textContent ?? "",
     });
 
     if (switchElement.children.length == 0) {

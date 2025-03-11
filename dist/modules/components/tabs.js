@@ -22,9 +22,6 @@ function getTab(tabs, name) {
  * @param tab - name of new tab
  */
 export function changeTab(tabs, tab) {
-    if (!(tabs instanceof HTMLElement)) {
-        return;
-    }
     const oldTab = tabs.dataset.mdTab;
     const [oldButton, oldContent] = getTab(tabs, oldTab);
     const [newButton, newContent] = getTab(tabs, tab);
@@ -40,17 +37,16 @@ export function changeTab(tabs, tab) {
  * @param tabs - tab container
  */
 export function initialize(tabs) {
-    if (!(tabs instanceof HTMLElement)) {
-        return;
-    }
+    const tabElement = getChildByClassName(tabs, "md-tabs__page");
     // set default tab if not given
-    changeTab(tabs, tabs.dataset.mdTab == undefined
-        ? getChildByClassName(tabs, "md-tabs__page")?.dataset.mdTab
-        : tabs.dataset.mdTab);
+    if (tabElement instanceof HTMLElement) {
+        changeTab(tabs, tabs.dataset.mdTab ?? tabElement.dataset.mdTab);
+    }
     tabs.querySelector(":scope > .md-tabs__nav")?.addEventListener("click", (e) => {
         const button = getParentByClassName(e.target, "md-tabs__button");
-        if (button) {
-            changeTab(tabs, button.dataset.mdTab);
+        if (!(button instanceof HTMLElement)) {
+            return;
         }
+        changeTab(tabs, button.dataset.mdTab);
     });
 }

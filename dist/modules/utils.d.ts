@@ -7,7 +7,7 @@
  * @param str - string to modify
  * @returns capitalized string
  */
-export declare function capitalize(str: string | null): string;
+export declare function capitalize(str: string): string;
 /**
  * Cycles a data attribute on an element between the given values.
  * @param element - element with data value
@@ -15,14 +15,14 @@ export declare function capitalize(str: string | null): string;
  * @param values - values to cycle
  * @returns new data value
  */
-export declare function cycleData(element: Element | null, data: string, ...values: string[]): string | null;
+export declare function cycleData(element: HTMLElement, data: string, ...values: string[]): string;
 /**
  * Gets the first child element with the given class name.
  * @param parent - direct parent
  * @param className - class to search for
  * @returns child as {@link HTMLElement}
  */
-export declare function getChildByClassName(parent: Element | EventTarget | null, className: string): HTMLElement | null;
+export declare function getChildByClassName(parent: Element, className: string): Element;
 /**
  * Gets the closest parent with the given class.
  * @param element - child element
@@ -31,27 +31,19 @@ export declare function getChildByClassName(parent: Element | EventTarget | null
  * @param includeSelf - whether to check if the current element has the class
  * @returns closest parent with class
  */
-export declare function getParentByClassName(element: Element | EventTarget | null, parentClass: string, forceStopAtClass?: string, includeSelf?: boolean): HTMLElement | null;
+export declare function getParentByClassName(element: Element, parentClass: string, forceStopAtClass?: string, includeSelf?: boolean): Element | null;
 /**
- * Adds a prefix to a string.
- * @param str - original string
- * @param prefix - string to prepend
- * @returns string with prefix added
+ * Joins a series of strings in order.
+ * @param strings - strings to join
+ * @returns joined strings
  */
-export declare function prefix(str: string, prefix: string): string;
+export declare function join(...strings: string[]): string;
 /**
  * Converts a string to a selector in the form "element-selector".
  * @param str - string to convert
  * @returns string with whitespace and non-word characters replaced
  */
-export declare function stringToSelector(str: string | null): string;
-/**
- * Adds a suffix to a string.
- * @param str - original string
- * @param suffix - string to append
- * @returns string with suffix added
- */
-export declare function suffix(str: string, suffix: string): string;
+export declare function stringToSelector(str: string): string;
 /**
  * Wraps an element in the specified tag.
  * @param element - element to wrap

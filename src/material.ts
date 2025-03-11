@@ -28,11 +28,13 @@ export function initialize(): void {
     };
 
     for (const [selector, initializer] of Object.entries(elements)) {
-        document.querySelectorAll(selector).forEach((e) => initializer(e));
+        document
+            .querySelectorAll<HTMLElement>(selector)
+            .forEach((e) => initializer(e));
     }
 
     document.addEventListener("click", (e) => {
-        if (!(e.target as HTMLElement).dataset.mdMenu) {
+        if (e.target instanceof HTMLElement && !e.target?.dataset.mdMenu) {
             menu.hideAll(true);
         }
     });

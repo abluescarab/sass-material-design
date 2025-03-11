@@ -2,7 +2,7 @@
  * @file            modules/events.ts
  * @description     Helper file with custom event types.
  */
-import { Nullable } from "./index.js";
+import { Nullable } from "./index";
 /**
  * The state of any toggleable element.
  */

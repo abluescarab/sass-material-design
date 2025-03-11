@@ -25,10 +25,12 @@ export function initialize() {
         ".md-tooltip": tooltipInitialize,
     };
     for (const [selector, initializer] of Object.entries(elements)) {
-        document.querySelectorAll(selector).forEach((e) => initializer(e));
+        document
+            .querySelectorAll(selector)
+            .forEach((e) => initializer(e));
     }
     document.addEventListener("click", (e) => {
-        if (!e.target.dataset.mdMenu) {
+        if (e.target instanceof HTMLElement && !e.target?.dataset.mdMenu) {
             menu.hideAll(true);
         }
     });

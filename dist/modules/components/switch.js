@@ -21,15 +21,14 @@ export function create(options) {
  * @param switchElement - switch to initialize
  */
 export function initialize(switchElement) {
-    if (!(switchElement instanceof HTMLElement) ||
-        !switchElement.classList.contains("md-switch")) {
+    if (!switchElement.classList.contains("md-switch")) {
         return;
     }
     const label = create({
         checked: switchElement.dataset.mdChecked != undefined,
         disabled: switchElement.dataset.mdDisabled != undefined,
         onlyLabel: true,
-        text: switchElement.textContent,
+        text: switchElement.textContent ?? "",
     });
     if (switchElement.children.length == 0) {
         switchElement.textContent = "";

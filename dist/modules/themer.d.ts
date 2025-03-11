@@ -8,11 +8,11 @@
  * @param themes - theme names
  * @returns new theme
  */
-export declare function cycleThemes(element: Element, ...themes: string[]): string | null;
+export declare function cycleThemes(element: HTMLElement, ...themes: string[]): string;
 /**
  * Sets the theme on the given element.
  * @param element - element to theme
  * @param theme - theme to change to
  * @returns new theme
  */
-export declare function setTheme(element: Element, theme?: string): string | null;
+export declare function setTheme(element: HTMLElement, theme?: string): string;

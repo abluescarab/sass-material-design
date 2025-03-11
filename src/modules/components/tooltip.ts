@@ -63,11 +63,7 @@ function calculateLocation(
  * @param tooltip - tooltip to hide
  * @param immediate - whether to skip delay
  */
-export function hide(tooltip: Element, immediate: boolean = false): void {
-    if (!(tooltip instanceof HTMLElement)) {
-        return;
-    }
-
+export function hide(tooltip: HTMLElement, immediate: boolean = false): void {
     queue.push({
         callback: (item) => {
             if (item.data.dataset.mdHovered == undefined) {
@@ -87,13 +83,9 @@ export function hide(tooltip: Element, immediate: boolean = false): void {
  */
 export function show(
     parent: Element,
-    tooltip: Element,
+    tooltip: HTMLElement,
     immediate: boolean = false
 ): void {
-    if (!(tooltip instanceof HTMLElement)) {
-        return;
-    }
-
     const parentInAppBar = getParentByClassName(parent, "md-app-bar") != null;
 
     calculateLocation(parent, tooltip, parentInAppBar);
@@ -110,11 +102,8 @@ export function show(
  * Initializes a tooltip.
  * @param tooltip - tooltip to initialize
  */
-export function initialize(tooltip: Element): void {
-    if (
-        !(tooltip instanceof HTMLElement) ||
-        !tooltip.classList.contains("md-tooltip")
-    ) {
+export function initialize(tooltip: HTMLElement): void {
+    if (!tooltip.classList.contains("md-tooltip")) {
         return;
     }
 

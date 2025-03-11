@@ -20,8 +20,18 @@ function initializeMenu(menu) {
         hide(menu);
     });
     menu.addEventListener("mouseover", (e) => {
+        if (!(e.target instanceof Element)) {
+            return;
+        }
         // TODO: check if submenu parent and show submenu if yes
         const item = getParentByClassName(e.target, "md-menu__item", "md-menu", true);
+        const submenu = item?.nextElementSibling;
+        if (!item ||
+            !(submenu instanceof HTMLElement) ||
+            !submenu?.classList.contains("md-menu__submenu")) {
+            return;
+        }
+        show(item, submenu);
     });
     menu.addEventListener("mouseout", (e) => {
         // TODO: check if submenu parent and hide submenu if yes
@@ -33,9 +43,6 @@ function initializeMenu(menu) {
  * @param force - whether to ignore the hover state of the menu
  */
 export function hide(menu, force = false) {
-    if (!(menu instanceof HTMLElement)) {
-        return;
-    }
     setTimeout(() => {
         if (force || menu.dataset.mdHovered == undefined) {
             menu.classList.remove("md-menu--visible");
@@ -62,9 +69,6 @@ export function hideAll(force = false) {
  * @param menu - menu to move
  */
 export function move(parent, menu) {
-    if (!parent || !(menu instanceof HTMLElement)) {
-        return;
-    }
     const menuRect = menu.getBoundingClientRect();
     const parentRect = parent?.getBoundingClientRect();
     const parentMenuRect = parent?.parentElement?.getBoundingClientRect();
@@ -121,7 +125,7 @@ export function show(parent, menu) {
  * @param menu - menu to initialize
  */
 export function initialize(menu) {
-    if (!(menu instanceof HTMLElement) || !menu.classList.contains("md-menu")) {
+    if (!menu.classList.contains("md-menu")) {
         return;
     }
     const parents = document.querySelectorAll(`[data-md-menu=${menu.id}]`);
@@ -141,8 +145,7 @@ export function initialize(menu) {
     });
     initializeMenu(menu);
     // TODO: finish implementing menu
-    menu.querySelectorAll(".md-menu__submenu").forEach((el) => {
-        const submenu = el;
+    menu.querySelectorAll(".md-menu__submenu").forEach((submenu) => {
         const parent = submenu.previousElementSibling;
         const arrow = parent?.querySelector(".md-menu__icon:last-child") ??
             document.createElement("span");

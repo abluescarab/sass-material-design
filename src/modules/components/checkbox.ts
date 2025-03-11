@@ -3,8 +3,6 @@
  * @description     Implementation file for checkbox components.
  */
 
-import { Nullable } from "../types/index.js";
-
 /**
  * Represents the options given to a styled checkbox in the
  * {@link createStyledCheckbox()} function.
@@ -37,7 +35,7 @@ export interface MaterialStyledCheckboxOptions {
     /**
      * The text inside the label.
      */
-    text?: Nullable<string>;
+    text?: string;
 }
 
 /**
@@ -110,11 +108,8 @@ export function create(options?: MaterialStyledCheckboxOptions): HTMLElement {
  * Initializes a checkbox.
  * @param checkbox - checkbox to initialize
  */
-export function initialize(checkbox: Element): void {
-    if (
-        !(checkbox instanceof HTMLElement) ||
-        !checkbox.classList.contains("md-checkbox")
-    ) {
+export function initialize(checkbox: HTMLElement): void {
+    if (!checkbox.classList.contains("md-checkbox")) {
         return;
     }
 
@@ -123,7 +118,7 @@ export function initialize(checkbox: Element): void {
         disabled: checkbox.dataset.mdDisabled != undefined,
         indeterminate: checkbox.dataset.mdIndeterminate != undefined,
         onlyLabel: true,
-        text: checkbox.textContent,
+        text: checkbox.textContent ?? "",
     });
 
     if (checkbox.children.length == 0) {
