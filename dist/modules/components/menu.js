@@ -25,6 +25,8 @@ function initializeMenu(menu) {
         }
         // TODO: check if submenu parent and show submenu if yes
         const item = getParentByClassName(e.target, "md-menu__item", "md-menu", true);
+        // TODO: change submenus to be inside parent?
+        // TODO: change tree elements to be inside parent?
         const submenu = item?.nextElementSibling;
         if (!item ||
             !(submenu instanceof HTMLElement) ||

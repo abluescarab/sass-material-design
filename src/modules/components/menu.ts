@@ -38,6 +38,8 @@ function initializeMenu(menu: HTMLElement): void {
             true
         );
 
+        // TODO: change submenus to be inside parent?
+        // TODO: change tree elements to be inside parent?
         const submenu = item?.nextElementSibling;
 
         if (
