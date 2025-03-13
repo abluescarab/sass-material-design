@@ -48,13 +48,14 @@
     @return color.mix(
         $default,
         $mix,
-        opacity(sys("state", $state-name, "state-layer-opacity"))
+        100% - sys("state", $state-name, "state-layer-opacity")
     );
 }
 
-/// Gets an opacity value subtracted from 100.
-/// @param {number} $percent opacity percentage
-/// @return {number} percent subtracted from 100
-@function opacity($percent) {
-    @return 100% - $percent;
+/// Gets a color modified by an opacity value from sys.state.disabled.
+/// @param {color} $color color to mix
+/// @param {string} $opacity-type container, label, or outline
+/// @return {color} color set to the given opacity
+@function opacity($color, $opacity-type) {
+    @return rgba($color, sys("state", "disabled", "#{$opacity-type}-opacity"));
 }

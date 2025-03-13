@@ -59,10 +59,7 @@
         gap: calc($padding / 2);
 
         @include themes.themify {
-            $disabled-border: rgba(
-                themes.color("outline"),
-                sys("state", "disabled", "outline-opacity")
-            );
+            $disabled-border: opacity(themes.color("outline"), "outline");
 
             border: 1px solid themes.color("outline");
 
@@ -82,10 +79,7 @@
             &:disabled {
                 border-top-color: $disabled-border;
                 border-bottom-color: $disabled-border;
-                color: rgba(
-                    themes.color("on-surface"),
-                    sys("state", "disabled", "label-opacity")
-                );
+                color: opacity(themes.color("on-surface"), "label");
 
                 &:first-child {
                     border-left-color: $disabled-border;

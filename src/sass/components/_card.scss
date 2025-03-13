@@ -64,10 +64,7 @@
 
         &--disabled {
             // TODO: add rest of card disabled styles
-            background-color: rgba(
-                themes.color("surface"),
-                sys("state", "disabled", "label-opacity")
-            );
+            background-color: opacity(themes.color("surface"), "label");
         }
     }
 }

@@ -49,17 +49,11 @@
 @mixin enabled-styling($disabled-overrides: ()) {
     &:disabled {
         @if not map.has-key($disabled-overrides, "background-color") {
-            background-color: rgba(
-                themes.color("on-surface"),
-                sys("state", "disabled", "container-opacity")
-            );
+            background-color: opacity(themes.color("on-surface"), "container");
         }
 
         @if not map.has-key($disabled-overrides, "color") {
-            color: rgba(
-                themes.color("on-surface"),
-                sys("state", "disabled", "label-opacity")
-            );
+            color: opacity(themes.color("on-surface"), "label");
         }
 
         @if $disabled-overrides {
