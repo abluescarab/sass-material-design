@@ -37,10 +37,16 @@ export function changeTab(tabs, tab) {
  * @param tabs - tab container
  */
 export function initialize(tabs) {
-    const tabElement = getChildByClassName(tabs, "md-tabs__page");
+    // add data-md-tab to all nav buttons and pages without it
+    const pages = tabs.querySelectorAll(".md-tabs__page:not([data-md-tab])");
+    const buttons = tabs.querySelectorAll(".md-tabs__button:not([data-md-tab])");
+    for (let i = 0; i < buttons.length; i++) {
+        pages[i].dataset.mdTab = buttons[i].dataset.mdTab = `${i}`;
+    }
     // set default tab if not given
-    if (tabElement instanceof HTMLElement) {
-        changeTab(tabs, tabs.dataset.mdTab ?? tabElement.dataset.mdTab);
+    const firstTab = getChildByClassName(tabs, "md-tabs__page");
+    if (firstTab instanceof HTMLElement) {
+        changeTab(tabs, tabs.dataset.mdTab ?? firstTab.dataset.mdTab);
     }
     tabs.querySelector(":scope > .md-tabs__nav")?.addEventListener("click", (e) => {
         const button = getParentByClassName(e.target, "md-tabs__button");
