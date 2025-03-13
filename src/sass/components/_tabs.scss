@@ -68,6 +68,10 @@
         &:not(&--selected) {
             @include hidden;
         }
+
+        &--fill {
+            padding: 0;
+        }
     }
 
     &[data-md-type="primary"] {

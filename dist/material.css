@@ -2463,6 +2463,9 @@ code * {
   position: absolute !important;
   inset: -99999px auto auto -99999px !important;
 }
+.md-tabs__page--fill {
+  padding: 0;
+}
 .md-tabs[data-md-type=primary] .md-tabs__button {
   display: grid;
   grid-template-rows: 1fr;
