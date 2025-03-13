@@ -6,6 +6,7 @@ import { initialize as checkboxInitialize } from "./modules/components/checkbox.
 import { initialize as segmentedInitialize } from "./modules/components/segmented.js";
 import { initialize as switchComponentInitialize } from "./modules/components/switch.js";
 import { initialize as tabsInitialize } from "./modules/components/tabs.js";
+import { initialize as textFieldInitialize } from "./modules/components/text-field.js";
 import { initialize as tooltipInitialize } from "./modules/components/tooltip.js";
 import { initialize as treeInitialize } from "./modules/components/tree.js";
 import * as menu from "./modules/components/menu.js";
@@ -21,8 +22,9 @@ export function initialize() {
         ".md-segmented": segmentedInitialize,
         ".md-switch": switchComponentInitialize,
         ".md-tabs": tabsInitialize,
-        ".md-tree": treeInitialize,
+        ".md-text-field": textFieldInitialize,
         ".md-tooltip": tooltipInitialize,
+        ".md-tree": treeInitialize,
     };
     for (const [selector, initializer] of Object.entries(elements)) {
         document

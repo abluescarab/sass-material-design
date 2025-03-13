@@ -1,0 +1,139 @@
+/// ============================================================================
+/// @file           components/_text-field.scss
+/// @description    Material Design text field component.
+/// @data           hide-top-placeholder: whether to hide the top placeholder
+///                     when the text field has a value
+/// @modifiers
+/// @elements       container: container around the input box
+///                 placeholder: text inside empty field or above filled one
+///                 prefix: text or icon before input
+///                 suffix: text or icon after input
+///                 input: input box
+///                 supporting: text underneath input box
+/// ============================================================================
+
+@use "../abstracts" as *;
+@use "../themes";
+
+// TODO: enabled/disabled
+// TODO: default outlined, option for filled
+// TODO: multiline with textarea
+.md-text-field {
+    $parent: &;
+    $gap: 16px;
+    $padding-with-icon: 12px;
+
+    width: max-content;
+    position: relative;
+    background-color: inherit;
+
+    @include themes.themify {
+        color: themes.color("on-surface-variant");
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: $gap;
+        min-height: 56px;
+        border-radius: sys("shape", "corner", "extra-small");
+        margin-top: 8px;
+        padding: 0 $gap;
+        box-sizing: border-box;
+        background-color: inherit;
+
+        @include themes.themify {
+            border: 1px solid themes.color("outline");
+        }
+
+        &::before {
+            $placeholder-padding: 4px;
+
+            position: absolute;
+            left: calc($gap - $placeholder-padding);
+            top: -8px;
+            padding: 0 $placeholder-padding;
+            background-color: inherit;
+            content: attr(data-md-placeholder);
+
+            @include font-styling("body-small");
+
+            @include themes.themify {
+                color: themes.color("on-surface-variant");
+            }
+        }
+
+        &:has(#{$parent}__icon + input) {
+            padding: 0 $padding-with-icon;
+        }
+
+        &:not(:has(input:disabled)) {
+            cursor: pointer;
+
+            &:hover:not(:has(input:focus)) {
+                @include themes.themify {
+                    border-color: themes.color("on-surface");
+                }
+            }
+        }
+    }
+
+    &__icon {
+        @extend %md-icon;
+
+        @include themes.themify {
+            color: themes.color("on-surface-variant");
+        }
+    }
+
+    &__input {
+        background-color: inherit;
+        border: 0;
+        outline: none;
+
+        @include font-styling("body-large");
+
+        @include themes.themify {
+            color: themes.color("on-surface");
+            caret-color: themes.color("primary");
+        }
+
+        &::placeholder {
+            opacity: 1;
+
+            @include themes.themify {
+                color: themes.color("on-surface-variant");
+            }
+        }
+    }
+
+    &__supporting {
+        margin: 4px $gap 0;
+
+        @include font-styling("body-small");
+    }
+
+    &:has(input:disabled) {
+        @include themes.themify {
+            color: opacity(themes.color("on-surface"), "label");
+
+            #{$parent}__container {
+                border-color: opacity(themes.color("on-surface"), "outline");
+            }
+        }
+    }
+
+    &:has(input:focus) {
+        #{$parent}__container {
+            @include themes.themify {
+                border: 2px solid themes.color("primary");
+
+                &::before {
+                    color: themes.color("primary");
+                }
+            }
+        }
+    }
+}
