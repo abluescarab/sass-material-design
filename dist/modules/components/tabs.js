@@ -40,7 +40,8 @@ export function initialize(tabs) {
     // add data-md-tab to all nav buttons and pages without it
     const pages = tabs.querySelectorAll(".md-tabs__page:not([data-md-tab])");
     const buttons = tabs.querySelectorAll(".md-tabs__button:not([data-md-tab])");
-    for (let i = 0; i < buttons.length; i++) {
+    const length = Math.min(buttons.length, pages.length);
+    for (let i = 0; i < length; i++) {
         pages[i].dataset.mdTab = buttons[i].dataset.mdTab = `${i}`;
     }
     // set default tab if not given

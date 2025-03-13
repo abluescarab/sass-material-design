@@ -51,7 +51,9 @@ export function initialize(tabs: HTMLElement): void {
         ".md-tabs__button:not([data-md-tab])"
     );
 
-    for (let i = 0; i < buttons.length; i++) {
+    const length = Math.min(buttons.length, pages.length);
+
+    for (let i = 0; i < length; i++) {
         pages[i].dataset.mdTab = buttons[i].dataset.mdTab = `${i}`;
     }
 
