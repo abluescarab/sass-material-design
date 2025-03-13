@@ -17,6 +17,7 @@
     overflow: hidden;
     margin: $padding;
     gap: 8px;
+    background-color: inherit;
 
     @include themes.themify {
         @include container-backgrounds;
@@ -32,6 +33,7 @@
         flex: 1;
         padding: $padding;
         gap: 8px;
+        background-color: inherit;
 
         &--fill {
             padding: 0;

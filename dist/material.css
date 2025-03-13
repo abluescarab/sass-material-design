@@ -348,6 +348,7 @@ code * {
   overflow: hidden;
   margin: 24px;
   gap: 8px;
+  background-color: inherit;
 }
 [data-md-theme=light] .md-pane[data-md-background=primary] {
   background-color: rgb(235, 221, 255);
@@ -406,6 +407,7 @@ code * {
   flex: 1;
   padding: 24px;
   gap: 8px;
+  background-color: inherit;
 }
 .md-pane__content--fill {
   padding: 0;
@@ -2401,6 +2403,7 @@ code * {
   display: flex;
   flex-direction: column;
   flex: 1;
+  background-color: inherit;
 }
 .md-tabs__nav {
   display: flex;
@@ -2445,6 +2448,7 @@ code * {
 .md-tabs__page {
   display: block;
   padding: 16px;
+  background-color: inherit;
 }
 .md-tabs__page:not(.md-tabs__page--selected) {
   position: absolute !important;
