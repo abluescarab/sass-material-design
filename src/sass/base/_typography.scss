@@ -19,6 +19,12 @@
         }
     }
 
+    @each $alignment in left, center, right {
+        &[data-md-text-align="#{$alignment}"] {
+            text-align: $alignment;
+        }
+    }
+
     &[data-md-monospace] {
         font-family: ref("typeface", "mono");
     }
