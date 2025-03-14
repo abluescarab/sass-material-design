@@ -8,7 +8,6 @@ import { getChildByClassName } from "../utils.js";
 /**
  * Sets the placeholder text at the top of an input container.
  * @param textField - parent text field
- * @param container - container to set placeholder in
  * @param input - input with placeholder attribute
  */
 function changePlaceholder(
@@ -32,6 +31,25 @@ function changePlaceholder(
         input.value == "" ? "" : input.placeholder;
 }
 
+function moveInput(
+    textField: HTMLElement,
+    input: HTMLInputElement | HTMLTextAreaElement
+) {
+    const prefix = getChildByClassName(textField, "md-text-field__prefix");
+
+    if (!(prefix instanceof HTMLElement)) {
+        return;
+    }
+
+    const rect = prefix.getBoundingClientRect();
+
+    if (rect.x < -rect.width && rect.y < -rect.height) {
+        input.style.left = `${-rect.width}px`;
+    } else {
+        input.style.left = "";
+    }
+}
+
 /**
  * Initializes a text field.
  * @param textField - text field to initialize
@@ -51,6 +69,7 @@ export function initialize(textField: HTMLElement): void {
     }
 
     changePlaceholder(textField, input);
+    moveInput(textField, input);
 
     textField.addEventListener("click", (e) => {
         const el = e.target as HTMLElement;
@@ -62,5 +81,6 @@ export function initialize(textField: HTMLElement): void {
 
     input.addEventListener("input", () => {
         changePlaceholder(textField, input);
+        moveInput(textField, input);
     });
 }

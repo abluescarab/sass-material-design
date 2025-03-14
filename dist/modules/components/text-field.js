@@ -6,7 +6,6 @@ import { getChildByClassName } from "../utils.js";
 /**
  * Sets the placeholder text at the top of an input container.
  * @param textField - parent text field
- * @param container - container to set placeholder in
  * @param input - input with placeholder attribute
  */
 function changePlaceholder(textField, input) {
@@ -19,6 +18,19 @@ function changePlaceholder(textField, input) {
     }
     container.dataset.mdPlaceholder =
         input.value == "" ? "" : input.placeholder;
+}
+function moveInput(textField, input) {
+    const prefix = getChildByClassName(textField, "md-text-field__prefix");
+    if (!(prefix instanceof HTMLElement)) {
+        return;
+    }
+    const rect = prefix.getBoundingClientRect();
+    if (rect.x < -rect.width && rect.y < -rect.height) {
+        input.style.left = `${-rect.width}px`;
+    }
+    else {
+        input.style.left = "";
+    }
 }
 /**
  * Initializes a text field.
@@ -34,6 +46,7 @@ export function initialize(textField) {
         return;
     }
     changePlaceholder(textField, input);
+    moveInput(textField, input);
     textField.addEventListener("click", (e) => {
         const el = e.target;
         if (el.classList.contains("md-text-field__icon")) {
@@ -42,5 +55,6 @@ export function initialize(textField) {
     });
     input.addEventListener("input", () => {
         changePlaceholder(textField, input);
+        moveInput(textField, input);
     });
 }

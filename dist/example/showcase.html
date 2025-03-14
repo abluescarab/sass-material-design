@@ -32,6 +32,9 @@
                 align-items: center;
                 gap: 16px;
             }
+            .attributes > div {
+                background-color: inherit;
+            }
             .attributes > div:last-child {
                 align-items: center;
                 width: 100%;
@@ -45,9 +48,6 @@
             }
             .md-checkbox {
                 flex: 1;
-            }
-            div {
-                background-color: inherit;
             }
         </style>
     </head>
@@ -1121,73 +1121,86 @@
                     without populated label text
                     multi-line text field
             -->
-            <div class="md-tabs" data-md-type="secondary">
+            <div class="md-tabs" data-md-type="secondary" data-md-tab="1">
                 <div class="md-tabs__nav">
                     <button class="md-tabs__button">
-                        <span class="md-tabs__label">Outlined</span>
+                        <span class="md-tabs__label">Normal</span>
                     </button>
                     <button class="md-tabs__button">
-                        <span class="md-tabs__label">Filled</span>
+                        <span class="md-tabs__label">Leading icon</span>
+                    </button>
+                    <button class="md-tabs__button">
+                        <span class="md-tabs__label">Trailing icon</span>
+                    </button>
+                    <button class="md-tabs__button">
+                        <span class="md-tabs__label">Prefix</span>
+                    </button>
+                    <button class="md-tabs__button">
+                        <span class="md-tabs__label">Suffix</span>
+                    </button>
+                    <button class="md-tabs__button">
+                        <span class="md-tabs__label">Multiline</span>
                     </button>
                 </div>
-                <div class="md-tabs__page md-tabs__page--fill">
-                    <div class="md-tabs">
-                        <div class="md-tabs__nav">
-                            <button class="md-tabs__button">
-                                <span class="md-tabs__label">Normal</span>
-                            </button>
-                            <button class="md-tabs__button">
-                                <span class="md-tabs__label"
-                                    >Hide top placeholder</span
-                                >
-                            </button>
-                            <button class="md-tabs__button">
-                                <span class="md-tabs__label">Prefix</span>
-                            </button>
-                            <button class="md-tabs__button">
-                                <span class="md-tabs__label">Suffix</span>
-                            </button>
+                <div class="md-tabs__page attributes cols">
+                    <div class="md-text-field">
+                        <label class="md-text-field__container">
+                            <input
+                                class="md-text-field__input"
+                                type="text"
+                                placeholder="Label text" />
+                        </label>
+                    </div>
+                    <div class="md-text-field">
+                        <label class="md-text-field__container">
+                            <input
+                                class="md-text-field__input"
+                                type="text"
+                                placeholder="Label text" />
+                        </label>
+                        <div class="md-text-field__supporting">
+                            <span class="md-text-field__info"
+                                >Supporting text</span
+                            >
                         </div>
-                        <div class="md-tabs__page attributes cols">
-                            <div class="md-text-field">
-                                <label class="md-text-field__container">
-                                    <input
-                                        class="md-text-field__input"
-                                        type="text"
-                                        placeholder="Label text" />
-                                </label>
-                            </div>
-                            <div class="md-text-field">
-                                <label class="md-text-field__container">
-                                    <input
-                                        class="md-text-field__input"
-                                        type="text"
-                                        placeholder="Label text" />
-                                </label>
-                                <div class="md-text-field__supporting">
-                                    <span class="md-text-field__info"
-                                        >Supporting text</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="md-tabs__page attributes">
-                            <div
-                                class="md-text-field"
-                                data-md-hide-top-placeholder>
-                                <label class="md-text-field__container">
-                                    <input
-                                        class="md-text-field__input"
-                                        type="text"
-                                        placeholder="Label text" />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="md-tabs__page"></div>
-                        <div class="md-tabs__page"></div>
                     </div>
                 </div>
-                <div class="md-tabs__page"></div>
+                <div class="md-tabs__page attributes cols">
+                    <div class="md-text-field" data-md-prefix="not-empty">
+                        <label class="md-text-field__container">
+                            <span class="md-text-field__prefix">$USD</span>
+                            <input
+                                class="md-text-field__input"
+                                type="text"
+                                placeholder="Label text" />
+                        </label>
+                    </div>
+                    <div class="md-text-field">
+                        <label class="md-text-field__container">
+                            <span class="md-text-field__icon">search</span>
+                            <input
+                                class="md-text-field__input"
+                                type="text"
+                                placeholder="Label text" />
+                        </label>
+                    </div>
+                </div>
+                <div class="md-tabs__page attributes cols">
+                    <div class="md-text-field" data-md-suffix="not-empty">
+                        <label class="md-text-field__container">
+                            <input
+                                class="md-text-field__input"
+                                type="text"
+                                placeholder="Label text" />
+                            <span
+                                class="md-text-field__suffix md-text-field__icon"
+                                >cancel</span
+                            >
+                        </label>
+                    </div>
+                </div>
+                <div class="md-tabs__page attributes cols"></div>
+                <div class="md-tabs__page attributes cols"></div>
             </div>
         </section>
 

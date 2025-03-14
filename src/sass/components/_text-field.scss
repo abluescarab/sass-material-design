@@ -1,12 +1,14 @@
 /// ============================================================================
 /// @file           components/_text-field.scss
 /// @description    Material Design text field component.
-/// @data           hide-top-placeholder: whether to hide the top placeholder
-///                     when the text field has a value
-/// @modifiers
+/// @data           placeholder: where to show placeholder; defaults to both
+///                     options: inside, top
+///                 prefix: when to display prefix; defaults to always
+///                     options: empty, not-empty
+///                 suffix: when to display suffix; defaults to always
+///                     options: empty, not-empty
+/// @modifiers      filled: style as filled text field
 /// @elements       container: container around the input box
-///                 placeholder: text inside empty field or above filled one
-///                 prefix: text or icon before input
 ///                 suffix: text or icon after input
 ///                 input: input box
 ///                 supporting: text underneath input box
@@ -15,15 +17,29 @@
 @use "../abstracts" as *;
 @use "../themes";
 
+// TODO: prefix/suffix text alignment
+// TODO: invalid/valid trailing icons?
 // TODO: enabled/disabled
-// TODO: default outlined, option for filled
 // TODO: multiline with textarea
 .md-text-field {
     $parent: &;
     $gap: 16px;
     $padding-with-icon: 12px;
 
-    width: max-content;
+    @mixin affix($location) {
+        &[data-md-#{$location}~="empty"] {
+            &:not(:has(input:placeholder-shown)) #{$parent}__#{$location} {
+                @include hidden(true);
+            }
+        }
+
+        &[data-md-#{$location}~="not-empty"] {
+            &:has(input:placeholder-shown) #{$parent}__#{$location} {
+                @include hidden(true);
+            }
+        }
+    }
+
     position: relative;
     background-color: inherit;
 
@@ -31,16 +47,20 @@
         color: themes.color("on-surface-variant");
     }
 
+    &--filled {
+        // TODO: filled styles
+    }
+
     &__container {
         position: relative;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        gap: $gap;
         min-height: 56px;
-        border-radius: sys("shape", "corner", "extra-small");
+        width: max-content;
         margin-top: 8px;
         padding: 0 $gap;
+        border-radius: sys("shape", "corner", "extra-small");
         box-sizing: border-box;
         background-color: inherit;
 
@@ -65,8 +85,12 @@
             }
         }
 
-        &:has(#{$parent}__icon + input) {
-            padding: 0 $padding-with-icon;
+        &:has(#{$parent}__icon:first-child) {
+            padding-left: $padding-with-icon;
+        }
+
+        &:has(#{$parent}__icon:last-child) {
+            padding-right: $padding-with-icon;
         }
 
         &:not(:has(input:disabled)) {
@@ -88,7 +112,12 @@
         }
     }
 
+    &__prefix {
+        position: relative;
+    }
+
     &__input {
+        position: relative;
         background-color: inherit;
         border: 0;
         outline: none;
@@ -135,5 +164,13 @@
                 }
             }
         }
+    }
+
+    &[data-md-prefix] {
+        @include affix("prefix");
+    }
+
+    &[data-md-suffix] {
+        @include affix("suffix");
     }
 }
