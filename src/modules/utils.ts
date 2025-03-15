@@ -38,19 +38,6 @@ export function cycleData(
 }
 
 /**
- * Gets the first child element with the given class name.
- * @param parent - direct parent
- * @param className - class to search for
- * @returns child as {@link HTMLElement}
- */
-export function getChildByClassName(
-    parent: Element,
-    className: string
-): Element {
-    return parent.getElementsByClassName(className)[0];
-}
-
-/**
  * Gets the closest parent with the given class.
  * @param element - child element
  * @param parentClass - class to search for

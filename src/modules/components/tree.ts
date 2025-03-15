@@ -5,12 +5,7 @@
 
 import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../types/events.js";
-import {
-    getChildByClassName,
-    getParentByClassName,
-    join,
-    stringToSelector,
-} from "../utils.js";
+import { getParentByClassName, join, stringToSelector } from "../utils.js";
 import { Nullable } from "../types/index";
 
 let lastItem = 0;
@@ -341,10 +336,8 @@ export function toggle(tree: Element, expand: boolean): void {
         return;
     }
 
-    const button = getChildByClassName(
-        tree.previousElementSibling,
-        "md-icon-button"
-    );
+    const button =
+        tree.previousElementSibling.getElementsByClassName("md-icon-button")[0];
 
     if (!button) {
         return;

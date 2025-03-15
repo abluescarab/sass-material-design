@@ -3,7 +3,7 @@
  * @description     Implementation file for tab container components.
  */
 import { MaterialChangeEvent } from "../types/events.js";
-import { getChildByClassName, getParentByClassName } from "../utils.js";
+import { getParentByClassName } from "../utils.js";
 /**
  * Gets a tab by name.
  * @param tabs - tab container
@@ -45,7 +45,7 @@ export function initialize(tabs) {
         pages[i].dataset.mdTab = buttons[i].dataset.mdTab = `${i}`;
     }
     // set default tab if not given
-    const firstTab = getChildByClassName(tabs, "md-tabs__page");
+    const firstTab = tabs.getElementsByClassName("md-tabs__page")[0];
     if (firstTab instanceof HTMLElement) {
         changeTab(tabs, tabs.dataset.mdTab ?? firstTab.dataset.mdTab);
     }

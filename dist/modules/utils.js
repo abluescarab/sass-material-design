@@ -29,15 +29,6 @@ export function cycleData(element, data, ...values) {
     return newValue;
 }
 /**
- * Gets the first child element with the given class name.
- * @param parent - direct parent
- * @param className - class to search for
- * @returns child as {@link HTMLElement}
- */
-export function getChildByClassName(parent, className) {
-    return parent.getElementsByClassName(className)[0];
-}
-/**
  * Gets the closest parent with the given class.
  * @param element - child element
  * @param parentClass - class to search for

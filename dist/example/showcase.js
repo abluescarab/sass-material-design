@@ -3,7 +3,7 @@
  * @description     Implements functionality for the showcase.
  */
 // TODO: implement up/down arrows on panes
-import { capitalize, cycleData, cycleThemes, getChildByClassName, getParentByClassName, initialize, setTheme, stringToSelector, wrap, } from "../material.js";
+import { capitalize, cycleData, cycleThemes, getParentByClassName, initialize, setTheme, stringToSelector, wrap, } from "../material.js";
 import { populate } from "../modules/components/tree.js";
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
@@ -60,8 +60,11 @@ function changeThemeButtonIcon(theme) {
     if (!(themeFab instanceof Element)) {
         return;
     }
-    getChildByClassName(themeFab, "md-fab__icon").textContent =
-        theme == "light" ? "dark_mode" : "light_mode";
+    const icon = themeFab.querySelector(".md-fab__icon");
+    if (!icon) {
+        return;
+    }
+    icon.textContent = theme == "light" ? "dark_mode" : "light_mode";
 }
 /**
  * Creates the attributes display.

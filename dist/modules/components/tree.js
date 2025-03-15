@@ -4,7 +4,7 @@
  */
 import { create as createCheckbox } from "./checkbox.js";
 import { MaterialToggleEvent, MaterialState } from "../types/events.js";
-import { getChildByClassName, getParentByClassName, join, stringToSelector, } from "../utils.js";
+import { getParentByClassName, join, stringToSelector } from "../utils.js";
 let lastItem = 0;
 /**
  * Creates a button to insert in the tree.
@@ -235,7 +235,7 @@ export function toggle(tree, expand) {
         !tree.previousElementSibling) {
         return;
     }
-    const button = getChildByClassName(tree.previousElementSibling, "md-icon-button");
+    const button = tree.previousElementSibling.getElementsByClassName("md-icon-button")[0];
     if (!button) {
         return;
     }

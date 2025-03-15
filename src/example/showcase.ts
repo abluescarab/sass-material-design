@@ -8,7 +8,6 @@ import {
     capitalize,
     cycleData,
     cycleThemes,
-    getChildByClassName,
     getParentByClassName,
     initialize,
     setTheme,
@@ -81,8 +80,13 @@ function changeThemeButtonIcon(theme: string): void {
         return;
     }
 
-    getChildByClassName(themeFab, "md-fab__icon").textContent =
-        theme == "light" ? "dark_mode" : "light_mode";
+    const icon = themeFab.querySelector(".md-fab__icon");
+
+    if (!icon) {
+        return;
+    }
+
+    icon.textContent = theme == "light" ? "dark_mode" : "light_mode";
 }
 
 /**
