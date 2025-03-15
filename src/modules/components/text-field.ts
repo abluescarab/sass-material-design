@@ -3,39 +3,13 @@
  * @description     Implementation file for text field components.
  */
 
-import { getChildByClassName } from "../utils.js";
-
-/**
- * Sets the placeholder text at the top of an input container.
- * @param textField - parent text field
- * @param input - input with placeholder attribute
- */
-function changePlaceholder(
-    textField: HTMLElement,
-    input: HTMLInputElement | HTMLTextAreaElement
-) {
-    if (textField.dataset.mdHideTopPlaceholder) {
-        return;
-    }
-
-    const container = getChildByClassName(
-        textField,
-        "md-text-field__container"
-    );
-
-    if (!(container instanceof HTMLElement)) {
-        return;
-    }
-
-    container.dataset.mdPlaceholder =
-        input.value == "" ? "" : input.placeholder;
-}
-
+// TODO: hide inside placeholder if prefix/suffix
 function moveInput(
     textField: HTMLElement,
-    input: HTMLInputElement | HTMLTextAreaElement
+    input: HTMLInputElement | HTMLTextAreaElement,
+    hide: boolean
 ) {
-    const prefix = getChildByClassName(textField, "md-text-field__prefix");
+    const prefix = textField.getElementsByClassName("md-text-field__prefix")[0];
 
     if (!(prefix instanceof HTMLElement)) {
         return;
@@ -43,7 +17,7 @@ function moveInput(
 
     const rect = prefix.getBoundingClientRect();
 
-    if (rect.x < -rect.width && rect.y < -rect.height) {
+    if (hide) {
         input.style.left = `${-rect.width}px`;
     } else {
         input.style.left = "";
@@ -59,17 +33,22 @@ export function initialize(textField: HTMLElement): void {
         return;
     }
 
-    const input = getChildByClassName(textField, "md-text-field__input");
+    const input = textField.getElementsByClassName("md-text-field__input")[0];
+    const container = textField.getElementsByClassName(
+        "md-text-field__container"
+    )[0];
 
     if (
-        !(input instanceof HTMLInputElement) &&
-        !(input instanceof HTMLTextAreaElement)
+        !(container instanceof HTMLElement) ||
+        (!(input instanceof HTMLInputElement) &&
+            !(input instanceof HTMLTextAreaElement))
     ) {
         return;
     }
 
-    changePlaceholder(textField, input);
-    moveInput(textField, input);
+    container.dataset.mdPlaceholder = input.placeholder;
+
+    moveInput(textField, input, input.value == "");
 
     textField.addEventListener("click", (e) => {
         const el = e.target as HTMLElement;
@@ -79,8 +58,15 @@ export function initialize(textField: HTMLElement): void {
         }
     });
 
+    input.addEventListener("focus", () => {
+        moveInput(textField, input, false);
+    });
+
+    input.addEventListener("blur", () => {
+        moveInput(textField, input, input.value == "");
+    });
+
     input.addEventListener("input", () => {
         changePlaceholder(textField, input);
-        moveInput(textField, input);
     });
 }

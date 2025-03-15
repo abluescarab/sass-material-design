@@ -2651,6 +2651,44 @@ code * {
 [data-md-theme=dark] .md-text-field {
   color: rgb(203, 196, 207);
 }
+[data-md-theme=light] .md-text-field:has(input:disabled) {
+  color: rgba(29, 27, 32, 0.38);
+}
+[data-md-theme=dark] .md-text-field:has(input:disabled) {
+  color: rgba(231, 224, 232, 0.38);
+}
+.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:not(:focus):-moz-placeholder-shown)) .md-text-field__prefix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:not(:focus):placeholder-shown)) .md-text-field__prefix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__prefix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:not(:focus):placeholder-shown) .md-text-field__prefix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:not(:focus):-moz-placeholder-shown)) .md-text-field__suffix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:not(:focus):placeholder-shown)) .md-text-field__suffix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__suffix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
+.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:not(:focus):placeholder-shown) .md-text-field__suffix {
+  position: relative !important;
+  inset: -99999px auto auto -99999px !important;
+}
 .md-text-field__container {
   position: relative;
   display: flex;
@@ -2671,7 +2709,7 @@ code * {
 [data-md-theme=dark] .md-text-field__container {
   border: 1px solid rgb(148, 143, 153);
 }
-.md-text-field__container::before {
+.md-text-field__container:has(input:not(:-moz-placeholder-shown))::before {
   position: absolute;
   left: 12px;
   top: -8px;
@@ -2684,17 +2722,73 @@ code * {
   letter-spacing: 0.4px;
   font-weight: 400;
 }
-[data-md-theme=light] .md-text-field__container::before {
+.md-text-field__container:has(input:not(:placeholder-shown))::before {
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  padding: 0 4px;
+  background-color: inherit;
+  content: attr(data-md-placeholder);
+  font-family: "Roboto";
+  line-height: 16px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+[data-md-theme=light] .md-text-field__container:has(input:not(:-moz-placeholder-shown))::before {
   color: rgb(73, 69, 78);
 }
-[data-md-theme=dark] .md-text-field__container::before {
+[data-md-theme=light] .md-text-field__container:has(input:not(:placeholder-shown))::before {
+  color: rgb(73, 69, 78);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:not(:-moz-placeholder-shown))::before {
   color: rgb(203, 196, 207);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:not(:placeholder-shown))::before {
+  color: rgb(203, 196, 207);
+}
+[data-md-theme=light] .md-text-field__container:has(input:focus) {
+  border: 2px solid rgb(104, 84, 142);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:focus) {
+  border: 2px solid rgb(211, 188, 253);
+}
+.md-text-field__container:has(input:focus)::before {
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  padding: 0 4px;
+  background-color: inherit;
+  content: attr(data-md-placeholder);
+  font-family: "Roboto";
+  line-height: 16px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+[data-md-theme=light] .md-text-field__container:has(input:focus)::before {
+  color: rgb(73, 69, 78);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:focus)::before {
+  color: rgb(203, 196, 207);
+}
+[data-md-theme=light] .md-text-field__container:has(input:focus)::before {
+  color: rgb(104, 84, 142);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:focus)::before {
+  color: rgb(211, 188, 253);
 }
 .md-text-field__container:has(.md-text-field__icon:first-child) {
   padding-left: 12px;
 }
 .md-text-field__container:has(.md-text-field__icon:last-child) {
   padding-right: 12px;
+}
+[data-md-theme=light] .md-text-field__container:has(input:disabled) {
+  border-color: rgba(29, 27, 32, 0.12);
+}
+[data-md-theme=dark] .md-text-field__container:has(input:disabled) {
+  border-color: rgba(231, 224, 232, 0.12);
 }
 .md-text-field__container:not(:has(input:disabled)) {
   cursor: pointer;
@@ -2711,8 +2805,11 @@ code * {
 [data-md-theme=dark] .md-text-field__icon {
   color: rgb(203, 196, 207);
 }
-.md-text-field__prefix {
-  position: relative;
+.md-text-field__icon:first-child {
+  margin-right: 16px;
+}
+.md-text-field__icon:last-child {
+  margin-left: 16px;
 }
 .md-text-field__input {
   position: relative;
@@ -2751,6 +2848,12 @@ code * {
 [data-md-theme=dark] .md-text-field__input::placeholder {
   color: rgb(203, 196, 207);
 }
+.md-text-field__input:focus::-moz-placeholder {
+  color: transparent;
+}
+.md-text-field__input:focus::placeholder {
+  color: transparent;
+}
 .md-text-field__supporting {
   margin: 4px 16px 0;
   font-family: "Roboto";
@@ -2758,62 +2861,6 @@ code * {
   font-size: 12px;
   letter-spacing: 0.4px;
   font-weight: 400;
-}
-[data-md-theme=light] .md-text-field:has(input:disabled) {
-  color: rgba(29, 27, 32, 0.38);
-}
-[data-md-theme=light] .md-text-field:has(input:disabled) .md-text-field__container {
-  border-color: rgba(29, 27, 32, 0.12);
-}
-[data-md-theme=dark] .md-text-field:has(input:disabled) {
-  color: rgba(231, 224, 232, 0.38);
-}
-[data-md-theme=dark] .md-text-field:has(input:disabled) .md-text-field__container {
-  border-color: rgba(231, 224, 232, 0.12);
-}
-[data-md-theme=light] .md-text-field:has(input:focus) .md-text-field__container {
-  border: 2px solid rgb(104, 84, 142);
-}
-[data-md-theme=light] .md-text-field:has(input:focus) .md-text-field__container::before {
-  color: rgb(104, 84, 142);
-}
-[data-md-theme=dark] .md-text-field:has(input:focus) .md-text-field__container {
-  border: 2px solid rgb(211, 188, 253);
-}
-[data-md-theme=dark] .md-text-field:has(input:focus) .md-text-field__container::before {
-  color: rgb(211, 188, 253);
-}
-.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:-moz-placeholder-shown)) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:placeholder-shown)) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:-moz-placeholder-shown) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:placeholder-shown) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:-moz-placeholder-shown)) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:placeholder-shown)) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:-moz-placeholder-shown) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:placeholder-shown) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
 }
 
 .md-tooltip {

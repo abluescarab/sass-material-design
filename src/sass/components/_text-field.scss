@@ -1,7 +1,7 @@
 /// ============================================================================
 /// @file           components/_text-field.scss
 /// @description    Material Design text field component.
-/// @data           placeholder: where to show placeholder; defaults to both
+/// @data           placeholder: where to show placeholder; defaults to both // TODO: data-md-placeholder
 ///                     options: inside, top
 ///                 prefix: when to display prefix; defaults to always
 ///                     options: empty, not-empty
@@ -28,15 +28,36 @@
 
     @mixin affix($location) {
         &[data-md-#{$location}~="empty"] {
-            &:not(:has(input:placeholder-shown)) #{$parent}__#{$location} {
-                @include hidden(true);
+            &:not(:has(input:not(:focus):placeholder-shown)) {
+                #{$parent}__#{$location} {
+                    @include hidden(true);
+                }
             }
         }
 
         &[data-md-#{$location}~="not-empty"] {
-            &:has(input:placeholder-shown) #{$parent}__#{$location} {
-                @include hidden(true);
+            &:has(input:not(:focus):placeholder-shown) {
+                #{$parent}__#{$location} {
+                    @include hidden(true);
+                }
             }
+        }
+    }
+
+    @mixin container-placeholder {
+        $placeholder-padding: 4px;
+
+        position: absolute;
+        left: calc($gap - $placeholder-padding);
+        top: -8px;
+        padding: 0 $placeholder-padding;
+        background-color: inherit;
+        content: attr(data-md-placeholder);
+
+        @include font-styling("body-small");
+
+        @include themes.themify {
+            color: themes.color("on-surface-variant");
         }
     }
 
@@ -45,6 +66,20 @@
 
     @include themes.themify {
         color: themes.color("on-surface-variant");
+    }
+
+    &:has(input:disabled) {
+        @include themes.themify {
+            color: opacity(themes.color("on-surface"), "label");
+        }
+    }
+
+    &[data-md-prefix] {
+        @include affix("prefix");
+    }
+
+    &[data-md-suffix] {
+        @include affix("suffix");
     }
 
     &--filled {
@@ -68,20 +103,21 @@
             border: 1px solid themes.color("outline");
         }
 
-        &::before {
-            $placeholder-padding: 4px;
+        &:has(input:not(:placeholder-shown))::before {
+            @include container-placeholder;
+        }
 
-            position: absolute;
-            left: calc($gap - $placeholder-padding);
-            top: -8px;
-            padding: 0 $placeholder-padding;
-            background-color: inherit;
-            content: attr(data-md-placeholder);
-
-            @include font-styling("body-small");
-
+        &:has(input:focus) {
             @include themes.themify {
-                color: themes.color("on-surface-variant");
+                border: 2px solid themes.color("primary");
+            }
+
+            &::before {
+                @include container-placeholder;
+
+                @include themes.themify {
+                    color: themes.color("primary");
+                }
             }
         }
 
@@ -91,6 +127,12 @@
 
         &:has(#{$parent}__icon:last-child) {
             padding-right: $padding-with-icon;
+        }
+
+        &:has(input:disabled) {
+            @include themes.themify {
+                border-color: opacity(themes.color("on-surface"), "outline");
+            }
         }
 
         &:not(:has(input:disabled)) {
@@ -110,10 +152,14 @@
         @include themes.themify {
             color: themes.color("on-surface-variant");
         }
-    }
 
-    &__prefix {
-        position: relative;
+        &:first-child {
+            margin-right: $gap;
+        }
+
+        &:last-child {
+            margin-left: $gap;
+        }
     }
 
     &__input {
@@ -136,41 +182,15 @@
                 color: themes.color("on-surface-variant");
             }
         }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
     }
 
     &__supporting {
         margin: 4px $gap 0;
 
         @include font-styling("body-small");
-    }
-
-    &:has(input:disabled) {
-        @include themes.themify {
-            color: opacity(themes.color("on-surface"), "label");
-
-            #{$parent}__container {
-                border-color: opacity(themes.color("on-surface"), "outline");
-            }
-        }
-    }
-
-    &:has(input:focus) {
-        #{$parent}__container {
-            @include themes.themify {
-                border: 2px solid themes.color("primary");
-
-                &::before {
-                    color: themes.color("primary");
-                }
-            }
-        }
-    }
-
-    &[data-md-prefix] {
-        @include affix("prefix");
-    }
-
-    &[data-md-suffix] {
-        @include affix("suffix");
     }
 }
