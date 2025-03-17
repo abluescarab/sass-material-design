@@ -63,10 +63,6 @@
         gap: 12px;
         padding: 0 12px;
         cursor: pointer;
-
-        &:not(:has(#{$parent}__icon:last-child)) #{$parent}__label {
-            grid-column-end: 4;
-        }
     }
 
     &__label {
@@ -74,6 +70,10 @@
 
         grid-column: 2;
         white-space: nowrap;
+
+        &:not(:has(+ #{$parent}__icon)) {
+            grid-column-end: 4;
+        }
     }
 
     &__icon {

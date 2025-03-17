@@ -1964,9 +1964,6 @@ code * {
   padding: 0 12px;
   cursor: pointer;
 }
-.md-menu__item:not(:has(.md-menu__icon:last-child)) .md-menu__label {
-  grid-column-end: 4;
-}
 .md-menu__label {
   font-family: "Roboto";
   line-height: 20px;
@@ -1975,6 +1972,9 @@ code * {
   font-weight: 500;
   grid-column: 2;
   white-space: nowrap;
+}
+.md-menu__label:not(:has(+ .md-menu__icon)) {
+  grid-column-end: 4;
 }
 [data-md-theme=light] .md-menu__icon {
   color: rgb(73, 69, 78);
