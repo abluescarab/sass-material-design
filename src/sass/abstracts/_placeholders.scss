@@ -12,12 +12,11 @@
     align-items: center;
     justify-content: center;
 
-    @include square($icon__size);
+    @include square($icon__size, true);
 
     border: 0;
     border-radius: sys("shape", "corner", "full");
     background-color: transparent;
     font-family: "Material Symbols Outlined", sans-serif;
-    font-size: $icon__size;
     user-select: none;
 }

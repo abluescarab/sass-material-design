@@ -33,11 +33,11 @@ pre code {
   width: 24px;
   height: 24px;
   line-height: 24px;
+  font-size: 24px;
   border: 0;
   border-radius: 9999px;
   background-color: transparent;
   font-family: "Material Symbols Outlined", sans-serif;
-  font-size: 24px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
