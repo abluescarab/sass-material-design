@@ -2658,35 +2658,12 @@ code * {
 [data-md-theme=dark] .md-text-field:has(input:disabled) {
   color: rgba(231, 224, 232, 0.38);
 }
-.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:not(:focus):-moz-placeholder-shown)) .md-text-field__prefix {
+.md-text-field:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__prefix, .md-text-field:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__suffix {
   position: relative !important;
   inset: -99999px auto auto -99999px !important;
 }
-.md-text-field[data-md-prefix][data-md-prefix~=empty]:not(:has(input:not(:focus):placeholder-shown)) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-prefix][data-md-prefix~=not-empty]:has(input:not(:focus):placeholder-shown) .md-text-field__prefix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:not(:focus):-moz-placeholder-shown)) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=empty]:not(:has(input:not(:focus):placeholder-shown)) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__suffix {
-  position: relative !important;
-  inset: -99999px auto auto -99999px !important;
-}
-.md-text-field[data-md-suffix][data-md-suffix~=not-empty]:has(input:not(:focus):placeholder-shown) .md-text-field__suffix {
+.md-text-field:has(input:not(:focus):placeholder-shown) .md-text-field__prefix,
+.md-text-field:has(input:not(:focus):placeholder-shown) .md-text-field__suffix {
   position: relative !important;
   inset: -99999px auto auto -99999px !important;
 }

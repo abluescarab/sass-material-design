@@ -3,10 +3,6 @@
 /// @description    Material Design text field component.
 /// @data           placeholder: where to show placeholder; defaults to both // TODO: data-md-placeholder
 ///                     options: inside, top
-///                 prefix: when to display prefix; defaults to always
-///                     options: empty, not-empty
-///                 suffix: when to display suffix; defaults to always
-///                     options: empty, not-empty
 /// @modifiers      filled: style as filled text field
 /// @elements       container: container around the input box
 ///                 suffix: text or icon after input
@@ -17,7 +13,7 @@
 @use "../abstracts" as *;
 @use "../themes";
 
-// TODO: prefix/suffix text alignment
+// TODO: prefix/suffix text alignment (left, right, center)
 // TODO: invalid/valid trailing icons?
 // TODO: enabled/disabled
 // TODO: multiline with textarea
@@ -29,14 +25,6 @@
     @mixin affix($location) {
         &[data-md-#{$location}~="empty"] {
             &:not(:has(input:not(:focus):placeholder-shown)) {
-                #{$parent}__#{$location} {
-                    @include hidden(true);
-                }
-            }
-        }
-
-        &[data-md-#{$location}~="not-empty"] {
-            &:has(input:not(:focus):placeholder-shown) {
                 #{$parent}__#{$location} {
                     @include hidden(true);
                 }
@@ -74,12 +62,11 @@
         }
     }
 
-    &[data-md-prefix] {
-        @include affix("prefix");
-    }
-
-    &[data-md-suffix] {
-        @include affix("suffix");
+    &:has(input:not(:focus):placeholder-shown) {
+        #{$parent}__prefix,
+        #{$parent}__suffix {
+            @include hidden(true);
+        }
     }
 
     &--filled {
