@@ -9,6 +9,7 @@ import { getParentByClassName, join, stringToSelector } from "../utils.js";
 import { Nullable } from "../types/index";
 
 let lastItem = 0;
+// TODO: change tree elements to be inside parent?
 
 /**
  * Creates a button to insert in the tree.
@@ -17,11 +18,7 @@ let lastItem = 0;
  */
 function createButton(buttonType: string | undefined): HTMLButtonElement {
     const button = document.createElement("button");
-    button.classList.add(
-        "md-icon-button",
-        "md-icon-button--small",
-        "md-symbol"
-    );
+    button.classList.add("md-icon-button", "md-icon-button--small");
     button.textContent = "add";
 
     if (buttonType) {

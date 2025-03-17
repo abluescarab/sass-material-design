@@ -2,7 +2,6 @@
  * @file            components/text-field.ts
  * @description     Implementation file for text field components.
  */
-// TODO: hide inside placeholder if prefix/suffix
 function moveInput(textField, input, hide) {
     const prefix = textField.getElementsByClassName("md-text-field__prefix")[0];
     if (!(prefix instanceof HTMLElement)) {
@@ -44,8 +43,5 @@ export function initialize(textField) {
     });
     input.addEventListener("blur", () => {
         moveInput(textField, input, input.value == "");
-    });
-    input.addEventListener("input", () => {
-        changePlaceholder(textField, input);
     });
 }

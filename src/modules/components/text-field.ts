@@ -3,7 +3,6 @@
  * @description     Implementation file for text field components.
  */
 
-// TODO: hide inside placeholder if prefix/suffix
 function moveInput(
     textField: HTMLElement,
     input: HTMLInputElement | HTMLTextAreaElement,
@@ -64,9 +63,5 @@ export function initialize(textField: HTMLElement): void {
 
     input.addEventListener("blur", () => {
         moveInput(textField, input, input.value == "");
-    });
-
-    input.addEventListener("input", () => {
-        changePlaceholder(textField, input);
     });
 }
