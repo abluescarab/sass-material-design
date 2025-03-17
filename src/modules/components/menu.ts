@@ -3,97 +3,21 @@
  * @description     Implementation file for Material Design menu components.
  */
 
+import BiMap from "../types/bimap.js";
 import { getParentByClassName } from "../utils.js";
 
-// key: menu, value: opening element
-const visible = new Map<HTMLElement, Element>();
+// // key: menu, value: opening element
+// const visible = new Map<HTMLElement, Element>();
 
-/**
- * Initializes a menu's event listeners and maximum height.
- * @param menu - menu to initialize
- */
-function initializeMenu(menu: HTMLElement): void {
-    const menuRect = menu.getBoundingClientRect();
-    menu.style.maxHeight = `${menuRect.height - 16}px`;
-
-    menu.addEventListener("mouseenter", () => {
-        menu.dataset.mdHovered = "";
-    });
-
-    menu.addEventListener("mouseleave", () => {
-        delete menu.dataset.mdHovered;
-        hide(menu);
-    });
-
-    menu.addEventListener("mouseover", (e: MouseEvent) => {
-        if (!(e.target instanceof Element)) {
-            return;
-        }
-
-        // TODO: check if submenu parent and show submenu if yes
-        const item = getParentByClassName(
-            e.target,
-            "md-menu__item",
-            "md-menu",
-            true
-        );
-
-        // TODO: change submenus to be inside parent?
-        // TODO: change tree elements to be inside parent?
-        const submenu = item?.nextElementSibling;
-
-        if (
-            !item ||
-            !(submenu instanceof HTMLElement) ||
-            !submenu?.classList.contains("md-menu__submenu")
-        ) {
-            return;
-        }
-
-        show(item, submenu);
-    });
-
-    menu.addEventListener("mouseout", (e) => {
-        // TODO: check if submenu parent and hide submenu if yes
-    });
-}
-
-/**
- * Hides a menu.
- * @param menu - menu to hide
- * @param force - whether to ignore the hover state of the menu
- */
-export function hide(menu: HTMLElement, force: boolean = false): void {
-    setTimeout(() => {
-        if (force || menu.dataset.mdHovered == undefined) {
-            menu.classList.remove("md-menu--visible");
-            visible.delete(menu);
-        }
-    }, 50); // ensure user has time to hover over submenu
-}
-
-/**
- * Hides all visible menus.
- * @param force - whether to ignore the hover state of menus
- */
-export function hideAll(force: boolean = false): void {
-    if (visible.size == 0) {
-        return;
-    }
-
-    for (const menu of visible.keys()) {
-        hide(menu, force);
-    }
-
-    visible.clear();
-}
+// TODO: fix showing submenus
+const menus = new BiMap<HTMLElement, Element>();
 
 /**
  * Moves a menu based on its parent's location.
- * @param parent - parent menu
  * @param menu - menu to move
+ * @param parent - parent menu
  */
-export function move(parent: Element, menu: HTMLElement): void {
+export function move(menu: HTMLElement, parent: Element): void {
     const menuRect = menu.getBoundingClientRect();
     const parentRect = parent?.getBoundingClientRect();
     const parentMenuRect = parent?.parentElement?.getBoundingClientRect();
@@ -125,6 +49,14 @@ export function move(parent: Element, menu: HTMLElement): void {
         }
     }
 
+    //     if (left + menuRect.width > window.innerWidth) {
+    //         left = window.innerWidth - menuRect.width;
+    //     }
+
+    //     if (left == parentMenuRect?.left) {
+    //         left = parentMenuRect.left - menuRect.width;
+    //     }
+
     // if the menu overflows the bottom, add a margin
     if (top + menuRect.height + margin > window.innerHeight) {
         bottom = margin;
@@ -143,14 +75,105 @@ export function move(parent: Element, menu: HTMLElement): void {
 }
 
 /**
- * Shows a menu.
- * @param parent - element that controls the menu
- * @param menu - menu to show
+ * Initializes a menu's event listeners and maximum height.
+ * @param menu - menu to initialize
  */
-export function show(parent: Element, menu: HTMLElement): void {
-    move(parent, menu);
+function initializeMenu(menu: HTMLElement): void {
+    const menuRect = menu.getBoundingClientRect();
+    menu.style.maxHeight = `${menuRect.height - 16}px`;
+
+    menu.addEventListener("mouseover", (e) => {
+        if (!(e.target instanceof Element)) {
+            return;
+        }
+
+        // TODO: check if submenu parent and show submenu if yes
+        const item = getParentByClassName(
+            e.target,
+            "md-menu__item",
+            "md-menu",
+            true
+        );
+
+        const submenu = item?.getElementsByClassName("md-menu__submenu")[0];
+
+        if (!item || !(submenu instanceof HTMLElement)) {
+            return;
+        }
+
+        show(submenu, item);
+    });
+
+    menu.addEventListener("mouseout", (e) => {
+        // TODO: check if submenu parent and hide submenu if yes
+        if (!(e.target instanceof HTMLElement)) {
+            return;
+        }
+
+        if (e.target.classList.contains("md-menu__submenu")) {
+            hide(e.target);
+        }
+    });
+
+    // if (menu.classList.contains("md-menu__submenu")) {
+    //     menu.addEventListener("mouseenter", () => {
+    //         menu.dataset.mdHovered = "";
+    //     });
+
+    //     menu.addEventListener("mouseleave", () => {
+    //         delete menu.dataset.mdHovered;
+    //         hide(menu);
+    //     });
+    // }
+}
+
+/**
+ * Hides a menu.
+ * @param menu - menu to hide
+ * @param force - whether to ignore the hover state of the menu
+ */
+export function hide(menu: HTMLElement, force: boolean = false): void {
+    // setTimeout(() => {
+    //     if (force || menu.dataset.mdHovered == undefined) {
+    menu.classList.remove("md-menu--visible");
+    menus.delete(menu);
+    // visible.delete(menu);
+    //     }
+    // }, 50); // ensure user has time to hover over submenu
+}
+
+/**
+ * Hides all visible menus.
+ * @param force - whether to ignore the hover state of menus
+ */
+export function hideAll(force: boolean = false): void {
+    for (const menu of document.getElementsByClassName("md-menu--visible")) {
+        if (menu instanceof HTMLElement) {
+            hide(menu, force);
+        }
+    }
+
+    // if (visible.size == 0) {
+    //     return;
+    // }
+
+    // for (const menu of visible.keys()) {
+    //     hide(menu, force);
+    // }
+
+    // visible.clear();
+}
+
+/**
+ * Shows a menu.
+ * @param menu - menu to show
+ * @param parent - element that controls the menu
+ */
+export function show(menu: HTMLElement, parent: Element): void {
+    move(menu, parent);
     menu.classList.add("md-menu--visible");
-    visible.set(menu, parent);
+    menus.delete(menu);
+    // visible.set(menu, parent);
 }
 
 /**
@@ -171,33 +194,33 @@ export function initialize(menu: HTMLElement): void {
 
     parents.forEach((el) => {
         el.addEventListener("click", () => {
-            if (visible.has(menu) && visible.get(menu) == el) {
+            // if (visible.has(menu) && visible.get(menu) == el) {
+            if (menus.get(menu) == el) {
                 hide(menu, true);
             } else {
-                show(el, menu);
+                show(menu, el);
             }
         });
     });
 
     initializeMenu(menu);
 
+    const submenus = menu.getElementsByClassName("md-menu__submenu");
+
     // TODO: finish implementing menu
-    menu.querySelectorAll<HTMLElement>(".md-menu__submenu").forEach(
-        (submenu) => {
-            const parent = submenu.previousElementSibling;
-            const arrow: HTMLElement =
-                parent?.querySelector(".md-menu__icon:last-child") ??
-                document.createElement("span");
+    for (const submenu of submenus) {
+        const parent = submenu.previousElementSibling;
+        const arrow: HTMLElement =
+            parent?.querySelector(".md-menu__label + .md-menu__icon") ??
+            document.createElement("span");
 
-            arrow.classList.add("md-menu__icon", "md-symbol");
-            arrow.textContent = "arrow_right";
+        arrow.classList.add("md-menu__icon");
+        arrow.textContent = "arrow_right";
 
-            // TODO: if menu is on right side, move arrow to left?
-            if (!arrow.parentElement) {
-                parent?.insertAdjacentElement("beforeend", arrow);
-            }
-
-            initializeMenu(submenu);
+        if (!arrow.parentElement) {
+            parent?.insertAdjacentElement("afterend", arrow);
         }
-    );
+
+        // initializeMenu(submenu);
+    }
 }
