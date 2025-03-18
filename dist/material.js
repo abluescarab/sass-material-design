@@ -17,14 +17,14 @@ import * as menu from "./modules/components/menu.js";
 export function initialize() {
     // TODO: ensure each element is only initialized once?
     const initializers = {
+        "[data-md-menu]": menu.initialize,
+        "[data-md-tooltip]": tooltipInitialize,
         "md-checkbox": checkboxInitialize,
-        "md-menu": menu.initialize,
         "md-segmented": segmentedInitialize,
         "md-switch": switchComponentInitialize,
         "md-tabs": tabsInitialize,
         "md-text-field": textFieldInitialize,
         "md-tree": treeInitialize,
-        "[data-md-tooltip]": tooltipInitialize,
     };
     for (const [selector, initializer] of Object.entries(initializers)) {
         // treat selectors starting with md- as class names
@@ -35,17 +35,17 @@ export function initialize() {
             initializer(element);
         }
     }
-    document.addEventListener("click", (e) => {
-        if (e.target instanceof HTMLElement && !e.target?.dataset.mdMenu) {
-            menu.hideAll(true);
-        }
-    });
-    window.addEventListener("resize", () => {
-        menu.hideAll(true);
-    });
-    window.addEventListener("scroll", () => {
-        menu.hideAll(true);
-    });
+    // document.addEventListener("click", (e) => {
+    //     if (e.target instanceof HTMLElement && !e.target?.dataset.mdMenu) {
+    //         menu.hideAll(true);
+    //     }
+    // });
+    // window.addEventListener("resize", () => {
+    //     menu.hideAll(true);
+    // });
+    // window.addEventListener("scroll", () => {
+    //     menu.hideAll(true);
+    // });
     console.info("Material design loaded.");
 }
 export * from "./modules/types/events.js";
