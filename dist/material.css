@@ -2651,10 +2651,18 @@ code * {
 [data-md-theme=dark] .md-text-field {
   color: rgb(203, 196, 207);
 }
-[data-md-theme=light] .md-text-field:has(input:disabled) {
+[data-md-theme=light] .md-text-field:has(input:disabled) input::-moz-placeholder {
   color: rgba(29, 27, 32, 0.38);
 }
-[data-md-theme=dark] .md-text-field:has(input:disabled) {
+[data-md-theme=light] .md-text-field:has(input:disabled),
+[data-md-theme=light] .md-text-field:has(input:disabled) input::placeholder {
+  color: rgba(29, 27, 32, 0.38);
+}
+[data-md-theme=dark] .md-text-field:has(input:disabled) input::-moz-placeholder {
+  color: rgba(231, 224, 232, 0.38);
+}
+[data-md-theme=dark] .md-text-field:has(input:disabled),
+[data-md-theme=dark] .md-text-field:has(input:disabled) input::placeholder {
   color: rgba(231, 224, 232, 0.38);
 }
 .md-text-field:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__prefix, .md-text-field:has(input:not(:focus):-moz-placeholder-shown) .md-text-field__suffix {
@@ -2767,13 +2775,10 @@ code * {
 [data-md-theme=dark] .md-text-field__container:has(input:disabled) {
   border-color: rgba(231, 224, 232, 0.12);
 }
-.md-text-field__container:not(:has(input:disabled)) {
-  cursor: pointer;
-}
-[data-md-theme=light] .md-text-field__container:not(:has(input:disabled)):hover:not(:has(input:focus)) {
+[data-md-theme=light] .md-text-field__container:not(:has(input:disabled, input:focus)):hover {
   border-color: rgb(29, 27, 32);
 }
-[data-md-theme=dark] .md-text-field__container:not(:has(input:disabled)):hover:not(:has(input:focus)) {
+[data-md-theme=dark] .md-text-field__container:not(:has(input:disabled, input:focus)):hover {
   border-color: rgb(231, 224, 232);
 }
 [data-md-theme=light] .md-text-field__icon {

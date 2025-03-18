@@ -57,8 +57,11 @@
     }
 
     &:has(input:disabled) {
-        @include themes.themify {
-            color: opacity(themes.color("on-surface"), "label");
+        &,
+        input::placeholder {
+            @include themes.themify {
+                color: opacity(themes.color("on-surface"), "label");
+            }
         }
     }
 
@@ -122,13 +125,9 @@
             }
         }
 
-        &:not(:has(input:disabled)) {
-            cursor: pointer;
-
-            &:hover:not(:has(input:focus)) {
-                @include themes.themify {
-                    border-color: themes.color("on-surface");
-                }
+        &:not(:has(input:disabled, input:focus)):hover {
+            @include themes.themify {
+                border-color: themes.color("on-surface");
             }
         }
     }
