@@ -7,6 +7,7 @@ import TimedQueue from "../types/timed-queue.js";
 import { getParentByClassName } from "../utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();
+const initialized: Element[] = [];
 
 /**
  * Moves a tooltip to a location based on its parent.
@@ -109,15 +110,6 @@ export function initialize(parent: HTMLElement): void {
         return;
     }
 
-    tooltip.addEventListener("mouseenter", () => {
-        tooltip.dataset.mdHovered = "";
-    });
-
-    tooltip.addEventListener("mouseleave", () => {
-        delete tooltip.dataset.mdHovered;
-        hide(tooltip);
-    });
-
     parent.addEventListener("mouseenter", () => {
         show(parent, tooltip);
     });
@@ -126,4 +118,17 @@ export function initialize(parent: HTMLElement): void {
         queue.clear();
         hide(tooltip);
     });
+
+    if (!initialized.includes(tooltip)) {
+        tooltip.addEventListener("mouseenter", () => {
+            tooltip.dataset.mdHovered = "";
+        });
+
+        tooltip.addEventListener("mouseleave", () => {
+            delete tooltip.dataset.mdHovered;
+            hide(tooltip);
+        });
+
+        initialized.push(tooltip);
+    }
 }
