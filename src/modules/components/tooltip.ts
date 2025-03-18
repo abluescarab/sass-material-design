@@ -9,16 +9,12 @@ import { getParentByClassName } from "../utils.js";
 const queue: TimedQueue<HTMLElement> = new TimedQueue();
 
 /**
- * Calculates the location of a tooltip based on its parent.
+ * Moves a tooltip to a location based on its parent.
  * @param parent - element that controls the tooltip
  * @param tooltip - tooltip to move
  * @param inAppBar - whether the parent is inside an app bar
  */
-function calculateLocation(
-    parent: Element,
-    tooltip: HTMLElement,
-    inAppBar: boolean
-): void {
+function move(parent: Element, tooltip: HTMLElement, inAppBar: boolean): void {
     const parentRect = parent.getBoundingClientRect();
     const tooltipRect = tooltip.getBoundingClientRect();
     const padding = 8;
@@ -88,7 +84,7 @@ export function show(
 ): void {
     const parentInAppBar = getParentByClassName(parent, "md-app-bar") != null;
 
-    calculateLocation(parent, tooltip, parentInAppBar);
+    move(parent, tooltip, parentInAppBar);
     queue.clear((item) => item.data.classList.remove("md-tooltip--visible"));
 
     queue.push({
