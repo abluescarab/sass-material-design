@@ -126,6 +126,10 @@
 
     // enabled and checked or unchecked
     &:not(:has(input:disabled)) {
+        *:hover {
+            cursor: pointer;
+        }
+
         @each $state in hover, focus, active {
             label:#{$state} {
                 @include themes.themify {

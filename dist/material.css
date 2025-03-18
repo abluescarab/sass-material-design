@@ -14,14 +14,6 @@ hr {
   border: 0;
 }
 
-input:not(:disabled), input:not(:disabled) + label {
-  cursor: pointer;
-}
-
-label:has(input:not(:disabled), button:not(:disabled)) {
-  cursor: pointer;
-}
-
 pre code {
   white-space: pre-line;
 }
@@ -1089,6 +1081,9 @@ code * {
 .md-checkbox__text {
   order: 2;
   margin-left: 16px;
+}
+.md-checkbox:not(:has(input:disabled)) *:hover {
+  cursor: pointer;
 }
 [data-md-theme=light] .md-checkbox:not(:has(input:disabled)) label:hover .md-checkbox__box {
   border-color: rgb(29, 27, 32);
@@ -2243,6 +2238,9 @@ code * {
 }
 .md-switch__handle::after {
   font-size: 20px;
+}
+.md-switch:not(:has(input:disabled)) *:hover {
+  cursor: pointer;
 }
 [data-md-theme=light] .md-switch:not(:has(input:disabled)) label:hover .md-switch__track {
   border-color: #45424a;
