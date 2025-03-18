@@ -77,16 +77,15 @@ export function show(parent, tooltip, immediate = false) {
     });
 }
 /**
- * Initializes a tooltip.
- * @param tooltip - tooltip to initialize
+ * Initializes a tooltip's parent.
+ * @param parent - element which controls a tooltip
  */
-export function initialize(tooltip) {
-    if (!tooltip.classList.contains("md-tooltip")) {
+export function initialize(parent) {
+    if (!parent.dataset.mdTooltip) {
         return;
     }
-    const parents = document.querySelectorAll(`[data-md-tooltip='${tooltip.id}']`);
-    // if tooltip is not bound to anything, skip initializing
-    if (parents.length == 0) {
+    const tooltip = document.getElementById(parent.dataset.mdTooltip);
+    if (!tooltip) {
         return;
     }
     tooltip.addEventListener("mouseenter", () => {
@@ -96,13 +95,11 @@ export function initialize(tooltip) {
         delete tooltip.dataset.mdHovered;
         hide(tooltip);
     });
-    parents.forEach((parent) => {
-        parent.addEventListener("mouseenter", () => {
-            show(parent, tooltip);
-        });
-        parent.addEventListener("mouseleave", () => {
-            queue.clear();
-            hide(tooltip);
-        });
+    parent.addEventListener("mouseenter", () => {
+        show(parent, tooltip);
+    });
+    parent.addEventListener("mouseleave", () => {
+        queue.clear();
+        hide(tooltip);
     });
 }

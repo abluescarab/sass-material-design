@@ -16,20 +16,24 @@ import * as menu from "./modules/components/menu.js";
  */
 export function initialize() {
     // TODO: ensure each element is only initialized once?
-    const elements = {
-        ".md-checkbox": checkboxInitialize,
-        ".md-menu": menu.initialize,
-        ".md-segmented": segmentedInitialize,
-        ".md-switch": switchComponentInitialize,
-        ".md-tabs": tabsInitialize,
-        ".md-text-field": textFieldInitialize,
-        ".md-tooltip": tooltipInitialize,
-        ".md-tree": treeInitialize,
+    const initializers = {
+        "md-checkbox": checkboxInitialize,
+        "md-menu": menu.initialize,
+        "md-segmented": segmentedInitialize,
+        "md-switch": switchComponentInitialize,
+        "md-tabs": tabsInitialize,
+        "md-text-field": textFieldInitialize,
+        "md-tree": treeInitialize,
+        "[data-md-tooltip]": tooltipInitialize,
     };
-    for (const [selector, initializer] of Object.entries(elements)) {
-        document
-            .querySelectorAll(selector)
-            .forEach((e) => initializer(e));
+    for (const [selector, initializer] of Object.entries(initializers)) {
+        // treat selectors starting with md- as class names
+        const elements = selector.startsWith("md-")
+            ? document.getElementsByClassName(selector)
+            : document.querySelectorAll(selector);
+        for (const element of elements) {
+            initializer(element);
+        }
     }
     document.addEventListener("click", (e) => {
         if (e.target instanceof HTMLElement && !e.target?.dataset.mdMenu) {
