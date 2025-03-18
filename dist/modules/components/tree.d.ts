@@ -19,9 +19,8 @@ export declare function hasChecked(tree: HTMLElement, includeChildren?: boolean)
 /**
  * Initializes a tree.
  * @param tree - tree to initialize
- * @param itemPrefix - prefix for each dynamically generated item ID
  */
-export declare function initialize(tree: HTMLElement, itemPrefix?: string): void;
+export declare function initialize(tree: HTMLElement): void;
 /**
  * Populates a tree from a map.
  * @param tree - tree to populate

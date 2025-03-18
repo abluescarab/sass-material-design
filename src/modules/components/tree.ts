@@ -288,12 +288,11 @@ export function hasChecked(
 /**
  * Initializes a tree.
  * @param tree - tree to initialize
- * @param itemPrefix - prefix for each dynamically generated item ID
  */
-export function initialize(tree: HTMLElement, itemPrefix: string = ""): void {
+export function initialize(tree: HTMLElement): void {
     initializeTree(
         tree,
-        itemPrefix ?? tree?.id,
+        tree?.id,
         tree.dataset.mdButtonType,
         tree.dataset.mdCheckboxes
     );

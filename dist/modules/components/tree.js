@@ -205,10 +205,9 @@ export function hasChecked(tree, includeChildren = true) {
 /**
  * Initializes a tree.
  * @param tree - tree to initialize
- * @param itemPrefix - prefix for each dynamically generated item ID
  */
-export function initialize(tree, itemPrefix = "") {
-    initializeTree(tree, itemPrefix ?? tree?.id, tree.dataset.mdButtonType, tree.dataset.mdCheckboxes);
+export function initialize(tree) {
+    initializeTree(tree, tree?.id, tree.dataset.mdButtonType, tree.dataset.mdCheckboxes);
     const loadExpanded = tree.dataset.mdExpandOnLoad != undefined;
     toggleAll(tree, loadExpanded, loadExpanded ? "expanded" : "");
     tree.addEventListener("click", (e) => {
