@@ -1,10 +1,12 @@
 /// ============================================================================
 /// @file           components/_fab.scss
 /// @description    Material Design floating action button component.
-/// @data           size: button size
-///                     options: small, large, extended
-///                 color: button background color
-///                     options: primary, secondary, tertiary
+/// @data           size=<SIZE=large>
+///                     button size
+///                     SIZE: small, large, extended
+///                 color=<COLOR=surface-container-high>
+///                     button background color
+///                     COLOR: primary, secondary, tertiary
 /// @modifiers      branded: branded font size
 ///                 low: reduce elevation
 /// @elements       icon: icon before text

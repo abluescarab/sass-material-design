@@ -1,20 +1,25 @@
 /// ============================================================================
 /// @file           components/_tree.scss
 /// @description    Custom Material Design tree component.
-/// @data           button-type: button style
-///                     options: filled, tonal, outlined
-///                 cascade-checked: check or uncheck children with parent
-///                     options: checked, unchecked, both
-///                 cascade-toggled: expand or collapse children with parent
-///                     options: expanded, collapsed
-///                 checkboxes: display checkboxes next to tree elements
-///                     options: all, leaves, roots, subtrees
-///                 expand-on-load: expand all subtrees on load
-///                 indicator: subtree depth indicator
-///                     options: (space separated)
-///                         color: primary, secondary, tertiary, on-surface
-///                         style: any border style
-///                         width: small, medium, large
+/// @data           button-type=<TYPE=none>
+///                     button style
+///                     TYPE: filled, tonal, outlined
+///                 cascade-checked=<CASCADE=none>
+///                     check or unchecked children with parent
+///                     CASCADE: checked, unchecked, both
+///                 cascade-toggled=<CASCADE=none>
+///                     expand or collapsed children with parent
+///                     CASCADE: expanded, collapsed
+///                 checkboxes=<LOCATION=none>
+///                     display checkboxes next to tree elements
+///                     LOCATION: all, leaves, roots, subtrees
+///                 expand-on-load
+///                     expand all subtrees on load
+///                 indicator=<COLOR=transparent> [STYLE=dotted] [WIDTH=small]
+///                     subtree depth indicator
+///                     COLOR: primary, secondary, tertiary, on-surface
+///                     STYLE: any border style
+///                     WIDTH: small, medium, large
 /// @elements       label: tree item
 ///                 subtree: children of a tree item
 ///                 root: top level tree item (automatically applied)

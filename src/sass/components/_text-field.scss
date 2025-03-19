@@ -1,8 +1,9 @@
 /// ============================================================================
 /// @file           components/_text-field.scss
 /// @description    Material Design text field component.
-/// @data           placeholder: where to show placeholder; defaults to both // TODO: data-md-placeholder
-///                     options: inside, top
+/// @data           placeholder=<LOCATION=both>
+///                     where to show placeholder // TODO: data-md-placeholder
+///                     LOCATION: inside, top
 /// @modifiers      filled: style as filled text field
 /// @elements       container: container around the input box
 ///                 suffix: text or icon after input

@@ -1,8 +1,9 @@
 /// ============================================================================
 /// @file           components/_tabs.scss
 /// @description    Material Design tab container component.
-/// @data           type: navigation style
-///                     options: primary, secondary
+/// @data           type=<TYPE> // TODO: use primary as default
+///                     navigation style
+///                     TYPE: primary, secondary
 /// @elements       nav: navigation container
 ///                 button: navigation button
 ///                 icon: navigation button icon

@@ -1,8 +1,9 @@
 /// ============================================================================
 /// @file           components/_switch.scss
 /// @description    Material Design switch component.
-/// @data           icons: include icons in the handle
-///                     options: selected, both
+/// @data           icons=<LOCATION=none>
+///                     include icons in the handle
+///                     LOCATION: selected, both
 /// @modifiers      left: put switches on the left side of the text
 /// @elements       text: text in the label
 ///                 track: background area of the switch control
