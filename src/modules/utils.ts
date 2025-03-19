@@ -13,6 +13,38 @@ export function capitalize(str: string): string {
 }
 
 /**
+ * Gets the index of an element among its siblings.
+ * @param element - element with a parent
+ * @returns index in `parentElement.children`
+ */
+export function childIndex(element: Element | null): number {
+    if (!element) {
+        return -1;
+    }
+
+    return Array.prototype.indexOf.call(
+        element.parentElement?.children,
+        element
+    );
+}
+
+/**
+ * Clamps a value between a minimum and maximum.
+ * @param value - value to clamp between min and max
+ * @param min - minimum allowed value
+ * @param max - maximum allowed value
+ * @returns value between min and max
+ * @throws {RangeError} Minimum must be smaller than maximum.
+ */
+export function clamp(value: number, min: number, max: number) {
+    if (min >= max) {
+        throw RangeError(`Minimum must be smaller than maximum.`);
+    }
+
+    return value <= min ? min : value >= max ? max : value;
+}
+
+/**
  * Cycles a data attribute on an element between the given values.
  * @param element - element with data value
  * @param data - data attribute name

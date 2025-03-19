@@ -9,6 +9,21 @@
  */
 export declare function capitalize(str: string): string;
 /**
+ * Gets the index of an element among its siblings.
+ * @param element - element with a parent
+ * @returns index in `parentElement.children`
+ */
+export declare function childIndex(element: Element | null): number;
+/**
+ * Clamps a value between a minimum and maximum.
+ * @param value - value to clamp between min and max
+ * @param min - minimum allowed value
+ * @param max - maximum allowed value
+ * @returns value between min and max
+ * @throws {RangeError} Minimum must be smaller than maximum.
+ */
+export declare function clamp(value: number, min: number, max: number): number;
+/**
  * Cycles a data attribute on an element between the given values.
  * @param element - element with data value
  * @param data - data attribute name
