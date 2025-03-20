@@ -3,11 +3,12 @@
 /// @description    Material Design data table component.
 /// @data           checkboxes // TODO: checkboxes in table
 ///                     show checkboxes in the leftmost column
-///                 sortable=[DEFAULT=false] [SIDE=right]
-///                     allow sorting on a header cell; side determines where
-///                     sorting indicators are placed next to headers
-///                     DEFAULT: sorts the table by this column on load
+///                 sortable=[SIDE=right] (on parent)
+///                     allow sorting within the table
 ///                     SIDE: left, right
+///                 sortable=[DEFAULT=false] (on header)
+///                     allow sorting on a header cell
+///                     DEFAULT: sorts the table by this column on load
 /// ============================================================================
 
 @use "../abstracts" as *;
@@ -16,6 +17,7 @@
 .md-table {
     $parent: &;
     $padding: 16px;
+    $sortable-padding: calc(($padding * 2) + $icon__size);
 
     width: max-content;
     border-collapse: separate;
@@ -51,8 +53,7 @@
         @include font-styling("label-large");
 
         &[data-md-sortable] {
-            $header-padding: calc(($padding * 2) + $icon__size);
-
+            padding-right: $sortable-padding;
             cursor: pointer;
 
             &:hover {
@@ -66,6 +67,7 @@
 
                 position: absolute;
                 top: calc(50% - ($icon__size / 2));
+                right: $padding;
                 content: "unfold_more";
             }
 
@@ -75,22 +77,6 @@
 
             &[data-md-order="descending"]::after {
                 content: "keyboard_arrow_up";
-            }
-
-            &[data-md-sortable~="left"] {
-                padding-left: $header-padding;
-
-                &::after {
-                    left: $padding;
-                }
-            }
-
-            &:not([data-md-sortable~="left"]) {
-                padding-right: $header-padding;
-
-                &::after {
-                    right: $padding;
-                }
             }
         }
     }
@@ -105,6 +91,18 @@
     tr:not(:last-child) td {
         @include themes.themify {
             border-bottom: 1px solid themes.color("outline");
+        }
+    }
+
+    &[data-md-sortable="left"] {
+        th[data-md-sortable] {
+            padding-right: $padding;
+            padding-left: $sortable-padding;
+
+            &::after {
+                right: auto;
+                left: $padding;
+            }
         }
     }
 }

@@ -2446,6 +2446,7 @@ code * {
   font-weight: 500;
 }
 .md-table th[data-md-sortable] {
+  padding-right: 56px;
   cursor: pointer;
 }
 [data-md-theme=light] .md-table th[data-md-sortable]:hover {
@@ -2457,6 +2458,7 @@ code * {
 .md-table th[data-md-sortable]::after {
   position: absolute;
   top: calc(50% - 12px);
+  right: 16px;
   content: "unfold_more";
 }
 .md-table th[data-md-sortable][data-md-order=ascending]::after {
@@ -2464,18 +2466,6 @@ code * {
 }
 .md-table th[data-md-sortable][data-md-order=descending]::after {
   content: "keyboard_arrow_up";
-}
-.md-table th[data-md-sortable][data-md-sortable~=left] {
-  padding-left: 56px;
-}
-.md-table th[data-md-sortable][data-md-sortable~=left]::after {
-  left: 16px;
-}
-.md-table th[data-md-sortable]:not([data-md-sortable~=left]) {
-  padding-right: 56px;
-}
-.md-table th[data-md-sortable]:not([data-md-sortable~=left])::after {
-  right: 16px;
 }
 .md-table td {
   height: 52px;
@@ -2492,6 +2482,14 @@ code * {
 [data-md-theme=dark] .md-table thead th,
 [data-md-theme=dark] .md-table tr:not(:last-child) td {
   border-bottom: 1px solid rgb(148, 143, 153);
+}
+.md-table[data-md-sortable=left] th[data-md-sortable] {
+  padding-right: 16px;
+  padding-left: 56px;
+}
+.md-table[data-md-sortable=left] th[data-md-sortable]::after {
+  right: auto;
+  left: 16px;
 }
 
 .md-tabs {
