@@ -2461,10 +2461,16 @@ code * {
   right: 16px;
   content: "unfold_more";
 }
-.md-table th[data-md-sortable][data-md-order=ascending]::after {
+[data-md-theme=light] .md-table th[data-md-sortable][data-md-order] {
+  color: rgb(104, 84, 142);
+}
+[data-md-theme=dark] .md-table th[data-md-sortable][data-md-order] {
+  color: rgb(211, 188, 253);
+}
+.md-table th[data-md-sortable][data-md-order][data-md-order=ascending]::after {
   content: "keyboard_arrow_down";
 }
-.md-table th[data-md-sortable][data-md-order=descending]::after {
+.md-table th[data-md-sortable][data-md-order][data-md-order=descending]::after {
   content: "keyboard_arrow_up";
 }
 .md-table td {

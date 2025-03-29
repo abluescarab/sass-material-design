@@ -9,6 +9,7 @@
 ///                 sortable=[DEFAULT=false] (on header)
 ///                     allow sorting on a header cell
 ///                     DEFAULT: sorts the table by this column on load
+/// @elements       header: row containing `th` cells
 /// ============================================================================
 
 @use "../abstracts" as *;
@@ -71,12 +72,18 @@
                 content: "unfold_more";
             }
 
-            &[data-md-order="ascending"]::after {
-                content: "keyboard_arrow_down";
-            }
+            &[data-md-order] {
+                @include themes.themify {
+                    color: themes.color("primary");
+                }
 
-            &[data-md-order="descending"]::after {
-                content: "keyboard_arrow_up";
+                &[data-md-order="ascending"]::after {
+                    content: "keyboard_arrow_down";
+                }
+
+                &[data-md-order="descending"]::after {
+                    content: "keyboard_arrow_up";
+                }
             }
         }
     }
