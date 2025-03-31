@@ -9,7 +9,7 @@
  * @template K - key type
  * @template V - value type
  */
-export default class BiMap<K, V> {
+export class BiMap<K, V> {
     private keyValues: Map<K, V>;
     private valueKeys: Map<V, K>;
 

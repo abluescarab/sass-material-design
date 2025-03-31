@@ -4,9 +4,9 @@
  */
 
 import { create as createCheckbox } from "./checkbox.js";
-import { MaterialToggleEvent, MaterialState } from "../types/events.js";
 import { getParentByClassName, join, stringToSelector } from "../utils.js";
-import { Nullable } from "../types/index";
+import { MaterialToggleEvent, MaterialState } from "../events.js";
+import { Nullable } from "../index";
 
 let lastItem = 0;
 // TODO: change tree elements to be inside parent?

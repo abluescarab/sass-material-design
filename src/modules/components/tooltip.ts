@@ -3,7 +3,7 @@
  * @description     Implementation file for Material Design tooltips.
  */
 
-import TimedQueue from "../types/timed-queue.js";
+import { TimedQueue } from "../timed-queue.js";
 import { getParentByClassName } from "../utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();

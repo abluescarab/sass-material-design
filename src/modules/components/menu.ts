@@ -3,8 +3,7 @@
  * @description     Implementation file for Material Design menu components.
  */
 
-import HoverHandler from "../types/history.js";
-import TimedQueue from "../types/timed-queue.js";
+import { TimedQueue } from "../timed-queue.js";
 import { getParentByClassName } from "../utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();

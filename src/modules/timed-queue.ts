@@ -18,7 +18,7 @@ export type TimedQueueItem<T> = {
  * A timed queue which runs a callback function after a given delay.
  * @template T
  */
-export default class TimedQueue<T> {
+export class TimedQueue<T> {
     #queue: { item: TimedQueueItem<T>; timeout: number }[] = [];
 
     /**

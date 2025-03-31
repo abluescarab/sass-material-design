@@ -59,7 +59,4 @@ export function initialize(): void {
     console.info("Material design loaded.");
 }
 
-export * from "./modules/types/events.js";
-export * from "./modules/themer.js";
-export * from "./modules/types/index.js";
-export * from "./modules/utils.js";
+export * from "./modules/index.js";
