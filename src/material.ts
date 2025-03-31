@@ -3,15 +3,7 @@
  * @description     Main file.
  */
 
-import { initialize as checkboxInitialize } from "./modules/components/checkbox.js";
-import { initialize as segmentedInitialize } from "./modules/components/segmented.js";
-import { initialize as switchComponentInitialize } from "./modules/components/switch.js";
-import { initialize as tableInitialize } from "./modules/components/table.js";
-import { initialize as tabsInitialize } from "./modules/components/tabs.js";
-import { initialize as textFieldInitialize } from "./modules/components/text-field.js";
-import { initialize as tooltipInitialize } from "./modules/components/tooltip.js";
-import { initialize as treeInitialize } from "./modules/components/tree.js";
-import * as menu from "./modules/components/menu.js";
+import * as modules from "./modules/index";
 
 /**
  * Initializes dynamically generated Material Design elements. Call this when
@@ -20,15 +12,15 @@ import * as menu from "./modules/components/menu.js";
 export function initialize(): void {
     // TODO: ensure each element is only initialized once?
     const initializers = {
-        "[data-md-menu]": menu.initialize,
-        "[data-md-tooltip]": tooltipInitialize,
-        "md-checkbox": checkboxInitialize,
-        "md-segmented": segmentedInitialize,
-        "md-switch": switchComponentInitialize,
-        "md-table": tableInitialize,
-        "md-tabs": tabsInitialize,
-        "md-text-field": textFieldInitialize,
-        "md-tree": treeInitialize,
+        "[data-md-menu]": modules.menu.initialize,
+        "[data-md-tooltip]": modules.tooltip.initialize,
+        "md-checkbox": modules.checkbox.initialize,
+        "md-segmented": modules.segmentedButton.initialize,
+        "md-switch": modules.switchButton.initialize,
+        "md-table": modules.table.initialize,
+        "md-tabs": modules.tabs.initialize,
+        "md-text-field": modules.textField.initialize,
+        "md-tree": modules.tree.initialize,
     };
 
     for (const [selector, initializer] of Object.entries(initializers)) {
