@@ -3,47 +3,9 @@
  * @description     Helper file with utility functions.
  */
 
-/**
- * Capitalizes the first letter of a string.
- * @param str - string to modify
- * @returns capitalized string
- */
-export function capitalize(str: string): string {
-    return str.charAt(0).toLocaleUpperCase() + str.slice(1);
-}
-
-/**
- * Gets the index of an element among its siblings.
- * @param element - element with a parent
- * @returns index in `parentElement.children`
- */
-export function childIndex(element: Element | null): number {
-    if (!element) {
-        return -1;
-    }
-
-    return Array.prototype.indexOf.call(
-        element.parentElement?.children,
-        element
-    );
-}
-
-/**
- * Clamps a value between a minimum and maximum.
- * @param value - value to clamp between min and max
- * @param min - minimum allowed value
- * @param max - maximum allowed value
- * @returns value between min and max
- * @throws {RangeError} Minimum must be smaller than maximum.
- */
-export function clamp(value: number, min: number, max: number) {
-    if (min >= max) {
-        throw RangeError(`Minimum must be smaller than maximum.`);
-    }
-
-    return value <= min ? min : value >= max ? max : value;
-}
-
+/* -----------------------------------------------------------------------------
+ * Dataset helpers
+ * -------------------------------------------------------------------------- */
 /**
  * Cycles a data attribute on an element between the given values.
  * @param element - element with data value
@@ -67,6 +29,45 @@ export function cycleData(
     const newValue = values[index];
     element.dataset[dataName] = newValue;
     return newValue;
+}
+
+/**
+ * Cycles an element between the given themes.
+ * @param element - element to theme
+ * @param themes - theme names
+ * @returns new theme
+ */
+export function cycleThemes(element: HTMLElement, ...themes: string[]): string {
+    return cycleData(element, "theme", ...themes);
+}
+
+/**
+ * Sets the theme on the given element.
+ * @param element - element to theme
+ * @param theme - theme to change to
+ * @returns new theme
+ */
+export function setTheme(element: HTMLElement, theme: string = ""): string {
+    return cycleThemes(element, theme);
+}
+
+/* -----------------------------------------------------------------------------
+ * HTML helpers
+ * -------------------------------------------------------------------------- */
+/**
+ * Gets the index of an element among its siblings.
+ * @param element - element with a parent
+ * @returns index in `parentElement.children`
+ */
+export function childIndex(element: Element | null): number {
+    if (!element) {
+        return -1;
+    }
+
+    return Array.prototype.indexOf.call(
+        element.parentElement?.children,
+        element
+    );
 }
 
 /**
@@ -106,32 +107,6 @@ export function getParentByClassName(
 }
 
 /**
- * Joins a series of strings in order.
- * @param strings - strings to join
- * @returns joined strings
- */
-export function join(...strings: string[]): string {
-    return strings.join("");
-}
-
-/**
- * Converts a string to a selector in the form "element-selector".
- * @param str - string to convert
- * @returns string with whitespace and non-word characters replaced
- */
-export function stringToSelector(str: string): string {
-    // shortcut if string is empty
-    if (!str) {
-        return str;
-    }
-
-    return str
-        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
-        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2") // whitespace or uppercase after lowercase
-        .toLowerCase();
-}
-
-/**
  * Wraps an element in the specified tag.
  * @param element - element to wrap
  * @param tag - tag to wrap with
@@ -157,4 +132,58 @@ export function wrap(
     }
 
     return wrapper;
+}
+
+/* -----------------------------------------------------------------------------
+ * Primitive type helpers
+ * -------------------------------------------------------------------------- */
+/**
+ * Capitalizes the first letter of a string.
+ * @param str - string to modify
+ * @returns capitalized string
+ */
+export function capitalize(str: string): string {
+    return str.charAt(0).toLocaleUpperCase() + str.slice(1);
+}
+
+/**
+ * Clamps a value between a minimum and maximum.
+ * @param value - value to clamp between min and max
+ * @param min - minimum allowed value
+ * @param max - maximum allowed value
+ * @returns value between min and max
+ * @throws {RangeError} Minimum must be smaller than maximum.
+ */
+export function clamp(value: number, min: number, max: number) {
+    if (min >= max) {
+        throw RangeError(`Minimum must be smaller than maximum.`);
+    }
+
+    return value <= min ? min : value >= max ? max : value;
+}
+
+/**
+ * Joins a series of strings in order.
+ * @param strings - strings to join
+ * @returns joined strings
+ */
+export function join(...strings: string[]): string {
+    return strings.join("");
+}
+
+/**
+ * Converts a string to a selector in the form "element-selector".
+ * @param str - string to convert
+ * @returns string with whitespace and non-word characters replaced
+ */
+export function stringToSelector(str: string): string {
+    // shortcut if string is empty
+    if (!str) {
+        return str;
+    }
+
+    return str
+        .replaceAll(/[^\w\s]/g, "") // non-whitespace, non-word characters
+        .replaceAll(/([a-z])([A-Z])|\s/g, "$1-$2") // whitespace or uppercase after lowercase
+        .toLowerCase();
 }
