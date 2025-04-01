@@ -1,6 +1,5 @@
 /**
- * @file            modules/utils.ts
- * @description     Helper file with utility functions.
+ * @file Helper file with utility functions.
  */
 
 /* -----------------------------------------------------------------------------

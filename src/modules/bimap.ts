@@ -1,7 +1,6 @@
 /**
- * @file            types/bimap.ts
- * @description     Implements a bidirectional map where each key has one value
- *                  and each value has one key.
+ * @file Implements a bidirectional map where each key has one value and each
+ * value has one key.
  */
 
 /**

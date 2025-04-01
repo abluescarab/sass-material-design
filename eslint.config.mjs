@@ -1,6 +1,5 @@
 /**
- * @file            src/eslint.config.mjs
- * @description     ESLint config file.
+ * @file ESLint config file.
  */
 
 import globals from "globals";

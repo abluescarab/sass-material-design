@@ -1,6 +1,5 @@
 /**
- * @file            components/checkbox.ts
- * @description     Implementation file for checkbox components.
+ * @file Implementation file for checkbox components.
  */
 
 /**

@@ -1,6 +1,5 @@
 /**
- * @file            components/switch.ts
- * @description     Implementation file for switch components.
+ * @file Implementation file for switch components.
  */
 
 import {

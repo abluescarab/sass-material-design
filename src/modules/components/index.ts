@@ -1,6 +1,5 @@
 /**
- * @file            components/index.ts
- * @description     Exports Material Design components.
+ * @file Exports Material Design components.
  */
 
 export * as checkbox from "./checkbox";

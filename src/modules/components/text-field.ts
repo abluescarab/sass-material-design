@@ -1,6 +1,5 @@
 /**
- * @file            components/text-field.ts
- * @description     Implementation file for text field components.
+ * @file Implementation file for text field components.
  */
 
 function moveInput(

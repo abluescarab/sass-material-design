@@ -1,7 +1,5 @@
 /**
- * @file            modules/timed-queue.ts
- * @description     Implements a queue which runs a callback function after a
- *                  given delay.
+ * @file Implements a queue which runs a callback function after a given delay.
  */
 
 /**

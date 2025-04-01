@@ -1,6 +1,5 @@
 /**
- * @file            components/tooltip.ts
- * @description     Implementation file for Material Design tooltips.
+ * @file Implementation file for Material Design tooltips.
  */
 
 import { TimedQueue } from "../timed-queue.js";

@@ -1,6 +1,5 @@
 /**
- * @file            components/menu.ts
- * @description     Implementation file for Material Design menu components.
+ * @file Implementation file for Material Design menu components.
  */
 
 import { TimedQueue } from "../timed-queue.js";

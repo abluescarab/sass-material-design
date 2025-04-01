@@ -1,7 +1,5 @@
 /**
- * @file            modules/components/segmented.ts
- * @description     Implementation file for Material Design segmented button
- *                  components.
+ * @file Implementation file for Material Design segmented button components.
  */
 
 import { getParentByClassName } from "../utils.js";

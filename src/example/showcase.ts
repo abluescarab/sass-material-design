@@ -1,6 +1,5 @@
 /**
- * @file            example/showcase.ts
- * @description     Implements functionality for the showcase.
+ * @file Implements functionality for the showcase.
  */
 
 // TODO: implement up/down arrows on panes

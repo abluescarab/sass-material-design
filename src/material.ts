@@ -1,6 +1,5 @@
 /**
- * @file            src/material.ts
- * @description     Main file.
+ * @file Main file.
  */
 
 import * as modules from "./modules/index";

@@ -1,6 +1,5 @@
 /**
- * @file            modules/events.ts
- * @description     Helper file with custom event types.
+ * @file Helper file with custom event types.
  */
 
 import { Nullable } from "./index";

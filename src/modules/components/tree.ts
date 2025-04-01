@@ -1,6 +1,5 @@
 /**
- * @file            modules/components/tree.ts
- * @description     Implementation file for tree components.
+ * @file Implementation file for tree components.
  */
 
 import { create as createCheckbox } from "./checkbox.js";

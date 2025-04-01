@@ -1,6 +1,5 @@
 /**
- * @file            components/table.ts
- * @description     Implementation file for data table components.
+ * @file Implementation file for data table components.
  */
 
 import { childIndex, clamp } from "../utils.js";
