@@ -2,6 +2,7 @@
  * @file Implementation file for Material Design menu components.
  */
 
+import { History } from "../history.js";
 import { TimedQueue } from "../timed-queue.js";
 import { getParentByClassName } from "../utils.js";
 
@@ -97,7 +98,7 @@ export function initialize(parent: HTMLElement) {
         return;
     }
 
-    const handler = new HoverHandler();
+    const history = new History();
 
     menu.addEventListener("mouseover", (e) => {
         if (!(e.target instanceof Element)) {
@@ -106,7 +107,7 @@ export function initialize(parent: HTMLElement) {
 
         const item = getParentByClassName(e.target, "md-menu__item", "md-menu");
 
-        if (!(item instanceof HTMLElement) || handler.is(item)) {
+        if (!(item instanceof HTMLElement) || history.is(item)) {
             return;
         }
 
@@ -123,7 +124,7 @@ export function initialize(parent: HTMLElement) {
             initialized.get(menu)?.visibleSubmenus.add(submenu);
         }
 
-        handler.set(item);
+        history.set(item);
     });
 
     menu.addEventListener("mouseout", (e) => {
