@@ -9,7 +9,6 @@
 export type Nullable<T> = T | null | undefined;
 
 export * from "./components/index";
-export * from "./bimap";
 export * from "./events";
 export * from "./timed-queue";
 export * from "./utils";
