@@ -2,7 +2,7 @@
  * @file Helper file with custom event types.
  */
 
-import { Nullable } from "./index";
+import { Nullable } from "./index.js";
 
 /**
  * The state of any toggleable element.

@@ -4,7 +4,7 @@
 
 /**
  * Represents the options given to a styled checkbox in the
- * {@link createStyledCheckbox()} function.
+ * {@link createStyled()} function.
  */
 export interface MaterialStyledCheckboxOptions {
     /**
@@ -46,7 +46,7 @@ export interface MaterialStyledCheckboxOptions {
  * @param options - options map
  * @returns label or wrapper element depending on value of {@link MaterialStyledCheckboxOptions.onlyLabel}
  */
-export function createStyledCheckbox(
+export function createStyled(
     className: string,
     displayElement: HTMLElement,
     options?: MaterialStyledCheckboxOptions
@@ -100,7 +100,7 @@ export function create(options?: MaterialStyledCheckboxOptions): HTMLElement {
     const box = document.createElement("span");
     box.classList.add("md-checkbox__box");
 
-    return createStyledCheckbox("md-checkbox", box, options);
+    return createStyled("md-checkbox", box, options);
 }
 
 /**

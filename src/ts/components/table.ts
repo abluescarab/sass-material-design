@@ -2,7 +2,7 @@
  * @file Implementation file for data table components.
  */
 
-import { childIndex, clamp } from "../utils.js";
+import { childIndex, clamp } from "../../ts/utils.js";
 
 /**
  * Initializes a data table.

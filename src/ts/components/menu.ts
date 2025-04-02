@@ -2,9 +2,9 @@
  * @file Implementation file for Material Design menu components.
  */
 
-import { History } from "../history.js";
-import { TimedQueue } from "../timed-queue.js";
-import { getParentByClassName } from "../utils.js";
+import { History } from "../../ts/history.js";
+import { TimedQueue } from "../../ts/timed-queue.js";
+import { getParentByClassName } from "../../ts/utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();
 const initialized = new Map<

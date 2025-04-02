@@ -2,10 +2,7 @@
  * @file Implementation file for switch components.
  */
 
-import {
-    createStyledCheckbox,
-    MaterialStyledCheckboxOptions,
-} from "./checkbox.js";
+import { createStyled, MaterialStyledCheckboxOptions } from "./checkbox.js";
 
 /**
  * Creates a new switch.
@@ -21,7 +18,7 @@ export function create(options?: MaterialStyledCheckboxOptions): HTMLElement {
 
     track.appendChild(handle);
 
-    return createStyledCheckbox("md-switch", track, options);
+    return createStyled("md-switch", track, options);
 }
 
 /**
