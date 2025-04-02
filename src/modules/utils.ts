@@ -25,7 +25,7 @@ export function cycleData(
         index = (values.indexOf(dataValue) + 1) % values.length;
     }
 
-    const newValue = values[index];
+    const newValue = values[index]!;
     element.dataset[dataName] = newValue;
     return newValue;
 }

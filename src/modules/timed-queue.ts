@@ -82,7 +82,7 @@ export class TimedQueue<T> {
         const index = this.#queue.findIndex((q) => q.item == item);
 
         if (index > -1) {
-            clearTimeout(this.#queue[index].timeout);
+            clearTimeout(this.#queue[index]!.timeout);
             this.#queue.splice(index, 1);
         }
     }

@@ -61,7 +61,7 @@ function changeFabVisibilityButton(): void {
         return;
     }
 
-    fabVisibilityButton.childNodes[1].textContent =
+    fabVisibilityButton.childNodes[1]!.textContent =
         container?.style.display == "none" ? "visibility" : "visibility_off";
 
     replaceFabButtonText(
@@ -158,7 +158,7 @@ function createAttributes(el: Element): void {
  * @param replacement - text to replace with
  */
 function replaceFabButtonText(button: Element, replacement: string): void {
-    const node = button.childNodes[2];
+    const node = button.childNodes[2]!;
     node.nodeValue =
         node.nodeValue?.replace(node.nodeValue.trim(), replacement) ?? "";
 }

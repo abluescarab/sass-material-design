@@ -22,7 +22,7 @@ export function initialize(table: HTMLElement): void {
 
     const defaultHeading: HTMLElement =
         table.querySelector("th[data-md-sortable~='default']") ??
-        table.getElementsByTagName("th")[0];
+        (table.getElementsByTagName("th")[0] as HTMLElement);
 
     table.addEventListener("click", (e) => {
         if (
@@ -34,6 +34,10 @@ export function initialize(table: HTMLElement): void {
 
         sort(table, e.target, e.target.dataset.mdOrder == "ascending");
     });
+
+    if (!defaultHeading) {
+        return;
+    }
 
     sort(table, defaultHeading, defaultHeading.dataset.mdOrder == "descending");
 }
@@ -50,12 +54,12 @@ function sort(
     reverse: boolean
 ): void {
     const rows = table.getElementsByTagName("tr");
+    const headerRow = table.getElementsByClassName("md-table__header")[0];
 
-    if (!rows) {
+    if (!rows || !headerRow) {
         return;
     }
 
-    const headerRow = table.getElementsByClassName("md-table__header")[0];
     const column = clamp(childIndex(header), 0, headerRow.children.length);
     const sorted = Array.from(rows);
 
@@ -64,7 +68,7 @@ function sort(
     }
 
     sorted.sort((a, b) =>
-        a.cells[column].innerText.localeCompare(b.cells[column].innerText)
+        a.cells[column]!.innerText.localeCompare(b.cells[column]!.innerText)
     );
 
     if (reverse) {
@@ -86,6 +90,6 @@ function sort(
     const fragment = document.createDocumentFragment();
     fragment.append(...sorted);
 
-    table.tBodies[0].appendChild(fragment);
+    table.tBodies[0]!.appendChild(fragment);
     table.dataset.mdSortColumn = `${column}`;
 }

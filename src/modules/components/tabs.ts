@@ -53,7 +53,7 @@ export function initialize(tabs: HTMLElement): void {
     const length = Math.min(buttons.length, pages.length);
 
     for (let i = 0; i < length; i++) {
-        pages[i].dataset.mdTab = buttons[i].dataset.mdTab = `${i}`;
+        pages[i]!.dataset.mdTab = buttons[i]!.dataset.mdTab = `${i}`;
     }
 
     // set default tab if not given
