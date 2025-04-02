@@ -2,7 +2,7 @@
  * @file Main file.
  */
 
-import * as modules from "./modules/index";
+import * as components from "./modules/components/index";
 
 /**
  * Initializes dynamically generated Material Design elements. Call this when
@@ -11,15 +11,15 @@ import * as modules from "./modules/index";
 export function initialize(): void {
     // TODO: ensure each element is only initialized once?
     const initializers = {
-        "[data-md-menu]": modules.menu.initialize,
-        "[data-md-tooltip]": modules.tooltip.initialize,
-        "md-checkbox": modules.checkbox.initialize,
-        "md-segmented": modules.segmentedButton.initialize,
-        "md-switch": modules.switchButton.initialize,
-        "md-table": modules.table.initialize,
-        "md-tabs": modules.tabs.initialize,
-        "md-text-field": modules.textField.initialize,
-        "md-tree": modules.tree.initialize,
+        "[data-md-menu]": components.menu.initialize,
+        "[data-md-tooltip]": components.tooltip.initialize,
+        "md-checkbox": components.checkbox.initialize,
+        "md-segmented": components.segmentedButton.initialize,
+        "md-switch": components.switchButton.initialize,
+        "md-table": components.table.initialize,
+        "md-tabs": components.tabs.initialize,
+        "md-text-field": components.textField.initialize,
+        "md-tree": components.tree.initialize,
     };
 
     for (const [selector, initializer] of Object.entries(initializers)) {
@@ -49,5 +49,3 @@ export function initialize(): void {
 
     console.info("Material design loaded.");
 }
-
-export * from "./modules/index.js";
