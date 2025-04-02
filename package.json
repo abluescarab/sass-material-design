@@ -10,17 +10,15 @@
     "prebuild:assets": "shx cp -ru ./src/assets ./dist",
     "prebuild": "concurrently \"npm run prebuild:dist\" \"npm run prebuild:assets\"",
     "build:sass": "sass ./src/sass/material.scss ./dist/material.css",
-    "build:src": "tsc",
-    "build": "npm run build:sass && npm run build:src",
+    "build": "npm run build:sass && tsc",
     "clean:dist": "shx rm -rf ./dist",
     "clean:ts": "shx rm -f *.tsbuildinfo",
     "clean": "concurrently \"npm run clean:dist\" \"npm run clean:ts\"",
     "rebuild:sass": "npm run clean && npm run build:sass",
-    "rebuild:src": "npm run clean && npm run build:src",
+    "rebuild:src": "npm run clean && tsc",
     "rebuild": "npm run clean && npm run build",
     "watch:sass": "npm run build:sass -- --watch",
-    "watch:src": "npm run build:src -- --watch",
-    "watch": "concurrently \"npm run watch:sass\" \"npm run watch:src\""
+    "watch": "concurrently \"npm run watch:sass\" \"tsc --watch\""
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
