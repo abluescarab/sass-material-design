@@ -12,8 +12,8 @@ import {
     setTheme,
     stringToSelector,
     wrap,
-} from "../material.js";
-import { populate } from "../modules/components/tree.js";
+} from "sass-material-design";
+import { populate } from "sass-material-design/components/tree";
 
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
@@ -183,8 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     changeFabVisibilityButton();
 
-    for (const tree of trees) {
-        const element = document.getElementById(tree);
+    for (const treeElement of trees) {
+        const element = document.getElementById(treeElement);
 
         if (element) {
             populate(element, exampleTree);
