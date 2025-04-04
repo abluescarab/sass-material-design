@@ -2,8 +2,8 @@
  * @file Implementation file for tab container components.
  */
 
-import { MaterialChangeEvent } from "../../ts/events.js";
-import { getParentByClassName } from "../../ts/utils.js";
+import { MaterialChangeEvent } from "../events.js";
+import { getParentByClassName } from "../utils.js";
 
 /**
  * Gets a tab by name.

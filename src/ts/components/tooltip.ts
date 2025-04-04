@@ -2,8 +2,8 @@
  * @file Implementation file for Material Design tooltips.
  */
 
-import { TimedQueue } from "../../ts/timed-queue.js";
-import { getParentByClassName } from "../../ts/utils.js";
+import { TimedQueue } from "../timed-queue.js";
+import { getParentByClassName } from "../utils.js";
 
 const queue: TimedQueue<HTMLElement> = new TimedQueue();
 const initialized: Element[] = [];

@@ -3,12 +3,8 @@
  */
 
 import { create as createCheckbox } from "./checkbox.js";
-import {
-    getParentByClassName,
-    join,
-    stringToSelector,
-} from "../../ts/utils.js";
-import { MaterialToggleEvent, MaterialState } from "../../ts/events.js";
+import { getParentByClassName, join, stringToSelector } from "../utils.js";
+import { MaterialToggleEvent, MaterialState } from "../events.js";
 import { Nullable } from "../index.js";
 
 let lastItem = 0;

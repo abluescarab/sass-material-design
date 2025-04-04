@@ -2,7 +2,7 @@
  * @file Implementation file for Material Design segmented button components.
  */
 
-import { getParentByClassName } from "../../ts/utils.js";
+import { getParentByClassName } from "../utils.js";
 
 /**
  * Selects or deselects a segment.
