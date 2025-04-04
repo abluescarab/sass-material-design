@@ -7,6 +7,8 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import jsdoc from "eslint-plugin-jsdoc";
 
+const glob = (jOrT) => `**/*.?(c|m)${jOrT}s?(x)`;
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     pluginJs.configs.recommended,
@@ -16,7 +18,7 @@ export default [
         plugins: { jsdoc },
     },
     {
-        files: ["**/*.{js,mjs,cjs,ts}"],
+        files: [glob("@(j|t)")],
     },
     {
         languageOptions: { globals: globals.browser },
@@ -78,7 +80,7 @@ export default [
         },
     },
     {
-        files: ["**/*.ts"],
+        files: [glob("t")],
         rules: {
             "jsdoc/require-hyphen-before-param-description": ["warn", "always"],
             "jsdoc/require-param-type": "off", // Recommended
