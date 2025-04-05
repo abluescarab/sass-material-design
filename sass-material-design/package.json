@@ -24,7 +24,6 @@
     "prebuild": "shx mkdir -p ./dist && shx cp -ru ./src/assets ./dist",
     "build": "tsc && sass ./src/sass/material.scss ./dist/material.css",
     "clean": "shx rm -rf ./dist",
-    "rebuild": "npm run clean && npm run build",
     "watch": "concurrently \"tsc --watch\" \"sass ./src/sass/material.scss ./dist/material.css --watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

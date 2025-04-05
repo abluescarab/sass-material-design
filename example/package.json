@@ -7,7 +7,6 @@
     "prebuild": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
     "build": "esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
     "clean": "shx rm -rf ./out",
-    "rebuild": "npm run clean && npm run build",
     "watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
