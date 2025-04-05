@@ -88,8 +88,4 @@ export default [
             "jsdoc/require-returns-type": "off", // Recommended
         },
     },
-    {
-        files: [`scripts/${glob("t")}`],
-        node: true,
-    },
 ];

@@ -1,0 +1,6 @@
+linkWorkspacePackages: true
+packages:
+  - example
+  - sass-material-design
+onlyBuiltDependencies:
+  - '@parcel/watcher'
