@@ -2,7 +2,15 @@
  * @file Main file.
  */
 
-import * as components from "./components/index";
+import { initialize as initMenu } from "./components/menu";
+import { initialize as initTooltip } from "./components/tooltip";
+import { initialize as initCheckbox } from "./components/checkbox";
+import { initialize as initSegmented } from "./components/segmented";
+import { initialize as initSwitch } from "./components/switch";
+import { initialize as initTable } from "./components/table";
+import { initialize as initTabs } from "./components/tabs";
+import { initialize as initTextTield } from "./components/text-field";
+import { initialize as initTree } from "./components/tree";
 
 /**
  * Represents a type which can be null or undefined.
@@ -17,15 +25,15 @@ export type Nullable<T> = T | null | undefined;
 export function initialize(): void {
     // TODO: ensure each element is only initialized once?
     const initializers = {
-        "[data-md-menu]": components.materialMenu.initialize,
-        "[data-md-tooltip]": components.materialTooltip.initialize,
-        "md-checkbox": components.materialCheckbox.initialize,
-        "md-segmented": components.materialSegmentedButton.initialize,
-        "md-switch": components.materialSwitch.initialize,
-        "md-table": components.materialTable.initialize,
-        "md-tabs": components.materialTabs.initialize,
-        "md-text-field": components.materialTextField.initialize,
-        "md-tree": components.materialTree.initialize,
+        "[data-md-menu]": initMenu,
+        "[data-md-tooltip]": initTooltip,
+        "md-checkbox": initCheckbox,
+        "md-segmented": initSegmented,
+        "md-switch": initSwitch,
+        "md-table": initTable,
+        "md-tabs": initTabs,
+        "md-text-field": initTextTield,
+        "md-tree": initTree,
     };
 
     for (const [selector, initializer] of Object.entries(initializers)) {

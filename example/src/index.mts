@@ -13,7 +13,7 @@ import {
     stringToSelector,
     wrap,
 } from "sass-material-design";
-import { populate } from "sass-material-design/components/tree";
+import { populate } from "sass-material-design/tree";
 
 const container = document.getElementById("fab-container");
 const fab = document.getElementById("fab");
