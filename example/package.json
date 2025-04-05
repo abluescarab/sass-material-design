@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
+    "prebuild:out": "shx mkdir -p ./out",
+    "prebuild:css": "shx cp ./node_modules/sass-material-design/dist/material.css ./out",
+    "prebuild:html": "shx cp -rf ./src/index.html ./out",
+    "prebuild": "npm run prebuild:out && npm run prebuild:css && npm run prebuild:html",
     "build": "esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
     "clean": "shx rm -rf ./out",
     "watch": "npm run build -- --watch",
