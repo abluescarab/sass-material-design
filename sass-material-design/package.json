@@ -1,0 +1,46 @@
+{
+  "name": "sass-material-design",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "main": "./dist/js/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./components": {
+      "types": "./dist/types/components/index.d.ts",
+      "import": "./dist/js/components/index.js"
+    },
+    "./components/*": {
+      "types": "./dist/types/components/*.d.ts",
+      "import": "./dist/js/components/*.js"
+    }
+  },
+  "scripts": {
+    "prebuild": "shx mkdir -p ./dist && shx cp -ru ./src/assets ./dist",
+    "build": "tsc && sass ./src/sass/material.scss ./dist/material.css",
+    "clean": "shx rm -rf ./dist",
+    "rebuild": "npm run clean && npm run build",
+    "watch": "concurrently \"tsc --watch\" \"sass ./src/sass/material.scss ./dist/material.css --watch\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "pnpm@10.7.1",
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint": "^9.24.0",
+    "eslint-plugin-jsdoc": "^50.6.9",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.86.3",
+    "shx": "^0.4.0",
+    "stylelint": "^16.17.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.0"
+  }
+}
