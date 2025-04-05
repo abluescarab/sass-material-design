@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
-    "build": "esbuild src/index.ts --bundle --minify --outfile=out/js/index.mjs",
+    "build": "esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
     "clean": "shx rm -rf ./out",
     "rebuild": "npm run clean && npm run build",
     "watch": "npm run build -- --watch",
