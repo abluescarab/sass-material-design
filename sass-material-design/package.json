@@ -4,16 +4,16 @@
   "description": "",
   "private": true,
   "type": "module",
-  "main": "./dist/js/index.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/types/index.d.mts",
+  "main": "./dist/js/index.mjs",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/js/index.js"
+      "types": "./dist/types/index.d.mts",
+      "import": "./dist/js/index.mjs"
     },
     "./*": {
-      "types": "./dist/types/components/*.d.ts",
-      "import": "./dist/js/components/*.js"
+      "types": "./dist/types/components/*.d.mts",
+      "import": "./dist/js/components/*.mjs"
     }
   },
   "scripts": {
