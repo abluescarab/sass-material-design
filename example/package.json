@@ -7,7 +7,7 @@
     "prebuild:out": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
     "prebuild:css": "shx cp ./node_modules/sass-material-design/dist/material.css ./out",
     "prebuild": "npm run prebuild:out && npm run prebuild:css",
-    "build": "esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
+    "build": "npm run lint && esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
     "lint": "eslint",
     "watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"

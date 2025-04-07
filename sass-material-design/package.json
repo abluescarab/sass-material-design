@@ -19,7 +19,7 @@
   "scripts": {
     "prebuild": "shx mkdir -p ./dist && shx cp -ru ./src/assets ./dist",
     "build:sass": "sass ./src/sass/material.scss ./dist/material.css --style compressed",
-    "build": "tsc && npm run build:sass",
+    "build": "npm run lint && tsc && npm run build:sass",
     "lint": "stylelint **/*.scss && eslint",
     "watch": "concurrently \"tsc --watch\" \"npm run build:sass -- --watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
