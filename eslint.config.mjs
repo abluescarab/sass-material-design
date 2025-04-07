@@ -2,7 +2,7 @@
  * @file ESLint config file.
  */
 
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import js from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
@@ -13,15 +13,13 @@ const glob = (jOrT) => `**/*.?(c|m)${jOrT ?? "@(j|t)"}s?(x)`;
 export default defineConfig([
     tseslint.configs.recommended,
     jsdoc.configs["flat/stylistic-typescript"],
+    globalIgnores(["**/dist", "**/out", "**/public"]),
     {
         plugins: { js, jsdoc },
         extends: ["js/recommended"],
     },
     {
         files: [glob()],
-    },
-    {
-        ignores: ["**/dist", "**/out", "**/public"],
     },
     {
         languageOptions: { globals: globals.browser },
