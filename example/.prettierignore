@@ -1,0 +1,10 @@
+# Output directories
+out
+
+# Config
+.prettierignore
+package.json
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.json

@@ -1,0 +1,14 @@
+# Output directories
+dist
+
+# Config
+.prettierignore
+.stylelintrc.json
+package.json
+
+# Plain text
+LICENSE
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.json

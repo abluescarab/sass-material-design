@@ -2,23 +2,26 @@
  * @file ESLint config file.
  */
 
+import { defineConfig } from "eslint/config";
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+import js from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
+import tseslint from "typescript-eslint";
 
-const glob = (jOrT) => `**/*.?(c|m)${jOrT}s?(x)`;
+const glob = (jOrT) => `**/*.?(c|m)${jOrT ?? "@(j|t)"}s?(x)`;
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-    pluginJs.configs.recommended,
-    ...tseslint.configs.recommended,
+export default defineConfig([
+    tseslint.configs.recommended,
     jsdoc.configs["flat/stylistic-typescript"],
     {
-        plugins: { jsdoc },
+        plugins: { js, jsdoc },
+        extends: ["js/recommended"],
     },
     {
-        files: [glob("@(j|t)")],
+        files: [glob()],
+    },
+    {
+        ignores: ["**/dist", "**/out", "**/public"],
     },
     {
         languageOptions: { globals: globals.browser },
@@ -88,4 +91,4 @@ export default [
             "jsdoc/require-returns-type": "off", // Recommended
         },
     },
-];
+]);

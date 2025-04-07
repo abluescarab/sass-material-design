@@ -1,0 +1,11 @@
+# pnpm
+pnpm-*
+
+# Config
+.editorconfig
+.gitignore
+.prettierignore
+package.json
+
+# Plain text
+LICENSE

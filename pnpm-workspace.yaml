@@ -4,3 +4,4 @@ packages:
   - sass-material-design
 onlyBuiltDependencies:
   - '@parcel/watcher'
+  - esbuild

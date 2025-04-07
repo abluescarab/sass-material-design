@@ -4,26 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild:out": "shx mkdir -p ./out",
+    "prebuild:out": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
     "prebuild:css": "shx cp ./node_modules/sass-material-design/dist/material.css ./out",
-    "prebuild:html": "shx cp -rf ./src/index.html ./out",
-    "prebuild": "npm run prebuild:out && npm run prebuild:css && npm run prebuild:html",
+    "prebuild": "npm run prebuild:out && npm run prebuild:css",
     "build": "esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
-    "clean": "shx rm -rf ./out",
+    "lint": "eslint",
     "watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "pnpm@10.7.1",
   "devDependencies": {
-    "@eslint/js": "^9.24.0",
     "esbuild": "^0.25.2",
-    "eslint": "^9.24.0",
-    "eslint-plugin-jsdoc": "^50.6.9",
-    "globals": "^16.0.0",
-    "prettier": "^3.5.3",
-    "sass-material-design": "workspace:*",
-    "shx": "^0.4.0",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.29.0"
+    "sass-material-design": "workspace*"
   }
 }
