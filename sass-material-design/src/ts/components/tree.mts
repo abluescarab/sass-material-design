@@ -49,7 +49,7 @@ function initializeTree(
     tree: Element,
     itemPrefix: string,
     buttonType: string | undefined,
-    checkboxes: string | undefined
+    checkboxes: string | undefined,
 ): void {
     for (const element of tree.children) {
         const child = element;
@@ -167,7 +167,7 @@ function toggleCheckboxes(checkbox: Element, checked: boolean): Element[] {
     const elements: Element[] = [];
     const subtree = getParentByClassName(
         checkbox,
-        "md-checkbox"
+        "md-checkbox",
     )?.nextElementSibling;
 
     if (!subtree?.classList.contains("md-tree__subtree")) {
@@ -175,7 +175,7 @@ function toggleCheckboxes(checkbox: Element, checked: boolean): Element[] {
     }
 
     for (const checkbox of subtree.querySelectorAll<HTMLInputElement>(
-        `input[type='checkbox']${checked ? ":not(:checked)" : ":checked"}`
+        `input[type='checkbox']${checked ? ":not(:checked)" : ":checked"}`,
     )) {
         checkbox.checked = checked;
         elements.push(checkbox);
@@ -210,9 +210,9 @@ function treeClicked(tree: HTMLElement, target: HTMLElement): void {
                 toggleAll(
                     target.parentElement.nextElementSibling,
                     expand,
-                    tree.dataset.mdCascadeToggled
-                )
-            )
+                    tree.dataset.mdCascadeToggled,
+                ),
+            ),
         );
     } else if (target instanceof HTMLInputElement) {
         const checked = target.checked;
@@ -233,8 +233,8 @@ function treeClicked(tree: HTMLElement, target: HTMLElement): void {
             new MaterialToggleEvent(
                 target,
                 checked ? MaterialState.Checked : MaterialState.Unchecked,
-                elements
-            )
+                elements,
+            ),
         );
     }
 }
@@ -247,7 +247,7 @@ function treeClicked(tree: HTMLElement, target: HTMLElement): void {
  */
 export function hasExpanded(
     tree: Element,
-    includeChildren: boolean = true
+    includeChildren: boolean = true,
 ): boolean {
     let selector = ".md-tree__subtree--expanded";
 
@@ -266,7 +266,7 @@ export function hasExpanded(
  */
 export function hasChecked(
     tree: HTMLElement,
-    includeChildren: boolean = true
+    includeChildren: boolean = true,
 ): boolean {
     if (
         tree.dataset.mdCheckboxes == "subtrees" ||
@@ -293,7 +293,7 @@ export function initialize(tree: HTMLElement): void {
         tree,
         tree?.id,
         tree.dataset.mdButtonType,
-        tree.dataset.mdCheckboxes
+        tree.dataset.mdCheckboxes,
     );
 
     const loadExpanded = tree.dataset.mdExpandOnLoad != undefined;
@@ -353,7 +353,7 @@ export function toggle(tree: Element, expand: boolean): void {
 export function toggleAll(
     tree: HTMLElement,
     expand: boolean,
-    cascadeToggled: string | undefined
+    cascadeToggled: string | undefined,
 ): Element[] {
     const elements: Element[] = [];
 
@@ -367,8 +367,8 @@ export function toggleAll(
     ) {
         elements.push(
             ...tree.getElementsByClassName(
-                `md-tree__subtree${expand ? "" : "--expanded"}`
-            )
+                `md-tree__subtree${expand ? "" : "--expanded"}`,
+            ),
         );
     }
 

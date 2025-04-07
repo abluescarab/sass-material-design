@@ -53,7 +53,7 @@ export function hideAll(): void {}
 export function show(
     parent: Element,
     menu: HTMLElement,
-    immediate: boolean = false
+    immediate: boolean = false,
 ): void {
     move(parent, menu);
     queue.clear((item) => item.data.classList.remove("md-menu--visible"));

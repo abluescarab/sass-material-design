@@ -111,7 +111,7 @@ export class MaterialToggleEvent extends MaterialEvent {
     constructor(
         source: Nullable<Element>,
         state: MaterialState,
-        elements: Element[]
+        elements: Element[],
     ) {
         super("toggle", source);
         this.state = state;

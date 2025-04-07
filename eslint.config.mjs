@@ -85,6 +85,8 @@ export default defineConfig([
     {
         files: [glob("t")],
         rules: {
+            "no-unused-vars": "off",
+            "@typescript-eslint/no-unused-vars": "error",
             "jsdoc/require-hyphen-before-param-description": ["warn", "always"],
             "jsdoc/require-param-type": "off", // Recommended
             "jsdoc/require-property-type": "off", // Recommended
