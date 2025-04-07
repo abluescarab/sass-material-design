@@ -39,7 +39,7 @@ importers:
         specifier: ^0.25.2
         version: 0.25.2
       sass-material-design:
-        specifier: workspace*
+        specifier: workspace:*
         version: link:../sass-material-design
 
   sass-material-design:
