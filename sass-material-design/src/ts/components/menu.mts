@@ -15,7 +15,7 @@ const initialized = new Map<
     }
 >();
 
-let lastMouseOver: Element | null = null;
+const lastMouseOver: Element | null = null;
 let lastMouseOut: Element | null = null;
 
 /**
