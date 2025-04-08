@@ -21,6 +21,7 @@
     "build:sass": "sass ./src/sass/material.scss ./dist/material.css --style compressed",
     "build": "npm run lint && tsc && npm run build:sass",
     "lint": "stylelint **/*.scss && eslint",
+    "rebuild": "npm run clean && npm run build",
     "watch": "concurrently \"tsc --watch\" \"npm run build:sass -- --watch\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

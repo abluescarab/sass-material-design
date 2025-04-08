@@ -4,17 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild:out": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
-    "prebuild:css": "shx cp ./node_modules/sass-material-design/dist/material.css ./out",
-    "prebuild": "npm run prebuild:out && npm run prebuild:css",
-    "build": "npm run lint && esbuild src/index.mts --bundle --minify --outfile=out/index.mjs",
+    "prebuild": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
+    "build": "npm run lint && node ./esbuild.mjs",
+    "clean": "shx rm -rf ./out",
     "lint": "eslint",
+    "rebuild": "npm run clean && npm run build",
     "watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "pnpm@10.7.1",
   "devDependencies": {
     "esbuild": "^0.25.2",
+    "esbuild-sass-plugin": "^3.3.1",
     "sass-material-design": "workspace:*"
   }
 }
