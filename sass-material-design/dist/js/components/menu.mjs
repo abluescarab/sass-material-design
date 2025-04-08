@@ -6,7 +6,7 @@ import { TimedQueue } from "../timed-queue.mjs";
 import { getParentByClassName } from "../utils.mjs";
 const queue = new TimedQueue();
 const initialized = new Map();
-let lastMouseOver = null;
+const lastMouseOver = null;
 let lastMouseOut = null;
 /**
  * Hides a menu.
