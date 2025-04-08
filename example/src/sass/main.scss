@@ -1,0 +1,23 @@
+/* vendors */
+// @use "vendors/...";
+
+/* base */
+// @use "base/...";
+
+/* layout */
+// @use "layout/...";
+
+/* components */
+// @use "components/...";
+
+/* pages */
+// @use "pages/...";
+
+/* themes */
+// @use "themes/...";
+
+/* material */
+@use "sass-material-design/src/sass/abstracts/variables" with (
+    $assets: "sass-material-design/dist/assets"
+);
+@use "sass-material-design/src/sass/material";
