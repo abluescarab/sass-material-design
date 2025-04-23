@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "shx mkdir -p ./public && shx cp -rf ./src/index.html ./public",
-    "build": "npm run lint && node ./esbuild.mjs -o public",
+    "build": "npm run lint && node ./esbuild.mjs -etv -o public -s src/sass/main.scss",
     "clean": "shx rm -rf ./public",
     "lint": "eslint",
     "rebuild": "npm run clean && npm run build",

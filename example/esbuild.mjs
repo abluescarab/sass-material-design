@@ -4,17 +4,6 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __require = /* @__PURE__ */ ((x) =>
-  typeof require !== "undefined"
-    ? require
-    : typeof Proxy !== "undefined"
-      ? new Proxy(x, {
-          get: (a, b) => (typeof require !== "undefined" ? require : a)[b],
-        })
-      : x)(function (x) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
-  throw Error('Dynamic require of "' + x + '" is not supported');
-});
 var __commonJS = (cb, mod) =>
   function __require2() {
     return (
@@ -137,6 +126,7 @@ var require_picocolors = __commonJS({
 
 // src/index.mts
 import esbuild from "esbuild";
+import { sassPlugin } from "esbuild-sass-plugin";
 import path from "node:path";
 import process2 from "node:process";
 
@@ -361,7 +351,15 @@ async function build() {
       logLevel: options.verbose.value ? "info" : "warning",
       minify: !options["no-minify"].value,
       platform: options.node.value ? "node" : "browser",
-      plugins: getPlugins(options),
+      plugins: [
+        sassPlugin({
+          transform: async (css) =>
+            css.replaceAll(
+              /(url\(['"])([\w@-].*?)(['"]\))/g,
+              `$1${escape(path.resolve("./node_modules", "$2"))}$3`,
+            ),
+        }),
+      ],
     })
     .then(() =>
       console.log(`
@@ -441,27 +439,6 @@ function getEntryPoints(paths) {
   }
   return entryPoints;
 }
-function getPlugins(options) {
-  const plugins = [];
-  if (!options.sass.isDefault) {
-    try {
-      const { sassPlugin } = __require("esbuild-sass-plugin");
-      plugins.push(
-        sassPlugin({
-          transform: async (css) =>
-            css.replaceAll(
-              /(url\(['"])([\w@-].*?)(['"]\))/g,
-              `$1${escape(path.resolve("./node_modules", "$2"))}$3`,
-            ),
-        }),
-      );
-    } catch {
-      error('Node package "esbuild-sass-plugin" not found.');
-      return void 0;
-    }
-  }
-  return plugins;
-}
 function help(usageOnly = false) {
   const filename = path.basename(process2.argv[1]);
   const usage = [`usage: ${filename}`];
@@ -492,4 +469,4 @@ function help(usageOnly = false) {
 if (process2.env.NODE_ENV?.toLowerCase() !== "test") {
   build();
 }
-export { build, getEntryPoints, getIndexFile, getPaths, getPlugins, help };
+export { build, getEntryPoints, getIndexFile, getPaths, help };
