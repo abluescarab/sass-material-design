@@ -22,7 +22,9 @@ export default defineConfig([
         files: [glob()],
     },
     {
-        languageOptions: { globals: globals.browser },
+        languageOptions: {
+            globals: globals.browser,
+        },
     },
     {
         rules: {
@@ -50,7 +52,7 @@ export default defineConfig([
             "jsdoc/no-missing-syntax": "off",
             "jsdoc/no-multi-asterisks": "warn", // Recommended
             "jsdoc/no-restricted-syntax": "off",
-            "jsdoc/no-types": "warn",
+            "jsdoc/no-types": "off",
             "jsdoc/no-undefined-types": "warn", // Recommended
             "jsdoc/require-asterisk-prefix": "warn",
             "jsdoc/require-description": "warn",
@@ -85,6 +87,7 @@ export default defineConfig([
         rules: {
             "no-unused-vars": "off",
             "@typescript-eslint/no-unused-vars": "error",
+            "jsdoc/no-types": "warn",
             "jsdoc/require-hyphen-before-param-description": ["warn", "always"],
             "jsdoc/require-param-type": "off", // Recommended
             "jsdoc/require-property-type": "off", // Recommended
