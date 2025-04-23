@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prebuild": "shx mkdir -p ./out && shx cp -rf ./src/index.html ./out",
-    "build": "npm run lint && node ./esbuild.mjs",
-    "clean": "shx rm -rf ./out",
+    "prebuild": "shx mkdir -p ./public && shx cp -rf ./src/index.html ./public",
+    "build": "npm run lint && node ./esbuild.mjs -o public",
+    "clean": "shx rm -rf ./public",
     "lint": "eslint",
     "rebuild": "npm run clean && npm run build",
     "watch": "npm run build -- --watch",
