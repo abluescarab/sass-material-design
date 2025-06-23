@@ -26,10 +26,10 @@ export default defineConfig([
   {
     // jsdoc options
     ignores: [
-      "**/babel.config.mjs",
-      "**/eslint.config.mjs",
-      "**/jest.config.mjs",
       "**/tests/*",
+      "**/babel.config.mjs",
+      "**/jest.config.mjs",
+      "**/eslint.config.mjs",
     ],
     rules: {
       "jsdoc/check-access": "warn", // Recommended
